@@ -11,6 +11,26 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
+type Point struct {
+	Lng float64
+	Lat float64
+}
+
+var TestSets = []Point{
+	{
+		Lng: 116,
+		Lat: 39,
+	},
+	{
+		Lng: -122.4194,
+		Lat: 37.7749,
+	},
+	{
+		Lng: 0.1276,
+		Lat: 51.5073,
+	},
+}
+
 func BenchmarkTimezoneLookup(b *testing.B) {
 	var tzc timezone.Timezonecache
 	f, err := os.Open("timezone.data")
@@ -23,11 +43,10 @@ func BenchmarkTimezoneLookup(b *testing.B) {
 	}
 	defer tzc.Close()
 
-	lat := 37.7749
-	lng := -122.4194
-
 	for i := 0; i <= b.N; i++ {
-		_, _ = tzc.Search(lat, lng)
+		for _, tt := range TestSets {
+			tzc.Search(tt.Lat, tt.Lng)
+		}
 	}
 }
 
@@ -42,11 +61,10 @@ func BenchmarkTZF_Lite(b *testing.B) {
 	}
 	finder, _ := tzf.NewFinderFromPB(input)
 
-	lat := 37.7749
-	lng := -122.4194
-
 	for i := 0; i <= b.N; i++ {
-		_ = finder.GetTimezoneName(lng, lat)
+		for _, tt := range TestSets {
+			_ = finder.GetTimezoneName(tt.Lng, tt.Lat)
+		}
 	}
 }
 
@@ -61,10 +79,9 @@ func BenchmarkTZF_Full(b *testing.B) {
 	}
 	finder, _ := tzf.NewFinderFromPB(input)
 
-	lat := 37.7749
-	lng := -122.4194
-
 	for i := 0; i <= b.N; i++ {
-		_ = finder.GetTimezoneName(lng, lat)
+		for _, tt := range TestSets {
+			_ = finder.GetTimezoneName(tt.Lng, tt.Lat)
+		}
 	}
 }
