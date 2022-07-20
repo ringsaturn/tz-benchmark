@@ -5,3 +5,7 @@ setup:
 
 bench:
 	go test -bench=. ./...
+
+trigger:
+	git commit --allow-empty -m "trigger ci"
+	git push
