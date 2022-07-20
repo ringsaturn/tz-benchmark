@@ -31,8 +31,37 @@ var TestSets = []Point{
 	},
 }
 
-func BenchmarkTimezoneLookup(b *testing.B) {
-	var tzc timezone.Timezonecache
+var (
+	finder     *tzf.Finder
+	fullFinder *tzf.Finder
+	tzc        timezone.Timezonecache
+)
+
+func init() {
+	initLite()
+	initFull()
+	inittzlookup()
+}
+
+func initLite() {
+	input := &pb.Timezones{}
+	if err := proto.Unmarshal(tzfrel.LiteData, input); err != nil {
+		panic(err)
+	}
+	_finder, _ := tzf.NewFinderFromPB(input)
+	finder = _finder
+}
+
+func initFull() {
+	input := &pb.Timezones{}
+	if err := proto.Unmarshal(tzfrel.FullData, input); err != nil {
+		panic(err)
+	}
+	_finder, _ := tzf.NewFinderFromPB(input)
+	fullFinder = _finder
+}
+
+func inittzlookup() {
 	f, err := os.Open("timezone.data")
 	if err != nil {
 		panic(err)
@@ -41,8 +70,10 @@ func BenchmarkTimezoneLookup(b *testing.B) {
 	if err = tzc.Load(f); err != nil {
 		panic(err)
 	}
-	defer tzc.Close()
+	// defer tzc.Close()
+}
 
+func BenchmarkTimezoneLookup(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
 		for _, tt := range TestSets {
 			tzc.Search(tt.Lat, tt.Lng)
@@ -51,16 +82,6 @@ func BenchmarkTimezoneLookup(b *testing.B) {
 }
 
 func BenchmarkTZF_Lite(b *testing.B) {
-	input := &pb.Timezones{}
-
-	// Lite data, about 16.7MB
-	dataFile := tzfrel.LiteData
-
-	if err := proto.Unmarshal(dataFile, input); err != nil {
-		panic(err)
-	}
-	finder, _ := tzf.NewFinderFromPB(input)
-
 	for i := 0; i <= b.N; i++ {
 		for _, tt := range TestSets {
 			_ = finder.GetTimezoneName(tt.Lng, tt.Lat)
@@ -69,19 +90,9 @@ func BenchmarkTZF_Lite(b *testing.B) {
 }
 
 func BenchmarkTZF_Full(b *testing.B) {
-	input := &pb.Timezones{}
-
-	// Full data, about 83.5MB
-	dataFile := tzfrel.FullData
-
-	if err := proto.Unmarshal(dataFile, input); err != nil {
-		panic(err)
-	}
-	finder, _ := tzf.NewFinderFromPB(input)
-
 	for i := 0; i <= b.N; i++ {
 		for _, tt := range TestSets {
-			_ = finder.GetTimezoneName(tt.Lng, tt.Lat)
+			_ = fullFinder.GetTimezoneName(tt.Lng, tt.Lat)
 		}
 	}
 }
