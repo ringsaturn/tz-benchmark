@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658294813612,
+  "lastUpdate": 1658303476932,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Go Benchmark": [
@@ -210,6 +210,48 @@ window.BENCHMARK_DATA = {
             "value": 22059,
             "unit": "ns/op",
             "extra": "55041 times\n2 procs"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "9068d4da74772bf0a698b0cf693f3fbd73dadf71",
+          "message": "add python",
+          "timestamp": "2022-07-20T15:49:57+08:00",
+          "tree_id": "63315cc348b601b08880c57f779d4dd102cb0aec",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/9068d4da74772bf0a698b0cf693f3fbd73dadf71"
+        },
+        "date": 1658303475711,
+        "tool": "go",
+        "benches": [
+          {
+            "name": "BenchmarkTimezoneLookup",
+            "value": 388330,
+            "unit": "ns/op",
+            "extra": "2910 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite",
+            "value": 22480,
+            "unit": "ns/op",
+            "extra": "53481 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full",
+            "value": 23073,
+            "unit": "ns/op",
+            "extra": "52506 times\n2 procs"
           }
         ]
       }
