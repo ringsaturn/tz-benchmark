@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1658308679420,
+  "lastUpdate": 1658308680386,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "TZ Library Benchmark": [
@@ -135,6 +135,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0008822373969702554",
             "extra": "mean: 23.62017972727221 msec\nrounds: 44"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "7a200066cf2c87017931e875ea73d71e95a6151f",
+          "message": "trigger ci",
+          "timestamp": "2022-07-20T17:17:22+08:00",
+          "tree_id": "ef14c391ad51578ee2ac02ef2ff9479043f01d63",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/7a200066cf2c87017931e875ea73d71e95a6151f"
+        },
+        "date": 1658308680146,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_tz_with_numba",
+            "value": 6292.221283785547,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00006835738155663973",
+            "extra": "mean: 158.92638782061024 usec\nrounds: 936"
           }
         ]
       }
