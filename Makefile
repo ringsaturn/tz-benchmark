@@ -9,3 +9,9 @@ bench:
 trigger:
 	git commit --allow-empty -m "trigger ci"
 	git push
+
+setup-py:
+	pip install -r requirements.txt
+
+bench-py:
+	pytest tz_test.py --benchmark-json output.json

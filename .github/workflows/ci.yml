@@ -42,14 +42,53 @@ jobs:
         uses: benchmark-action/github-action-benchmark@v1.14.0
         with:
           name: Go Benchmark
-          tool: 'go'
+          tool: "go"
           output-file-path: benchmark_result.txt
           github-token: ${{ secrets.CI_TOKEN }}
-          gh-repository: 'github.com/ringsaturn/tz-benchmark'
+          gh-repository: "github.com/ringsaturn/tz-benchmark"
           auto-push: true
-          alert-threshold: '150%'
+          alert-threshold: "150%"
           comment-on-alert: false
           fail-on-alert: false
           gh-pages-branch: "gh-pages"
           benchmark-data-dir-path: "docs/"
-          alert-comment-cc-users: '@ringsaturn'
+          alert-comment-cc-users: "@ringsaturn"
+
+  build-py:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3.7.5
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7.5
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+      - name: Build
+        run: make setup-py
+
+      - name: Bench Python
+        run: |
+          make bench-py
+
+      - name: Continuous Benchmark
+        uses: benchmark-action/github-action-benchmark@v1.14.0
+        with:
+          name: Go Benchmark
+          tool: "pytest"
+          output-file-path: output.json
+          github-token: ${{ secrets.CI_TOKEN }}
+          gh-repository: "github.com/ringsaturn/tz-benchmark"
+          auto-push: true
+          alert-threshold: "150%"
+          comment-on-alert: false
+          fail-on-alert: false
+          gh-pages-branch: "gh-pages"
+          benchmark-data-dir-path: "docs/"
+          alert-comment-cc-users: "@ringsaturn"
