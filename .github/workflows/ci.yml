@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: write
+  deployments: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,4 +36,20 @@ jobs:
 
       - name: Bench
         run: |
-          make bench
+          make bench | tee benchmark_result.txt
+
+      - name: Continuous Benchmark
+        uses: benchmark-action/github-action-benchmark@v1.14.0
+        with:
+          name: Go Benchmark
+          tool: 'go'
+          output-file-path: benchmark_result.txt
+          github-token: ${{ secrets.CI_TOKEN }}
+          gh-repository: 'github.com/ringsaturn/tz-benchmark'
+          auto-push: true
+          alert-threshold: '150%'
+          comment-on-alert: false
+          fail-on-alert: false
+          gh-pages-branch: "gh-pages"
+          benchmark-data-dir-path: "docs/"
+          alert-comment-cc-users: '@ringsaturn'
