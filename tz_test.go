@@ -31,6 +31,8 @@ var TestSets = []Point{
 	},
 }
 
+var GlobalIterTestSets []Point
+
 var (
 	finder     *tzf.Finder
 	fullFinder *tzf.Finder
@@ -41,6 +43,7 @@ func init() {
 	initLite()
 	initFull()
 	inittzlookup()
+	initGlobalTestSets()
 }
 
 func initLite() {
@@ -73,9 +76,28 @@ func inittzlookup() {
 	// defer tzc.Close()
 }
 
+func initGlobalTestSets() {
+	for lng := -180; lng <= 180; lng++ {
+		for lat := -90; lat <= 90; lat++ {
+			GlobalIterTestSets = append(GlobalIterTestSets, Point{
+				Lng: float64(lng),
+				Lat: float64(lat),
+			})
+		}
+	}
+}
+
 func BenchmarkTimezoneLookup(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
 		for _, tt := range TestSets {
+			tzc.Search(tt.Lat, tt.Lng)
+		}
+	}
+}
+
+func BenchmarkTimezoneLookup_Gloabl(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		for _, tt := range GlobalIterTestSets {
 			tzc.Search(tt.Lat, tt.Lng)
 		}
 	}
@@ -89,9 +111,25 @@ func BenchmarkTZF_Lite(b *testing.B) {
 	}
 }
 
+func BenchmarkTZF_Lite_Gloabl(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		for _, tt := range GlobalIterTestSets {
+			_ = finder.GetTimezoneName(tt.Lng, tt.Lat)
+		}
+	}
+}
+
 func BenchmarkTZF_Full(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
 		for _, tt := range TestSets {
+			_ = fullFinder.GetTimezoneName(tt.Lng, tt.Lat)
+		}
+	}
+}
+
+func BenchmarkTZF_Full_Gloabl(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		for _, tt := range GlobalIterTestSets {
 			_ = fullFinder.GetTimezoneName(tt.Lng, tt.Lat)
 		}
 	}
