@@ -43,7 +43,7 @@ jobs:
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.14.0
         with:
-          name: TZ Library Benchmark
+          name: Go Library Benchmark
           tool: "go"
           output-file-path: benchmark_result.txt
           github-token: ${{ secrets.CI_TOKEN }}
@@ -82,7 +82,7 @@ jobs:
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.14.0
         with:
-          name: TZ Library Benchmark
+          name: Python Library Benchmark
           tool: "pytest"
           output-file-path: output.json
           github-token: ${{ secrets.CI_TOKEN }}
@@ -121,7 +121,7 @@ jobs:
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.14.0
         with:
-          name: TZ Library Benchmark
+          name: Python Library Benchmark
           tool: "pytest"
           output-file-path: output.json
           github-token: ${{ secrets.CI_TOKEN }}
