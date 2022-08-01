@@ -1,0 +1,4 @@
+pytest
+pytest-benchmark
+timezonefinder==6.0.2
+tzfpy
