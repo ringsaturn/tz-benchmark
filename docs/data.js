@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659345736208,
+  "lastUpdate": 1659345810980,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Go Library Benchmark": [
@@ -541,6 +541,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.015355352735451255",
             "extra": "mean: 4.271761979973748 msec\nrounds: 3046"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "37f176c61fdc4de06ff9f3d612f8eb5b1b6c1de7",
+          "message": "timezonefinder without numba only benchmark random",
+          "timestamp": "2022-08-01T17:21:16+08:00",
+          "tree_id": "ef885d0b9d29e2bed1c1dcc5f28c9e345d1433b7",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/37f176c61fdc4de06ff9f3d612f8eb5b1b6c1de7"
+        },
+        "date": 1659345810018,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_iter_global",
+            "value": 0.14923030253770164,
+            "unit": "iter/sec",
+            "range": "stddev: 0.056587073639469986",
+            "extra": "mean: 6.701051884199989 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_iter_global",
+            "value": 0.2277736261797813,
+            "unit": "iter/sec",
+            "range": "stddev: 0.03630393780456711",
+            "extra": "mean: 4.3903239228000075 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random",
+            "value": 10131.172308478066,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00008336042570891356",
+            "extra": "mean: 98.70526031456107 usec\nrounds: 1721"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random",
+            "value": 12164.401564169375,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00004015084162023454",
+            "extra": "mean: 82.20708554587111 usec\nrounds: 3916"
           }
         ]
       }
