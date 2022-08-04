@@ -41,6 +41,22 @@ def test_timezonefinder_random(benchmark):
     benchmark(_test_timezonefinder_random)
 
 
+def test_timezonefinder_random_2(benchmark):
+    benchmark(_test_timezonefinder_random)
+
+
+def test_timezonefinder_random_3(benchmark):
+    benchmark(_test_timezonefinder_random)
+
+
+def test_timezonefinder_random_4(benchmark):
+    benchmark(_test_timezonefinder_random)
+
+
+def test_timezonefinder_random_5(benchmark):
+    benchmark(_test_timezonefinder_random)
+
+
 def _test_tzfpy_random():
     lng, lat = random_point()
     _ = get_tz(lng, lat)
