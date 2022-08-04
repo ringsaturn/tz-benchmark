@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659352310043,
+  "lastUpdate": 1659580805391,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Go Library Benchmark": [
@@ -736,6 +736,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000007316307139357775",
             "extra": "mean: 51.99707058009332 usec\nrounds: 5129"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "4881ad0ab30cd5d3643a286da171b895d6f13c8c",
+          "message": "add multi round for timezonefinder",
+          "timestamp": "2022-08-04T10:39:22+08:00",
+          "tree_id": "209aef5e40ef9e80f606776b77f3ddb0c862f574",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/4881ad0ab30cd5d3643a286da171b895d6f13c8c"
+        },
+        "date": 1659580805176,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 293.6893244983471,
+            "unit": "iter/sec",
+            "range": "stddev: 0.012395495370170838",
+            "extra": "mean: 3.404958630035693 msec\nrounds: 3922"
           }
         ]
       }
