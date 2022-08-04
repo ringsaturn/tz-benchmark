@@ -32,6 +32,15 @@ def random_point():
     return np.random.choice(lng_ranges), np.random.choice(lat_ranges)
 
 
+def _test_timezonefinder_random_certain():
+    lng, lat = random_point()
+    _ = tf.certain_timezone_at(lng=lng, lat=lat)
+
+
+def test_timezonefinder_random_certain(benchmark):
+    benchmark(_test_timezonefinder_random_certain)
+
+
 def _test_timezonefinder_random():
     lng, lat = random_point()
     _ = tf.timezone_at(lng=lng, lat=lat)
