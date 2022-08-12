@@ -9,8 +9,8 @@ github.com/mitchellh/mapstructure v1.5.0 h1:jeMsZIYE/09sWLaz43PL7Gy6RuMjD2eJVyua
 github.com/mitchellh/mapstructure v1.5.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
 github.com/ringsaturn/tzf v0.5.0 h1:jWx+OPKkuvbtAXqBRJoCuHaeKciynAFHY4ssZiRea5o=
 github.com/ringsaturn/tzf v0.5.0/go.mod h1:7IvX0j8ZcN3BMD/zpc79Cc6nUV/UmCPuGNq1Gv6Rt44=
-github.com/ringsaturn/tzf-rel v0.0.2021-c h1:KydSjORjgAKpRYW1qU6tosVUto7ki4yEJeHnmV3WrPs=
-github.com/ringsaturn/tzf-rel v0.0.2021-c/go.mod h1:TvyUIUpF3aCH98QYjTmMb1cqK7pFswdFLoIVZwGNV/M=
+github.com/ringsaturn/tzf-rel v0.0.2021-c1 h1:SSFM0lPzzsmybfrgB6ZN6U+3nGsRzjPxB8RqW09xc3k=
+github.com/ringsaturn/tzf-rel v0.0.2021-c1/go.mod h1:TvyUIUpF3aCH98QYjTmMb1cqK7pFswdFLoIVZwGNV/M=
 github.com/tidwall/cities v0.1.0/go.mod h1:lV/HDp2gCcRcHJWqgt6Di54GiDrTZwh1aG2ZUPNbqa4=
 github.com/tidwall/geoindex v1.4.4/go.mod h1:rvVVNEFfkJVWGUdEfU8QaoOg/9zFX0h9ofWzA60mz1I=
 github.com/tidwall/geojson v1.3.5 h1:7fg+XBI0Xx08fFDtggJIUBNGVL8ccey+klZN6keUETo=
