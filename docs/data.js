@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1659581495201,
+  "lastUpdate": 1660313205400,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Go Library Benchmark": [
@@ -1085,6 +1085,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000009960524484413434",
             "extra": "mean: 52.77399312967038 usec\nrounds: 3930"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "92278a9518bbaeb4741e0fc55786eba4bfb9a643",
+          "message": "Create dependabot.yml",
+          "timestamp": "2022-08-12T22:05:54+08:00",
+          "tree_id": "9d6d71ff9d6c00b0fad5fd87a322e91f99504af6",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/92278a9518bbaeb4741e0fc55786eba4bfb9a643"
+        },
+        "date": 1660313205160,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 221.82906041410698,
+            "unit": "iter/sec",
+            "range": "stddev: 0.01655411406347059",
+            "extra": "mean: 4.507975637336315 msec\nrounds: 4580"
           }
         ]
       }
