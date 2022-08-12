@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660313368795,
+  "lastUpdate": 1660313382475,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Go Library Benchmark": [
@@ -1445,6 +1445,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.012150210529652553",
             "extra": "mean: 3.794910854920703 msec\nrounds: 3343"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d705abd05dec6a4eb52a72c795210b1c2e9b2db2",
+          "message": "Bump google.golang.org/protobuf from 1.28.0 to 1.28.1 (#2)\n\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-08-12T22:08:53+08:00",
+          "tree_id": "6e6b2f6016ad9f557eb919618d21708ae5ef0cdc",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/d705abd05dec6a4eb52a72c795210b1c2e9b2db2"
+        },
+        "date": 1660313382177,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 243.03069994711421,
+            "unit": "iter/sec",
+            "range": "stddev: 0.014604799057692032",
+            "extra": "mean: 4.1147064968236915 msec\nrounds: 4565"
           }
         ]
       }
