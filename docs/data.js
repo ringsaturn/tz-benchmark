@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660315176199,
+  "lastUpdate": 1660315201192,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Go Library Benchmark": [
@@ -718,6 +718,66 @@ window.BENCHMARK_DATA = {
           {
             "name": "BenchmarkTZF_Full_Gloabl",
             "value": 1664649869,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "a0dfd10b1f8a1fd763180b776af5fed0dc91d1bd",
+          "message": "trigger ci",
+          "timestamp": "2022-08-12T22:38:56+08:00",
+          "tree_id": "6e6b2f6016ad9f557eb919618d21708ae5ef0cdc",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/a0dfd10b1f8a1fd763180b776af5fed0dc91d1bd"
+        },
+        "date": 1660315200721,
+        "tool": "go",
+        "benches": [
+          {
+            "name": "BenchmarkTimezoneLookup",
+            "value": 502516,
+            "unit": "ns/op",
+            "extra": "2370 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneLookup_Gloabl",
+            "value": 5378939268,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite",
+            "value": 25708,
+            "unit": "ns/op",
+            "extra": "46156 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Gloabl",
+            "value": 1896098235,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full",
+            "value": 26927,
+            "unit": "ns/op",
+            "extra": "44382 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Gloabl",
+            "value": 1998680362,
             "unit": "ns/op",
             "extra": "1 times\n2 procs"
           }
