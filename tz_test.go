@@ -1,9 +1,11 @@
 package tzbenchmark
 
 import (
+	"math/rand"
 	"os"
 	"testing"
 
+	"github.com/bradfitz/latlong"
 	timezone "github.com/evanoberholster/timezoneLookup/v2"
 	"github.com/ringsaturn/tzf"
 	tzfrel "github.com/ringsaturn/tzf-rel"
@@ -14,21 +16,6 @@ import (
 type Point struct {
 	Lng float64
 	Lat float64
-}
-
-var TestSets = []Point{
-	{
-		Lng: 116,
-		Lat: 39,
-	},
-	{
-		Lng: -122.4194,
-		Lat: 37.7749,
-	},
-	{
-		Lng: 0.1276,
-		Lat: 51.5073,
-	},
 }
 
 var GlobalIterTestSets []Point
@@ -87,50 +74,62 @@ func initGlobalTestSets() {
 	}
 }
 
-func BenchmarkTimezoneLookup(b *testing.B) {
+func BenchmarkTimezoneLookup_Random(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		for _, tt := range TestSets {
-			tzc.Search(tt.Lat, tt.Lng)
-		}
+		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
+		_, _ = tzc.Search(p.Lat, p.Lng)
 	}
 }
 
 func BenchmarkTimezoneLookup_Gloabl(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		for _, tt := range GlobalIterTestSets {
-			tzc.Search(tt.Lat, tt.Lng)
+		for _, p := range GlobalIterTestSets {
+			_, _ = tzc.Search(p.Lat, p.Lng)
 		}
 	}
 }
 
-func BenchmarkTZF_Lite(b *testing.B) {
+func BenchmarkTZF_Lite_Random(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		for _, tt := range TestSets {
-			_ = finder.GetTimezoneName(tt.Lng, tt.Lat)
-		}
+		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
+		_ = finder.GetTimezoneName(p.Lng, p.Lat)
 	}
 }
 
 func BenchmarkTZF_Lite_Gloabl(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		for _, tt := range GlobalIterTestSets {
-			_ = finder.GetTimezoneName(tt.Lng, tt.Lat)
+		for _, p := range GlobalIterTestSets {
+			_ = finder.GetTimezoneName(p.Lng, p.Lat)
 		}
 	}
 }
 
-func BenchmarkTZF_Full(b *testing.B) {
+func BenchmarkTZF_Full_Random(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		for _, tt := range TestSets {
-			_ = fullFinder.GetTimezoneName(tt.Lng, tt.Lat)
-		}
+		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
+		_ = fullFinder.GetTimezoneName(p.Lng, p.Lat)
 	}
 }
 
 func BenchmarkTZF_Full_Gloabl(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
-		for _, tt := range GlobalIterTestSets {
-			_ = fullFinder.GetTimezoneName(tt.Lng, tt.Lat)
+		for _, p := range GlobalIterTestSets {
+			_ = fullFinder.GetTimezoneName(p.Lng, p.Lat)
+		}
+	}
+}
+
+func BenchmarkLatlong_Random(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
+		_ = latlong.LookupZoneName(p.Lat, p.Lng)
+	}
+}
+
+func BenchmarkLatlong_Global(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		for _, p := range GlobalIterTestSets {
+			_ = latlong.LookupZoneName(p.Lat, p.Lng)
 		}
 	}
 }

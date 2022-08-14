@@ -3,6 +3,7 @@ module github.com/ringsaturn/tz-benchmark
 go 1.18
 
 require (
+	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
 	github.com/evanoberholster/timezoneLookup/v2 v2.0.0
 	github.com/ringsaturn/tzf v0.6.2
 	github.com/ringsaturn/tzf-rel v0.0.2021-c1

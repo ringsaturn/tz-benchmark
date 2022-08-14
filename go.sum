@@ -1,3 +1,5 @@
+github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40 h1:wsnz4B2CSHJ09pwtMReU/GRqWDsI7XSasq7Nphem3Xk=
+github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40/go.mod h1:ZcXX9BndVQx6Q/JM6B8x7dLE9sl20S+TQsv4KO7tEQk=
 github.com/evanoberholster/timezoneLookup/v2 v2.0.0 h1:WifJPvYUc9Mk4THpHbqUb/CLS2bE0SjtWD1N35paWDg=
 github.com/evanoberholster/timezoneLookup/v2 v2.0.0/go.mod h1:l7TWpS6/2qd/m1iqpBBu69cMxXI8l7Mp1cvIb8HtPSU=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=
