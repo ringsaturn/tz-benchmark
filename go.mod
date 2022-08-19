@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/evanoberholster/timezoneLookup/v2 v2.0.0
 	github.com/ringsaturn/tzf v0.7.0
-	github.com/ringsaturn/tzf-rel v0.0.2021-c2
+	github.com/ringsaturn/tzf-rel v0.0.2021-c3
 	google.golang.org/protobuf v1.28.1
 )
 
