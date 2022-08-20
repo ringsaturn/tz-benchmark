@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1660613250505,
+  "lastUpdate": 1660964930687,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -346,6 +346,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00000814816785780608",
             "extra": "mean: 49.6997321175334 usec\nrounds: 4278"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3b5ae7e444fa0d1f72d7235ef9e507aa0d74e888",
+          "message": "Bump timezonefinder[numba] from 6.1.0 to 6.1.1 (#11)\n\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-08-20T11:08:05+08:00",
+          "tree_id": "b874d4d9f6d5e804062007c87bfefc8fc9aa4dd5",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/3b5ae7e444fa0d1f72d7235ef9e507aa0d74e888"
+        },
+        "date": 1660964930023,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 221.0312358498689,
+            "unit": "iter/sec",
+            "range": "stddev: 0.015778542383751423",
+            "extra": "mean: 4.5242474266362525 msec\nrounds: 3469"
           }
         ]
       }
