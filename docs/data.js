@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1661611388246,
+  "lastUpdate": 1661611560264,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -1439,6 +1439,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00004161489331678156",
             "extra": "mean: 105.57226352661577 usec\nrounds: 4140"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "664abe425a847ce8db74240fd02467f25c35f990",
+          "message": "Bump actions/setup-python from 2 to 4 (#16)\n\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-08-27T22:45:25+08:00",
+          "tree_id": "02720dca2d461b25cb14650b5eb1819aa4c6edb4",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/664abe425a847ce8db74240fd02467f25c35f990"
+        },
+        "date": 1661611559252,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 9085.554281624945,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00042538032110961014",
+            "extra": "mean: 110.06483137990242 usec\nrounds: 3072"
           }
         ]
       }
