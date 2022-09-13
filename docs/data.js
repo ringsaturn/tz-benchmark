@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1663032891012,
+  "lastUpdate": 1663032912686,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -2614,6 +2614,76 @@ window.BENCHMARK_DATA = {
             "value": 25779126,
             "unit": "ns/op",
             "extra": "44 times\n2 procs"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "ringsaturn",
+            "username": "ringsaturn",
+            "email": "ringsaturn.me@gmail.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "643b0db4421d11a6504d3bca0a1261604d96f315",
+          "message": "Update ci.yml",
+          "timestamp": "2022-09-12T05:06:49Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/643b0db4421d11a6504d3bca0a1261604d96f315"
+        },
+        "date": 1663032912182,
+        "tool": "go",
+        "benches": [
+          {
+            "name": "BenchmarkTimezoneLookup_Random",
+            "value": 35383,
+            "unit": "ns/op",
+            "extra": "34324 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneLookup_Gloabl",
+            "value": 4472668428,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Random",
+            "value": 11150,
+            "unit": "ns/op",
+            "extra": "107151 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Gloabl",
+            "value": 1279199247,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Random",
+            "value": 12369,
+            "unit": "ns/op",
+            "extra": "96283 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Gloabl",
+            "value": 1356465644,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Random",
+            "value": 420.6,
+            "unit": "ns/op",
+            "extra": "2844042 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Global",
+            "value": 20183519,
+            "unit": "ns/op",
+            "extra": "57 times\n2 procs"
           }
         ]
       }
