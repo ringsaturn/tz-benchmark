@@ -25,8 +25,8 @@ github.com/paulmach/orb v0.7.1/go.mod h1:FWRlTgl88VI1RBx/MkrwWDRhQ96ctqMCh8boXhm
 github.com/paulmach/protoscan v0.2.1/go.mod h1:SpcSwydNLrxUGSDvXvO0P7g7AuhJ7lcKfDlhJCDw2gY=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/ringsaturn/tzf v0.8.1 h1:JI8ilu9aUZzMPU9zMB0f/Az1JVWJMIVA1Ye3tK2PdEE=
-github.com/ringsaturn/tzf v0.8.1/go.mod h1:1TA6k2NK5c6T/uGJhvrDaLJrR0TvwdNBCfRkUjojgH4=
+github.com/ringsaturn/tzf v0.8.2 h1:dNRRhvaMdHwI5B/pz1GwK0LM7X7qmY3K3eXdpN8GEQ4=
+github.com/ringsaturn/tzf v0.8.2/go.mod h1:1cODj/fzo+aaM54cA7jlwwVG6+7uKwzU6gvRFSczicg=
 github.com/ringsaturn/tzf-rel v0.0.2021-c3 h1:e5hybFegg/OGTjtzft4D1xSED4R4X55rXsxc0lpcGCM=
 github.com/ringsaturn/tzf-rel v0.0.2021-c3/go.mod h1:TvyUIUpF3aCH98QYjTmMb1cqK7pFswdFLoIVZwGNV/M=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
@@ -36,8 +36,8 @@ github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5Cc
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/tidwall/cities v0.1.0/go.mod h1:lV/HDp2gCcRcHJWqgt6Di54GiDrTZwh1aG2ZUPNbqa4=
 github.com/tidwall/geoindex v1.4.4/go.mod h1:rvVVNEFfkJVWGUdEfU8QaoOg/9zFX0h9ofWzA60mz1I=
-github.com/tidwall/geojson v1.3.5 h1:7fg+XBI0Xx08fFDtggJIUBNGVL8ccey+klZN6keUETo=
-github.com/tidwall/geojson v1.3.5/go.mod h1:1cn3UWfSYCJOq53NZoQ9rirdw89+DM0vw+ZOAVvuReg=
+github.com/tidwall/geojson v1.3.6 h1:ZbpDNwdhXyDe8XGTplGVaGrcS2ViFaSoo3QBNXe1uhM=
+github.com/tidwall/geojson v1.3.6/go.mod h1:1cn3UWfSYCJOq53NZoQ9rirdw89+DM0vw+ZOAVvuReg=
 github.com/tidwall/gjson v1.12.1/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
 github.com/tidwall/lotsa v1.0.2 h1:dNVBH5MErdaQ/xd9s769R31/n2dXavsQ0Yf4TMEHHw8=
 github.com/tidwall/lotsa v1.0.2/go.mod h1:X6NiU+4yHA3fE3Puvpnn1XMDrFZrE9JO2/w+UMuqgR8=
