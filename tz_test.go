@@ -5,6 +5,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/albertyw/localtimezone/v2"
 	"github.com/bradfitz/latlong"
 	timezone "github.com/evanoberholster/timezoneLookup/v2"
 	"github.com/ringsaturn/tzf"
@@ -24,6 +25,7 @@ var (
 	finder     *tzf.Finder
 	fullFinder *tzf.Finder
 	tzc        timezone.Timezonecache
+	z          localtimezone.LocalTimeZone
 )
 
 func init() {
@@ -31,6 +33,7 @@ func init() {
 	initFull()
 	inittzlookup()
 	initGlobalTestSets()
+	initLocaltimezone()
 }
 
 func initLite() {
@@ -71,6 +74,14 @@ func initGlobalTestSets() {
 				Lat: float64(lat),
 			})
 		}
+	}
+}
+
+func initLocaltimezone() {
+	var err error
+	z, err = localtimezone.NewLocalTimeZone()
+	if err != nil {
+		panic(err)
 	}
 }
 
@@ -130,6 +141,27 @@ func BenchmarkLatlong_Global(b *testing.B) {
 	for i := 0; i <= b.N; i++ {
 		for _, p := range GlobalIterTestSets {
 			_ = latlong.LookupZoneName(p.Lat, p.Lng)
+		}
+	}
+}
+
+func BenchmarkLocaltimezone_Random(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
+		input := localtimezone.Point{
+			Lon: p.Lng, Lat: p.Lat,
+		}
+		_, _ = z.GetZone(input)
+	}
+}
+
+func BenchmarkLocaltimezone_Global(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		for _, p := range GlobalIterTestSets {
+			input := localtimezone.Point{
+				Lon: p.Lng, Lat: p.Lat,
+			}
+			_, _ = z.GetZone(input)
 		}
 	}
 }
