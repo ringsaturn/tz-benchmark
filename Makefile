@@ -4,7 +4,7 @@ setup:
 	./timezoneLookup/timezone -build
 
 bench:
-	go test -bench=. ./...
+	go test -bench=. -benchmem ./...
 
 trigger:
 	git commit --allow-empty -m "trigger ci"
