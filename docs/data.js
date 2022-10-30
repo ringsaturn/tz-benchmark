@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667108950912,
+  "lastUpdate": 1667108987388,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13314,6 +13314,102 @@ window.BENCHMARK_DATA = {
             "value": 3310409190,
             "unit": "ns/op",
             "extra": "1 times\n2 procs"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cdc127631bf5b305277731bd2a4ca6e1d5e87d14",
+          "message": "add timezonemapper (#28)",
+          "timestamp": "2022-10-30T13:48:33+08:00",
+          "tree_id": "3b00fb15a778d74c66810656e4901fc19e7e0706",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/cdc127631bf5b305277731bd2a4ca6e1d5e87d14"
+        },
+        "date": 1667108986696,
+        "tool": "go",
+        "benches": [
+          {
+            "name": "BenchmarkTimezoneLookup_Random",
+            "value": 40059,
+            "unit": "ns/op",
+            "extra": "30489 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneLookup_Gloabl",
+            "value": 4504642018,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Random",
+            "value": 11680,
+            "unit": "ns/op",
+            "extra": "102432 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Gloabl",
+            "value": 1301546909,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Random",
+            "value": 12936,
+            "unit": "ns/op",
+            "extra": "91491 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Gloabl",
+            "value": 1378658740,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Random",
+            "value": 426.6,
+            "unit": "ns/op",
+            "extra": "2810515 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Global",
+            "value": 19474540,
+            "unit": "ns/op",
+            "extra": "60 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLocaltimezone_Random",
+            "value": 21753,
+            "unit": "ns/op",
+            "extra": "54603 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLocaltimezone_Global",
+            "value": 2630834997,
+            "unit": "ns/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneMapper_Random",
+            "value": 131.8,
+            "unit": "ns/op",
+            "extra": "8926921 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneMapper_Global",
+            "value": 2246016,
+            "unit": "ns/op",
+            "extra": "529 times\n2 procs"
           }
         ]
       }
