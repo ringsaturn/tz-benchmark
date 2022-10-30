@@ -11,6 +11,7 @@ import (
 	"github.com/ringsaturn/tzf"
 	tzfrel "github.com/ringsaturn/tzf-rel"
 	"github.com/ringsaturn/tzf/pb"
+	"github.com/zsefvlol/timezonemapper"
 	"google.golang.org/protobuf/proto"
 )
 
@@ -162,6 +163,21 @@ func BenchmarkLocaltimezone_Global(b *testing.B) {
 				Lon: p.Lng, Lat: p.Lat,
 			}
 			_, _ = z.GetZone(input)
+		}
+	}
+}
+
+func BenchmarkTimezoneMapper_Random(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
+		_ = timezonemapper.LatLngToTimezoneString(p.Lat, p.Lng)
+	}
+}
+
+func BenchmarkTimezoneMapper_Global(b *testing.B) {
+	for i := 0; i <= b.N; i++ {
+		for _, p := range GlobalIterTestSets {
+			_ = timezonemapper.LatLngToTimezoneString(p.Lat, p.Lng)
 		}
 	}
 }
