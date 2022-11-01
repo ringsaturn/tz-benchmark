@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667267869124,
+  "lastUpdate": 1667270338396,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -9087,6 +9087,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00009420920946905287",
             "extra": "mean: 88.23603279241559 usec\nrounds: 3019"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4986f558469766e661ef3d4b9c88c6d0b1278db9",
+          "message": "Bump github.com/albertyw/localtimezone/v2 from 2.1.2 to 2.1.3 (#33)\n\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-11-01T10:38:23+08:00",
+          "tree_id": "b2b2627a453d13d8e22440186caa58208d4d9013",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/4986f558469766e661ef3d4b9c88c6d0b1278db9"
+        },
+        "date": 1667270338020,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 15340.919043799046,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0003230906472287835",
+            "extra": "mean: 65.18514289430463 usec\nrounds: 3842"
           }
         ]
       }
