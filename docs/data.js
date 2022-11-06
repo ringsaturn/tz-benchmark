@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1667731101732,
+  "lastUpdate": 1667740177406,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -10247,6 +10247,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000006967873333341297",
             "extra": "mean: 48.59591371205772 usec\nrounds: 4879"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "abc156a82911ec3432abd4b7ebd719ac3914a324",
+          "message": "Bump github.com/ringsaturn/tzf from 0.8.6 to 0.9.0 (#39)\n\nBumps [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf) from 0.8.6 to 0.9.0.\r\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\r\n- [Commits](https://github.com/ringsaturn/tzf/compare/v0.8.6...v0.9.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/ringsaturn/tzf\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-11-06T21:08:38+08:00",
+          "tree_id": "641b2ba071ae6345d8bdfc9ccb123f9636ab3cf9",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/abc156a82911ec3432abd4b7ebd719ac3914a324"
+        },
+        "date": 1667740176529,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 8631.386177886947,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0004936787520120264",
+            "extra": "mean: 115.85624595988247 usec\nrounds: 3094"
           }
         ]
       }
