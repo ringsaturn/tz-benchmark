@@ -24,7 +24,7 @@ type Point struct {
 var GlobalIterTestSets []Point
 
 var (
-	finder     *tzf.Finder
+	finder     *tzf.DefaultFinder
 	fullFinder *tzf.Finder
 	tzc        timezone.Timezonecache
 	z          localtimezone.LocalTimeZone
@@ -39,11 +39,7 @@ func init() {
 }
 
 func initLite() {
-	input := &pb.Timezones{}
-	if err := proto.Unmarshal(tzfrel.LiteData, input); err != nil {
-		panic(err)
-	}
-	_finder, _ := tzf.NewFinderFromPB(input)
+	_finder, _ := tzf.NewDefaultFinder()
 	finder = _finder
 }
 
