@@ -7,7 +7,7 @@ require (
 	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
 	github.com/evanoberholster/timezoneLookup/v2 v2.0.0
 	github.com/ringsaturn/go-cities.json v0.0.0-20221105062652-69af5b046d54
-	github.com/ringsaturn/tzf v0.9.1
+	github.com/ringsaturn/tzf v0.9.2
 	github.com/ringsaturn/tzf-rel v0.0.2022-f2
 	github.com/zsefvlol/timezonemapper v1.0.0
 	google.golang.org/protobuf v1.28.1
