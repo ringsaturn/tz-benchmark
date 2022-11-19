@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1668821579207,
+  "lastUpdate": 1668821637222,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -12642,6 +12642,77 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00031477885155995074",
             "extra": "mean: 66.66659902886119 usec\nrounds: 3913"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "63b0d5a2733cc2b52de4dc4e3abbfdc48f3aa4b3",
+          "message": "Bump tzfpy from 0.9.2 to 0.10.1 (#47)",
+          "timestamp": "2022-11-17T01:03:00Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/63b0d5a2733cc2b52de4dc4e3abbfdc48f3aa4b3"
+        },
+        "date": 1668821635573,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_iter_global",
+            "value": 0.11048984220678167,
+            "unit": "iter/sec",
+            "range": "stddev: 0.17619348963932527",
+            "extra": "mean: 9.050605739199995 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_iter_global",
+            "value": 0.3477447074860708,
+            "unit": "iter/sec",
+            "range": "stddev: 0.07106007894983174",
+            "extra": "mean: 2.875672809600002 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_certain",
+            "value": 2294.084313274815,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0002906253502986834",
+            "extra": "mean: 435.9037696275843 usec\nrounds: 1745"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random",
+            "value": 8510.165316345854,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0001268479458444709",
+            "extra": "mean: 117.50653046413275 usec\nrounds: 1789"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 10268.855346327016,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00012383236416697236",
+            "extra": "mean: 97.38183724222796 usec\nrounds: 9892"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random",
+            "value": 13681.89811307366,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00006268943842799254",
+            "extra": "mean: 73.0892739980614 usec\nrounds: 2719"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 43391.14338477123,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000141205280655331",
+            "extra": "mean: 23.046177675764245 usec\nrounds: 6979"
           }
         ]
       }
