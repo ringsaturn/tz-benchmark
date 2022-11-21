@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669003171969,
+  "lastUpdate": 1669042320332,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13078,6 +13078,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000005486174250569881",
             "extra": "mean: 6.251655376302254 usec\nrounds: 25509"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b441cfb0e496146c5d9536f8de421bb11b138e9b",
+          "message": "Bump tzfpy from 0.10.1 to 0.11.0 (#50)\n\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-11-21T22:51:24+08:00",
+          "tree_id": "e41af792b2659ba189b8dc3d59a08e0150f7d379",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/b441cfb0e496146c5d9536f8de421bb11b138e9b"
+        },
+        "date": 1669042319324,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 14726.207670529593,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0003222044609528769",
+            "extra": "mean: 67.90614544987177 usec\nrounds: 3747"
           }
         ]
       }
