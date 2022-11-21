@@ -1,4 +1,4 @@
 pytest
 pytest-benchmark
-timezonefinder==6.1.6
+timezonefinder==6.1.7
 tzfpy
