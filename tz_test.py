@@ -47,7 +47,7 @@ def random_point():
 
 
 def random_city():
-    index = random.randint(0, len(cities))
+    index = random.randint(0, len(cities)-1)
     return cities[index]
 
 
