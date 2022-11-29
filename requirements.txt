@@ -1,5 +1,5 @@
 pytest
 pytest-benchmark
 timezonefinder[numba]==6.1.8
-tzfpy==0.11.0
+tzfpy==0.11.1
 tzf-rs-py==0.1.0
