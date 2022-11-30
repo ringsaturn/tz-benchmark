@@ -28,3 +28,7 @@ BenchmarkTimezoneMapper_Random_WorldCities-2     2866185               415.6 ns/
 ## Python
 
 TODO
+
+## Rust
+
+TODO
