@@ -8,6 +8,7 @@ import (
 	"github.com/albertyw/localtimezone/v2"
 	"github.com/bradfitz/latlong"
 	timezone "github.com/evanoberholster/timezoneLookup/v2"
+	"github.com/loov/hrtime/hrtesting"
 	gocitiesjson "github.com/ringsaturn/go-cities.json"
 	"github.com/ringsaturn/tzf"
 	tzfrel "github.com/ringsaturn/tzf-rel"
@@ -84,21 +85,27 @@ func initLocaltimezone() {
 }
 
 func BenchmarkTimezoneLookup_Random(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
 		_, _ = tzc.Search(p.Lat, p.Lng)
 	}
 }
 
 func BenchmarkTimezoneLookup_Random_WorldCities(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := gocitiesjson.Cities[rand.Intn(len(gocitiesjson.Cities))]
 		_, _ = tzc.Search(p.Lat, p.Lng)
 	}
 }
 
 func BenchmarkTimezoneLookup_Gloabl(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		for _, p := range GlobalIterTestSets {
 			_, _ = tzc.Search(p.Lat, p.Lng)
 		}
@@ -106,14 +113,18 @@ func BenchmarkTimezoneLookup_Gloabl(b *testing.B) {
 }
 
 func BenchmarkTZF_Lite_Random(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
 		_ = finder.GetTimezoneName(p.Lng, p.Lat)
 	}
 }
 
 func BenchmarkTZF_Lite_Gloabl(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		for _, p := range GlobalIterTestSets {
 			_ = finder.GetTimezoneName(p.Lng, p.Lat)
 		}
@@ -121,28 +132,36 @@ func BenchmarkTZF_Lite_Gloabl(b *testing.B) {
 }
 
 func BenchmarkTZF_Lite_Random_WorldCities(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := gocitiesjson.Cities[rand.Intn(len(gocitiesjson.Cities))]
 		_ = finder.GetTimezoneName(p.Lng, p.Lat)
 	}
 }
 
 func BenchmarkTZF_Full_Random(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
 		_ = fullFinder.GetTimezoneName(p.Lng, p.Lat)
 	}
 }
 
 func BenchmarkTZF_Full_Random_WorldCities(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := gocitiesjson.Cities[rand.Intn(len(gocitiesjson.Cities))]
 		_ = fullFinder.GetTimezoneName(p.Lng, p.Lat)
 	}
 }
 
 func BenchmarkTZF_Full_Gloabl(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		for _, p := range GlobalIterTestSets {
 			_ = fullFinder.GetTimezoneName(p.Lng, p.Lat)
 		}
@@ -150,21 +169,27 @@ func BenchmarkTZF_Full_Gloabl(b *testing.B) {
 }
 
 func BenchmarkLatlong_Random(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
 		_ = latlong.LookupZoneName(p.Lat, p.Lng)
 	}
 }
 
 func BenchmarkLatlong_Random_WorldCities(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := gocitiesjson.Cities[rand.Intn(len(gocitiesjson.Cities))]
 		_ = latlong.LookupZoneName(p.Lat, p.Lng)
 	}
 }
 
 func BenchmarkLatlong_Global(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		for _, p := range GlobalIterTestSets {
 			_ = latlong.LookupZoneName(p.Lat, p.Lng)
 		}
@@ -172,7 +197,9 @@ func BenchmarkLatlong_Global(b *testing.B) {
 }
 
 func BenchmarkLocaltimezone_Random(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
 		input := localtimezone.Point{
 			Lon: p.Lng, Lat: p.Lat,
@@ -182,7 +209,9 @@ func BenchmarkLocaltimezone_Random(b *testing.B) {
 }
 
 func BenchmarkLocaltimezone_Random_WorldCities(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := gocitiesjson.Cities[rand.Intn(len(gocitiesjson.Cities))]
 		input := localtimezone.Point{
 			Lon: p.Lng, Lat: p.Lat,
@@ -192,7 +221,9 @@ func BenchmarkLocaltimezone_Random_WorldCities(b *testing.B) {
 }
 
 func BenchmarkLocaltimezone_Global(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		for _, p := range GlobalIterTestSets {
 			input := localtimezone.Point{
 				Lon: p.Lng, Lat: p.Lat,
@@ -203,21 +234,27 @@ func BenchmarkLocaltimezone_Global(b *testing.B) {
 }
 
 func BenchmarkTimezoneMapper_Random(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
 		_ = timezonemapper.LatLngToTimezoneString(p.Lat, p.Lng)
 	}
 }
 
 func BenchmarkTimezoneMapper_Random_WorldCities(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		p := gocitiesjson.Cities[rand.Intn(len(gocitiesjson.Cities))]
 		_ = timezonemapper.LatLngToTimezoneString(p.Lat, p.Lng)
 	}
 }
 
 func BenchmarkTimezoneMapper_Global(b *testing.B) {
-	for i := 0; i <= b.N; i++ {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
 		for _, p := range GlobalIterTestSets {
 			_ = timezonemapper.LatLngToTimezoneString(p.Lat, p.Lng)
 		}
