@@ -2,6 +2,7 @@ package tzbenchmark
 
 import (
 	"bytes"
+	"fmt"
 	"math/rand"
 	"os"
 	"runtime"
@@ -265,7 +266,7 @@ func BenchmarkTimezoneMapper_Global(b *testing.B) {
 }
 
 func TestTZFDefaultFinder_IterAllCities(t *testing.T) {
-	wri := bytes.NewBufferString("")
+	wri := bytes.NewBufferString(fmt.Sprintf("%v\t", t.Name()))
 	lotsa.Output = wri
 	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
 		city := gocitiesjson.Cities[i]
@@ -276,7 +277,7 @@ func TestTZFDefaultFinder_IterAllCities(t *testing.T) {
 }
 
 func TestTZFFullFinder_IterAllCities(t *testing.T) {
-	wri := bytes.NewBufferString("")
+	wri := bytes.NewBufferString(fmt.Sprintf("%v\t", t.Name()))
 	lotsa.Output = wri
 	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
 		city := gocitiesjson.Cities[i]
@@ -286,8 +287,8 @@ func TestTZFFullFinder_IterAllCities(t *testing.T) {
 	t.Log(wri.String())
 }
 
-func TestTZC_IterAllCities(t *testing.T) {
-	wri := bytes.NewBufferString("")
+func TestTimezonecache_IterAllCities(t *testing.T) {
+	wri := bytes.NewBufferString(fmt.Sprintf("%v\t", t.Name()))
 	lotsa.Output = wri
 	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
 		city := gocitiesjson.Cities[i]
@@ -298,7 +299,7 @@ func TestTZC_IterAllCities(t *testing.T) {
 }
 
 func TestLocaltimezone_IterAllCities(t *testing.T) {
-	wri := bytes.NewBufferString("")
+	wri := bytes.NewBufferString(fmt.Sprintf("%v\t", t.Name()))
 	lotsa.Output = wri
 	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
 		city := gocitiesjson.Cities[i]
@@ -306,6 +307,28 @@ func TestLocaltimezone_IterAllCities(t *testing.T) {
 			Lon: city.Lng, Lat: city.Lat,
 		}
 		_, _ = z.GetZone(input)
+	})
+	testing.Verbose()
+	t.Log(wri.String())
+}
+
+func TestBradtitzLatlong_IterAllCities(t *testing.T) {
+	wri := bytes.NewBufferString(fmt.Sprintf("%v\t", t.Name()))
+	lotsa.Output = wri
+	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
+		city := gocitiesjson.Cities[i]
+		_ = latlong.LookupZoneName(city.Lat, city.Lng)
+	})
+	testing.Verbose()
+	t.Log(wri.String())
+}
+
+func TestTimezonemapper_IterAllCities(t *testing.T) {
+	wri := bytes.NewBufferString(fmt.Sprintf("%v\t", t.Name()))
+	lotsa.Output = wri
+	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
+		city := gocitiesjson.Cities[i]
+		_ = timezonemapper.LatLngToTimezoneString(city.Lat, city.Lng)
 	})
 	testing.Verbose()
 	t.Log(wri.String())
