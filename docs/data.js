@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669998005238,
+  "lastUpdate": 1670003044070,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -16102,6 +16102,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000009376835174324995",
             "extra": "mean: 7.4983969999227185 usec\nrounds: 16000"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9480d25dfc8b1e28de4ec4102124f6e41f98dbef",
+          "message": "Bump github.com/tidwall/lotsa from 1.0.2 to 1.0.3 (#61)\n\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-12-03T01:43:17+08:00",
+          "tree_id": "fcd263f502519b8078f2a4d0795fc34a40e86dcf",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/9480d25dfc8b1e28de4ec4102124f6e41f98dbef"
+        },
+        "date": 1670003042410,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 13434.39277361396,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00036976480130496446",
+            "extra": "mean: 74.43581685091614 usec\nrounds: 3620"
           }
         ]
       }
