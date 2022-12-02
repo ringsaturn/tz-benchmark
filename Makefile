@@ -3,6 +3,9 @@ setup:
 	cd timezoneLookup;go build -o timezone cmd/main.go
 	./timezoneLookup/timezone -build
 
+test:
+	go test -v ./...
+
 bench:
 	go test -bench=. -benchmem ./...
 

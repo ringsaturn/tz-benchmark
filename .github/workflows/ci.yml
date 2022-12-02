@@ -38,6 +38,10 @@ jobs:
       - name: Build
         run: make setup
 
+      - name: Test
+        run: |
+          make test
+
       - name: Bench
         run: |
           make bench | tee benchmark_result.txt
