@@ -47,7 +47,7 @@ jobs:
           make bench | tee benchmark_result.txt
 
       - name: Continuous Benchmark
-        uses: benchmark-action/github-action-benchmark@v1.14.0
+        uses: benchmark-action/github-action-benchmark@v1.15.0
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           name: Go Library Benchmark
@@ -89,7 +89,7 @@ jobs:
           pytest tz_test.py --memray --benchmark-json output.json
 
       - name: Continuous Benchmark
-        uses: benchmark-action/github-action-benchmark@v1.14.0
+        uses: benchmark-action/github-action-benchmark@v1.15.0
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           name: Python Library Benchmark
@@ -129,7 +129,7 @@ jobs:
           pytest tz_test_without_numba.py --benchmark-json output.json
 
       - name: Continuous Benchmark
-        uses: benchmark-action/github-action-benchmark@v1.14.0
+        uses: benchmark-action/github-action-benchmark@v1.15.0
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           name: Python Library Benchmark
