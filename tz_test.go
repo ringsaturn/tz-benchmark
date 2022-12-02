@@ -1,8 +1,10 @@
 package tzbenchmark
 
 import (
+	"bytes"
 	"math/rand"
 	"os"
+	"runtime"
 	"testing"
 
 	"github.com/albertyw/localtimezone/v2"
@@ -13,6 +15,7 @@ import (
 	"github.com/ringsaturn/tzf"
 	tzfrel "github.com/ringsaturn/tzf-rel"
 	"github.com/ringsaturn/tzf/pb"
+	"github.com/tidwall/lotsa"
 	"github.com/zsefvlol/timezonemapper"
 	"google.golang.org/protobuf/proto"
 )
@@ -259,4 +262,51 @@ func BenchmarkTimezoneMapper_Global(b *testing.B) {
 			_ = timezonemapper.LatLngToTimezoneString(p.Lat, p.Lng)
 		}
 	}
+}
+
+func TestTZFDefaultFinder_IterAllCities(t *testing.T) {
+	wri := bytes.NewBufferString("")
+	lotsa.Output = wri
+	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
+		city := gocitiesjson.Cities[i]
+		_ = finder.GetTimezoneName(city.Lng, city.Lat)
+	})
+	testing.Verbose()
+	t.Log(wri.String())
+}
+
+func TestTZFFullFinder_IterAllCities(t *testing.T) {
+	wri := bytes.NewBufferString("")
+	lotsa.Output = wri
+	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
+		city := gocitiesjson.Cities[i]
+		_ = fullFinder.GetTimezoneName(city.Lng, city.Lat)
+	})
+	testing.Verbose()
+	t.Log(wri.String())
+}
+
+func TestTZC_IterAllCities(t *testing.T) {
+	wri := bytes.NewBufferString("")
+	lotsa.Output = wri
+	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
+		city := gocitiesjson.Cities[i]
+		_, _ = tzc.Search(city.Lat, city.Lng)
+	})
+	testing.Verbose()
+	t.Log(wri.String())
+}
+
+func TestLocaltimezone_IterAllCities(t *testing.T) {
+	wri := bytes.NewBufferString("")
+	lotsa.Output = wri
+	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
+		city := gocitiesjson.Cities[i]
+		input := localtimezone.Point{
+			Lon: city.Lng, Lat: city.Lat,
+		}
+		_, _ = z.GetZone(input)
+	})
+	testing.Verbose()
+	t.Log(wri.String())
 }
