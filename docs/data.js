@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1670203867275,
+  "lastUpdate": 1670203922484,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -30229,6 +30229,136 @@ window.BENCHMARK_DATA = {
             "value": 2242819,
             "unit": "ns/op\t   2238943 ns/p50\t   2255143 ns/p90\t   2460148 ns/p99\t       9 B/op\t       0 allocs/op",
             "extra": "534 times\n2 procs"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "9480d25dfc8b1e28de4ec4102124f6e41f98dbef",
+          "message": "Bump github.com/tidwall/lotsa from 1.0.2 to 1.0.3 (#61)\n\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-12-02T17:43:17Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/9480d25dfc8b1e28de4ec4102124f6e41f98dbef"
+        },
+        "date": 1670203920743,
+        "tool": "go",
+        "benches": [
+          {
+            "name": "BenchmarkTimezoneLookup_Random",
+            "value": 33501,
+            "unit": "ns/op\t     14801 ns/p50\t     88800 ns/p90\t    257102 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "41919 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneLookup_Random_WorldCities",
+            "value": 85330,
+            "unit": "ns/op\t     70500 ns/p50\t    183801 ns/p90\t    364602 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "13822 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneLookup_Gloabl",
+            "value": 1825541050,
+            "unit": "ns/op\t      80 B/op\t       2 allocs/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Random",
+            "value": 2845,
+            "unit": "ns/op\t      1200 ns/p50\t      6800 ns/p90\t     19900 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "401910 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Gloabl",
+            "value": 140331939,
+            "unit": "ns/op\t 139991070 ns/p50\t      16 B/op\t       0 allocs/op",
+            "extra": "8 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Random_WorldCities",
+            "value": 3028,
+            "unit": "ns/op\t      1300 ns/p50\t     11099 ns/p90\t     21300 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "376047 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Random",
+            "value": 11886,
+            "unit": "ns/op\t     12600 ns/p50\t     17100 ns/p90\t     27800 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "97842 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Random_WorldCities",
+            "value": 11419,
+            "unit": "ns/op\t     10500 ns/p50\t     18100 ns/p90\t     33300 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "103054 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Gloabl",
+            "value": 623787614,
+            "unit": "ns/op\t      40 B/op\t       1 allocs/op",
+            "extra": "2 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Random",
+            "value": 550.7,
+            "unit": "ns/op\t       500.0 ns/p50\t       900.0 ns/p90\t      1100 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "2178766 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Random_WorldCities",
+            "value": 460.9,
+            "unit": "ns/op\t       400.0 ns/p50\t       700.0 ns/p90\t      1100 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "2597172 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Global",
+            "value": 16156410,
+            "unit": "ns/op\t  16143927 ns/p50\t  16257828 ns/p90\t       8 B/op\t       0 allocs/op",
+            "extra": "72 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLocaltimezone_Random",
+            "value": 30701,
+            "unit": "ns/op\t     30700 ns/p50\t     45200 ns/p90\t    104801 ns/p99\t      37 B/op\t       2 allocs/op",
+            "extra": "39048 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLocaltimezone_Random_WorldCities",
+            "value": 25424,
+            "unit": "ns/op\t     16500 ns/p50\t     61401 ns/p90\t    103701 ns/p99\t      24 B/op\t       1 allocs/op",
+            "extra": "47883 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLocaltimezone_Global",
+            "value": 1798771337,
+            "unit": "ns/op\t 1903592 B/op\t  136501 allocs/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneMapper_Random",
+            "value": 259.5,
+            "unit": "ns/op\t       200.0 ns/p50\t       400.0 ns/p90\t       500.0 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "4652503 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneMapper_Random_WorldCities",
+            "value": 310.4,
+            "unit": "ns/op\t       300.0 ns/p50\t       400.0 ns/p90\t       600.0 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "3809136 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneMapper_Global",
+            "value": 2177409,
+            "unit": "ns/op\t   2176013 ns/p50\t   2188114 ns/p90\t   2233813 ns/p99\t       9 B/op\t       0 allocs/op",
+            "extra": "547 times\n2 procs"
           }
         ]
       }
