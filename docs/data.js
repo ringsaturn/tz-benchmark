@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1670290321740,
+  "lastUpdate": 1670346967368,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -16676,6 +16676,37 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000005984744782463957",
             "extra": "mean: 6.409518960575903 usec\nrounds: 25975"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "297ed25635ae7c5cf89e1b3c8d605f6ff272275c",
+          "message": "Bump github.com/ringsaturn/tzf from 0.10.2 to 0.10.3 (#65)\n\nBumps [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf) from 0.10.2 to 0.10.3.\r\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\r\n- [Commits](https://github.com/ringsaturn/tzf/compare/v0.10.2...v0.10.3)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/ringsaturn/tzf\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-12-07T01:15:21+08:00",
+          "tree_id": "080f15c6b38d4a681afc5def96a40a349a666e42",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/297ed25635ae7c5cf89e1b3c8d605f6ff272275c"
+        },
+        "date": 1670346966036,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 15922.428831200525,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0003014200751687023",
+            "extra": "mean: 62.80448859915562 usec\nrounds: 4298"
           }
         ]
       }
