@@ -8,8 +8,8 @@ require (
 	github.com/evanoberholster/timezoneLookup/v2 v2.0.0
 	github.com/loov/hrtime v1.0.3
 	github.com/ringsaturn/go-cities.json v0.0.0-20221105062652-69af5b046d54
-	github.com/ringsaturn/tzf v0.10.2
-	github.com/ringsaturn/tzf-rel v0.0.2022-f5
+	github.com/ringsaturn/tzf v0.10.3
+	github.com/ringsaturn/tzf-rel v0.0.2022-g
 	github.com/tidwall/lotsa v1.0.3
 	github.com/zsefvlol/timezonemapper v1.0.0
 	google.golang.org/protobuf v1.28.1
