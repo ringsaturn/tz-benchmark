@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1670376767887,
+  "lastUpdate": 1670376772549,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -16823,6 +16823,91 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00003127306111115703",
             "extra": "mean: 46.822853661518735 usec\nrounds: 41"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "297ed25635ae7c5cf89e1b3c8d605f6ff272275c",
+          "message": "Bump github.com/ringsaturn/tzf from 0.10.2 to 0.10.3 (#65)\n\nBumps [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf) from 0.10.2 to 0.10.3.\r\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\r\n- [Commits](https://github.com/ringsaturn/tzf/compare/v0.10.2...v0.10.3)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/ringsaturn/tzf\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-12-06T17:15:21Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/297ed25635ae7c5cf89e1b3c8d605f6ff272275c"
+        },
+        "date": 1670376770931,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_iter_global",
+            "value": 0.13226340259324637,
+            "unit": "iter/sec",
+            "range": "stddev: 0.009283693251228528",
+            "extra": "mean: 7.560670452999989 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_iter_global",
+            "value": 2.2316324220358337,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0012019521234712981",
+            "extra": "mean: 448.1024697999942 msec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_certain",
+            "value": 2743.82764726247,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0002249044661800729",
+            "extra": "mean: 364.45437853857356 usec\nrounds: 1519"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random",
+            "value": 12816.685166203322,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00010206607068441784",
+            "extra": "mean: 78.02329440352706 usec\nrounds: 4735"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 9890.437363351088,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00015213035099343708",
+            "extra": "mean: 101.10776331342936 usec\nrounds: 3211"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random",
+            "value": 32826.99022976874,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000009988236542288034",
+            "extra": "mean: 30.462737917811385 usec\nrounds: 5628"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 147959.9465965524,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000007315246337085223",
+            "extra": "mean: 6.758585840306736 usec\nrounds: 14859"
+          },
+          {
+            "name": "tz_test.py::test_tzfrspy_random",
+            "value": 32526.13016045264,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000010234050342266277",
+            "extra": "mean: 30.74451202977304 usec\nrounds: 4281"
+          },
+          {
+            "name": "tz_test.py::test_tzfrspy_random_cities",
+            "value": 131822.67612029123,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00000939198778174293",
+            "extra": "mean: 7.585948255878807 usec\nrounds: 12987"
           }
         ]
       }
