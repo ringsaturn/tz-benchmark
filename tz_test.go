@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/albertyw/localtimezone/v2"
+	"github.com/albertyw/localtimezone/v3"
 	"github.com/bradfitz/latlong"
 	timezone "github.com/evanoberholster/timezoneLookup/v2"
 	"github.com/loov/hrtime/hrtesting"

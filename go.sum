@@ -1,5 +1,5 @@
-github.com/albertyw/localtimezone/v2 v2.1.4 h1:oY5s1k0uVpCQ2eL9JCkxVFe3rCRxlS2Fguz9NxWcj3A=
-github.com/albertyw/localtimezone/v2 v2.1.4/go.mod h1:PiI5kT4imBsEUQU/tQK14ZUnZ9d47RWmGLmKCZDI5RE=
+github.com/albertyw/localtimezone/v3 v3.0.1 h1:k8JG7IveyMNouEV+bNiZ029F/8HodaMg+fcg/AO4Nfc=
+github.com/albertyw/localtimezone/v3 v3.0.1/go.mod h1:53yB9ZkYlzqSpil7hdI3rY475O+jLB9GgFLHkIbOhI8=
 github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40 h1:wsnz4B2CSHJ09pwtMReU/GRqWDsI7XSasq7Nphem3Xk=
 github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40/go.mod h1:ZcXX9BndVQx6Q/JM6B8x7dLE9sl20S+TQsv4KO7tEQk=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
