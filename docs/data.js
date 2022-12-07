@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1670347034329,
+  "lastUpdate": 1670376697224,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -16794,6 +16794,35 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000008443244581160253",
             "extra": "mean: 7.1841736228103334 usec\nrounds: 20965"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "297ed25635ae7c5cf89e1b3c8d605f6ff272275c",
+          "message": "Bump github.com/ringsaturn/tzf from 0.10.2 to 0.10.3 (#65)\n\nBumps [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf) from 0.10.2 to 0.10.3.\r\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\r\n- [Commits](https://github.com/ringsaturn/tzf/compare/v0.10.2...v0.10.3)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/ringsaturn/tzf\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-12-06T17:15:21Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/297ed25635ae7c5cf89e1b3c8d605f6ff272275c"
+        },
+        "date": 1670376695790,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test_without_numba.py::test_timezonefinder_without_numbarandom",
+            "value": 21357.09214199065,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00003127306111115703",
+            "extra": "mean: 46.822853661518735 usec\nrounds: 41"
           }
         ]
       }
