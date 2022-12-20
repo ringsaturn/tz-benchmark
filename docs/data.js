@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1671499950635,
+  "lastUpdate": 1671500042101,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -35092,6 +35092,136 @@ window.BENCHMARK_DATA = {
             "value": 2697826,
             "unit": "ns/op\t   2686234 ns/p50\t   2729736 ns/p90\t   3225361 ns/p99\t       9 B/op\t       0 allocs/op",
             "extra": "435 times\n2 procs"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "ringsaturn",
+            "username": "ringsaturn",
+            "email": "ringsaturn.me@gmail.com"
+          },
+          "committer": {
+            "name": "ringsaturn",
+            "username": "ringsaturn",
+            "email": "ringsaturn.me@gmail.com"
+          },
+          "id": "e8f359bdad3218d741873317513caf5600673475",
+          "message": "bump localtimezone",
+          "timestamp": "2022-12-07T16:33:27Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/e8f359bdad3218d741873317513caf5600673475"
+        },
+        "date": 1671500040743,
+        "tool": "go",
+        "benches": [
+          {
+            "name": "BenchmarkTimezoneLookup_Random",
+            "value": 41133,
+            "unit": "ns/op\t     18202 ns/p50\t    109508 ns/p90\t    285323 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "28992 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneLookup_Random_WorldCities",
+            "value": 121987,
+            "unit": "ns/op\t     99408 ns/p50\t    260921 ns/p90\t    506342 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "9714 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneLookup_Gloabl",
+            "value": 2562468303,
+            "unit": "ns/op\t      80 B/op\t       2 allocs/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Random",
+            "value": 3145,
+            "unit": "ns/op\t      1300 ns/p50\t      7800 ns/p90\t     22502 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "369315 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Gloabl",
+            "value": 179339628,
+            "unit": "ns/op\t 182920759 ns/p50\t      18 B/op\t       0 allocs/op",
+            "extra": "6 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Lite_Random_WorldCities",
+            "value": 3477,
+            "unit": "ns/op\t      1500 ns/p50\t     12701 ns/p90\t     24701 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "339002 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Random",
+            "value": 14725,
+            "unit": "ns/op\t     14801 ns/p50\t     21002 ns/p90\t     39603 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "84090 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Random_WorldCities",
+            "value": 13585,
+            "unit": "ns/op\t     12301 ns/p50\t     21402 ns/p90\t     41903 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "85561 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTZF_Full_Gloabl",
+            "value": 788253044,
+            "unit": "ns/op\t      40 B/op\t       1 allocs/op",
+            "extra": "2 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Random",
+            "value": 646,
+            "unit": "ns/op\t       600.0 ns/p50\t      1000 ns/p90\t      1200 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "1887013 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Random_WorldCities",
+            "value": 542.7,
+            "unit": "ns/op\t       500.0 ns/p50\t       800.0 ns/p90\t      1200 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "2243407 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLatlong_Global",
+            "value": 22086849,
+            "unit": "ns/op\t  22174068 ns/p50\t  23220252 ns/p90\t       9 B/op\t       0 allocs/op",
+            "extra": "51 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLocaltimezone_Random",
+            "value": 286825,
+            "unit": "ns/op\t    276521 ns/p50\t    355827 ns/p90\t    482636 ns/p99\t   37056 B/op\t     845 allocs/op",
+            "extra": "4363 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLocaltimezone_Random_WorldCities",
+            "value": 268944,
+            "unit": "ns/op\t    252819 ns/p50\t    366227 ns/p90\t    436633 ns/p99\t   37057 B/op\t     845 allocs/op",
+            "extra": "4326 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkLocaltimezone_Global",
+            "value": 18596731964,
+            "unit": "ns/op\t2420657520 B/op\t55244118 allocs/op",
+            "extra": "1 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneMapper_Random",
+            "value": 298.3,
+            "unit": "ns/op\t       300.0 ns/p50\t       400.0 ns/p90\t       600.0 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "3806773 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneMapper_Random_WorldCities",
+            "value": 387.1,
+            "unit": "ns/op\t       301.0 ns/p50\t       500.0 ns/p90\t       700.0 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "3169542 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTimezoneMapper_Global",
+            "value": 2591125,
+            "unit": "ns/op\t   2629111 ns/p50\t   2699017 ns/p90\t   2775123 ns/p99\t       8 B/op\t       0 allocs/op",
+            "extra": "504 times\n2 procs"
           }
         ]
       }
