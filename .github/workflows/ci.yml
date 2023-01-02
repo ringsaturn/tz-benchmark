@@ -13,7 +13,7 @@ permissions:
   deployments: write
 
 jobs:
-  build:
+  bench-go:
     runs-on: ubuntu-latest
 
     steps:
@@ -63,7 +63,7 @@ jobs:
           benchmark-data-dir-path: "docs/"
           alert-comment-cc-users: "@ringsaturn"
 
-  build-timezonefinder-test:
+  build-python:
     runs-on: ubuntu-latest
 
     steps:
@@ -87,46 +87,6 @@ jobs:
       - name: Bench Python
         run: |
           pytest tz_test.py --memray --benchmark-json output.json
-
-      - name: Continuous Benchmark
-        uses: benchmark-action/github-action-benchmark@v1.15.0
-        if: ${{ github.ref == 'refs/heads/main' }}
-        with:
-          name: Python Library Benchmark
-          tool: "pytest"
-          output-file-path: output.json
-          github-token: ${{ secrets.CI_TOKEN }}
-          gh-repository: "github.com/ringsaturn/tz-benchmark"
-          auto-push: true
-          alert-threshold: "150%"
-          comment-on-alert: false
-          fail-on-alert: false
-          gh-pages-branch: "gh-pages"
-          benchmark-data-dir-path: "docs/"
-          alert-comment-cc-users: "@ringsaturn"
-
-  build-timezonefinder-test-without-numba:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9.13
-
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements_without_numba.txt') }}
-
-      - name: Build
-        run: pip install -r requirements_without_numba.txt
-
-      - name: Bench Python
-        run: |
-          pytest tz_test_without_numba.py --benchmark-json output.json
 
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.15.0

@@ -1,4 +1,0 @@
-pytest
-pytest-benchmark
-timezonefinder==6.1.9
-tzfpy
