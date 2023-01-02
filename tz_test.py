@@ -8,7 +8,7 @@ tf = TimezoneFinder(in_memory=True)
 lng_ranges = np.arange(-180, 180, 0.5)
 lat_ranges = np.arange(-60, 60, 0.5)
 
-_ = get_tz(0, 0)
+_ = get_tz(116, 39)
 _ = citiespy.random_city()
 
 
