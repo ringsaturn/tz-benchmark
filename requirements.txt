@@ -1,5 +1,5 @@
 citiespy==0.3.2
 pytest
 pytest-benchmark
-timezonefinder[numba]==6.1.9
+timezonefinder==6.1.9
 tzfpy==0.11.2
