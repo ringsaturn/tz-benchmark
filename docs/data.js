@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673487173520,
+  "lastUpdate": 1673573560824,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -21275,6 +21275,77 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000060740938451545975",
             "extra": "mean: 6.277596826455563 usec\nrounds: 23697"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "c5fd47a8de6f91bbe5d2dfc68fe59711a26825ba",
+          "message": "Bump github.com/albertyw/localtimezone/v3 from 3.0.1 to 3.0.2 (#69)\n\nBumps [github.com/albertyw/localtimezone/v3](https://github.com/albertyw/localtimezone) from 3.0.1 to 3.0.2.\r\n- [Release notes](https://github.com/albertyw/localtimezone/releases)\r\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/albertyw/localtimezone/compare/v3.0.1...v3.0.2)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/albertyw/localtimezone/v3\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-01-03T16:08:03Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/c5fd47a8de6f91bbe5d2dfc68fe59711a26825ba"
+        },
+        "date": 1673573558816,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_iter_global",
+            "value": 0.15629433174429713,
+            "unit": "iter/sec",
+            "range": "stddev: 0.010041872153632227",
+            "extra": "mean: 6.398184686799993 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_iter_global",
+            "value": 2.111324009048018,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0004885733056854564",
+            "extra": "mean: 473.6364460000118 msec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_certain",
+            "value": 3265.374311986225,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00019080943373266153",
+            "extra": "mean: 306.2436047007828 usec\nrounds: 936"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random",
+            "value": 14414.818218645845,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00008937911872397913",
+            "extra": "mean: 69.37305658884277 usec\nrounds: 8818"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 12765.09606836446,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00010864701553040966",
+            "extra": "mean: 78.33861920383696 usec\nrounds: 3343"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random",
+            "value": 35440.547176875836,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000007540207160677102",
+            "extra": "mean: 28.21626864306648 usec\nrounds: 6477"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 161344.06704958767,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000006145363686437373",
+            "extra": "mean: 6.197934750787327 usec\nrounds: 18621"
           }
         ]
       }
