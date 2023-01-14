@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673659934671,
+  "lastUpdate": 1673691726544,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -21417,6 +21417,79 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000007466990761249618",
             "extra": "mean: 6.81009683601284 usec\nrounds: 17731"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5058bea21054b52a1836ec6fb703f8048304ee95",
+          "message": "Bump github.com/albertyw/localtimezone/v3 from 3.0.2 to 3.1.1 (#70)\n\nBumps [github.com/albertyw/localtimezone/v3](https://github.com/albertyw/localtimezone) from 3.0.2 to 3.1.1.\r\n- [Release notes](https://github.com/albertyw/localtimezone/releases)\r\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/albertyw/localtimezone/compare/v3.0.2...v3.1.1)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/albertyw/localtimezone/v3\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-01-14T18:20:00+08:00",
+          "tree_id": "52f4bae969213a85629cd4f0f237c0883f8e81ba",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/5058bea21054b52a1836ec6fb703f8048304ee95"
+        },
+        "date": 1673691724855,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_iter_global",
+            "value": 0.11718550633579783,
+            "unit": "iter/sec",
+            "range": "stddev: 0.13702439517789328",
+            "extra": "mean: 8.533478510000004 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_iter_global",
+            "value": 1.9107907414472372,
+            "unit": "iter/sec",
+            "range": "stddev: 0.023822170453142964",
+            "extra": "mean: 523.3435447999909 msec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_certain",
+            "value": 2424.63803408365,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0002695578250437621",
+            "extra": "mean: 412.4326954963126 usec\nrounds: 2509"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random",
+            "value": 8413.639764647745,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0001502286984167579",
+            "extra": "mean: 118.85462510550774 usec\nrounds: 2374"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 10763.771028151134,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00012196588734873997",
+            "extra": "mean: 92.9042430747217 usec\nrounds: 2094"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random",
+            "value": 21220.348536613008,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000020612252836675223",
+            "extra": "mean: 47.12457942312434 usec\nrounds: 6415"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 139533.42186346237,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000008553526802355",
+            "extra": "mean: 7.166741750077124 usec\nrounds: 25576"
           }
         ]
       }
