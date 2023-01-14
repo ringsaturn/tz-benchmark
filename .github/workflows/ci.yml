@@ -63,6 +63,14 @@ jobs:
           benchmark-data-dir-path: "docs/"
           alert-comment-cc-users: "@ringsaturn"
 
+      - name: Report
+        run: |
+          set +e
+          echo "## Go" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat benchmark_result.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
   build-python:
     runs-on: ubuntu-latest
 
