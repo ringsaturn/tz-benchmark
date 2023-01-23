@@ -45,11 +45,6 @@ jobs:
         run: |
           make test | grep "ops over" | tee benchmark_lotsa_result.txt
 
-      - name: Setup benchmark file name
-        id: gen-benchmark-file-name
-        run: |
-          echo "filename=${{ matrix.go-version }}.txt" >> $GITHUB_OUTPUT
-
       - name: Bench
         run: |
           make bench | tee benchmark_result.txt
@@ -70,6 +65,11 @@ jobs:
           gh-pages-branch: "gh-pages"
           benchmark-data-dir-path: "docs/"
           alert-comment-cc-users: "@ringsaturn"
+
+      - name: Setup benchmark file name
+        id: gen-benchmark-file-name
+        run: |
+          echo "filename=go_${{ matrix.go-version }}.txt" >> $GITHUB_OUTPUT
 
       - name: Report
         run: |
