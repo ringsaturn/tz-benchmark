@@ -145,7 +145,7 @@ jobs:
       - name: Report
         run: |
           set +e
-          echo "## Py ${{ matrix.python-version }}" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          echo "## Python ${{ matrix.python-version }}" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
