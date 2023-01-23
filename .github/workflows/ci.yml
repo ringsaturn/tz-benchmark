@@ -86,7 +86,7 @@ jobs:
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3.1.0
+        uses: actions/upload-artifact@v3
         with:
           name: "benchmark_result_as_md"
           path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
@@ -151,7 +151,7 @@ jobs:
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3.1.0
+        uses: actions/upload-artifact@v3
         with:
           name: "benchmark_result_as_md"
           path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
@@ -161,7 +161,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download a Build Artifact
-        uses: actions/download-artifact@v3.0.0
+        uses: actions/download-artifact@v3
         with:
           name: "benchmark_result_as_md"
           path: ""
