@@ -15,6 +15,9 @@ permissions:
 jobs:
   bench-go:
     runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          go-version: ["1.19"]
 
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +25,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.19
+          go-version: ${{ matrix.go-version }}
 
       - uses: actions/cache@v3
         with:
@@ -40,7 +43,12 @@ jobs:
 
       - name: Test
         run: |
-          make test | grep "ops over"
+          make test | grep "ops over" | tee benchmark_lotsa_result.txt
+
+      - name: Setup benchmark file name
+        id: gen-benchmark-file-name
+        run: |
+          echo "filename=${{ matrix.go-version }}.txt" >> $GITHUB_OUTPUT
 
       - name: Bench
         run: |
@@ -66,10 +74,22 @@ jobs:
       - name: Report
         run: |
           set +e
-          echo "## Go" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          cat benchmark_result.txt >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "## Go" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          echo "std benchmark:" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          ehco '' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          echo "lotsa benchmark:" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          cat benchmark_lotsa_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: "benchmark_result_as_md"
+          path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
   build-python:
     runs-on: ubuntu-latest
