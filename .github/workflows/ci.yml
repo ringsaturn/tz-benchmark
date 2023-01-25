@@ -93,6 +93,8 @@ jobs:
 
   build-python:
     runs-on: ubuntu-latest
+    env:
+      COLUMNS: 120
     strategy:
         matrix:
           python-version: ["3.9"]
