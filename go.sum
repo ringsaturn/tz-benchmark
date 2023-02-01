@@ -37,8 +37,8 @@ github.com/paulmach/orb v0.8.0/go.mod h1:FWRlTgl88VI1RBx/MkrwWDRhQ96ctqMCh8boXhm
 github.com/paulmach/protoscan v0.2.1/go.mod h1:SpcSwydNLrxUGSDvXvO0P7g7AuhJ7lcKfDlhJCDw2gY=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/ringsaturn/go-cities.json v0.3.3 h1:VLcihaYZjrxDgjah4dNUXOntV6GI+6JZ+mEJcHzKc7Y=
-github.com/ringsaturn/go-cities.json v0.3.3/go.mod h1:qpTYJsvNi40oTJs0WEdRdNAbWcLBWSL7oRHUxMrF4g8=
+github.com/ringsaturn/go-cities.json v0.3.4 h1:uhRN+9aDCQvFhIItLQmdkI1pH1DhXrF9oDh3l8HyEqI=
+github.com/ringsaturn/go-cities.json v0.3.4/go.mod h1:qpTYJsvNi40oTJs0WEdRdNAbWcLBWSL7oRHUxMrF4g8=
 github.com/ringsaturn/tzf v0.11.0 h1:eRxCB1I1ALNh81nLD28BH6JM9FLqReYxCxVAW2bCmus=
 github.com/ringsaturn/tzf v0.11.0/go.mod h1:guHemk/tXNV/LdWGqueeiPx9u4vYGgZ6wmI+9N/DmXY=
 github.com/ringsaturn/tzf-rel v0.0.2022-g1 h1:K7Ju6lJ95SlWfL5/Nlcrae3l0xxwvimmNX6WXLdYaHw=
