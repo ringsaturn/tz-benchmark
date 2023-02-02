@@ -7,7 +7,7 @@ require (
 	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
 	github.com/evanoberholster/timezoneLookup/v2 v2.0.0
 	github.com/loov/hrtime v1.0.3
-	github.com/ringsaturn/go-cities.json v0.3.3
+	github.com/ringsaturn/go-cities.json v0.3.4
 	github.com/ringsaturn/tzf v0.11.0
 	github.com/ringsaturn/tzf-rel v0.0.2022-g1
 	github.com/tidwall/lotsa v1.0.3
