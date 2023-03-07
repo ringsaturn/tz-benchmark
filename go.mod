@@ -3,7 +3,7 @@ module github.com/ringsaturn/tz-benchmark
 go 1.19
 
 require (
-	github.com/albertyw/localtimezone/v3 v3.1.1
+	github.com/albertyw/localtimezone/v3 v3.1.2
 	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
 	github.com/evanoberholster/timezoneLookup/v2 v2.0.0
 	github.com/loov/hrtime v1.0.3
@@ -23,11 +23,12 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
-	github.com/paulmach/orb v0.8.0 // indirect
+	github.com/paulmach/orb v0.9.0 // indirect
 	github.com/tidwall/geoindex v1.7.0 // indirect
 	github.com/tidwall/geojson v1.4.3 // indirect
 	github.com/tidwall/rtree v1.9.4 // indirect
 	github.com/twpayne/go-polyline v1.1.1 // indirect
+	go.mongodb.org/mongo-driver v1.11.2 // indirect
 	golang.org/x/image v0.0.0-20220722155232-062f8c9fd539 // indirect
 	golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 // indirect
 )
