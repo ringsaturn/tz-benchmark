@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1678671224140,
+  "lastUpdate": 1679238625997,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -23934,6 +23934,79 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000011287166137502604",
             "extra": "mean: 8.435105422374827 usec\nrounds: 19493"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "22893709a10ac753fe68567bbcaed91e77b32324",
+          "message": "Bump google.golang.org/protobuf from 1.28.1 to 1.30.0 (#90)\n\nBumps [google.golang.org/protobuf](https://github.com/protocolbuffers/protobuf-go) from 1.28.1 to 1.30.0.\r\n- [Release notes](https://github.com/protocolbuffers/protobuf-go/releases)\r\n- [Changelog](https://github.com/protocolbuffers/protobuf-go/blob/master/release.bash)\r\n- [Commits](https://github.com/protocolbuffers/protobuf-go/compare/v1.28.1...v1.30.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: google.golang.org/protobuf\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-03-19T23:08:27+08:00",
+          "tree_id": "d7577ffbb879886196e86e2e51fa68c6389d6522",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/22893709a10ac753fe68567bbcaed91e77b32324"
+        },
+        "date": 1679238623729,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_iter_global",
+            "value": 0.11712216441807825,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0855378982771953",
+            "extra": "mean: 8.538093579199995 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_iter_global",
+            "value": 1.7215608885473477,
+            "unit": "iter/sec",
+            "range": "stddev: 0.020426148283906705",
+            "extra": "mean: 580.8682148000003 msec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_certain",
+            "value": 2200.213011893655,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0003418763831752596",
+            "extra": "mean: 454.50144808448846 usec\nrounds: 1801"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random",
+            "value": 8371.893356243,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00013298833478096774",
+            "extra": "mean: 119.4472931567255 usec\nrounds: 4223"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 10247.920998797787,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00011970222863954056",
+            "extra": "mean: 97.58076785694513 usec\nrounds: 2464"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random",
+            "value": 17231.79537128916,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00016167863577129163",
+            "extra": "mean: 58.03225830235629 usec\nrounds: 5420"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 114182.50099426834,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000016123918008779973",
+            "extra": "mean: 8.757909410744098 usec\nrounds: 17331"
           }
         ]
       }
