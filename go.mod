@@ -9,7 +9,7 @@ require (
 	github.com/loov/hrtime v1.0.3
 	github.com/ringsaturn/go-cities.json v0.3.5
 	github.com/ringsaturn/tzf v0.11.2
-	github.com/ringsaturn/tzf-rel v0.0.2022-g1
+	github.com/ringsaturn/tzf-rel v0.0.2023-b
 	github.com/tidwall/lotsa v1.0.3
 	github.com/zsefvlol/timezonemapper v1.0.0
 	google.golang.org/protobuf v1.30.0
