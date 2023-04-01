@@ -29,8 +29,8 @@ type Point struct {
 var GlobalIterTestSets []Point
 
 var (
-	finder     *tzf.DefaultFinder
-	fullFinder *tzf.Finder
+	finder     tzf.F
+	fullFinder tzf.F
 	tzc        timezone.Timezonecache
 	z          localtimezone.LocalTimeZone
 )
