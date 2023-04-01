@@ -3,4 +3,4 @@ pytest
 pytest-benchmark
 pytest-pretty
 timezonefinder[numba]==6.2.0
-tzfpy==0.14.0
+tzfpy==0.15.0
