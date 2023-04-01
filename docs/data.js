@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1680326680701,
+  "lastUpdate": 1680329938152,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -24514,6 +24514,79 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000069629087696580275",
             "extra": "mean: 6.471435988285181 usec\nrounds: 23980"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3c6f4c014e2ee4b72ff8ee92b9e92f6c3643b1c4",
+          "message": "Bump github.com/ringsaturn/tzf from 0.11.2 to 0.13.0 (#95)\n\n* Bump github.com/ringsaturn/tzf from 0.11.2 to 0.13.0\r\n\r\nBumps [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf) from 0.11.2 to 0.13.0.\r\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\r\n- [Commits](https://github.com/ringsaturn/tzf/compare/v0.11.2...v0.13.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/ringsaturn/tzf\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\n* fix type\r\n\r\n---------\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>\r\nCo-authored-by: ringsaturn <ringsaturn.me@gmail.com>",
+          "timestamp": "2023-04-01T14:17:25+08:00",
+          "tree_id": "ba7dff4fdf1ce363a8106861e76ef246874c3779",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/3c6f4c014e2ee4b72ff8ee92b9e92f6c3643b1c4"
+        },
+        "date": 1680329936012,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_iter_global",
+            "value": 0.15441705905212075,
+            "unit": "iter/sec",
+            "range": "stddev: 0.004665149944895994",
+            "extra": "mean: 6.475968433400015 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_iter_global",
+            "value": 1.8596253150224529,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0010098251792729216",
+            "extra": "mean: 537.7427333999947 msec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_certain",
+            "value": 3173.8616885975316,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0001918018240927463",
+            "extra": "mean: 315.07359113745144 usec\nrounds: 993"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random",
+            "value": 14703.558238760705,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00008734326700629187",
+            "extra": "mean: 68.01074840264553 usec\nrounds: 7981"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 13131.890182013765,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00010627699987293786",
+            "extra": "mean: 76.15049974828915 usec\nrounds: 3974"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random",
+            "value": 36325.5221470839,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000073501751748067035",
+            "extra": "mean: 27.52885411945212 usec\nrounds: 8788"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 152433.1303269734,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000006870087620399288",
+            "extra": "mean: 6.560253652568648 usec\nrounds: 20122"
           }
         ]
       }
