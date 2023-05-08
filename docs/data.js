@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1683217824811,
+  "lastUpdate": 1683509569321,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -25307,6 +25307,77 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000007372396905118565",
             "extra": "mean: 6.8071024563654055 usec\nrounds: 16612"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "c17f6a1e4a62925f992f6a750e9deb2c093c696e",
+          "message": "Bump citiespy from 0.3.6 to 0.3.7 (#105)\n\nBumps [citiespy](https://github.com/ringsaturn/go-cities.json) from 0.3.6 to 0.3.7.\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.3.6...v0.3.7)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: citiespy\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-05-04T16:27:57Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/c17f6a1e4a62925f992f6a750e9deb2c093c696e"
+        },
+        "date": 1683509567410,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_iter_global",
+            "value": 0.15060487377017642,
+            "unit": "iter/sec",
+            "range": "stddev: 0.013299478779870385",
+            "extra": "mean: 6.639891359199993 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_iter_global",
+            "value": 2.041448020540663,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0006382913226875673",
+            "extra": "mean: 489.848377200002 msec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_certain",
+            "value": 3008.0651108750167,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0002002242666216135",
+            "extra": "mean: 332.439612555165 usec\nrounds: 1115"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random",
+            "value": 13374.035176323769,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000951771776973055",
+            "extra": "mean: 74.77174890120772 usec\nrounds: 5233"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 12385.650155225261,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00010850407284109702",
+            "extra": "mean: 80.7385956705809 usec\nrounds: 2587"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random",
+            "value": 33810.60339562806,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000008696710059782718",
+            "extra": "mean: 29.576520368438818 usec\nrounds: 6407"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 151437.77259300364,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000068273731259016055",
+            "extra": "mean: 6.60337234810993 usec\nrounds: 15601"
           }
         ]
       }
