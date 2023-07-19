@@ -11,7 +11,7 @@ require (
 	github.com/ringsaturn/tzf-rel v0.0.2023-b
 	github.com/tidwall/lotsa v1.0.3
 	github.com/zsefvlol/timezonemapper v1.0.0
-	google.golang.org/protobuf v1.30.0
+	google.golang.org/protobuf v1.31.0
 )
 
 require (
