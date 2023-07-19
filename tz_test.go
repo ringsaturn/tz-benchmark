@@ -4,13 +4,11 @@ import (
 	"bytes"
 	"fmt"
 	"math/rand"
-	"os"
 	"runtime"
 	"testing"
 
 	"github.com/albertyw/localtimezone/v3"
 	"github.com/bradfitz/latlong"
-	timezone "github.com/evanoberholster/timezoneLookup/v2"
 	"github.com/loov/hrtime/hrtesting"
 	gocitiesjson "github.com/ringsaturn/go-cities.json"
 	"github.com/ringsaturn/tzf"
@@ -31,14 +29,12 @@ var GlobalIterTestSets []Point
 var (
 	finder     tzf.F
 	fullFinder tzf.F
-	tzc        timezone.Timezonecache
 	z          localtimezone.LocalTimeZone
 )
 
 func init() {
 	initLite()
 	initFull()
-	inittzlookup()
 	initGlobalTestSets()
 	initLocaltimezone()
 }
@@ -57,18 +53,6 @@ func initFull() {
 	fullFinder = _finder
 }
 
-func inittzlookup() {
-	f, err := os.Open("timezone.data")
-	if err != nil {
-		panic(err)
-	}
-	defer f.Close()
-	if err = tzc.Load(f); err != nil {
-		panic(err)
-	}
-	// defer tzc.Close()
-}
-
 func initGlobalTestSets() {
 	for lng := -180; lng <= 180; lng++ {
 		for lat := -90; lat <= 90; lat++ {
@@ -85,34 +69,6 @@ func initLocaltimezone() {
 	z, err = localtimezone.NewLocalTimeZone()
 	if err != nil {
 		panic(err)
-	}
-}
-
-func BenchmarkTimezoneLookup_Random(b *testing.B) {
-	bench := hrtesting.NewBenchmark(b)
-	defer bench.Report()
-	for bench.Next() {
-		p := GlobalIterTestSets[rand.Intn(len(GlobalIterTestSets))]
-		_, _ = tzc.Search(p.Lat, p.Lng)
-	}
-}
-
-func BenchmarkTimezoneLookup_Random_WorldCities(b *testing.B) {
-	bench := hrtesting.NewBenchmark(b)
-	defer bench.Report()
-	for bench.Next() {
-		p := gocitiesjson.Cities[rand.Intn(len(gocitiesjson.Cities))]
-		_, _ = tzc.Search(p.Lat, p.Lng)
-	}
-}
-
-func BenchmarkTimezoneLookup_Gloabl(b *testing.B) {
-	bench := hrtesting.NewBenchmark(b)
-	defer bench.Report()
-	for bench.Next() {
-		for _, p := range GlobalIterTestSets {
-			_, _ = tzc.Search(p.Lat, p.Lng)
-		}
 	}
 }
 
@@ -282,17 +238,6 @@ func TestTZFFullFinder_IterAllCities(t *testing.T) {
 	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
 		city := gocitiesjson.Cities[i]
 		_ = fullFinder.GetTimezoneName(city.Lng, city.Lat)
-	})
-	testing.Verbose()
-	t.Log(wri.String())
-}
-
-func TestTimezonecache_IterAllCities(t *testing.T) {
-	wri := bytes.NewBufferString(fmt.Sprintf("%v\t", t.Name()))
-	lotsa.Output = wri
-	lotsa.Ops(len(gocitiesjson.Cities), runtime.NumCPU(), func(i, _ int) {
-		city := gocitiesjson.Cities[i]
-		_, _ = tzc.Search(city.Lat, city.Lng)
 	})
 	testing.Verbose()
 	t.Log(wri.String())
