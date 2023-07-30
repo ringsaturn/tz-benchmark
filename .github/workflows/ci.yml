@@ -179,7 +179,7 @@ jobs:
         uses: benchmark-action/github-action-benchmark@v1.17.0
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
-          name: Go Library Benchmark
+          name: Rust Library Benchmark
           tool: "cargo"
           output-file-path: benchmark_result.txt
           github-token: ${{ secrets.CI_TOKEN }}
