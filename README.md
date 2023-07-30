@@ -81,4 +81,6 @@ Legend:
 
 ## Rust
 
-TODO
+```
+test benches_tzf_default::bench_default_finder_random_city ... bench:       2,748 ns/iter (+/- 209)
+```
