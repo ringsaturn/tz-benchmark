@@ -1,3 +1,8 @@
 timezoneLookup/
 timezone.data
 output.json
+
+
+# Added by cargo
+
+/target

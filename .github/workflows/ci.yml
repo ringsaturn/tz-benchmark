@@ -16,8 +16,8 @@ jobs:
   bench-go:
     runs-on: ubuntu-latest
     strategy:
-        matrix:
-          go-version: ["1.19"]
+      matrix:
+        go-version: ["1.19"]
 
     steps:
       - uses: actions/checkout@v3
@@ -96,8 +96,8 @@ jobs:
     env:
       COLUMNS: 120
     strategy:
-        matrix:
-          python-version: ["3.11"]
+      matrix:
+        python-version: ["3.11"]
 
     steps:
       - uses: actions/checkout@v3
@@ -158,8 +158,60 @@ jobs:
           name: "benchmark_result_as_md"
           path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
+  bench-rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup | Rust
+        uses: ATiltedTree/setup-rust@v1
+        with:
+          rust-version: nightly
+
+      - name: Setup benchmark file name
+        id: gen-benchmark-file-name
+        run: |
+          echo "filename=tz_benchmark_rust.md" >> $GITHUB_OUTPUT
+
+      - name: Bench Python
+        run: |
+          pytest tz_test.py --memray --benchmark-json output.json | tee benchmark_result.txt
+
+      - name: Run benchmark
+        run: cargo +nightly bench | tee benchmark_result.txt
+
+      - name: Continuous Benchmark
+        uses: benchmark-action/github-action-benchmark@v1.17.0
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          name: Go Library Benchmark
+          tool: "cargo"
+          output-file-path: benchmark_result.txt
+          github-token: ${{ secrets.CI_TOKEN }}
+          gh-repository: "github.com/ringsaturn/tz-benchmark"
+          auto-push: true
+          alert-threshold: "150%"
+          comment-on-alert: false
+          fail-on-alert: false
+          gh-pages-branch: "gh-pages"
+          benchmark-data-dir-path: "docs/"
+          alert-comment-cc-users: "@ringsaturn"
+
+      - name: Report
+        run: |
+          set +e
+          echo "## Rust" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: "benchmark_result_as_md"
+          path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
+
   summary:
-    needs: [bench-go, build-python]
+    needs: [bench-go, build-python, bench-rust]
     runs-on: ubuntu-latest
     steps:
       - name: Download a Build Artifact
