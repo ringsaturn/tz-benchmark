@@ -170,10 +170,6 @@ jobs:
         run: |
           echo "filename=tz_benchmark_rust.md" >> $GITHUB_OUTPUT
 
-      - name: Bench Python
-        run: |
-          pytest tz_test.py --memray --benchmark-json output.json | tee benchmark_result.txt
-
       - run: cargo build
 
       - name: Run benchmark
