@@ -27,15 +27,6 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
-      - uses: actions/cache@v3
-        with:
-          path: |
-            /tmp/geoJSON.zip
-            ~/timezone.data
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
-
       - name: Build
         run: make setup
 
@@ -105,15 +96,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-
       - name: Build
         run: |
           pip install -r requirements.txt
-          pip install pytest-memray
 
       - name: Setup benchmark file name
         id: gen-benchmark-file-name
@@ -123,7 +108,7 @@ jobs:
       - name: Bench Python
         run: |
           # ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          pytest tz_test.py --memray --benchmark-json output.json | tee benchmark_result.txt
+          pytest tz_test.py --benchmark-json output.json | tee benchmark_result.txt
 
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.18.0
