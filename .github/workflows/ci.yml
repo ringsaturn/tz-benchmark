@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: ["1.19"]
+        go-version: ["1.20"]
 
     steps:
       - uses: actions/checkout@v3
@@ -26,15 +26,6 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: ${{ matrix.go-version }}
-
-      - uses: actions/cache@v3
-        with:
-          path: |
-            /tmp/geoJSON.zip
-            ~/timezone.data
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
 
       - name: Build
         run: make setup
@@ -77,11 +68,6 @@ jobs:
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          ehco '' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo "lotsa benchmark:" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          cat benchmark_lotsa_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -89,7 +75,7 @@ jobs:
           name: "benchmark_result_as_md"
           path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
-  build-python:
+  bench-python:
     runs-on: ubuntu-latest
     env:
       COLUMNS: 120
@@ -105,15 +91,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-
       - name: Build
         run: |
           pip install -r requirements.txt
-          pip install pytest-memray
 
       - name: Setup benchmark file name
         id: gen-benchmark-file-name
@@ -123,7 +103,7 @@ jobs:
       - name: Bench Python
         run: |
           # ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          pytest tz_test.py --memray --benchmark-json output.json | tee benchmark_result.txt
+          pytest tz_test.py --benchmark-json output.json | tee benchmark_result.txt
 
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.18.0
@@ -160,10 +140,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup | Rust
-        uses: ATiltedTree/setup-rust@v1
+
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
-          rust-version: nightly
+          toolchain: nightly
 
       - name: Setup benchmark file name
         id: gen-benchmark-file-name
@@ -207,7 +187,7 @@ jobs:
           path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
   summary:
-    needs: [bench-go, build-python, bench-rust]
+    needs: [bench-go, bench-python, bench-rust]
     runs-on: ubuntu-latest
     steps:
       - name: Download a Build Artifact
@@ -216,5 +196,5 @@ jobs:
           name: "benchmark_result_as_md"
           path: ""
 
-      - name: Summary
+      - name: Make Summary
         run: cat tz_benchmark_*.md > $GITHUB_STEP_SUMMARY
