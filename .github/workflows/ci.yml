@@ -64,7 +64,6 @@ jobs:
         run: |
           set +e
           echo "## Go ${{ matrix.go-version }}" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo "std benchmark:" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
