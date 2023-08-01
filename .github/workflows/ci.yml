@@ -75,7 +75,7 @@ jobs:
           name: "benchmark_result_as_md"
           path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
-  build-python:
+  bench-python:
     runs-on: ubuntu-latest
     env:
       COLUMNS: 120
@@ -187,7 +187,7 @@ jobs:
           path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
   summary:
-    needs: [bench-go, build-python, bench-rust]
+    needs: [bench-go, bench-python, bench-rust]
     runs-on: ubuntu-latest
     steps:
       - name: Download a Build Artifact
@@ -196,5 +196,5 @@ jobs:
           name: "benchmark_result_as_md"
           path: ""
 
-      - name: Summary
+      - name: Make Summary
         run: cat tz_benchmark_*.md > $GITHUB_STEP_SUMMARY
