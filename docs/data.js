@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690865291976,
+  "lastUpdate": 1690865300685,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -55248,6 +55248,36 @@ window.BENCHMARK_DATA = {
             "name": "benches_tzf_default::bench_default_finder_random_city",
             "value": 2732,
             "range": "± 215",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "55501fc91ca5945d0dea0a41ba26d8d5358d1fb3",
+          "message": "Update Dependabot",
+          "timestamp": "2023-08-01T12:46:03+08:00",
+          "tree_id": "9fdba9bcac9c41f2c539637197379e5371b151a4",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/55501fc91ca5945d0dea0a41ba26d8d5358d1fb3"
+        },
+        "date": 1690865297863,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tzf_default::bench_default_finder_random_city",
+            "value": 3020,
+            "range": "± 367",
             "unit": "ns/iter"
           }
         ]
