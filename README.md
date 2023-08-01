@@ -1,86 +1,78 @@
 # tz-benchmark
 
-Benchmark runs under Intel i9-9880H (16) @ 2.30GHz with [Commit]
+Benchmarks ran [`9d0a532`][commit] in GitHub Actions.
 
-[Commit]: https://github.com/ringsaturn/tz-benchmark/commit/795cdce7ef02f320113772377f259f4dc7aa9e1c
+[Commit]: https://github.com/ringsaturn/tz-benchmark/commit/9d0a532fc7ece699ecefa6fabbcdc0f74a574307
 
-## Go
+## Go 1.19
 
-Benchmarks:
+std benchmark:
 
 ```
 go test -bench=. -benchmem ./...
-goos: darwin
+goos: linux
 goarch: amd64
 pkg: github.com/ringsaturn/tz-benchmark
-cpu: Intel(R) Core(TM) i9-9880H CPU @ 2.30GHz
-BenchmarkTimezoneLookup_Random-16                          34921             31067 ns/op             14000 ns/p50            84000 ns/p90           219000 ns/p99              8 B/op          0 allocs/op
-BenchmarkTimezoneLookup_Random_WorldCities-16              14049             82561 ns/op             67000 ns/p50           180000 ns/p90           343000 ns/p99              8 B/op          0 allocs/op
-BenchmarkTimezoneLookup_Gloabl-16                              1        1765216598 ns/op              80 B/op          2 allocs/op
-BenchmarkTZF_Lite_Random-16                               485732              2449 ns/op              1000 ns/p50             6000 ns/p90            18000 ns/p99              8 B/op          0 allocs/op
-BenchmarkTZF_Lite_Gloabl-16                                    9         119102212 ns/op         119900000 ns/p50             16 B/op          0 allocs/op
-BenchmarkTZF_Lite_Random_WorldCities-16                   440616              2547 ns/op              1000 ns/p50             9000 ns/p90            18000 ns/p99              8 B/op          0 allocs/op
-BenchmarkTZF_Full_Random-16                               120902              9592 ns/op             10000 ns/p50            13000 ns/p90            31000 ns/p99              8 B/op          0 allocs/op
-BenchmarkTZF_Full_Random_WorldCities-16                   132006              9561 ns/op              9000 ns/p50            15000 ns/p90            30000 ns/p99              8 B/op          0 allocs/op
-BenchmarkTZF_Full_Gloabl-16                                    2         554684152 ns/op              40 B/op          1 allocs/op
-BenchmarkLatlong_Random-16                               2588578               458.9 ns/op               0 ns/p50             1000 ns/p90             1000 ns/p99              8 B/op          0 allocs/op
-BenchmarkLatlong_Random_WorldCities-16                   2635825               466.2 ns/op               0 ns/p50             1000 ns/p90             1000 ns/p99              8 B/op          0 allocs/op
-BenchmarkLatlong_Global-16                                    76          13781687 ns/op          13680000 ns/p50         14181000 ns/p90              9 B/op          0 allocs/op
-BenchmarkLocaltimezone_Random-16                            6250            167436 ns/op            164000 ns/p50           201000 ns/p90           262000 ns/p99          37056 B/op        845 allocs/op
-BenchmarkLocaltimezone_Random_WorldCities-16                7060            152090 ns/op            141000 ns/p50           216000 ns/p90           241000 ns/p99          37056 B/op        845 allocs/op
-BenchmarkLocaltimezone_Global-16                               1        10518504160 ns/op       2420674176 B/op 55244214 allocs/op
-BenchmarkTimezoneMapper_Random-16                        4469755               274.3 ns/op               0 ns/p50             1000 ns/p90             1000 ns/p99              8 B/op          0 allocs/op
-BenchmarkTimezoneMapper_Random_WorldCities-16            3318540               340.8 ns/op               0 ns/p50             1000 ns/p90             1000 ns/p99              8 B/op          0 allocs/op
-BenchmarkTimezoneMapper_Global-16                            698           1703400 ns/op           1700000 ns/p50          1786000 ns/p90          2248000 ns/p99              8 B/op          0 allocs/op
+cpu: Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz
+BenchmarkTZF_Lite_Random-2                     	  385284	      2796 ns/op	      1300 ns/p50	      6800 ns/p90	     17900 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkTZF_Lite_Gloabl-2                     	       8	 144234722 ns/op	 141896529 ns/p50	      16 B/op	       0 allocs/op
+BenchmarkTZF_Lite_Random_WorldCities-2         	  421426	      2755 ns/op	      1300 ns/p50	     10200 ns/p90	     16200 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkTZF_Full_Random-2                     	  103034	     11578 ns/op	     13300 ns/p50	     15000 ns/p90	     21400 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkTZF_Full_Random_WorldCities-2         	  121387	      9805 ns/op	     10000 ns/p50	     14300 ns/p90	     23500 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkTZF_Full_Gloabl-2                     	       2	 638091284 ns/op	      40 B/op	       1 allocs/op
+BenchmarkLatlong_Random-2                      	 2192751	       542.2 ns/op	       500.0 ns/p50	       900.0 ns/p90	      1000 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkLatlong_Random_WorldCities-2          	 2393151	       500.3 ns/op	       400.0 ns/p50	       800.0 ns/p90	      1100 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkLatlong_Global-2                      	      61	  19215028 ns/op	  19208564 ns/p50	  19237965 ns/p90	       9 B/op	       0 allocs/op
+BenchmarkLocaltimezone_Random-2                	   17145	     69225 ns/op	     40501 ns/p50	    161702 ns/p90	    332703 ns/p99	      37 B/op	       2 allocs/op
+BenchmarkLocaltimezone_Random_WorldCities-2    	   12643	     95776 ns/op	     69600 ns/p50	    206402 ns/p90	    344403 ns/p99	      24 B/op	       1 allocs/op
+BenchmarkLocaltimezone_Global-2                	       1	4105927874 ns/op	 1915896 B/op	  136576 allocs/op
+BenchmarkTimezoneMapper_Random-2               	 4530771	       261.8 ns/op	       200.0 ns/p50	       400.0 ns/p90	       500.0 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkTimezoneMapper_Random_WorldCities-2   	 3371113	       356.1 ns/op	       300.0 ns/p50	       500.0 ns/p90	       700.0 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkTimezoneMapper_Global-2               	     530	   2252251 ns/op	   2252119 ns/p50	   2264619 ns/p90	   2311520 ns/p99	       9 B/op	       0 allocs/op
 PASS
-ok      github.com/ringsaturn/tz-benchmark      52.850s
+ok  	github.com/ringsaturn/tz-benchmark	53.461s
 ```
 
-Concurrency benchmark with [lotsa]:
-
-[lotsa]: https://github.com/tidwall/lotsa
+lotsa benchmark:
 
 ```
-tz_test.go:276: TestTZFDefaultFinder_IterAllCities  140,705 ops over 16 threads in 44ms, 3,164,940/sec, 315 ns/op
-tz_test.go:287: TestTZFFullFinder_IterAllCities     140,705 ops over 16 threads in 163ms, 862,501/sec, 1159 ns/op
-tz_test.go:298: TestTimezonecache_IterAllCities     140,705 ops over 16 threads in 2104ms, 66,881/sec, 14951 ns/op
-tz_test.go:312: TestLocaltimezone_IterAllCities     140,705 ops over 16 threads in 6652ms, 21,150/sec, 47279 ns/op
-tz_test.go:323: TestBradtitzLatlong_IterAllCities   140,705 ops over 16 threads in 12ms, 11,472,372/sec, 87 ns/op
-tz_test.go:334: TestTimezonemapper_IterAllCities    140,705 ops over 16 threads in 2ms, 83,395,863/sec, 11 ns/op
+tz_test.go:232: TestTZFDefaultFinder_IterAllCities	140,962 ops over 2 threads in 167ms, 843,779/sec, 1185 ns/op
+tz_test.go:243: TestTZFFullFinder_IterAllCities	140,962 ops over 2 threads in 608ms, 231,865/sec, 4312 ns/op
+tz_test.go:257: TestLocaltimezone_IterAllCities	140,962 ops over 2 threads in 6810ms, 20,699/sec, 48310 ns/op
+tz_test.go:268: TestBradtitzLatlong_IterAllCities	140,962 ops over 2 threads in 23ms, 6,206,981/sec, 161 ns/op
+tz_test.go:279: TestTimezonemapper_IterAllCities	140,962 ops over 2 threads in 5ms, 27,384,396/sec, 36 ns/op
 ```
 
-
-## Python
+## Python 3.11
 
 ```
-platform darwin -- Python 3.9.13, pytest-7.2.0, pluggy-1.0.0
-benchmark: 4.0.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
-rootdir: /Users/ringsaturn/go/src/github.com/ringsaturn/tz-benchmark
-plugins: benchmark-4.0.0
-collected 7 items                                                                                                                                                                                         
-
-tz_test.py .......                                                                                                                                                                                  [100%]
-
-
------------------------------------------------------------------------------------------------------------------ benchmark: 7 tests ----------------------------------------------------------------------------------------------------------------
-Name (time in us)                                 Min                       Max                      Mean                  StdDev                    Median                     IQR              Outliers           OPS            Rounds  Iterations
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-test_tzfpy_random_cities                       1.3370 (1.0)            182.1550 (1.0)              3.9050 (1.0)            6.2396 (1.0)              1.9405 (1.0)            0.3980 (1.0)      9828;15067  256,078.8050 (1.0)       97638           1
-test_timezonefinder_random_city                5.6320 (4.21)           732.6130 (4.02)            56.5222 (14.47)         76.5955 (12.28)           13.3020 (6.85)          65.9140 (165.61)    4233;2668   17,692.1693 (0.07)      31562           1
-test_tzfpy_random                             18.6440 (13.94)          220.5240 (1.21)            23.4121 (6.00)          10.9208 (1.75)            20.0450 (10.33)          1.3328 (3.35)      1342;3084   42,712.9600 (0.17)      16903           1
-test_timezonefinder_random                    25.5300 (19.09)          681.0150 (3.74)            52.0832 (13.34)         52.1714 (8.36)            30.5760 (15.76)         19.9755 (50.19)     1755;2895   19,200.0332 (0.07)      18601           1
-test_timezonefinder_random_certain            66.0730 (49.42)          842.3890 (4.62)           202.9903 (51.98)        120.4955 (19.31)          167.1750 (86.15)        163.6025 (411.06)         64;3    4,926.3436 (0.02)        233           1
-test_tzfpy_iter_global                   323,409.5730 (>1000.0)    334,515.8410 (>1000.0)    329,384.1058 (>1000.0)    4,987.2047 (799.29)     328,634.7640 (>1000.0)    9,107.7512 (>1000.0)         3;0        3.0360 (0.00)          5           1
-test_timezonefinder_iter_global        3,803,106.3200 (>1000.0)  4,591,043.4570 (>1000.0)  4,135,805.8456 (>1000.0)  323,996.8135 (>1000.0)  3,973,038.5630 (>1000.0)  486,804.8987 (>1000.0)         2;0        0.2418 (0.00)          5           1
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------- benchmark: 7 tests --------------------------------------------------------------------------------------------------------------
+Name (time in us)                                 Min                       Max                      Mean                 StdDev                    Median                    IQR            Outliers           OPS            Rounds  Iterations
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_tzfpy_random_cities                       4.8000 (1.0)            155.2130 (1.01)             8.5209 (1.0)           8.4224 (1.0)              5.7010 (1.0)           0.6000 (1.0)     1336;2053  117,358.6961 (1.0)       12269           1
+test_timezonefinder_random_city               14.2010 (2.96)         1,718.6420 (11.17)          134.7227 (15.81)       201.5832 (23.93)           23.4020 (4.10)        160.9630 (268.27)    289;194    7,422.6516 (0.06)       2245           1
+test_tzfpy_random                             37.7030 (7.85)           153.9130 (1.0)             42.0572 (4.94)         11.0811 (1.32)            38.9030 (6.82)          0.9000 (1.50)      366;678   23,777.1158 (0.20)       4630           1
+test_timezonefinder_random                    49.3040 (10.27)        1,618.8350 (10.52)          101.6232 (11.93)       127.3918 (15.13)           52.9040 (9.28)         28.9530 (48.25)     311;695    9,840.2735 (0.08)       3715           1
+test_timezonefinder_random_certain           125.4110 (26.13)        2,122.1760 (13.79)          435.9202 (51.16)       262.6790 (31.19)          390.6820 (68.53)       367.3305 (612.22)     451;31    2,293.9980 (0.02)       1424           1
+test_tzfpy_iter_global                   615,899.0170 (>1000.0)    617,025.5100 (>1000.0)    616,420.7602 (>1000.0)     450.0876 (53.44)      616,474.4650 (>1000.0)     706.0835 (>1000.0)       2;0        1.6223 (0.00)          5           1
+test_timezonefinder_iter_global        9,002,535.1720 (>1000.0)  9,087,542.0630 (>1000.0)  9,042,564.9744 (>1000.0)  32,747.8838 (>1000.0)  9,048,877.1380 (>1000.0)  46,377.0805 (>1000.0)       2;0        0.1106 (0.00)          5           1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Legend:
   Outliers: 1 Standard Deviation from Mean; 1.5 IQR (InterQuartile Range) from 1st Quartile and 3rd Quartile.
   OPS: Operations Per Second, computed as 1 / Mean
+Results (76.21s):
+         7 passed
 ```
 
 ## Rust
 
 ```
-test benches_tzf_default::bench_default_finder_random_city ... bench:       2,748 ns/iter (+/- 209)
+running 4 tests
+test benches_tz_crates::bench_tz_search_lookup_random_city   ... bench:         248 ns/iter (+/- 51)
+test benches_tz_crates::bench_tzf_default_finder_random_city ... bench:       3,169 ns/iter (+/- 215)
+test benches_tz_crates::bench_tzf_finder_random_city         ... bench:      15,500 ns/iter (+/- 1,146)
+test benches_tz_crates::bench_tzf_fuzzy_finder_random_city   ... bench:         970 ns/iter (+/- 13)
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 4 measured; 0 filtered out; finished in 15.42s
 ```
