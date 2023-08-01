@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690865300685,
+  "lastUpdate": 1690865497560,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -55278,6 +55278,36 @@ window.BENCHMARK_DATA = {
             "name": "benches_tzf_default::bench_default_finder_random_city",
             "value": 3020,
             "range": "± 367",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8c5912c9bafa0ad96ba7356ad17b58f1d4faea2c",
+          "message": "Bump benchmark-action/github-action-benchmark from 1.17.0 to 1.18.0 (#113)\n\nBumps [benchmark-action/github-action-benchmark](https://github.com/benchmark-action/github-action-benchmark) from 1.17.0 to 1.18.0.\r\n- [Release notes](https://github.com/benchmark-action/github-action-benchmark/releases)\r\n- [Changelog](https://github.com/benchmark-action/github-action-benchmark/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/benchmark-action/github-action-benchmark/compare/v1.17.0...v1.18.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: benchmark-action/github-action-benchmark\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-08-01T12:49:40+08:00",
+          "tree_id": "cb05deb5e8cbd7e03bb5cdab1ee79fe56cbf78ef",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/8c5912c9bafa0ad96ba7356ad17b58f1d4faea2c"
+        },
+        "date": 1690865494559,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tzf_default::bench_default_finder_random_city",
+            "value": 3299,
+            "range": "± 237",
             "unit": "ns/iter"
           }
         ]
