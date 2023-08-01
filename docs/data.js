@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690865520583,
+  "lastUpdate": 1690865527961,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -55891,6 +55891,36 @@ window.BENCHMARK_DATA = {
             "name": "benches_tzf_default::bench_default_finder_random_city",
             "value": 3299,
             "range": "± 237",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "812115f0a0f21e8dff020287e38eb3b05e3c42e5",
+          "message": "Bump tzf-rs from 0.4.1 to 0.4.3 (#114)\n\nBumps [tzf-rs](https://github.com/ringsaturn/tzf-rs) from 0.4.1 to 0.4.3.\r\n- [Release notes](https://github.com/ringsaturn/tzf-rs/releases)\r\n- [Commits](https://github.com/ringsaturn/tzf-rs/compare/v0.4.1...v0.4.3)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: tzf-rs\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-08-01T12:50:42+08:00",
+          "tree_id": "36d6e667a73dd36eb71d4b2030799861100b65eb",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/812115f0a0f21e8dff020287e38eb3b05e3c42e5"
+        },
+        "date": 1690865524955,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tzf_default::bench_default_finder_random_city",
+            "value": 3099,
+            "range": "± 199",
             "unit": "ns/iter"
           }
         ]
