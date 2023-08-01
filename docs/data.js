@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690901051523,
+  "lastUpdate": 1690901438291,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -57135,6 +57135,54 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
             "value": 970,
             "range": "± 13",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "6bd31ca65f99e86a8ffcbd19e2901c573f7ebe74",
+          "message": "Update README",
+          "timestamp": "2023-08-01T22:49:05+08:00",
+          "tree_id": "2e3651217c5b5e80808d395b3be67ad16b1e8178",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/6bd31ca65f99e86a8ffcbd19e2901c573f7ebe74"
+        },
+        "date": 1690901435913,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 275,
+            "range": "± 26",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3240,
+            "range": "± 244",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 15320,
+            "range": "± 1270",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 962,
+            "range": "± 15",
             "unit": "ns/iter"
           }
         ]
