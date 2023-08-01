@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690865497560,
+  "lastUpdate": 1690865511996,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -26887,6 +26887,79 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000010860148093650357",
             "extra": "mean: 8.681792794262881 usec\nrounds: 17514"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8c5912c9bafa0ad96ba7356ad17b58f1d4faea2c",
+          "message": "Bump benchmark-action/github-action-benchmark from 1.17.0 to 1.18.0 (#113)\n\nBumps [benchmark-action/github-action-benchmark](https://github.com/benchmark-action/github-action-benchmark) from 1.17.0 to 1.18.0.\r\n- [Release notes](https://github.com/benchmark-action/github-action-benchmark/releases)\r\n- [Changelog](https://github.com/benchmark-action/github-action-benchmark/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/benchmark-action/github-action-benchmark/compare/v1.17.0...v1.18.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: benchmark-action/github-action-benchmark\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-08-01T12:49:40+08:00",
+          "tree_id": "cb05deb5e8cbd7e03bb5cdab1ee79fe56cbf78ef",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/8c5912c9bafa0ad96ba7356ad17b58f1d4faea2c"
+        },
+        "date": 1690865509099,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_iter_global",
+            "value": 0.11058322771744154,
+            "unit": "iter/sec",
+            "range": "stddev: 0.012622834961185929",
+            "extra": "mean: 9.0429626684 sec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_iter_global",
+            "value": 1.6445620538305792,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00048473570956007907",
+            "extra": "mean: 608.0646198000011 msec\nrounds: 5"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_certain",
+            "value": 2278.4525975989513,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0002571496671095431",
+            "extra": "mean: 438.89436236409165 usec\nrounds: 1286"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random",
+            "value": 9716.56073381628,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0001221556447725964",
+            "extra": "mean: 102.91707399303617 usec\nrounds: 3649"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 7651.958942915953,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000195949116891911",
+            "extra": "mean: 130.68548948838546 usec\nrounds: 5708"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random",
+            "value": 23261.101872570347,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000011381794958196193",
+            "extra": "mean: 42.990224860293786 usec\nrounds: 4296"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 117077.15713800036,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000009072853538367328",
+            "extra": "mean: 8.541375828089906 usec\nrounds: 10417"
           }
         ]
       }
