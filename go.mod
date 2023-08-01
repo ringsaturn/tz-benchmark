@@ -1,6 +1,6 @@
 module github.com/ringsaturn/tz-benchmark
 
-go 1.19
+go 1.20
 
 require (
 	github.com/albertyw/localtimezone/v3 v3.1.3
@@ -25,7 +25,7 @@ require (
 	github.com/tidwall/rtree v1.10.0 // indirect
 	github.com/twpayne/go-polyline v1.1.1 // indirect
 	go.mongodb.org/mongo-driver v1.12.0 // indirect
-	golang.org/x/exp v0.0.0-20230713183714-613f0c0eb8a1 // indirect
+	golang.org/x/exp v0.0.0-20230801115018-d63ba01acd4b // indirect
 	golang.org/x/image v0.0.0-20220722155232-062f8c9fd539 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
 )
