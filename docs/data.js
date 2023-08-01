@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690903486253,
+  "lastUpdate": 1690903500633,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -208,6 +208,56 @@ window.BENCHMARK_DATA = {
             "value": 0,
             "unit": "allocs/op",
             "extra": "2811265 times\n2 procs"
+          }
+        ]
+      }
+    ],
+    "Rust Library Benchmark": [
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1f09e51acc184385df56e08aa2a219daf1aa643b",
+          "message": "Clean projects (#116)",
+          "timestamp": "2023-08-01T23:23:31+08:00",
+          "tree_id": "fd8a37ecef5f49462d8ad9926d65e8824e1f755c",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/1f09e51acc184385df56e08aa2a219daf1aa643b"
+        },
+        "date": 1690903498603,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 276,
+            "range": "± 26",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3251,
+            "range": "± 247",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 15453,
+            "range": "± 818",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 967,
+            "range": "± 15",
+            "unit": "ns/iter"
           }
         ]
       }
