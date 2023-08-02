@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 tzf-rs = "0.4.3"
-cities-json = "0.3.8"
+cities-json = "*"
 tz-search = "0.1.1"
 
 [profile.bench]
