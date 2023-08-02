@@ -150,7 +150,7 @@ jobs:
       - run: cargo build
 
       - name: Run benchmark
-        run: cargo +nightly bench | tee benchmark_result.txt
+        run: cargo bench | tee benchmark_result.txt
 
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.18.0
