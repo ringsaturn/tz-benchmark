@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690982998653,
+  "lastUpdate": 1690983018174,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -1177,6 +1177,54 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
             "value": 1132,
             "range": "± 15",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "819467e75f8c2aa04c1995988f1e13b9ac784028",
+          "message": "typo",
+          "timestamp": "2023-08-02T21:29:11+08:00",
+          "tree_id": "dd8727e70655f48202037c8bdc7992adf4313d74",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/819467e75f8c2aa04c1995988f1e13b9ac784028"
+        },
+        "date": 1690983015354,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 220,
+            "range": "± 59",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3004,
+            "range": "± 394",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 12783,
+            "range": "± 1525",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 1113,
+            "range": "± 239",
             "unit": "ns/iter"
           }
         ]
