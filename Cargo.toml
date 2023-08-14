@@ -9,6 +9,11 @@ edition = "2021"
 tzf-rs = "0.4.3"
 cities-json = "*"
 tz-search = "0.1.1"
+# rtz = {version = "0.5.3", features = ["full"]}
+rtz = { git = "https://github.com/twitchax/rtz", features = [
+    "full",
+    "self-contained",
+], rev = "021eab5" }
 
 [profile.bench]
 lto = true
