@@ -175,8 +175,7 @@ checksum = "8c3c1a368f70d6cf7302d78f8f7093da241fb8e8807c05cc9e51a125895a6d5b"
 [[package]]
 name = "bincode"
 version = "2.0.0-rc.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f11ea1a0346b94ef188834a65c068a03aec181c94896d481d7a0a40d85b0ce95"
+source = "git+https://github.com/bincode-org/bincode.git#224e41274b089e3833a3533459f5c5758c43ab2c"
 dependencies = [
  "bincode_derive",
  "serde",
@@ -185,8 +184,7 @@ dependencies = [
 [[package]]
 name = "bincode_derive"
 version = "2.0.0-rc.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7e30759b3b99a1b802a7a3aa21c85c3ded5c28e1c83170d82d70f08bbf7f3e4c"
+source = "git+https://github.com/bincode-org/bincode.git#224e41274b089e3833a3533459f5c5758c43ab2c"
 dependencies = [
  "virtue",
 ]
@@ -1626,9 +1624,8 @@ dependencies = [
 
 [[package]]
 name = "rtz"
-version = "0.5.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "af077795862b01473f46696b43b125203a7c5491306a1c25eaea3d2ef1fc8d48"
+version = "0.5.4"
+source = "git+https://github.com/twitchax/rtz?rev=4ccd2fdfa292b2de3260f221abede8a6525a8437#4ccd2fdfa292b2de3260f221abede8a6525a8437"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1653,8 +1650,7 @@ dependencies = [
 [[package]]
 name = "rtz-build"
 version = "0.2.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ce9bd679dc64e1f46145376204805cdee9623bbb08587dce890fff50e50bab1f"
+source = "git+https://github.com/twitchax/rtz?rev=4ccd2fdfa292b2de3260f221abede8a6525a8437#4ccd2fdfa292b2de3260f221abede8a6525a8437"
 dependencies = [
  "rtz-core",
 ]
@@ -1662,8 +1658,7 @@ dependencies = [
 [[package]]
 name = "rtz-core"
 version = "0.1.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9ff26c70b0bab49b903549be284c033b08bcd2fe1a7d47cf7972eed33b8553d2"
+source = "git+https://github.com/twitchax/rtz?rev=4ccd2fdfa292b2de3260f221abede8a6525a8437#4ccd2fdfa292b2de3260f221abede8a6525a8437"
 dependencies = [
  "anyhow",
  "bincode",
@@ -2174,9 +2169,9 @@ checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
 
 [[package]]
 name = "virtue"
-version = "0.0.13"
+version = "0.0.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9dcc60c0624df774c82a0ef104151231d37da4962957d691c011c852b2473314"
+checksum = "b522f715ead3537dc57c9907899a08e461a8f1e87fc8414a4a89bbd9854289ff"
 
 [[package]]
 name = "want"

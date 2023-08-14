@@ -4,7 +4,7 @@ extern crate test;
 #[cfg(test)]
 mod benches_tz_crates {
     use cities_json;
-    use rtzlib::NedTimezone;
+    use rtzlib::{NedTimezone, OsmTimezone};
     use test::Bencher;
     use tz_search;
     use tzf_rs::{DefaultFinder, Finder, FuzzyFinder};
@@ -49,6 +49,14 @@ mod benches_tz_crates {
         b.iter(|| {
             let city = cities_json::get_random_cities();
             let _ = NedTimezone::lookup(city.lng as f32, city.lat as f32);
+        });
+    }
+
+    #[bench]
+    fn bench_rtz_get_timezone_osm_random_city(b: &mut Bencher) {
+        b.iter(|| {
+            let city = cities_json::get_random_cities();
+            let _ = OsmTimezone::lookup(city.lng as f32, city.lat as f32);
         });
     }
 }
