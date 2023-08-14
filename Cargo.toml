@@ -13,7 +13,7 @@ tz-search = "0.1.1"
 rtz = { git = "https://github.com/twitchax/rtz", features = [
     "full",
     "self-contained",
-], rev = "4ccd2fdfa292b2de3260f221abede8a6525a8437" }
+], rev = "021eab5" }
 
 [profile.bench]
 lto = true

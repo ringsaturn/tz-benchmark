@@ -1625,7 +1625,7 @@ dependencies = [
 [[package]]
 name = "rtz"
 version = "0.5.4"
-source = "git+https://github.com/twitchax/rtz?rev=4ccd2fdfa292b2de3260f221abede8a6525a8437#4ccd2fdfa292b2de3260f221abede8a6525a8437"
+source = "git+https://github.com/twitchax/rtz?rev=021eab5#021eab51d9343c9c6c01a29d551f233b26320e78"
 dependencies = [
  "anyhow",
  "async-trait",
@@ -1650,7 +1650,7 @@ dependencies = [
 [[package]]
 name = "rtz-build"
 version = "0.2.6"
-source = "git+https://github.com/twitchax/rtz?rev=4ccd2fdfa292b2de3260f221abede8a6525a8437#4ccd2fdfa292b2de3260f221abede8a6525a8437"
+source = "git+https://github.com/twitchax/rtz?rev=021eab5#021eab51d9343c9c6c01a29d551f233b26320e78"
 dependencies = [
  "rtz-core",
 ]
@@ -1658,7 +1658,7 @@ dependencies = [
 [[package]]
 name = "rtz-core"
 version = "0.1.4"
-source = "git+https://github.com/twitchax/rtz?rev=4ccd2fdfa292b2de3260f221abede8a6525a8437#4ccd2fdfa292b2de3260f221abede8a6525a8437"
+source = "git+https://github.com/twitchax/rtz?rev=021eab5#021eab51d9343c9c6c01a29d551f233b26320e78"
 dependencies = [
  "anyhow",
  "bincode",
