@@ -193,7 +193,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: "benchmark_result_as_md"
-          path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          path: ./${{ steps.gen-benchmark-file-name.outputs.filename }}
 
   summary:
     needs: [bench-go, bench-python, bench-rust]
