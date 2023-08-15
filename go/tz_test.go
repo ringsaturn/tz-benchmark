@@ -1,4 +1,4 @@
-package tzbenchmark
+package main_test
 
 import (
 	"math/rand"

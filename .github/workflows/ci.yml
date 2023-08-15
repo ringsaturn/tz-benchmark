@@ -14,6 +14,9 @@ permissions:
 
 jobs:
   bench-go:
+    defaults:
+      run:
+        working-directory: go
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,16 +30,13 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
-      - name: Build
-        run: make setup
-
-      - name: Test
-        run: |
-          make test | grep "ops over" | tee benchmark_lotsa_result.txt
+      # - name: Test
+      #   run: |
+      #     go test -v ./... | grep "ops over" | tee benchmark_lotsa_result.txt
 
       - name: Bench
         run: |
-          make bench | tee benchmark_result.txt
+          go test -bench=. -benchmem ./... | tee benchmark_result.txt
 
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.18.0
@@ -76,6 +76,9 @@ jobs:
 
   bench-python:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
     env:
       COLUMNS: 120
     strategy:
@@ -136,6 +139,9 @@ jobs:
           path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
   bench-rust:
+    defaults:
+      run:
+        working-directory: rust
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
