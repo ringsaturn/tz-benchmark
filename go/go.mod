@@ -1,4 +1,4 @@
-module github.com/ringsaturn/tz-benchmark
+module github.com/ringsaturn/tz-benchmark/go
 
 go 1.20
 

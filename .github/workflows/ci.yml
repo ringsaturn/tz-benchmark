@@ -14,6 +14,9 @@ permissions:
 
 jobs:
   bench-go:
+    defaults:
+      run:
+        working-directory: go
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,16 +30,13 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
-      - name: Build
-        run: make setup
-
-      - name: Test
-        run: |
-          make test | grep "ops over" | tee benchmark_lotsa_result.txt
+      # - name: Test
+      #   run: |
+      #     go test -v ./... | grep "ops over" | tee benchmark_lotsa_result.txt
 
       - name: Bench
         run: |
-          make bench | tee benchmark_result.txt
+          go test -bench=. -benchmem ./... | tee benchmark_result.txt
 
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.18.0
@@ -68,14 +68,20 @@ jobs:
           cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
+      - run: ls -lah
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: "benchmark_result_as_md"
-          path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          path: go/${{ steps.gen-benchmark-file-name.outputs.filename }}
+          if-no-files-found: error
 
   bench-python:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
     env:
       COLUMNS: 120
     strategy:
@@ -129,13 +135,19 @@ jobs:
           cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
+      - run: ls -lah
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: "benchmark_result_as_md"
-          path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          path: python/${{ steps.gen-benchmark-file-name.outputs.filename }}
+          if-no-files-found: error
 
   bench-rust:
+    defaults:
+      run:
+        working-directory: rust
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -146,8 +158,6 @@ jobs:
         id: gen-benchmark-file-name
         run: |
           echo "filename=tz_benchmark_rust.md" >> $GITHUB_OUTPUT
-
-      - run: cargo build --release
 
       - name: Run benchmark
         run: cargo bench | tee benchmark_result.txt
@@ -177,11 +187,14 @@ jobs:
           cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
+      - run: ls -lah
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: "benchmark_result_as_md"
-          path: ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          path: rust/${{ steps.gen-benchmark-file-name.outputs.filename }}
+          if-no-files-found: error
 
   summary:
     needs: [bench-go, bench-python, bench-rust]
