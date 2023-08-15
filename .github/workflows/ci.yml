@@ -68,6 +68,8 @@ jobs:
           cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
+      - run: ls -lah
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -132,6 +134,8 @@ jobs:
           cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
 
+      - run: ls -lah
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -182,6 +186,8 @@ jobs:
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
           echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+
+      - run: ls -lah
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
