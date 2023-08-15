@@ -74,7 +74,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: "benchmark_result_as_md"
-          path: ./${{ steps.gen-benchmark-file-name.outputs.filename }}
+          path: go/${{ steps.gen-benchmark-file-name.outputs.filename }}
+          if-no-files-found: error
 
   bench-python:
     runs-on: ubuntu-latest
@@ -140,7 +141,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: "benchmark_result_as_md"
-          path: ./${{ steps.gen-benchmark-file-name.outputs.filename }}
+          path: python/${{ steps.gen-benchmark-file-name.outputs.filename }}
+          if-no-files-found: error
 
   bench-rust:
     defaults:
@@ -193,7 +195,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: "benchmark_result_as_md"
-          path: ./${{ steps.gen-benchmark-file-name.outputs.filename }}
+          path: rust/${{ steps.gen-benchmark-file-name.outputs.filename }}
+          if-no-files-found: error
 
   summary:
     needs: [bench-go, bench-python, bench-rust]
