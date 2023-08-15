@@ -159,8 +159,6 @@ jobs:
         run: |
           echo "filename=tz_benchmark_rust.md" >> $GITHUB_OUTPUT
 
-      - run: cargo build --release
-
       - name: Run benchmark
         run: cargo bench | tee benchmark_result.txt
 
