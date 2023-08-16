@@ -168,7 +168,7 @@ jobs:
         with:
           name: Rust Library Benchmark
           tool: "cargo"
-          output-file-path: go/benchmark_result.txt
+          output-file-path: rust/benchmark_result.txt
           github-token: ${{ secrets.CI_TOKEN }}
           gh-repository: "github.com/ringsaturn/tz-benchmark"
           auto-push: true
