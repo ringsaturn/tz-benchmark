@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692516957905,
+  "lastUpdate": 1692517001203,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -3443,6 +3443,66 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
             "value": 959,
             "range": "± 13",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5525568995320fbe31483cbcd9acc69d9d65e4c8",
+          "message": "Bump tzf-rs from 0.4.3 to 0.4.4 in /rust (#123)\n\nBumps [tzf-rs](https://github.com/ringsaturn/tzf-rs) from 0.4.3 to 0.4.4.\r\n- [Release notes](https://github.com/ringsaturn/tzf-rs/releases)\r\n- [Changelog](https://github.com/ringsaturn/tzf-rs/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/ringsaturn/tzf-rs/compare/v0.4.3...v0.4.4)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: tzf-rs\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-08-20T15:31:12+08:00",
+          "tree_id": "aff44dbb072f2734b2413fde19ebd8385f584a16",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/5525568995320fbe31483cbcd9acc69d9d65e4c8"
+        },
+        "date": 1692516998953,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 948,
+            "range": "± 160",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 3674,
+            "range": "± 780",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 209,
+            "range": "± 60",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 2781,
+            "range": "± 812",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 12847,
+            "range": "± 2806",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 896,
+            "range": "± 145",
             "unit": "ns/iter"
           }
         ]
