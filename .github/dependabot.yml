@@ -6,11 +6,11 @@
 version: 2
 updates:
   - package-ecosystem: "pip" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directory: "/python" # Location of package manifests
     schedule:
       interval: "monthly"
   - package-ecosystem: "gomod" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directory: "/go" # Location of package manifests
     schedule:
       interval: "monthly"
   - package-ecosystem: "github-actions" # See documentation for possible values
@@ -18,6 +18,6 @@ updates:
     schedule:
       interval: "monthly"
   - package-ecosystem: "cargo" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directory: "/rust" # Location of package manifests
     schedule:
       interval: "monthly"
