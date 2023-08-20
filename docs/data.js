@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692516544593,
+  "lastUpdate": 1692516718890,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -528,6 +528,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00002097859255139184",
             "extra": "mean: 5.583046723341448 usec\nrounds: 77520"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5525568995320fbe31483cbcd9acc69d9d65e4c8",
+          "message": "Bump tzf-rs from 0.4.3 to 0.4.4 in /rust (#123)\n\nBumps [tzf-rs](https://github.com/ringsaturn/tzf-rs) from 0.4.3 to 0.4.4.\r\n- [Release notes](https://github.com/ringsaturn/tzf-rs/releases)\r\n- [Changelog](https://github.com/ringsaturn/tzf-rs/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/ringsaturn/tzf-rs/compare/v0.4.3...v0.4.4)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: tzf-rs\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-08-20T15:31:12+08:00",
+          "tree_id": "aff44dbb072f2734b2413fde19ebd8385f584a16",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/5525568995320fbe31483cbcd9acc69d9d65e4c8"
+        },
+        "date": 1692516716562,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 15629.078921559985,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00009508771512868922",
+            "extra": "mean: 63.98329709759934 usec\nrounds: 7028"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 208716.96647596077,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000008644970018520254",
+            "extra": "mean: 4.791177338787052 usec\nrounds: 68028"
           }
         ]
       }
