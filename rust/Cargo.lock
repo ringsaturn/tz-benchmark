@@ -2047,6 +2047,7 @@ dependencies = [
  "rtz",
  "tz-search",
  "tzf-rs",
+ "zone-detect",
 ]
 
 [[package]]
@@ -2438,6 +2439,15 @@ dependencies = [
  "sha1",
  "time",
  "zstd",
+]
+
+[[package]]
+name = "zone-detect"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0e74aa2b2ce324cbce8b5cade5232885d5a61e03e2089b2a9771a2fe50331a56"
+dependencies = [
+ "thiserror",
 ]
 
 [[package]]
