@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1698629422155,
+  "lastUpdate": 1698890636097,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -1000,6 +1000,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000007286057170952305",
             "extra": "mean: 4.68956604623329 usec\nrounds: 17889"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b5536f460d084240a5b4a077bc7236a543534fe1",
+          "message": "Bump cities-json from 0.4.0 to 0.5.0 in /rust (#127)\n\nBumps [cities-json](https://github.com/ringsaturn/go-cities.json) from 0.4.0 to 0.5.0.\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.4.0...v0.5.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: cities-json\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-11-02T10:03:04+08:00",
+          "tree_id": "83932a24c9ae7c724a333183d5592b601fe05215",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/b5536f460d084240a5b4a077bc7236a543534fe1"
+        },
+        "date": 1698890633606,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 9345.129666028173,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00018262316174896505",
+            "extra": "mean: 107.00761099498106 usec\nrounds: 6694"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 170560.430987734,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000011603793115814367",
+            "extra": "mean: 5.863024584359287 usec\nrounds: 57801"
           }
         ]
       }
