@@ -1,7 +1,6 @@
 module github.com/ringsaturn/tz-benchmark/go
 
-go 1.20
-toolchain go1.21.0
+go 1.21
 
 require (
 	github.com/albertyw/localtimezone/v3 v3.1.3
