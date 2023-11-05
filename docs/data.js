@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1699201128644,
+  "lastUpdate": 1699201343469,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -5797,6 +5797,66 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
             "value": 1130,
             "range": "± 17",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ad9e6aa57aa777df31c8d80dad114f0559d159a1",
+          "message": "Bump github.com/ringsaturn/go-cities.json from 0.5.0 to 0.5.1 in /go (#131)\n\nBumps [github.com/ringsaturn/go-cities.json](https://github.com/ringsaturn/go-cities.json) from 0.5.0 to 0.5.1.\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.5.0...v0.5.1)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/ringsaturn/go-cities.json\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-11-06T00:17:48+08:00",
+          "tree_id": "0885f6323de472dc578a02ead49e58b215fd5125",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/ad9e6aa57aa777df31c8d80dad114f0559d159a1"
+        },
+        "date": 1699201341514,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 1160,
+            "range": "± 61",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 4550,
+            "range": "± 288",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 260,
+            "range": "± 26",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3208,
+            "range": "± 205",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 15610,
+            "range": "± 1030",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 969,
+            "range": "± 11",
             "unit": "ns/iter"
           }
         ]
