@@ -3,4 +3,4 @@ pytest
 pytest-benchmark
 pytest-pretty
 timezonefinder==6.2.0
-tzfpy==0.15.2
+tzfpy==0.15.3

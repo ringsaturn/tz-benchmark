@@ -44,10 +44,10 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/ringsaturn/go-cities.json v0.5.1 h1:TFRF7oC7DU5XhFe1QPKHSPI94SIP+q5Tl+GiOz97zhw=
 github.com/ringsaturn/go-cities.json v0.5.1/go.mod h1:qpTYJsvNi40oTJs0WEdRdNAbWcLBWSL7oRHUxMrF4g8=
-github.com/ringsaturn/tzf v0.14.0 h1:1PelDZ8N1UUmDPdVY7/Fnh2P61OOPoLNYKkuDrc8kPI=
-github.com/ringsaturn/tzf v0.14.0/go.mod h1:ywbnZmJjMzrRTp+Ee8NZ8tV1VcEKGgpm8tXqMmCjD9c=
-github.com/ringsaturn/tzf-rel v0.0.2023-b h1:27Kt3ewlXJ/nkYFedYWmKbj7CUWzG0UxFYXQAjzPgBE=
-github.com/ringsaturn/tzf-rel v0.0.2023-b/go.mod h1:TvyUIUpF3aCH98QYjTmMb1cqK7pFswdFLoIVZwGNV/M=
+github.com/ringsaturn/tzf v0.14.1 h1:nVSGoISYvHgsTZQZ3xJgEa+tUJWnMlLND9h7nV5GCcw=
+github.com/ringsaturn/tzf v0.14.1/go.mod h1:4RVG3LFlJFk0hS/G8ZcEWkjivzC++NU+3HL6Z+671Sw=
+github.com/ringsaturn/tzf-rel v0.0.2023-d h1:hUK8w4xuDY/oqu+Ltqt35lEuxZmiI/z+oAYHaKxYH0c=
+github.com/ringsaturn/tzf-rel v0.0.2023-d/go.mod h1:TvyUIUpF3aCH98QYjTmMb1cqK7pFswdFLoIVZwGNV/M=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.3.0/go.mod h1:qt09Ya8vawLte6SNmTgCsAVtYtaKzEcn8ATUoHMkEqE=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
@@ -60,8 +60,8 @@ github.com/tidwall/cities v0.1.0/go.mod h1:lV/HDp2gCcRcHJWqgt6Di54GiDrTZwh1aG2ZU
 github.com/tidwall/geoindex v1.4.4/go.mod h1:rvVVNEFfkJVWGUdEfU8QaoOg/9zFX0h9ofWzA60mz1I=
 github.com/tidwall/geoindex v1.7.0 h1:jtk41sfgwIt8MEDyC3xyKSj75iXXf6rjReJGDNPtR5o=
 github.com/tidwall/geoindex v1.7.0/go.mod h1:rvVVNEFfkJVWGUdEfU8QaoOg/9zFX0h9ofWzA60mz1I=
-github.com/tidwall/geojson v1.4.3 h1:yae/k/DhJdc9psaTJQ3pNOdbol70eH+nCijy6O7TxBw=
-github.com/tidwall/geojson v1.4.3/go.mod h1:1cn3UWfSYCJOq53NZoQ9rirdw89+DM0vw+ZOAVvuReg=
+github.com/tidwall/geojson v1.4.5 h1:BFVb5Pr7WZJMqFXy1LVudt5hPEWR3g4uhjk5Ezc3GzA=
+github.com/tidwall/geojson v1.4.5/go.mod h1:1cn3UWfSYCJOq53NZoQ9rirdw89+DM0vw+ZOAVvuReg=
 github.com/tidwall/gjson v1.12.1/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
 github.com/tidwall/lotsa v1.0.2/go.mod h1:X6NiU+4yHA3fE3Puvpnn1XMDrFZrE9JO2/w+UMuqgR8=
 github.com/tidwall/lotsa v1.0.3 h1:lFAp3PIsS58FPmz+LzhE1mcZ67tBBCRPv5j66g6y7sg=
