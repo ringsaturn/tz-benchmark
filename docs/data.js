@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1704072689854,
+  "lastUpdate": 1704072728701,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -1630,6 +1630,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000004324922955243608",
             "extra": "mean: 3.3536211985713944 usec\nrounds: 90327"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "30d5e7f3211c51748bc783d8a06bb201c74a844b",
+          "message": "Bump github.com/albertyw/localtimezone/v3 from 3.1.3 to 3.1.4 in /go (#133)\n\nBumps [github.com/albertyw/localtimezone/v3](https://github.com/albertyw/localtimezone) from 3.1.3 to 3.1.4.\r\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/albertyw/localtimezone/compare/v3.1.3...v3.1.4)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/albertyw/localtimezone/v3\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-12-30T16:15:01Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/30d5e7f3211c51748bc783d8a06bb201c74a844b"
+        },
+        "date": 1704072727313,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 23197.483994895196,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00004448978379824976",
+            "extra": "mean: 43.10812328699347 usec\nrounds: 73"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 297472.42345182237,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00000422424188894288",
+            "extra": "mean: 3.361656144109629 usec\nrounds: 25912"
           }
         ]
       }
