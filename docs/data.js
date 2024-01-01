@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1704072728701,
+  "lastUpdate": 1704072825400,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -9263,6 +9263,64 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
             "value": 836,
             "range": "± 50",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "30d5e7f3211c51748bc783d8a06bb201c74a844b",
+          "message": "Bump github.com/albertyw/localtimezone/v3 from 3.1.3 to 3.1.4 in /go (#133)\n\nBumps [github.com/albertyw/localtimezone/v3](https://github.com/albertyw/localtimezone) from 3.1.3 to 3.1.4.\r\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/albertyw/localtimezone/compare/v3.1.3...v3.1.4)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/albertyw/localtimezone/v3\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-12-30T16:15:01Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/30d5e7f3211c51748bc783d8a06bb201c74a844b"
+        },
+        "date": 1704072823424,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 652,
+            "range": "± 39",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2632,
+            "range": "± 206",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 142,
+            "range": "± 8",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 2110,
+            "range": "± 192",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 9156,
+            "range": "± 725",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 767,
+            "range": "± 38",
             "unit": "ns/iter"
           }
         ]
