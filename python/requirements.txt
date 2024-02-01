@@ -1,4 +1,4 @@
-citiespy==0.5.1
+citiespy==0.5.4
 pytest
 pytest-benchmark
 pytest-pretty
