@@ -44,6 +44,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/ringsaturn/go-cities.json v0.5.1 h1:TFRF7oC7DU5XhFe1QPKHSPI94SIP+q5Tl+GiOz97zhw=
 github.com/ringsaturn/go-cities.json v0.5.1/go.mod h1:qpTYJsvNi40oTJs0WEdRdNAbWcLBWSL7oRHUxMrF4g8=
+github.com/ringsaturn/go-cities.json v0.5.4 h1:gy5H7Lq+ZFfHbk/TFGEsmmTtGaOZe/6QM18+NOxd7uw=
+github.com/ringsaturn/go-cities.json v0.5.4/go.mod h1:qpTYJsvNi40oTJs0WEdRdNAbWcLBWSL7oRHUxMrF4g8=
 github.com/ringsaturn/tzf v0.14.1 h1:nVSGoISYvHgsTZQZ3xJgEa+tUJWnMlLND9h7nV5GCcw=
 github.com/ringsaturn/tzf v0.14.1/go.mod h1:4RVG3LFlJFk0hS/G8ZcEWkjivzC++NU+3HL6Z+671Sw=
 github.com/ringsaturn/tzf-rel v0.0.2023-d h1:hUK8w4xuDY/oqu+Ltqt35lEuxZmiI/z+oAYHaKxYH0c=
