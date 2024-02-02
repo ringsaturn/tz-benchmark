@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1706889088191,
+  "lastUpdate": 1706889123048,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -1924,6 +1924,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000043125143524278204",
             "extra": "mean: 3.364548738069291 usec\nrounds: 79599"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "46e097fc157dd891b323733f4fd2cb74250897f5",
+          "message": "trigger ci",
+          "timestamp": "2024-02-02T23:50:49+08:00",
+          "tree_id": "8867618b13d52283fd2f97637d2bd19187305856",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/46e097fc157dd891b323733f4fd2cb74250897f5"
+        },
+        "date": 1706889121661,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 23926.097108765047,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000158170777559766",
+            "extra": "mean: 41.79536660133598 usec\nrounds: 8156"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 285886.06740727543,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000004322641828465243",
+            "extra": "mean: 3.4978969386968846 usec\nrounds: 79215"
           }
         ]
       }
