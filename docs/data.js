@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1707920363724,
+  "lastUpdate": 1707920437662,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -12517,6 +12517,66 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
             "value": 800,
             "range": "± 54",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5de946e3015dfaa8ca284e778e8aaaa8e75953e8",
+          "message": "Bump deps (#146)",
+          "timestamp": "2024-02-14T22:17:57+08:00",
+          "tree_id": "3beea2b75ad43e13a2d740765344a029c06a86c0",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/5de946e3015dfaa8ca284e778e8aaaa8e75953e8"
+        },
+        "date": 1707920435822,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 752,
+            "range": "± 41",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2749,
+            "range": "± 217",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 204,
+            "range": "± 28",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 1893,
+            "range": "± 86",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 7121,
+            "range": "± 265",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 798,
+            "range": "± 14",
             "unit": "ns/iter"
           }
         ]
