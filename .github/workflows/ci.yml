@@ -206,4 +206,4 @@ jobs:
           pattern: "benchmark_*"
 
       - name: Make Summary
-        run: cat tz_benchmark_*.md > $GITHUB_STEP_SUMMARY
+        run: cat benchmark_*.md > $GITHUB_STEP_SUMMARY
