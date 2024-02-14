@@ -205,5 +205,4 @@ jobs:
         with:
           pattern: "benchmark_*"
 
-      - name: Make Summary
-        run: cat benchmark_*.md > $GITHUB_STEP_SUMMARY
+      - run: find . -name "*.md" -exec cat {} \; > $GITHUB_STEP_SUMMARY
