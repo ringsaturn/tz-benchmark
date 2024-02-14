@@ -71,9 +71,9 @@ jobs:
       - run: ls -lah
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: "benchmark_result_as_md"
+          name: benchmark_go_${{ steps.gen-benchmark-file-name.outputs.filename }}
           path: go/${{ steps.gen-benchmark-file-name.outputs.filename }}
           if-no-files-found: error
 
@@ -138,9 +138,9 @@ jobs:
       - run: ls -lah
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: "benchmark_result_as_md"
+          name: benchmark_py_${{ steps.gen-benchmark-file-name.outputs.filename }}
           path: python/${{ steps.gen-benchmark-file-name.outputs.filename }}
           if-no-files-found: error
 
@@ -190,9 +190,9 @@ jobs:
       - run: ls -lah
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: "benchmark_result_as_md"
+          name: benchmark_rust_${{ steps.gen-benchmark-file-name.outputs.filename }}
           path: rust/${{ steps.gen-benchmark-file-name.outputs.filename }}
           if-no-files-found: error
 
@@ -201,10 +201,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download a Build Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
-          name: "benchmark_result_as_md"
-          path: ""
+          pattern: "benchmark_*"
 
       - name: Make Summary
         run: cat tz_benchmark_*.md > $GITHUB_STEP_SUMMARY
