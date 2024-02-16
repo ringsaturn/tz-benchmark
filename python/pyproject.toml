@@ -1,0 +1,35 @@
+[project]
+name = "tz-benchmark-python"
+version = "0.1.0"
+description = "tz-benchmark-python"
+authors = [{ name = "ringsaturn", email = "ringsaturn.me@gmail.com" }]
+dependencies = [
+    "citiespy==0.5.4",
+    "pytest==8.0.0",
+    "pytest-benchmark==4.0.0",
+    "pytest-pretty==1.2.0",
+    "timezonefinder[numba]==6.4.1",
+    "tzfpy==0.15.3",
+]
+readme = "README.md"
+requires-python = "== 3.11.7"
+
+[project.scripts]
+# hello = "python:hello"
+
+[tool.rye.scripts]
+bench = "pytest tz_test.py"
+
+# [build-system]
+# requires = ["hatchling"]
+# build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+# [tool.hatch.metadata]
+# allow-direct-references = true
+
+# [tool.hatch.build.targets.wheel]
+# packages = ["src/python"]
