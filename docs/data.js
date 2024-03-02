@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1709340137763,
+  "lastUpdate": 1709340182861,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -2220,6 +2220,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000004308649252958185",
             "extra": "mean: 3.5213157845121223 usec\nrounds: 85020"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6ba60fd9b63e29560e8473a94fc39eee5ab470f2",
+          "message": "Bump benchmark-action/github-action-benchmark from 1.19.2 to 1.19.3 (#147)\n\nBumps [benchmark-action/github-action-benchmark](https://github.com/benchmark-action/github-action-benchmark) from 1.19.2 to 1.19.3.\r\n- [Release notes](https://github.com/benchmark-action/github-action-benchmark/releases)\r\n- [Changelog](https://github.com/benchmark-action/github-action-benchmark/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/benchmark-action/github-action-benchmark/compare/v1.19.2...v1.19.3)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: benchmark-action/github-action-benchmark\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-03-02T08:41:43+08:00",
+          "tree_id": "ec5ee2201d199a402daa55facc6237f7ad77c56a",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/6ba60fd9b63e29560e8473a94fc39eee5ab470f2"
+        },
+        "date": 1709340181086,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 24098.115352361277,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00005281187172111217",
+            "extra": "mean: 41.49702104824617 usec\nrounds: 2708"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 277415.83700348955,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000004508198093748187",
+            "extra": "mean: 3.6046968723974517 usec\nrounds: 29288"
           }
         ]
       }
