@@ -3,11 +3,9 @@ extern crate test;
 
 #[cfg(test)]
 mod benches_tz_crates {
-    use cities_json;
     use rtzlib::CanPerformGeoLookup;
     use rtzlib::{NedTimezone, OsmTimezone};
     use test::Bencher;
-    use tz_search;
     use tzf_rs::{DefaultFinder, Finder, FuzzyFinder};
 
     #[bench]
