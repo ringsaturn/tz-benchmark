@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712018957381,
+  "lastUpdate": 1712018966726,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -16193,6 +16193,66 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
             "value": 793,
             "range": "± 44",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "97f838548ef2f0fa523a359db6c5b7f98ab179b5",
+          "message": "Bump the dependencies group in /rust with 2 updates (#157)\n\nBumps the dependencies group in /rust with 2 updates: [tzf-rs](https://github.com/ringsaturn/tzf-rs) and [cities-json](https://github.com/ringsaturn/go-cities.json).\r\n\r\n\r\nUpdates `tzf-rs` from 0.4.5 to 0.4.7\r\n- [Release notes](https://github.com/ringsaturn/tzf-rs/releases)\r\n- [Changelog](https://github.com/ringsaturn/tzf-rs/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/ringsaturn/tzf-rs/compare/v0.4.5...v0.4.7)\r\n\r\nUpdates `cities-json` from 0.5.4 to 0.5.5\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.5.4...v0.5.5)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: tzf-rs\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n- dependency-name: cities-json\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-04-02T08:46:33+08:00",
+          "tree_id": "10990c8421cc2f67938d3148d14d397defb09a2b",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/97f838548ef2f0fa523a359db6c5b7f98ab179b5"
+        },
+        "date": 1712018964573,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 706,
+            "range": "± 73",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2922,
+            "range": "± 326",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 173,
+            "range": "± 50",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 1837,
+            "range": "± 61",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 6913,
+            "range": "± 211",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 759,
+            "range": "± 26",
             "unit": "ns/iter"
           }
         ]
