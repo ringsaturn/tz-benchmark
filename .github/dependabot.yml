@@ -9,15 +9,47 @@ updates:
     directory: "/python" # Location of package manifests
     schedule:
       interval: "monthly"
+    groups:
+      # Specify a name for the group, which will be used in pull request titles
+      # and branch names
+      dependencies:
+        # Define patterns to include dependencies in the group (based on
+        # dependency name)
+        patterns:
+          - "*" # A wildcard that matches all dependencies in the package
   - package-ecosystem: "gomod" # See documentation for possible values
     directory: "/go" # Location of package manifests
     schedule:
       interval: "monthly"
+    groups:
+      # Specify a name for the group, which will be used in pull request titles
+      # and branch names
+      dependencies:
+        # Define patterns to include dependencies in the group (based on
+        # dependency name)
+        patterns:
+          - "*" # A wildcard that matches all dependencies in the package
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: "monthly"
+    groups:
+      # Specify a name for the group, which will be used in pull request titles
+      # and branch names
+      dependencies:
+        # Define patterns to include dependencies in the group (based on
+        # dependency name)
+        patterns:
+          - "*" # A wildcard that matches all dependencies in the package
   - package-ecosystem: "cargo" # See documentation for possible values
     directory: "/rust" # Location of package manifests
     schedule:
       interval: "monthly"
+    groups:
+      # Specify a name for the group, which will be used in pull request titles
+      # and branch names
+      dependencies:
+        # Define patterns to include dependencies in the group (based on
+        # dependency name)
+        patterns:
+          - "*" # A wildcard that matches all dependencies in the package
