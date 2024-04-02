@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712018816032,
+  "lastUpdate": 1712018824984,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -2552,6 +2552,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000004172597222040665",
             "extra": "mean: 3.430274288738339 usec\nrounds: 24744"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "057d94c41d5b1cfc5d6c763a0c128d5cf5497205",
+          "message": "Bump the dependencies group in /go with 3 updates (#156)\n\nBumps the dependencies group in /go with 3 updates: [github.com/albertyw/localtimezone/v3](https://github.com/albertyw/localtimezone), [github.com/ringsaturn/go-cities.json](https://github.com/ringsaturn/go-cities.json) and [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf).\r\n\r\n\r\nUpdates `github.com/albertyw/localtimezone/v3` from 3.1.4 to 3.1.5\r\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/albertyw/localtimezone/compare/v3.1.4...v3.1.5)\r\n\r\nUpdates `github.com/ringsaturn/go-cities.json` from 0.5.4 to 0.5.5\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.5.4...v0.5.5)\r\n\r\nUpdates `github.com/ringsaturn/tzf` from 0.14.2 to 0.15.0\r\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\r\n- [Commits](https://github.com/ringsaturn/tzf/compare/v0.14.2...v0.15.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/albertyw/localtimezone/v3\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n- dependency-name: github.com/ringsaturn/go-cities.json\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n- dependency-name: github.com/ringsaturn/tzf\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-04-02T08:46:22+08:00",
+          "tree_id": "29339b30f9d16aad92e1303846eb6085465d6711",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/057d94c41d5b1cfc5d6c763a0c128d5cf5497205"
+        },
+        "date": 1712018823042,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 27617.93725077858,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00004441352274110815",
+            "extra": "mean: 36.20835223571264 usec\nrounds: 2751"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 296401.5182431071,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000004291823088657731",
+            "extra": "mean: 3.373801881742741 usec\nrounds: 39219"
           }
         ]
       }
