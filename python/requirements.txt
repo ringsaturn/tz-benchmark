@@ -1,6 +1,6 @@
-citiespy==0.5.4
+citiespy==0.5.5
 pytest
 pytest-benchmark
 pytest-pretty
-timezonefinder[numba]==6.4.1
-tzfpy==0.15.3
+timezonefinder[numba]==6.5.0
+tzfpy==0.15.4
