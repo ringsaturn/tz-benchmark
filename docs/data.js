@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712539614439,
+  "lastUpdate": 1712539627788,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -2666,6 +2666,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000004295116246007534",
             "extra": "mean: 3.4147970013645805 usec\nrounds: 75902"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "9190a5beb9f36342cffccc1cc7861fe4cae17b1f",
+          "message": "Bump the dependencies group in /python with 3 updates (#158)\n\nBumps the dependencies group in /python with 3 updates: [citiespy](https://github.com/ringsaturn/go-cities.json), [timezonefinder[numba]](https://github.com/jannikmi/timezonefinder) and [tzfpy](https://github.com/ringsaturn/tzfpy).\r\n\r\n\r\nUpdates `citiespy` from 0.5.4 to 0.5.5\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.5.4...v0.5.5)\r\n\r\nUpdates `timezonefinder[numba]` from 6.4.1 to 6.5.0\r\n- [Release notes](https://github.com/jannikmi/timezonefinder/releases)\r\n- [Changelog](https://github.com/jannikmi/timezonefinder/blob/master/CHANGELOG.rst)\r\n- [Commits](https://github.com/jannikmi/timezonefinder/compare/6.4.1...6.5.0)\r\n\r\nUpdates `tzfpy` from 0.15.3 to 0.15.4\r\n- [Release notes](https://github.com/ringsaturn/tzfpy/releases)\r\n- [Commits](https://github.com/ringsaturn/tzfpy/compare/v0.15.3...v0.15.4)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: citiespy\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n- dependency-name: timezonefinder[numba]\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n  dependency-group: dependencies\r\n- dependency-name: tzfpy\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-04-02T00:46:57Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/9190a5beb9f36342cffccc1cc7861fe4cae17b1f"
+        },
+        "date": 1712539626252,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 22311.305381223825,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00005883828934145784",
+            "extra": "mean: 44.820326866287004 usec\nrounds: 2732"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 295530.6361034548,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000004261138800946054",
+            "extra": "mean: 3.3837439433857393 usec\nrounds: 83669"
           }
         ]
       }
