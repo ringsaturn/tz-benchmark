@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1714617607566,
+  "lastUpdate": 1714617614794,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -2848,6 +2848,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000004255172362597282",
             "extra": "mean: 3.3048891389389885 usec\nrounds: 85756"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "545d91d7359060a37bc40467e4927c01dd07e0c4",
+          "message": "Bump tzf-rs from 0.4.7 to 0.4.8 in /rust in the dependencies group (#160)\n\nBumps the dependencies group in /rust with 1 update: [tzf-rs](https://github.com/ringsaturn/tzf-rs).\r\n\r\n\r\nUpdates `tzf-rs` from 0.4.7 to 0.4.8\r\n- [Release notes](https://github.com/ringsaturn/tzf-rs/releases)\r\n- [Changelog](https://github.com/ringsaturn/tzf-rs/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/ringsaturn/tzf-rs/compare/v0.4.7...v0.4.8)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: tzf-rs\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-05-02T10:39:32+08:00",
+          "tree_id": "f7965e36f07890d6a53aa0b198658308957001a9",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/545d91d7359060a37bc40467e4927c01dd07e0c4"
+        },
+        "date": 1714617613026,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 26721.05955409745,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00004655205942645631",
+            "extra": "mean: 37.42366570365502 usec\nrounds: 10383"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 303410.9832858442,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000042082280768343524",
+            "extra": "mean: 3.2958595933816204 usec\nrounds: 79284"
           }
         ]
       }
