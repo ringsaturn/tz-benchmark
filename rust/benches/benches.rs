@@ -58,4 +58,16 @@ mod benches_tz_crates {
             let _ = OsmTimezone::lookup(city.lng as f32, city.lat as f32);
         });
     }
+
+    #[bench]
+    fn bench_zone_detect_random_city(b: &mut Bencher) {
+        let database = zone_detect::Database::open("data/timezone21.bin").expect("failed to open database");
+        b.iter(|| {
+            let city = cities_json::get_random_cities();
+            let _ = database.simple_lookup(zone_detect::Location {
+                latitude: city.lat as f32,
+                longitude: city.lng as f32,
+            }).unwrap();
+        });
+    }
 }
