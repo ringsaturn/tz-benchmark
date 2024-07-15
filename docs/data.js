@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1721007103793,
+  "lastUpdate": 1721007109239,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -3284,6 +3284,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000004250249815611326",
             "extra": "mean: 3.2688450192637037 usec\nrounds: 85830"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "eea82ba6cbc48651cb20d6e77bbe90a1f0542611",
+          "message": "Bump benchmark-action/github-action-benchmark in the dependencies group (#159)\n\nBumps the dependencies group with 1 update: [benchmark-action/github-action-benchmark](https://github.com/benchmark-action/github-action-benchmark).\r\n\r\n\r\nUpdates `benchmark-action/github-action-benchmark` from 1.19.3 to 1.20.1\r\n- [Release notes](https://github.com/benchmark-action/github-action-benchmark/releases)\r\n- [Changelog](https://github.com/benchmark-action/github-action-benchmark/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/benchmark-action/github-action-benchmark/compare/v1.19.3...v1.20.1)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: benchmark-action/github-action-benchmark\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-05-02T02:39:40Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/eea82ba6cbc48651cb20d6e77bbe90a1f0542611"
+        },
+        "date": 1721007107475,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 25558.113687483274,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00005104967222731185",
+            "extra": "mean: 39.12651818626724 usec\nrounds: 2007"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 307905.9547081469,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000004171388383468057",
+            "extra": "mean: 3.2477449192168573 usec\nrounds: 87635"
           }
         ]
       }
