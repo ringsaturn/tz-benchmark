@@ -18,23 +18,15 @@ jobs:
       run:
         working-directory: go
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        go-version: ["1.22"]
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version-file: go.mod
           cache-dependency-path: |
             go/go.sum
-
-      # - name: Test
-      #   run: |
-      #     go test -v ./... | grep "ops over" | tee benchmark_lotsa_result.txt
 
       - name: Bench
         run: |
