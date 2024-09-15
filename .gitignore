@@ -6,3 +6,7 @@ output.json
 # Added by cargo
 
 /target
+.venv
+venv
+
+node_modules

@@ -5,6 +5,7 @@ extern crate test;
 mod benches_tz_crates {
     use rtzlib::CanPerformGeoLookup;
     use rtzlib::{NedTimezone, OsmTimezone};
+    use spatialtime;
     use test::Bencher;
     use tzf_rs::{DefaultFinder, Finder, FuzzyFinder};
 
@@ -56,6 +57,22 @@ mod benches_tz_crates {
         b.iter(|| {
             let city = cities_json::get_random_cities();
             let _ = OsmTimezone::lookup(city.lng as f32, city.lat as f32);
+        });
+    }
+
+    #[bench]
+    fn bench_spatialtime_ned(b: &mut Bencher) {
+        b.iter(|| {
+            let city = cities_json::get_random_cities();
+            let _ = spatialtime::ned::lookup(city.lng, city.lat).unwrap();
+        });
+    }
+
+    #[bench]
+    fn bench_spatialtime_osm(b: &mut Bencher) {
+        b.iter(|| {
+            let city = cities_json::get_random_cities();
+            let _ = spatialtime::osm::lookup(city.lng, city.lat).unwrap();
         });
     }
 }
