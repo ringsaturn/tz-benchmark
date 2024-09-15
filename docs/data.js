@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726407606949,
+  "lastUpdate": 1726407609602,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -3912,6 +3912,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000033029838166297276",
             "extra": "mean: 3.047762433602522 usec\nrounds: 85896"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "804a99e8c6e3edae9024dfbf210ac95df728f79a",
+          "message": "add rust crate spatialtime (#165)",
+          "timestamp": "2024-09-15T21:39:32+08:00",
+          "tree_id": "47d357019cfd8812079433c9255ff4d52b3635db",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/804a99e8c6e3edae9024dfbf210ac95df728f79a"
+        },
+        "date": 1726407605891,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 35001.45156532913,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00007108314160124192",
+            "extra": "mean: 28.570243669281282 usec\nrounds: 15796"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 320622.90238178696,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000003423631393241753",
+            "extra": "mean: 3.1189287869686666 usec\nrounds: 17876"
           }
         ]
       }
