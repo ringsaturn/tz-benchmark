@@ -14,6 +14,7 @@ rtz = { version = "0.7.0", features = [
     "full",
     "self-contained",
 ]}
+zone-detect = "1.0.0"
 spatialtime = { version = "0.2.0", features = ["osm", "ned"]}
 
 [profile.bench]
