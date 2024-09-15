@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726408444545,
+  "lastUpdate": 1726408452444,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -3988,6 +3988,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000003329474113213262",
             "extra": "mean: 3.0287884084061085 usec\nrounds: 87253"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fc121c1f47ef172741293c59e313ea8bafdfed37",
+          "message": "feat(rust): add zone-detect-rs to benchmark (#120)",
+          "timestamp": "2024-09-15T21:53:33+08:00",
+          "tree_id": "49ba2065f18a6f66a8e5c078dc843d026b1fd387",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/fc121c1f47ef172741293c59e313ea8bafdfed37"
+        },
+        "date": 1726408450134,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 31125.476637071253,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00004151829831868237",
+            "extra": "mean: 32.12802205923407 usec\nrounds: 136"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 310456.20630696084,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000003573609313712232",
+            "extra": "mean: 3.2210662234636045 usec\nrounds: 77012"
           }
         ]
       }
