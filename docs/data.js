@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726381603607,
+  "lastUpdate": 1726381733347,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -24157,6 +24157,66 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
             "value": 770.93,
             "range": "± 230.84",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "93d761facf0ef14cbab0f615bb70da8af4aa3d61",
+          "message": "Bump the dependencies group in /go with 3 updates (#164)\n\nBumps the dependencies group in /go with 3 updates: [github.com/albertyw/localtimezone/v3](https://github.com/albertyw/localtimezone), [github.com/ringsaturn/go-cities.json](https://github.com/ringsaturn/go-cities.json) and [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf).\r\n\r\n\r\nUpdates `github.com/albertyw/localtimezone/v3` from 3.1.5 to 3.1.6\r\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/albertyw/localtimezone/compare/v3.1.5...v3.1.6)\r\n\r\nUpdates `github.com/ringsaturn/go-cities.json` from 0.5.5 to 0.6.3\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.5.5...v0.6.3)\r\n\r\nUpdates `github.com/ringsaturn/tzf` from 0.15.0 to 0.16.0\r\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\r\n- [Commits](https://github.com/ringsaturn/tzf/compare/v0.15.0...v0.16.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/albertyw/localtimezone/v3\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n- dependency-name: github.com/ringsaturn/go-cities.json\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n  dependency-group: dependencies\r\n- dependency-name: github.com/ringsaturn/tzf\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-minor\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-09-15T14:26:11+08:00",
+          "tree_id": "d548146c75ec7f364007c4e4e2704eb680f30f5a",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/93d761facf0ef14cbab0f615bb70da8af4aa3d61"
+        },
+        "date": 1726381731606,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 668.47,
+            "range": "± 44.39",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2732.05,
+            "range": "± 198.39",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 127.63,
+            "range": "± 8.74",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 1925.16,
+            "range": "± 94.33",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 6944.58,
+            "range": "± 263.54",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 745.17,
+            "range": "± 20.27",
             "unit": "ns/iter"
           }
         ]
