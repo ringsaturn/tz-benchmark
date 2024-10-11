@@ -80,7 +80,7 @@ jobs:
       COLUMNS: 120
     strategy:
       matrix:
-        python-version: ["3.12"]
+        python-version: ["3.13"]
 
     steps:
       - uses: actions/checkout@v4
