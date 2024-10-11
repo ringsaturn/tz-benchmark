@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1728678164782,
+  "lastUpdate": 1728678356892,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -26955,6 +26955,84 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 727361.47,
             "range": "± 191587.09",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "241c92ab7585aebc1c5abd57784dd1d65964d8dd",
+          "message": "Bump timezonefinder[numba] in /python in the dependencies group (#167)\n\nBumps the dependencies group in /python with 1 update: [timezonefinder[numba]](https://github.com/jannikmi/timezonefinder).\r\n\r\n\r\nUpdates `timezonefinder[numba]` from 6.5.2 to 6.5.3\r\n- [Release notes](https://github.com/jannikmi/timezonefinder/releases)\r\n- [Changelog](https://github.com/jannikmi/timezonefinder/blob/master/CHANGELOG.rst)\r\n- [Commits](https://github.com/jannikmi/timezonefinder/compare/6.5.2...6.5.3)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: timezonefinder[numba]\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-10-11T22:22:08+02:00",
+          "tree_id": "7000ae7105e6443b514cdada66b95955ec419a57",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/241c92ab7585aebc1c5abd57784dd1d65964d8dd"
+        },
+        "date": 1728678355165,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 725.05,
+            "range": "± 79.94",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2896.12,
+            "range": "± 253.21",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4431365.05,
+            "range": "± 259421.58",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 123202846.8,
+            "range": "± 5130893.80",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 126.68,
+            "range": "± 12.93",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 1965.53,
+            "range": "± 76.29",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 7231.44,
+            "range": "± 236.17",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 767.9,
+            "range": "± 29.34",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 764785.72,
+            "range": "± 217907.44",
             "unit": "ns/iter"
           }
         ]
