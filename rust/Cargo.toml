@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 tzf-rs = "0.4.9"
-cities-json = "0.6.3"
+cities-json = "0.6.6"
 tz-search = "0.1.1"
 # rtz = {version = "0.5.3", features = ["full"]}
 rtz = { git = "https://github.com/twitchax/rtz", features = [
