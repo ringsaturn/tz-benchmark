@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1730510121848,
+  "lastUpdate": 1730510203078,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -30053,6 +30053,84 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 744550.66,
             "range": "± 284901.11",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a2e0ba63a31ea12c50ca57db8dc8b2b29ad05fd6",
+          "message": "Bump citiespy from 0.6.3 to 0.6.6 in /python in the dependencies group (#172)\n\nBumps the dependencies group in /python with 1 update: [citiespy](https://github.com/ringsaturn/go-cities.json).\r\n\r\n\r\nUpdates `citiespy` from 0.6.3 to 0.6.6\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.6.3...v0.6.6)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: citiespy\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-11-02T09:12:58+08:00",
+          "tree_id": "ba10bde408e0696c1e13fe9c155d0a6c07b50b08",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/a2e0ba63a31ea12c50ca57db8dc8b2b29ad05fd6"
+        },
+        "date": 1730510201533,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 742.86,
+            "range": "± 98.07",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2854.84,
+            "range": "± 228.11",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4558543.1,
+            "range": "± 381574.92",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 122686618.8,
+            "range": "± 6064749.87",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 125.19,
+            "range": "± 2.53",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 1906.53,
+            "range": "± 79.79",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 7085.08,
+            "range": "± 238.56",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 734.48,
+            "range": "± 10.19",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 764055.84,
+            "range": "± 201055.20",
             "unit": "ns/iter"
           }
         ]
