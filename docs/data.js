@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1730510005599,
+  "lastUpdate": 1730510011756,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -4430,6 +4430,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000003376910790470739",
             "extra": "mean: 3.045599855653235 usec\nrounds: 74823"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a2e0ba63a31ea12c50ca57db8dc8b2b29ad05fd6",
+          "message": "Bump citiespy from 0.6.3 to 0.6.6 in /python in the dependencies group (#172)\n\nBumps the dependencies group in /python with 1 update: [citiespy](https://github.com/ringsaturn/go-cities.json).\r\n\r\n\r\nUpdates `citiespy` from 0.6.3 to 0.6.6\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.6.3...v0.6.6)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: citiespy\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-11-02T09:12:58+08:00",
+          "tree_id": "ba10bde408e0696c1e13fe9c155d0a6c07b50b08",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/a2e0ba63a31ea12c50ca57db8dc8b2b29ad05fd6"
+        },
+        "date": 1730510010011,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 34016.38412392371,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00011672888498184715",
+            "extra": "mean: 29.397598414838583 usec\nrounds: 12742"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 326997.5476738762,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000033052330607201353",
+            "extra": "mean: 3.05812690986089 usec\nrounds: 80238"
           }
         ]
       }
