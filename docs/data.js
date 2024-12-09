@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1733708023418,
+  "lastUpdate": 1733708026294,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -4838,6 +4838,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000033609346513502954",
             "extra": "mean: 3.0917268321010556 usec\nrounds: 75104"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "8fced59717c626b6b2b02ce947bf2bf99b073431",
+          "message": "Bump timezonefinder in /python in the dependencies group (#174)\n\nBumps the dependencies group in /python with 1 update: [timezonefinder](https://github.com/jannikmi/timezonefinder).\r\n\r\n\r\nUpdates `timezonefinder` from 6.5.4 to 6.5.5\r\n- [Release notes](https://github.com/jannikmi/timezonefinder/releases)\r\n- [Changelog](https://github.com/jannikmi/timezonefinder/blob/master/CHANGELOG.rst)\r\n- [Commits](https://github.com/jannikmi/timezonefinder/compare/6.5.4...6.5.5)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: timezonefinder\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-12-02T00:32:51Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/8fced59717c626b6b2b02ce947bf2bf99b073431"
+        },
+        "date": 1733708023992,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 32042.057889981344,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0001225104518809972",
+            "extra": "mean: 31.208981752469526 usec\nrounds: 12659"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 311978.143777394,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000034121670127649206",
+            "extra": "mean: 3.2053527464844804 usec\nrounds: 77078"
           }
         ]
       }
