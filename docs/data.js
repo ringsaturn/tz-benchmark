@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1737336761656,
+  "lastUpdate": 1737336772146,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -5092,6 +5092,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000036950022316766865",
             "extra": "mean: 3.255856683392166 usec\nrounds: 80828"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "ca202370a50cfb209d55ffc5739c90997abc17e4",
+          "message": "Bump the dependencies group in /python with 2 updates (#175)\n\nBumps the dependencies group in /python with 2 updates: [timezonefinder](https://github.com/jannikmi/timezonefinder) and [tzfpy](https://github.com/ringsaturn/tzfpy).\r\n\r\n\r\nUpdates `timezonefinder` from 6.5.5 to 6.5.7\r\n- [Release notes](https://github.com/jannikmi/timezonefinder/releases)\r\n- [Changelog](https://github.com/jannikmi/timezonefinder/blob/master/CHANGELOG.rst)\r\n- [Commits](https://github.com/jannikmi/timezonefinder/compare/6.5.5...6.5.7)\r\n\r\nUpdates `tzfpy` from 0.16.0 to 0.16.2\r\n- [Release notes](https://github.com/ringsaturn/tzfpy/releases)\r\n- [Commits](https://github.com/ringsaturn/tzfpy/compare/v0.16.0...v0.16.2)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: timezonefinder\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n- dependency-name: tzfpy\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-01-02T00:34:15Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/ca202370a50cfb209d55ffc5739c90997abc17e4"
+        },
+        "date": 1737336770332,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 25721.1168427432,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000455118413810604",
+            "extra": "mean: 38.87856060504363 usec\nrounds: 66"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 308212.77438036015,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000036718403575463476",
+            "extra": "mean: 3.2445118538984272 usec\nrounds: 79847"
           }
         ]
       }
