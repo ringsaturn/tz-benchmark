@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1738431863896,
+  "lastUpdate": 1738431888880,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -35753,6 +35753,84 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 726284.68,
             "range": "± 302795.36",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "adadfaf61e68dcea729546f93bd4f8ee0db60cda",
+          "message": "Bump the dependencies group in /go with 3 updates (#176)\n\nBumps the dependencies group in /go with 3 updates: [github.com/albertyw/localtimezone/v3](https://github.com/albertyw/localtimezone), [github.com/ringsaturn/go-cities.json](https://github.com/ringsaturn/go-cities.json) and [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf).\r\n\r\n\r\nUpdates `github.com/albertyw/localtimezone/v3` from 3.1.6 to 3.1.7\r\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/albertyw/localtimezone/compare/v3.1.6...v3.1.7)\r\n\r\nUpdates `github.com/ringsaturn/go-cities.json` from 0.6.6 to 0.6.7\r\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\r\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.6.6...v0.6.7)\r\n\r\nUpdates `github.com/ringsaturn/tzf` from 0.16.0 to 0.16.1\r\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\r\n- [Commits](https://github.com/ringsaturn/tzf/compare/v0.16.0...v0.16.1)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: github.com/albertyw/localtimezone/v3\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n- dependency-name: github.com/ringsaturn/go-cities.json\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n- dependency-name: github.com/ringsaturn/tzf\r\n  dependency-type: direct:production\r\n  update-type: version-update:semver-patch\r\n  dependency-group: dependencies\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-02-02T01:40:45+08:00",
+          "tree_id": "78993ad585e3b754089ba8c5d3c33dd9137fcf99",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/adadfaf61e68dcea729546f93bd4f8ee0db60cda"
+        },
+        "date": 1738431887129,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 805.23,
+            "range": "± 72.49",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2797.93,
+            "range": "± 289.31",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4495272.2,
+            "range": "± 286088.45",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 128483921.7,
+            "range": "± 7232162.46",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 139.2,
+            "range": "± 26.95",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 2081.51,
+            "range": "± 141.88",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 7630.21,
+            "range": "± 281.55",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 809.8,
+            "range": "± 13.38",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 700575.62,
+            "range": "± 230090.91",
             "unit": "ns/iter"
           }
         ]
