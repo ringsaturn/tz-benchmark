@@ -8,6 +8,7 @@ require (
 	github.com/loov/hrtime v1.0.3
 	github.com/ringsaturn/go-cities.json v0.6.7
 	github.com/ringsaturn/tzf v0.16.1
+	github.com/ugjka/go-tz/v2 v2.2.5
 	github.com/zsefvlol/timezonemapper v1.0.0
 )
 

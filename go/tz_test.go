@@ -9,6 +9,7 @@ import (
 	"github.com/loov/hrtime/hrtesting"
 	gocitiesjson "github.com/ringsaturn/go-cities.json"
 	"github.com/ringsaturn/tzf"
+	gotz "github.com/ugjka/go-tz/v2"
 	"github.com/zsefvlol/timezonemapper"
 )
 
@@ -71,5 +72,19 @@ func BenchmarkTimezoneMapper_Random_WorldCities(b *testing.B) {
 	for bench.Next() {
 		p := gocitiesjson.Cities[rand.Intn(len(gocitiesjson.Cities))]
 		_ = timezonemapper.LatLngToTimezoneString(p.Lat, p.Lng)
+	}
+}
+
+func BenchmarkGoTZ(b *testing.B) {
+	bench := hrtesting.NewBenchmark(b)
+	defer bench.Report()
+	for bench.Next() {
+		p := gocitiesjson.Cities[rand.Intn(len(gocitiesjson.Cities))]
+		_, err := gotz.GetZone(gotz.Point{
+			Lon: p.Lng, Lat: p.Lat,
+		})
+		if err != nil {
+			b.Fatal(err)
+		}
 	}
 }
