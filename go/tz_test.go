@@ -13,28 +13,23 @@ import (
 	"github.com/zsefvlol/timezonemapper"
 )
 
-type Point struct {
-	Lng float64
-	Lat float64
-}
-
-var (
-	finder tzf.F
-	z      localtimezone.LocalTimeZone
-)
-
-func init() {
-	_finder, _ := tzf.NewDefaultFinder()
-	finder = _finder
-}
-
-func init() {
-	var err error
-	z, err = localtimezone.NewLocalTimeZone()
+var finder = func() tzf.F {
+	_f, err := tzf.NewDefaultFinder()
 	if err != nil {
 		panic(err)
 	}
-}
+
+	return _f
+}()
+
+var z = func() localtimezone.LocalTimeZone {
+	_z, err := localtimezone.NewLocalTimeZone()
+	if err != nil {
+		panic(err)
+	}
+
+	return _z
+}()
 
 func BenchmarkTZF_Default_Random_WorldCities(b *testing.B) {
 	bench := hrtesting.NewBenchmark(b)
