@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740882841087,
+  "lastUpdate": 1740882844499,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -5498,6 +5498,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000033968126713947213",
             "extra": "mean: 3.175058307273276 usec\nrounds: 68602"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5182ccab1cb236042c1a068c98c258add8e653a3",
+          "message": "Bump the dependencies group in /rust with 2 updates (#181)\n\nBumps the dependencies group in /rust with 2 updates: [tzf-rs](https://github.com/ringsaturn/tzf-rs) and [cities-json](https://github.com/ringsaturn/go-cities.json).\n\n\nUpdates `tzf-rs` from 0.4.10 to 0.4.13\n- [Release notes](https://github.com/ringsaturn/tzf-rs/releases)\n- [Changelog](https://github.com/ringsaturn/tzf-rs/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/ringsaturn/tzf-rs/compare/v0.4.10...v0.4.13)\n\nUpdates `cities-json` from 0.6.7 to 0.6.8\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.6.7...v0.6.8)\n\n---\nupdated-dependencies:\n- dependency-name: tzf-rs\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: cities-json\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-03-02T10:33:34+08:00",
+          "tree_id": "50d4041f21a47d05dfc9925b1688954336f8d744",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/5182ccab1cb236042c1a068c98c258add8e653a3"
+        },
+        "date": 1740882838948,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 31736.909884586887,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00013455218741833245",
+            "extra": "mean: 31.509053768516154 usec\nrounds: 13056"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 318422.66132669844,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000033239949728602376",
+            "extra": "mean: 3.1404800017483994 usec\nrounds: 47104"
           }
         ]
       }
