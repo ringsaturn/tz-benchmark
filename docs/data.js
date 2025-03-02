@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740882849366,
+  "lastUpdate": 1740883025322,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -38405,6 +38405,84 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 802506.35,
             "range": "± 303533.68",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ae026acbfe8763d5a97eafb4a4e9bc5705d25aa9",
+          "message": "Bump the dependencies group in /python with 2 updates (#179)\n\nBumps the dependencies group in /python with 2 updates: [citiespy](https://github.com/ringsaturn/go-cities.json) and [tzfpy](https://github.com/ringsaturn/tzfpy).\n\n\nUpdates `citiespy` from 0.6.7 to 0.6.8\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.6.7...v0.6.8)\n\nUpdates `tzfpy` from 0.16.3 to 0.16.4\n- [Release notes](https://github.com/ringsaturn/tzfpy/releases)\n- [Commits](https://github.com/ringsaturn/tzfpy/compare/v0.16.3...v0.16.4)\n\n---\nupdated-dependencies:\n- dependency-name: citiespy\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: tzfpy\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-03-02T10:33:22+08:00",
+          "tree_id": "c2560d42dc42de977fdd511d2b21a207a64e754c",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/ae026acbfe8763d5a97eafb4a4e9bc5705d25aa9"
+        },
+        "date": 1740883023508,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 725.7,
+            "range": "± 62.79",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2773.64,
+            "range": "± 212.27",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4412787.8,
+            "range": "± 145530.05",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 130445348.1,
+            "range": "± 5469638.93",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 127.36,
+            "range": "± 27.37",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 2130.77,
+            "range": "± 132.59",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 8276.05,
+            "range": "± 410.54",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 828.42,
+            "range": "± 19.84",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 767532.1,
+            "range": "± 234054.99",
             "unit": "ns/iter"
           }
         ]
