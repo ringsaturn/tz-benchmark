@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740883025322,
+  "lastUpdate": 1740883036799,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -38483,6 +38483,84 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 767532.1,
             "range": "± 234054.99",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5182ccab1cb236042c1a068c98c258add8e653a3",
+          "message": "Bump the dependencies group in /rust with 2 updates (#181)\n\nBumps the dependencies group in /rust with 2 updates: [tzf-rs](https://github.com/ringsaturn/tzf-rs) and [cities-json](https://github.com/ringsaturn/go-cities.json).\n\n\nUpdates `tzf-rs` from 0.4.10 to 0.4.13\n- [Release notes](https://github.com/ringsaturn/tzf-rs/releases)\n- [Changelog](https://github.com/ringsaturn/tzf-rs/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/ringsaturn/tzf-rs/compare/v0.4.10...v0.4.13)\n\nUpdates `cities-json` from 0.6.7 to 0.6.8\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.6.7...v0.6.8)\n\n---\nupdated-dependencies:\n- dependency-name: tzf-rs\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: cities-json\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-03-02T10:33:34+08:00",
+          "tree_id": "50d4041f21a47d05dfc9925b1688954336f8d744",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/5182ccab1cb236042c1a068c98c258add8e653a3"
+        },
+        "date": 1740883034686,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 766.76,
+            "range": "± 56.88",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2819.23,
+            "range": "± 206.32",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4471391.5,
+            "range": "± 110604.63",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 128708320.8,
+            "range": "± 5662837.82",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 171.31,
+            "range": "± 23.01",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3325.58,
+            "range": "± 160.45",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 8239.11,
+            "range": "± 325.01",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 851.83,
+            "range": "± 30.09",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 821833.53,
+            "range": "± 317740.27",
             "unit": "ns/iter"
           }
         ]
