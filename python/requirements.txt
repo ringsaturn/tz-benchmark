@@ -1,6 +1,6 @@
-citiespy==0.6.7
+citiespy==0.6.8
 pytest
 pytest-benchmark
 pytest-pretty
 timezonefinder==6.5.8
-tzfpy==0.16.3
+tzfpy==0.16.4
