@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1740965783142,
+  "lastUpdate": 1741347598355,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -5686,6 +5686,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000034058679073397983",
             "extra": "mean: 3.1466552129722825 usec\nrounds: 76366"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "ringsaturn",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c51b3730e6cd15957bc32fbca0cf3e019c680a98",
+          "message": "feat: use uv to manager deps (#182)",
+          "timestamp": "2025-03-07T19:39:38+08:00",
+          "tree_id": "91fb42d96d16365da4f1aa2a59309250074e4257",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/c51b3730e6cd15957bc32fbca0cf3e019c680a98"
+        },
+        "date": 1741347596474,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 28564.069379877787,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005812032058968388",
+            "extra": "mean: 35.00901733225935 usec\nrounds: 10443"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 321691.13469343033,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000034535010513472142",
+            "extra": "mean: 3.1085718322731952 usec\nrounds: 69363"
           }
         ]
       }
