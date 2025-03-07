@@ -78,21 +78,16 @@ jobs:
         working-directory: python
     env:
       COLUMNS: 120
-    strategy:
-      matrix:
-        python-version: ["3.13"]
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          enable-cache: true
 
-      - name: Build
-        run: |
-          pip install -r requirements.txt
+      - run: uv sync
 
       - name: Setup benchmark file name
         id: gen-benchmark-file-name
@@ -102,7 +97,7 @@ jobs:
       - name: Bench Python
         run: |
           # ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          pytest tz_test.py --benchmark-json output.json | tee benchmark_result.txt
+          uv run pytest tz_test.py --benchmark-json output.json | tee benchmark_result.txt
 
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.20.4
