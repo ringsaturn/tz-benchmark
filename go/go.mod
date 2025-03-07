@@ -5,7 +5,7 @@ go 1.24
 toolchain go1.24.0
 
 require (
-	github.com/albertyw/localtimezone/v3 v3.1.7
+	github.com/albertyw/localtimezone/v3 v3.1.8
 	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
 	github.com/loov/hrtime v1.0.3
 	github.com/ringsaturn/go-cities.json v0.6.8
@@ -27,7 +27,7 @@ require (
 	github.com/tidwall/geojson v1.4.5 // indirect
 	github.com/tidwall/rtree v1.10.0 // indirect
 	github.com/twpayne/go-polyline v1.1.1 // indirect
-	go.mongodb.org/mongo-driver v1.17.2 // indirect
+	go.mongodb.org/mongo-driver v1.17.3 // indirect
 	golang.org/x/image v0.0.0-20220722155232-062f8c9fd539 // indirect
 	google.golang.org/protobuf v1.36.5 // indirect
 )
