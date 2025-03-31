@@ -1,5 +1,5 @@
-github.com/albertyw/localtimezone/v3 v3.1.8 h1:NowrFajgwg9lxs/CGh5OZtAGelfe8zMJrQ1hHrYZLaw=
-github.com/albertyw/localtimezone/v3 v3.1.8/go.mod h1:U7SsNqeiJmSOXO6kiX1cl8eyD3CfF+9wtwCHAajCQs8=
+github.com/albertyw/localtimezone/v3 v3.1.9 h1:hyZUO7/v5HMs+PoGBFc/h7B9qtAM3bmRwS7QJhvbxSI=
+github.com/albertyw/localtimezone/v3 v3.1.9/go.mod h1:U7SsNqeiJmSOXO6kiX1cl8eyD3CfF+9wtwCHAajCQs8=
 github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40 h1:wsnz4B2CSHJ09pwtMReU/GRqWDsI7XSasq7Nphem3Xk=
 github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40/go.mod h1:ZcXX9BndVQx6Q/JM6B8x7dLE9sl20S+TQsv4KO7tEQk=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -44,10 +44,10 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/ringsaturn/go-cities.json v0.6.8 h1:PsbjBrEANywxKSMMbagv4qnLSg4Rz+xWeoVKY3pkWnA=
 github.com/ringsaturn/go-cities.json v0.6.8/go.mod h1:RWApnQPG6nU558XXbY1try5mi9u9Hd667J6vr948VBo=
-github.com/ringsaturn/tzf v0.17.2 h1:MjNVc/Q97mXCEL+p61QQlSA8sF3EiE2lemu1xmie7TY=
-github.com/ringsaturn/tzf v0.17.2/go.mod h1:4Z139lkC4Btg5tse9qdQ78gWmj7X0VwJjDxxO4ydAiU=
-github.com/ringsaturn/tzf-rel-lite v0.0.2025-a h1:V+B0brHLxYqSyAeEWim/0BhM7Hnz587ZLGe3+8YgJ6E=
-github.com/ringsaturn/tzf-rel-lite v0.0.2025-a/go.mod h1:nVMtMUFC40aMfjXzc+fj3CCXrHxD8sRUXLEVfxhFVAs=
+github.com/ringsaturn/tzf v1.0.0 h1:z0M2wKJNkyCsNFv/D1cveh6F5jhGwm8aysl0GLh2rnY=
+github.com/ringsaturn/tzf v1.0.0/go.mod h1:H/Fl+lPWq+5oD72UZQzFXQnYXcWs3nnyGq6PIYEN8YY=
+github.com/ringsaturn/tzf-rel-lite v0.0.2025-b h1:YYuKav8cpkRtDZ9yFF0kBTO3bU/TjtcawjKI91GWCa4=
+github.com/ringsaturn/tzf-rel-lite v0.0.2025-b/go.mod h1:SyVF6OU+Le0vKajtTA7PvYabdYCJsDlmplHuXeCZDrw=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.3.0/go.mod h1:qt09Ya8vawLte6SNmTgCsAVtYtaKzEcn8ATUoHMkEqE=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
@@ -74,8 +74,8 @@ github.com/tidwall/rtree v1.10.0/go.mod h1:iDJQ9NBRtbfKkzZu02za+mIlaP+bjYPnunbSN
 github.com/tidwall/sjson v1.2.4/go.mod h1:098SZ494YoMWPmMO6ct4dcFnqxwj9r/gF0Etp19pSNM=
 github.com/twpayne/go-polyline v1.1.1 h1:/tSF1BR7rN4HWj4XKqvRUNrCiYVMCvywxTFVofvDV0w=
 github.com/twpayne/go-polyline v1.1.1/go.mod h1:ybd9IWWivW/rlXPXuuckeKUyF3yrIim+iqA7kSl4NFY=
-github.com/ugjka/go-tz/v2 v2.2.5 h1:MARoJqwRAUzl2RkJcxpaoQtWA2v600BUJ+KdOKEds2Q=
-github.com/ugjka/go-tz/v2 v2.2.5/go.mod h1:Jh35OKbERtwjZLWDZ2KgjD+bm5hb9Lx8nVD9Mv9NVzs=
+github.com/ugjka/go-tz/v2 v2.2.6 h1:xAjw0dwSoLZYVBv1lA+n165ibSnDtHguBQNbeAMDwNE=
+github.com/ugjka/go-tz/v2 v2.2.6/go.mod h1:Jh35OKbERtwjZLWDZ2KgjD+bm5hb9Lx8nVD9Mv9NVzs=
 github.com/xdg-go/pbkdf2 v1.0.0/go.mod h1:jrpuAogTd400dnrH08LKmI/xc1MbPOebTwRqcT5RDeI=
 github.com/xdg-go/scram v1.1.1/go.mod h1:RaEWvsqvNKKvBPvcKeFjrG2cJqOkHTiyTpzz23ni57g=
 github.com/xdg-go/stringprep v1.0.3/go.mod h1:W3f5j4i+9rC0kuIEJL0ky1VpHXQU3ocBgklLGvcBnW8=
@@ -127,8 +127,8 @@ golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8T
 golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 google.golang.org/protobuf v1.26.0-rc.1/go.mod h1:jlhhOSvTdKEhbULTjvd4ARK9grFBp09yW+WbY/TyQbw=
 google.golang.org/protobuf v1.27.1/go.mod h1:9q0QmTI4eRPtz6boOQmLYwt+qCgq0jsYwAQnmE0givc=
-google.golang.org/protobuf v1.36.5 h1:tPhr+woSbjfYvY6/GPufUoYizxw1cF/yFoxJ2fmpwlM=
-google.golang.org/protobuf v1.36.5/go.mod h1:9fA7Ob0pmnwhb644+1+CVWFRbNajQ6iRojtC/QF5bRE=
+google.golang.org/protobuf v1.36.6 h1:z1NpPI8ku2WgiWnf+t9wTPsn6eP1L7ksHUlkfLvd9xY=
+google.golang.org/protobuf v1.36.6/go.mod h1:jduwjTPXsFjZGTmRluh+L6NjiWu7pchiJ2/5YcXBHnY=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
