@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1743989613918,
+  "lastUpdate": 1743989813638,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -42999,6 +42999,82 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 844866.72,
             "range": "± 366684.62",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "250f781c3ee0dbe9b5c1018ae2522c254898c5d4",
+          "message": "Bump spatialtime from 0.2.1 to 0.2.2 in /rust in the dependencies group (#184)\n\nBumps the dependencies group in /rust with 1 update: [spatialtime](https://github.com/moranbw/spatialtime).\n\n\nUpdates `spatialtime` from 0.2.1 to 0.2.2\n- [Commits](https://github.com/moranbw/spatialtime/commits)\n\n---\nupdated-dependencies:\n- dependency-name: spatialtime\n  dependency-version: 0.2.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-04-03T08:27:45Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/250f781c3ee0dbe9b5c1018ae2522c254898c5d4"
+        },
+        "date": 1743989811506,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 761.46,
+            "range": "± 39.79",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2786.65,
+            "range": "± 203.31",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4423755.7,
+            "range": "± 99406.05",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 126749429.2,
+            "range": "± 6820284.56",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 127.2,
+            "range": "± 47.25",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3379.67,
+            "range": "± 196.15",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 8250.25,
+            "range": "± 380.64",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 825.89,
+            "range": "± 19.80",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 762001.44,
+            "range": "± 255888.16",
             "unit": "ns/iter"
           }
         ]
