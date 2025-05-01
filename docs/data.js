@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1745804230064,
+  "lastUpdate": 1746139627791,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -6164,6 +6164,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000057933684907644745",
             "extra": "mean: 4.590620043785739 usec\nrounds: 64818"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "da05a8872acd02aa930d06455fceec58af193d6a",
+          "message": "Bump astral-sh/setup-uv from 5 to 6 in the dependencies group (#186)\n\nBumps the dependencies group with 1 update: [astral-sh/setup-uv](https://github.com/astral-sh/setup-uv).\n\n\nUpdates `astral-sh/setup-uv` from 5 to 6\n- [Release notes](https://github.com/astral-sh/setup-uv/releases)\n- [Commits](https://github.com/astral-sh/setup-uv/compare/v5...v6)\n\n---\nupdated-dependencies:\n- dependency-name: astral-sh/setup-uv\n  dependency-version: '6'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-05-02T07:46:44+09:00",
+          "tree_id": "c9f1de8e4afb5307f8d47ed3421aecf7a1ca8d7d",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/da05a8872acd02aa930d06455fceec58af193d6a"
+        },
+        "date": 1746139625401,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 145783.22034060498,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000008467182566516916",
+            "extra": "mean: 6.859500000504997 usec\nrounds: 18"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 220263.7033398601,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000005854802225837868",
+            "extra": "mean: 4.5400126522754 usec\nrounds: 68130"
           }
         ]
       }
