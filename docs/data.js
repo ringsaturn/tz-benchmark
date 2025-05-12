@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1746409036439,
+  "lastUpdate": 1747013656425,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -6314,6 +6314,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00000580094860517394",
             "extra": "mean: 4.499824477071867 usec\nrounds: 69028"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "f307965164630edcf4fd2692d3167e2dde4825bd",
+          "message": "Bump citiespy from 0.6.8 to 0.6.11 in /python in the dependencies group (#187)\n\nBumps the dependencies group in /python with 1 update: [citiespy](https://github.com/ringsaturn/go-cities.json).\n\n\nUpdates `citiespy` from 0.6.8 to 0.6.11\n- [Release notes](https://github.com/ringsaturn/go-cities.json/releases)\n- [Commits](https://github.com/ringsaturn/go-cities.json/compare/v0.6.8...v0.6.11)\n\n---\nupdated-dependencies:\n- dependency-name: citiespy\n  dependency-version: 0.6.11\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-05-01T22:47:20Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/f307965164630edcf4fd2692d3167e2dde4825bd"
+        },
+        "date": 1747013654278,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 24172.5865835902,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00004765132962957843",
+            "extra": "mean: 41.36917646532953 usec\nrounds: 17"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 213460.84557942423,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000006053889185961332",
+            "extra": "mean: 4.6846998909124125 usec\nrounds: 66016"
           }
         ]
       }
