@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751450352900,
+  "lastUpdate": 1751852078281,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -6640,6 +6640,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000006349115000037358",
             "extra": "mean: 4.824571320486947 usec\nrounds: 58167"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "84540912ab09843a8a0b34c9107acf52a87f8b8f",
+          "message": "Bump spatialtime from 0.2.2 to 0.2.3 in /rust in the dependencies group (#188)\n\nBumps the dependencies group in /rust with 1 update: [spatialtime](https://github.com/moranbw/spatialtime).\n\n\nUpdates `spatialtime` from 0.2.2 to 0.2.3\n- [Commits](https://github.com/moranbw/spatialtime/commits)\n\n---\nupdated-dependencies:\n- dependency-name: spatialtime\n  dependency-version: 0.2.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-07-02T09:58:43Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/84540912ab09843a8a0b34c9107acf52a87f8b8f"
+        },
+        "date": 1751852076163,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 29798.308510100967,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0006668839618542324",
+            "extra": "mean: 33.558951833155966 usec\nrounds: 6955"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 220067.49294390943,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000005886173311200085",
+            "extra": "mean: 4.544060490818964 usec\nrounds: 66539"
           }
         ]
       }
