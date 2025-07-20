@@ -45,6 +45,15 @@ wheels = [
 ]
 
 [[package]]
+name = "flatbuffers"
+version = "25.2.10"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e4/30/eb5dce7994fc71a2f685d98ec33cc660c0a5887db5610137e60d8cbc4489/flatbuffers-25.2.10.tar.gz", hash = "sha256:97e451377a41262f8d9bd4295cc836133415cc03d8cb966410a4af92eb00d26e", size = 22170, upload-time = "2025-02-11T04:26:46.257Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b8/25/155f9f080d5e4bc0082edfda032ea2bc2b8fab3f4d25d46c1e9dd22a1a89/flatbuffers-25.2.10-py2.py3-none-any.whl", hash = "sha256:ebba5f4d5ea615af3f7fd70fc310636fbb2bbd1f566ac0a23d98dd412de50051", size = 30953, upload-time = "2025-02-11T04:26:44.484Z" },
+]
+
+[[package]]
 name = "h3"
 version = "4.2.1"
 source = { registry = "https://pypi.org/simple" }
@@ -217,17 +226,18 @@ wheels = [
 
 [[package]]
 name = "timezonefinder"
-version = "6.5.9"
+version = "6.6.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cffi" },
+    { name = "flatbuffers" },
     { name = "h3" },
     { name = "numpy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/5e/4d/8694391d6b014bc49f8fd2eb8c05c94526b36fba8dc76d439f3d51948e46/timezonefinder-6.5.9.tar.gz", hash = "sha256:0d84c792a499fd098a35c701c3e3293423ba8d45c81b3eecd7c7cb72c7f1f415", size = 51435008, upload-time = "2025-03-25T11:28:14.495Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/9d/8c/b8d002a7c660c4b21f21247c9dd9f8323c1cbb3f5adbbbe405c32c02dc4c/timezonefinder-6.6.2.tar.gz", hash = "sha256:95767a349abe906fca565cf8409d90c0f31e23326d3bc2ea596729ad9e41d8ba", size = 52901332, upload-time = "2025-07-19T09:17:01.948Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/53/6c/498b3f453b15d7ecf2ecf54a8f1cc7fbd1d3c3eed86a5182081ebc17b180/timezonefinder-6.5.9-cp313-cp313-manylinux_2_17_x86_64.manylinux_2_5_x86_64.manylinux1_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a7d1f30b550c24598459643285ef0f5469524ad7a32dd854199e7a2a463600ff", size = 51443403, upload-time = "2025-03-25T11:27:49.882Z" },
-    { url = "https://files.pythonhosted.org/packages/8b/16/6ae92a93dd703c0485e4c0a76e28bc829f9c7eba548a1b2e17fb3342e4c3/timezonefinder-6.5.9-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:4f36877ad3a988f329cbd3f04f7cadc56dce073ad4a7bda7397f46ac2a61f9a4", size = 51445432, upload-time = "2025-03-25T11:27:54.762Z" },
+    { url = "https://files.pythonhosted.org/packages/71/01/ed5768e4fb6f39353cfeee99c9a9fc90eb09fc5b7c38779e18a26b4edc5a/timezonefinder-6.6.2-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:491c81f06354a0f76453464932d87f09bc2af2e79c6304d503065e618b1b161c", size = 52930717, upload-time = "2025-07-19T09:16:48.161Z" },
+    { url = "https://files.pythonhosted.org/packages/0f/2e/73dcb80cbc969ea8a04dfc72d68f3cea06ca16027924bac06ce442e95387/timezonefinder-6.6.2-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:b40eb1281aafd27d2058a8ae1885fefa2ffb9e6c8ff30f207a0ccfb1338cb582", size = 52932781, upload-time = "2025-07-19T09:16:51.471Z" },
 ]
 
 [[package]]
@@ -249,7 +259,7 @@ requires-dist = [
     { name = "pytest" },
     { name = "pytest-benchmark" },
     { name = "pytest-pretty" },
-    { name = "timezonefinder", specifier = "==6.5.9" },
+    { name = "timezonefinder", specifier = "==6.6.2" },
     { name = "tzfpy", specifier = "==1.0.0" },
 ]
 
