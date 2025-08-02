@@ -9,13 +9,15 @@ edition = "2021"
 tzf-rs = "1.0.0"
 cities-json = "0.6.8"
 tz-search = "0.1.1"
-# rtz = {version = "0.5.3", features = ["full"]}
-rtz = { git = "https://github.com/twitchax/rtz", features = [
+
+rtz = { version = "0.7.1", features = [
     "full",
     "self-contained",
-], rev = "021eab5" }
+]}
+
+spatialtime = { version = "0.2.2", features = ["osm", "ned"]}
 zone-detect = "1.1.0"
-spatialtime = { version = "0.2.3", features = ["osm", "ned"]}
+
 
 [profile.bench]
 lto = true
