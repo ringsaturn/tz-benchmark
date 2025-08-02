@@ -3164,11 +3164,11 @@ dependencies = [
 
 [[package]]
 name = "zone-detect"
-version = "1.0.1"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "07d84ddbc859f09b1cd8ee75857a7b20d4514a473aa220f2ea87210989a3e543"
+checksum = "7bbe251c9550fa7647c320e85b2d8563e90c08a13ec20d1aa7197bfaa592e959"
 dependencies = [
- "thiserror 1.0.63",
+ "thiserror 2.0.3",
 ]
 
 [[package]]
