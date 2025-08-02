@@ -7,7 +7,7 @@ requires-python = "==3.13.*"
 
 dependencies = [
     "citiespy==0.6.11",
-    "timezonefinder==6.6.2",
+    "timezonefinder==7.0.1",
     "tzfpy==1.0.0",
     "pytest",
     "pytest-benchmark",

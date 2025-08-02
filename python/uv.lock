@@ -226,7 +226,7 @@ wheels = [
 
 [[package]]
 name = "timezonefinder"
-version = "6.6.2"
+version = "7.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cffi" },
@@ -234,10 +234,10 @@ dependencies = [
     { name = "h3" },
     { name = "numpy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9d/8c/b8d002a7c660c4b21f21247c9dd9f8323c1cbb3f5adbbbe405c32c02dc4c/timezonefinder-6.6.2.tar.gz", hash = "sha256:95767a349abe906fca565cf8409d90c0f31e23326d3bc2ea596729ad9e41d8ba", size = 52901332, upload-time = "2025-07-19T09:17:01.948Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ee/13/271e82d7940a261687089a67e6a5d34059082f1386dc17d8b874a8510ab6/timezonefinder-7.0.1.tar.gz", hash = "sha256:72c4e2a16d60039e43bf2bfc2ce00cba826d24d1da83688524ba88ee4e1cb47f", size = 52910454, upload-time = "2025-07-24T06:53:23.512Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/71/01/ed5768e4fb6f39353cfeee99c9a9fc90eb09fc5b7c38779e18a26b4edc5a/timezonefinder-6.6.2-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:491c81f06354a0f76453464932d87f09bc2af2e79c6304d503065e618b1b161c", size = 52930717, upload-time = "2025-07-19T09:16:48.161Z" },
-    { url = "https://files.pythonhosted.org/packages/0f/2e/73dcb80cbc969ea8a04dfc72d68f3cea06ca16027924bac06ce442e95387/timezonefinder-6.6.2-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:b40eb1281aafd27d2058a8ae1885fefa2ffb9e6c8ff30f207a0ccfb1338cb582", size = 52932781, upload-time = "2025-07-19T09:16:51.471Z" },
+    { url = "https://files.pythonhosted.org/packages/c4/9d/13a28a01adb5335473c781c368b24330b700be7103da8baac9a52813a625/timezonefinder-7.0.1-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2a90e7d5b16275c04b87752bac429f59c2889adf7d4b1825a8c6fe0a144d27e1", size = 52936196, upload-time = "2025-07-24T06:53:09.004Z" },
+    { url = "https://files.pythonhosted.org/packages/6d/a2/a51fba52f36b9c3f829fcd448f4dd5a703db6c62df03c62227d7b0faab47/timezonefinder-7.0.1-cp313-cp313-musllinux_1_1_x86_64.whl", hash = "sha256:6ebdf1a4390300df83bd5e222e89ea835f4f409394f691608009b28416145142", size = 52938250, upload-time = "2025-07-24T06:53:12.54Z" },
 ]
 
 [[package]]
@@ -259,7 +259,7 @@ requires-dist = [
     { name = "pytest" },
     { name = "pytest-benchmark" },
     { name = "pytest-pretty" },
-    { name = "timezonefinder", specifier = "==6.6.2" },
+    { name = "timezonefinder", specifier = "==7.0.1" },
     { name = "tzfpy", specifier = "==1.0.0" },
 ]
 
