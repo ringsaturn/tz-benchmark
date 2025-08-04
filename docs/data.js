@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1754271374307,
+  "lastUpdate": 1754271566960,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -51061,6 +51061,82 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 814456.86,
             "range": "± 339394.99",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "44815aa2fd083cbd8e38b9a8f7c139cd359dad91",
+          "message": "Bump zone-detect from 1.0.1 to 1.1.0 in /rust in the dependencies group (#190)\n\nBumps the dependencies group in /rust with 1 update: [zone-detect](https://github.com/nicholasbishop/zone-detect-rs).\n\n\nUpdates `zone-detect` from 1.0.1 to 1.1.0\n- [Commits](https://github.com/nicholasbishop/zone-detect-rs/compare/zone-detect-v1.0.1...zone-detect-v1.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: zone-detect\n  dependency-version: 1.1.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-08-02T00:48:15Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/44815aa2fd083cbd8e38b9a8f7c139cd359dad91"
+        },
+        "date": 1754271564757,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 746.58,
+            "range": "± 35.76",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2785.67,
+            "range": "± 179.81",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4657267.9,
+            "range": "± 133088.80",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 127429365.8,
+            "range": "± 6828499.87",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 127.95,
+            "range": "± 7.05",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3335.35,
+            "range": "± 214.49",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 8261.67,
+            "range": "± 265.34",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 840.23,
+            "range": "± 26.50",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 769408.8,
+            "range": "± 285584.47",
             "unit": "ns/iter"
           }
         ]
