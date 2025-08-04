@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1754095902076,
+  "lastUpdate": 1754271360763,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -6898,6 +6898,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000057516384652095214",
             "extra": "mean: 4.519676401185288 usec\nrounds: 19073"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "44815aa2fd083cbd8e38b9a8f7c139cd359dad91",
+          "message": "Bump zone-detect from 1.0.1 to 1.1.0 in /rust in the dependencies group (#190)\n\nBumps the dependencies group in /rust with 1 update: [zone-detect](https://github.com/nicholasbishop/zone-detect-rs).\n\n\nUpdates `zone-detect` from 1.0.1 to 1.1.0\n- [Commits](https://github.com/nicholasbishop/zone-detect-rs/compare/zone-detect-v1.0.1...zone-detect-v1.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: zone-detect\n  dependency-version: 1.1.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-08-02T00:48:15Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/44815aa2fd083cbd8e38b9a8f7c139cd359dad91"
+        },
+        "date": 1754271358587,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 37563.527726230015,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00046060346043605606",
+            "extra": "mean: 26.621567795447387 usec\nrounds: 14824"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 218710.22293321535,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000005990942754827562",
+            "extra": "mean: 4.572259982128759 usec\nrounds: 61535"
           }
         ]
       }
