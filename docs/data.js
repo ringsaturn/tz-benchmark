@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1757900218786,
+  "lastUpdate": 1758504833587,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -7226,6 +7226,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000005806395967166524",
             "extra": "mean: 4.422761912635814 usec\nrounds: 60566"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "27905f26c37b22baa6c976f7443007fa525b5674",
+          "message": "Bump the dependencies group with 2 updates (#191)\n\nBumps the dependencies group with 2 updates: [actions/checkout](https://github.com/actions/checkout) and [actions/download-artifact](https://github.com/actions/download-artifact).\n\n\nUpdates `actions/checkout` from 4 to 5\n- [Release notes](https://github.com/actions/checkout/releases)\n- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/actions/checkout/compare/v4...v5)\n\nUpdates `actions/download-artifact` from 4 to 5\n- [Release notes](https://github.com/actions/download-artifact/releases)\n- [Commits](https://github.com/actions/download-artifact/compare/v4...v5)\n\n---\nupdated-dependencies:\n- dependency-name: actions/checkout\n  dependency-version: '5'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n- dependency-name: actions/download-artifact\n  dependency-version: '5'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-09-02T07:53:56Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/27905f26c37b22baa6c976f7443007fa525b5674"
+        },
+        "date": 1758504831339,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 38518.16345531649,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00003779414331443072",
+            "extra": "mean: 25.961777776867873 usec\nrounds: 18"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 221018.43179227397,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000005858512639346988",
+            "extra": "mean: 4.524509525702627 usec\nrounds: 64982"
           }
         ]
       }
