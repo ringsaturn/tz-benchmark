@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1759109817193,
+  "lastUpdate": 1759388263641,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -7298,6 +7298,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000005913206834560214",
             "extra": "mean: 4.480676666809953 usec\nrounds: 63699"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "de9ebf9572894c2fcc69c2dbef63332505c428b2",
+          "message": "Bump the dependencies group in /python with 3 updates (#193)\n\nBumps the dependencies group in /python with 3 updates: [timezonefinder](https://github.com/jannikmi/timezonefinder), [pytest](https://github.com/pytest-dev/pytest) and [pytest-pretty](https://github.com/samuelcolvin/pytest-pretty).\n\n\nUpdates `timezonefinder` from 8.0.0 to 8.1.0\n- [Release notes](https://github.com/jannikmi/timezonefinder/releases)\n- [Changelog](https://github.com/jannikmi/timezonefinder/blob/master/CHANGELOG.rst)\n- [Commits](https://github.com/jannikmi/timezonefinder/compare/8.0.0...8.1.0)\n\nUpdates `pytest` from 8.3.5 to 8.4.2\n- [Release notes](https://github.com/pytest-dev/pytest/releases)\n- [Changelog](https://github.com/pytest-dev/pytest/blob/main/CHANGELOG.rst)\n- [Commits](https://github.com/pytest-dev/pytest/compare/8.3.5...8.4.2)\n\nUpdates `pytest-pretty` from 1.2.0 to 1.3.0\n- [Release notes](https://github.com/samuelcolvin/pytest-pretty/releases)\n- [Commits](https://github.com/samuelcolvin/pytest-pretty/compare/v1.2.0...v1.3.0)\n\n---\nupdated-dependencies:\n- dependency-name: timezonefinder\n  dependency-version: 8.1.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n- dependency-name: pytest\n  dependency-version: 8.4.2\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n- dependency-name: pytest-pretty\n  dependency-version: 1.3.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-10-02T15:57:23+09:00",
+          "tree_id": "bae102076064f935d54cb60c6b97c6518efe04c4",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/de9ebf9572894c2fcc69c2dbef63332505c428b2"
+        },
+        "date": 1759388261447,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 60924.50906445688,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0004235916648579867",
+            "extra": "mean: 16.413755569897504 usec\nrounds: 17101"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 221598.9447926781,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000005896792797195437",
+            "extra": "mean: 4.512656867276929 usec\nrounds: 67079"
           }
         ]
       }
