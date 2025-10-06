@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1759714400867,
+  "lastUpdate": 1759714591382,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -55207,6 +55207,82 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 823879.78,
             "range": "± 431802.63",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "de9ebf9572894c2fcc69c2dbef63332505c428b2",
+          "message": "Bump the dependencies group in /python with 3 updates (#193)\n\nBumps the dependencies group in /python with 3 updates: [timezonefinder](https://github.com/jannikmi/timezonefinder), [pytest](https://github.com/pytest-dev/pytest) and [pytest-pretty](https://github.com/samuelcolvin/pytest-pretty).\n\n\nUpdates `timezonefinder` from 8.0.0 to 8.1.0\n- [Release notes](https://github.com/jannikmi/timezonefinder/releases)\n- [Changelog](https://github.com/jannikmi/timezonefinder/blob/master/CHANGELOG.rst)\n- [Commits](https://github.com/jannikmi/timezonefinder/compare/8.0.0...8.1.0)\n\nUpdates `pytest` from 8.3.5 to 8.4.2\n- [Release notes](https://github.com/pytest-dev/pytest/releases)\n- [Changelog](https://github.com/pytest-dev/pytest/blob/main/CHANGELOG.rst)\n- [Commits](https://github.com/pytest-dev/pytest/compare/8.3.5...8.4.2)\n\nUpdates `pytest-pretty` from 1.2.0 to 1.3.0\n- [Release notes](https://github.com/samuelcolvin/pytest-pretty/releases)\n- [Commits](https://github.com/samuelcolvin/pytest-pretty/compare/v1.2.0...v1.3.0)\n\n---\nupdated-dependencies:\n- dependency-name: timezonefinder\n  dependency-version: 8.1.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n- dependency-name: pytest\n  dependency-version: 8.4.2\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n- dependency-name: pytest-pretty\n  dependency-version: 1.3.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-10-02T06:57:23Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/de9ebf9572894c2fcc69c2dbef63332505c428b2"
+        },
+        "date": 1759714588521,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 728.02,
+            "range": "± 46.72",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2750.23,
+            "range": "± 192.05",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4645541.85,
+            "range": "± 105040.01",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 136304359.1,
+            "range": "± 10839940.99",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 124.33,
+            "range": "± 50.78",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3299.9,
+            "range": "± 255.08",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 8474.33,
+            "range": "± 389.78",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 819.05,
+            "range": "± 42.31",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 822712.8,
+            "range": "± 326907.73",
             "unit": "ns/iter"
           }
         ]
