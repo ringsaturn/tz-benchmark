@@ -1,13 +1,11 @@
-github.com/albertyw/localtimezone/v3 v3.1.9 h1:hyZUO7/v5HMs+PoGBFc/h7B9qtAM3bmRwS7QJhvbxSI=
-github.com/albertyw/localtimezone/v3 v3.1.9/go.mod h1:U7SsNqeiJmSOXO6kiX1cl8eyD3CfF+9wtwCHAajCQs8=
 github.com/golang/snappy v0.0.4/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEWrmP2Q=
 github.com/klauspost/compress v1.16.7/go.mod h1:ntbaceVETuRiXiv4DpjP66DpAtAGkEQskQzEyD//IeE=
 github.com/machinebox/progress v0.2.0/go.mod h1:hl4FywxSjfmkmCrersGhmJH7KwuKl+Ueq9BXkOny+iE=
 github.com/matryer/is v1.2.0/go.mod h1:2fLPjFQM9rhQ15aVEtbuwhJinnOqrmgXPNdZsdwlWXA=
 github.com/montanaflynn/stats v0.7.1/go.mod h1:etXPPgVO6n31NxCd9KQUMvCM+ve0ruNzt6R8Bnaayow=
+github.com/ringsaturn/go-cities.json v0.6.13 h1:p5afPcJ/tEE6uzFCOzLSHJYXgWnGdPmwZB9KBrEASxc=
+github.com/ringsaturn/go-cities.json v0.6.13/go.mod h1:VtklT4Sod9i6kvXXNZV63sfjeCX9l11OQfaAvPu+p4M=
 github.com/ringsaturn/polyf v0.2.2/go.mod h1:0+PnAZooWRyH6ULFdxTC86pe15L4VT3e71CQVPG67CE=
-github.com/ugjka/go-tz/v2 v2.2.6 h1:xAjw0dwSoLZYVBv1lA+n165ibSnDtHguBQNbeAMDwNE=
-github.com/ugjka/go-tz/v2 v2.2.6/go.mod h1:Jh35OKbERtwjZLWDZ2KgjD+bm5hb9Lx8nVD9Mv9NVzs=
 github.com/xdg-go/scram v1.1.2/go.mod h1:RT/sEzTbU5y00aCK8UOx6R7YryM0iF1N2MOmC3kKLN4=
 github.com/xdg-go/stringprep v1.0.4/go.mod h1:mPGuuIYwz7CmR2bT9j4GbQqutWS1zV24gijq1dTyGkM=
 github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78/go.mod h1:aL8wCCfTfSfmXjznFBSZNN13rSJjlIOI1fUNAtF7rmI=

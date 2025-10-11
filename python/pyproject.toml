@@ -3,12 +3,12 @@ name = "tz-benchmark"
 version = "0.1.0"
 description = "Add your description here"
 readme = "../README.md"
-requires-python = "==3.13.*"
+requires-python = "==3.14.*"
 
 dependencies = [
-    "citiespy==0.6.11",
+    "citiespy==0.6.13",
     "timezonefinder==8.1.0",
-    "tzfpy==1.0.0",
+    "tzfpy==1.0.1",
     "pytest",
     "pytest-benchmark",
     "pytest-pretty",
