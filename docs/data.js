@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1761529103207,
+  "lastUpdate": 1762090477128,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -7556,6 +7556,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000006565180903417939",
             "extra": "mean: 4.610138415752781 usec\nrounds: 31008"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "54e9c1f8b25cdd17aa817877bba5aeabf2c63dc5",
+          "message": "Bump the dependencies group with 3 updates (#195)\n\nBumps the dependencies group with 3 updates: [actions/upload-artifact](https://github.com/actions/upload-artifact), [astral-sh/setup-uv](https://github.com/astral-sh/setup-uv) and [actions/download-artifact](https://github.com/actions/download-artifact).\n\n\nUpdates `actions/upload-artifact` from 4 to 5\n- [Release notes](https://github.com/actions/upload-artifact/releases)\n- [Commits](https://github.com/actions/upload-artifact/compare/v4...v5)\n\nUpdates `astral-sh/setup-uv` from 6 to 7\n- [Release notes](https://github.com/astral-sh/setup-uv/releases)\n- [Commits](https://github.com/astral-sh/setup-uv/compare/v6...v7)\n\nUpdates `actions/download-artifact` from 5 to 6\n- [Release notes](https://github.com/actions/download-artifact/releases)\n- [Commits](https://github.com/actions/download-artifact/compare/v5...v6)\n\n---\nupdated-dependencies:\n- dependency-name: actions/upload-artifact\n  dependency-version: '5'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n- dependency-name: astral-sh/setup-uv\n  dependency-version: '7'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n- dependency-name: actions/download-artifact\n  dependency-version: '6'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-11-02T22:34:17+09:00",
+          "tree_id": "9ce6049bb86eb34a0d076ecf2fb1bd81c153c28f",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/54e9c1f8b25cdd17aa817877bba5aeabf2c63dc5"
+        },
+        "date": 1762090474782,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 45471.671147606365,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000022911864304855308",
+            "extra": "mean: 21.99171428632748 usec\nrounds: 14"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 214127.39149851722,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000006538134028072785",
+            "extra": "mean: 4.67011713448592 usec\nrounds: 72643"
           }
         ]
       }
