@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1762090693178,
+  "lastUpdate": 1762090697006,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -58145,6 +58145,84 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 798694.8,
             "range": "± 315823.71",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "55e71b07b5080e082e3793e7a4e71e45e9db92d1",
+          "message": "Bump the dependencies group in /python with 2 updates (#198)\n\nBumps the dependencies group in /python with 2 updates: [tzfpy](https://github.com/ringsaturn/tz-benchmark) and [pytest-benchmark](https://github.com/ionelmc/pytest-benchmark).\n\n\nUpdates `tzfpy` from 1.0.1 to 1.1.0\n- [Commits](https://github.com/ringsaturn/tz-benchmark/commits)\n\nUpdates `pytest-benchmark` from 5.1.0 to 5.2.0\n- [Changelog](https://github.com/ionelmc/pytest-benchmark/blob/master/CHANGELOG.rst)\n- [Commits](https://github.com/ionelmc/pytest-benchmark/compare/v5.1.0...v5.2.0)\n\n---\nupdated-dependencies:\n- dependency-name: tzfpy\n  dependency-version: 1.1.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n- dependency-name: pytest-benchmark\n  dependency-version: 5.2.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-11-02T22:34:27+09:00",
+          "tree_id": "70321f14d11e9ec045277f89a9fa11a852c7d432",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/55e71b07b5080e082e3793e7a4e71e45e9db92d1"
+        },
+        "date": 1762090690969,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 741.9,
+            "range": "± 49.62",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2804.77,
+            "range": "± 187.64",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4647557.2,
+            "range": "± 198131.62",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 128512179.5,
+            "range": "± 5859608.66",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 136,
+            "range": "± 19.68",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3228.69,
+            "range": "± 205.35",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 8579.27,
+            "range": "± 311.45",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 823.18,
+            "range": "± 22.46",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 875992.15,
+            "range": "± 344347.13",
             "unit": "ns/iter"
           }
         ]
