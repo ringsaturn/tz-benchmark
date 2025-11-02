@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1762090709291,
+  "lastUpdate": 1762090721797,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -58299,6 +58299,84 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 875992.15,
             "range": "± 344347.13",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fa719f3dde5d88c3d8190bed3b3524086389cf6a",
+          "message": "Bump the dependencies group in /go with 2 updates (#196)\n\nBumps the dependencies group in /go with 2 updates: [github.com/albertyw/localtimezone/v3](https://github.com/albertyw/localtimezone) and [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf).\n\n\nUpdates `github.com/albertyw/localtimezone/v3` from 3.1.9 to 3.1.11\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/albertyw/localtimezone/compare/v3.1.9...v3.1.11)\n\nUpdates `github.com/ringsaturn/tzf` from 1.0.0 to 1.0.2\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\n- [Commits](https://github.com/ringsaturn/tzf/compare/v1.0.0...v1.0.2)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/albertyw/localtimezone/v3\n  dependency-version: 3.1.11\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: github.com/ringsaturn/tzf\n  dependency-version: 1.0.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-11-02T22:34:55+09:00",
+          "tree_id": "f71c627e56a85639a8f5c79a87fab31724660840",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/fa719f3dde5d88c3d8190bed3b3524086389cf6a"
+        },
+        "date": 1762090719526,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 794.45,
+            "range": "± 32.63",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 3040.11,
+            "range": "± 257.84",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 4677879.7,
+            "range": "± 217421",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 129068487.7,
+            "range": "± 6787362.35",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 174.37,
+            "range": "± 35.83",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3320.35,
+            "range": "± 197.23",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 8762.54,
+            "range": "± 317.62",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 847.22,
+            "range": "± 12.02",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 809182.73,
+            "range": "± 228923.89",
             "unit": "ns/iter"
           }
         ]
