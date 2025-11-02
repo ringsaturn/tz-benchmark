@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1762090721797,
+  "lastUpdate": 1762090727814,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -7670,6 +7670,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000006708141975812262",
             "extra": "mean: 4.6636449146282555 usec\nrounds: 72591"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fa719f3dde5d88c3d8190bed3b3524086389cf6a",
+          "message": "Bump the dependencies group in /go with 2 updates (#196)\n\nBumps the dependencies group in /go with 2 updates: [github.com/albertyw/localtimezone/v3](https://github.com/albertyw/localtimezone) and [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf).\n\n\nUpdates `github.com/albertyw/localtimezone/v3` from 3.1.9 to 3.1.11\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/albertyw/localtimezone/compare/v3.1.9...v3.1.11)\n\nUpdates `github.com/ringsaturn/tzf` from 1.0.0 to 1.0.2\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\n- [Commits](https://github.com/ringsaturn/tzf/compare/v1.0.0...v1.0.2)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/albertyw/localtimezone/v3\n  dependency-version: 3.1.11\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: github.com/ringsaturn/tzf\n  dependency-version: 1.0.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-11-02T22:34:55+09:00",
+          "tree_id": "f71c627e56a85639a8f5c79a87fab31724660840",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/fa719f3dde5d88c3d8190bed3b3524086389cf6a"
+        },
+        "date": 1762090725161,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 84352.08556133969,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000217147523952944",
+            "extra": "mean: 11.855071434752062 usec\nrounds: 14"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 212648.12737430685,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000006682066649398051",
+            "extra": "mean: 4.70260430857114 usec\nrounds: 17314"
           }
         ]
       }
