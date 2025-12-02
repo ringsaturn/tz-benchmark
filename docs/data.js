@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1764553144776,
+  "lastUpdate": 1764635323321,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -7888,6 +7888,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000006604737328585048",
             "extra": "mean: 4.611165730336502 usec\nrounds: 70488"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f88243d73d72d10a29c0efd0378ca3ec23fc4479",
+          "message": "Bump actions/checkout from 5 to 6 in the dependencies group (#201)\n\nBumps the dependencies group with 1 update: [actions/checkout](https://github.com/actions/checkout).\n\n\nUpdates `actions/checkout` from 5 to 6\n- [Release notes](https://github.com/actions/checkout/releases)\n- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/actions/checkout/compare/v5...v6)\n\n---\nupdated-dependencies:\n- dependency-name: actions/checkout\n  dependency-version: '6'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-12-02T09:28:21+09:00",
+          "tree_id": "4212bf09782b33b3bd68b2ead5ac04bc0cdbfa46",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/f88243d73d72d10a29c0efd0378ca3ec23fc4479"
+        },
+        "date": 1764635320792,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 52527.64607195059,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000676789019705226",
+            "extra": "mean: 19.03759400583521 usec\nrounds: 14781"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 201692.51258352766,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000007151630555790704",
+            "extra": "mean: 4.95804225546482 usec\nrounds: 57531"
           }
         ]
       }
