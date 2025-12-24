@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1766584282631,
+  "lastUpdate": 1766584787346,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -8072,6 +8072,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000006935698595547612",
             "extra": "mean: 4.787169755991589 usec\nrounds: 70943"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "e8ccdd9406754413cc83ea600d022417defcb63b",
+          "message": "update spatialtime func",
+          "timestamp": "2025-12-24T22:59:12+09:00",
+          "tree_id": "7227520ef1254eaf5d26af39f75afbc81f33cafd",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/e8ccdd9406754413cc83ea600d022417defcb63b"
+        },
+        "date": 1766584784699,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 56481.25903365537,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0006287086108757318",
+            "extra": "mean: 17.704987762474133 usec\nrounds: 15526"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 213704.97243209786,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000006676952417500671",
+            "extra": "mean: 4.679348302565762 usec\nrounds: 65067"
           }
         ]
       }
