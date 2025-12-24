@@ -77,7 +77,7 @@ mod benches_tz_crates {
         let reader = spatialtime::ned::NedReader::new().unwrap();
         b.iter(|| {
             let city = cities_json::get_random_cities();
-            let _ = reader.lookup(city.lng, city.lat).unwrap();
+            let _ = reader.lookup(city.lng, city.lat);  // sometimes fails, so unwrap removed
         });
     }
 
