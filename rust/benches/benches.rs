@@ -74,17 +74,19 @@ mod benches_tz_crates {
 
     #[bench]
     fn bench_spatialtime_ned(b: &mut Bencher) {
+        let reader = spatialtime::ned::NedReader::new().unwrap();
         b.iter(|| {
             let city = cities_json::get_random_cities();
-            let _ = spatialtime::ned::lookup(city.lng, city.lat).unwrap();
+            let _ = reader.lookup(city.lng, city.lat).unwrap();
         });
     }
 
     #[bench]
     fn bench_spatialtime_osm(b: &mut Bencher) {
+        let reader = spatialtime::osm::OsmReader::new().unwrap();
         b.iter(|| {
             let city = cities_json::get_random_cities();
-            let _ = spatialtime::osm::lookup(city.lng, city.lat).unwrap();
+            let _ = reader.lookup(city.lng, city.lat).unwrap();
         });
     }
 }
