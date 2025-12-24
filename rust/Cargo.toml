@@ -15,7 +15,7 @@ rtz = { git = "https://github.com/twitchax/rtz", features = [
     "self-contained",
 ], rev = "021eab5" }
 zone-detect = "1.1.0"
-spatialtime = { version = "0.2.3", features = ["osm", "ned"]}
+spatialtime = { version = "0.3.0", features = ["osm", "ned"]}
 
 [profile.bench]
 lto = true
