@@ -5,7 +5,7 @@ go 1.25
 require (
 	github.com/albertyw/localtimezone/v3 v3.1.11
 	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
-	github.com/loov/hrtime v1.0.3
+	github.com/loov/hrtime v1.0.4
 	github.com/ringsaturn/go-cities.json v0.6.13
 	github.com/ringsaturn/tzf v1.0.2
 	github.com/ugjka/go-tz/v2 v2.2.6
