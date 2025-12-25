@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1766629759392,
+  "lastUpdate": 1766629888503,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -8224,6 +8224,44 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000006842000950499244",
             "extra": "mean: 4.678369705785558 usec\nrounds: 64646"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "415ee82fcce1ab6f10d0ff448c0e065246081361",
+          "message": "Bump github.com/loov/hrtime in /go in the dependencies group (#199)\n\nBumps the dependencies group in /go with 1 update: [github.com/loov/hrtime](https://github.com/loov/hrtime).\n\n\nUpdates `github.com/loov/hrtime` from 1.0.3 to 1.0.4\n- [Commits](https://github.com/loov/hrtime/compare/v1.0.3...v1.0.4)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/loov/hrtime\n  dependency-version: 1.0.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-12-25T11:31:04+09:00",
+          "tree_id": "124aee5ac171c08ca7a884848a8c44cfccd22432",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/415ee82fcce1ab6f10d0ff448c0e065246081361"
+        },
+        "date": 1766629886063,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 58072.91919514395,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005855702494318571",
+            "extra": "mean: 17.219730191962174 usec\nrounds: 17657"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 213538.85055644627,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000067270216063584135",
+            "extra": "mean: 4.682988586827027 usec\nrounds: 66765"
           }
         ]
       }
