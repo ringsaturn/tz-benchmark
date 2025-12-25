@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1766629954917,
+  "lastUpdate": 1766629982877,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -63575,6 +63575,72 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 850037.97,
             "range": "± 338063.04",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "415ee82fcce1ab6f10d0ff448c0e065246081361",
+          "message": "Bump github.com/loov/hrtime in /go in the dependencies group (#199)\n\nBumps the dependencies group in /go with 1 update: [github.com/loov/hrtime](https://github.com/loov/hrtime).\n\n\nUpdates `github.com/loov/hrtime` from 1.0.3 to 1.0.4\n- [Commits](https://github.com/loov/hrtime/compare/v1.0.3...v1.0.4)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/loov/hrtime\n  dependency-version: 1.0.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2025-12-25T11:31:04+09:00",
+          "tree_id": "124aee5ac171c08ca7a884848a8c44cfccd22432",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/415ee82fcce1ab6f10d0ff448c0e065246081361"
+        },
+        "date": 1766629979425,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 165422.03,
+            "range": "± 22976.5",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 5876036.05,
+            "range": "± 3577271.55",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 157.93,
+            "range": "± 30.34",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3571.96,
+            "range": "± 282.96",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 8167.3,
+            "range": "± 772.3",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 873.14,
+            "range": "± 19.62",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 849525.81,
+            "range": "± 288563.61",
             "unit": "ns/iter"
           }
         ]
