@@ -66,7 +66,7 @@ jobs:
       - run: ls -lah
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: benchmark_go_${{ steps.gen-benchmark-file-name.outputs.filename }}
           path: go/${{ steps.gen-benchmark-file-name.outputs.filename }}
@@ -128,7 +128,7 @@ jobs:
       - run: ls -lah
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: benchmark_py_${{ steps.gen-benchmark-file-name.outputs.filename }}
           path: python/${{ steps.gen-benchmark-file-name.outputs.filename }}
@@ -180,7 +180,7 @@ jobs:
       - run: ls -lah
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: benchmark_rust_${{ steps.gen-benchmark-file-name.outputs.filename }}
           path: rust/${{ steps.gen-benchmark-file-name.outputs.filename }}
@@ -191,7 +191,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download a Build Artifact
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           pattern: "benchmark_*"
 
