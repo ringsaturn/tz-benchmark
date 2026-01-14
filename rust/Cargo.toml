@@ -6,7 +6,7 @@ edition = "2024"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tzf-rs = "1.1.3"
+tzf-rs = "1.1.4"
 cities-json = "0.6.8"
 tz-search = "0.1.1"
 # rtz = {version = "0.5.3", features = ["full"]}
