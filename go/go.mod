@@ -3,7 +3,7 @@ module github.com/ringsaturn/tz-benchmark/go
 go 1.25
 
 require (
-	github.com/albertyw/localtimezone/v3 v3.1.11
+	github.com/albertyw/localtimezone/v3 v3.1.12
 	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
 	github.com/loov/hrtime v1.0.4
 	github.com/ringsaturn/go-cities.json v0.6.13
