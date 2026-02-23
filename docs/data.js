@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1771205934088,
+  "lastUpdate": 1771810650742,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -8740,6 +8740,42 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000006642442233301503",
             "extra": "mean: 4.626166859140966 usec\nrounds: 74488"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "7874e88ade6c8f4aecafec7f300b541644e5157f",
+          "message": "Bump github.com/ugjka/go-tz/v2 in /go in the dependencies group (#205)\n\nBumps the dependencies group in /go with 1 update: [github.com/ugjka/go-tz/v2](https://github.com/ugjka/go-tz).\n\n\nUpdates `github.com/ugjka/go-tz/v2` from 2.2.6 to 2.2.7\n- [Release notes](https://github.com/ugjka/go-tz/releases)\n- [Commits](https://github.com/ugjka/go-tz/compare/v2.2.6...v2.2.7)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/ugjka/go-tz/v2\n  dependency-version: 2.2.7\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-02-02T01:32:53Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/7874e88ade6c8f4aecafec7f300b541644e5157f"
+        },
+        "date": 1771810647472,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 26434.196785462584,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00003369175791002359",
+            "extra": "mean: 37.82978571718688 usec\nrounds: 14"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 204804.9446405833,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000007120672428713109",
+            "extra": "mean: 4.88269461342802 usec\nrounds: 76133"
           }
         ]
       }
