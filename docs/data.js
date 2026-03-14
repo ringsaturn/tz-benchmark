@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1773494652442,
+  "lastUpdate": 1773494714960,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -69555,6 +69555,72 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 743187.16,
             "range": "± 305519.88",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "19dc9a178e08f72b1ec0533837cd566e6c9ddaa2",
+          "message": "Bump tzfpy from 1.1.1 to 1.1.3 in /python in the dependencies group (#207)\n\nBumps the dependencies group in /python with 1 update: [tzfpy](https://github.com/ringsaturn/tz-benchmark).\n\n\nUpdates `tzfpy` from 1.1.1 to 1.1.3\n- [Commits](https://github.com/ringsaturn/tz-benchmark/commits)\n\n---\nupdated-dependencies:\n- dependency-name: tzfpy\n  dependency-version: 1.1.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-03-14T22:23:13+09:00",
+          "tree_id": "2587bfc9324f76ee3fe17a45cdd542ff82001228",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/19dc9a178e08f72b1ec0533837cd566e6c9ddaa2"
+        },
+        "date": 1773494711408,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 162069.88,
+            "range": "± 21027.63",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 5631388.75,
+            "range": "± 3504803.13",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 143.48,
+            "range": "± 30.96",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 3542.83,
+            "range": "± 326.63",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 7504.04,
+            "range": "± 521.93",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 864.09,
+            "range": "± 12.51",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 739888.67,
+            "range": "± 163670.83",
             "unit": "ns/iter"
           }
         ]
