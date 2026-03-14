@@ -1,8 +1,8 @@
 # tz-benchmark
 
-Benchmarks ran [`804a99e`][commit] in GitHub Actions.
+Benchmarks ran [`aef61f7`][commit] in GitHub Actions.
 
-[Commit]: https://github.com/ringsaturn/tz-benchmark/commit/804a99e8c6e3edae9024dfbf210ac95df728f79a
+[Commit]: https://github.com/ringsaturn/tz-benchmark/commit/aef61f754b5f7a497630e9c129b9e8d603dc8006
 
 ## Go 
 ```
@@ -10,51 +10,52 @@ goos: linux
 goarch: amd64
 pkg: github.com/ringsaturn/tz-benchmark/go
 cpu: AMD EPYC 7763 64-Core Processor                
-BenchmarkTZF_Default_Random_WorldCities-4      	  469153	      2154 ns/op	      1072 ns/p50	      7554 ns/p90	     12363 ns/p99	       8 B/op	       0 allocs/op
-BenchmarkLatlong_Random_WorldCities-4          	 3482382	       369.5 ns/op	       331.0 ns/p50	       551.0 ns/p90	       801.0 ns/p99	       8 B/op	       0 allocs/op
-BenchmarkLocaltimezone_Random_WorldCities-4    	   13896	     86124 ns/op	     59551 ns/p50	    199463 ns/p90	    341720 ns/p99	      24 B/op	       1 allocs/op
-BenchmarkTimezoneMapper_Random_WorldCities-4   	 4208377	       276.3 ns/op	       261.0 ns/p50	       371.0 ns/p90	       511.0 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkTZF_Default_Random_WorldCities-4      	  568519	      2003 ns/op	       941.0 ns/p50	      7213 ns/p90	     11942 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkLatlong_Random_WorldCities-4          	 4283955	       275.3 ns/op	       250.0 ns/p50	       380.0 ns/p90	       561.0 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkLocaltimezone_Random_WorldCities-4    	   34564	     34857 ns/op	     24215 ns/p50	     80411 ns/p90	    132879 ns/p99	      24 B/op	       1 allocs/op
+BenchmarkTimezoneMapper_Random_WorldCities-4   	 4437944	       271.0 ns/op	       251.0 ns/p50	       360.0 ns/p90	       481.0 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkGoTZ-4                                	   12910	     93143 ns/op	     54772 ns/p50	    244137 ns/p90	    488234 ns/p99	      24 B/op	       1 allocs/op
 PASS
-ok  	github.com/ringsaturn/tz-benchmark/go	8.000s
+ok  	github.com/ringsaturn/tz-benchmark/go	10.985s
 ```
-## Python 3.12
+## Rust
+```
+
+running 7 tests
+test benches_tz_crates::bench_spatialtime_ned                ... bench:     182,374.66 ns/iter (+/- 27,241.16)
+test benches_tz_crates::bench_spatialtime_osm                ... bench:   6,185,373.85 ns/iter (+/- 3,763,755.81)
+test benches_tz_crates::bench_tz_search_lookup_random_city   ... bench:         160.34 ns/iter (+/- 40.65)
+test benches_tz_crates::bench_tzf_default_finder_random_city ... bench:       3,601.49 ns/iter (+/- 152.52)
+test benches_tz_crates::bench_tzf_finder_random_city         ... bench:       8,331.89 ns/iter (+/- 333.32)
+test benches_tz_crates::bench_tzf_fuzzy_finder_random_city   ... bench:         854.64 ns/iter (+/- 18.50)
+test benches_tz_crates::bench_zone_detect_random_city        ... bench:     776,716.35 ns/iter (+/- 310,444.42)
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 7 measured; 0 filtered out; finished in 25.63s
+
+```
+## Python 
 ```
 ================================================= test session starts ==================================================
-platform linux -- Python 3.12.5, pytest-8.3.3, pluggy-1.5.0
-benchmark: 4.0.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+platform linux -- Python 3.14.3, pytest-9.0.2, pluggy-1.5.0
+benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
 rootdir: /home/runner/work/tz-benchmark/tz-benchmark/python
-plugins: pretty-1.2.0, benchmark-4.0.0
+configfile: pyproject.toml
+plugins: pretty-1.3.0, benchmark-5.2.3
 collected 2 items
 
 tz_test.py ..                                                                                                    [100%]
 
 
--------------------------------------------------------------------------------------------- benchmark: 2 tests -------------------------------------------------------------------------------------------
-Name (time in us)                      Min                   Max               Mean             StdDev            Median                IQR            Outliers  OPS (Kops/s)            Rounds  Iterations
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-test_tzfpy_random_cities            1.2430 (1.0)         57.9180 (1.0)       3.1189 (1.0)       3.4236 (1.0)      1.9540 (1.0)       0.4900 (1.0)     2078;2818      320.6229 (1.0)       17876           1
-test_timezonefinder_random_city     2.8650 (2.30)     6,518.5350 (112.55)   28.5702 (9.16)     71.0831 (20.76)    6.0910 (3.12)     33.6120 (68.60)    727;1102       35.0015 (0.11)      15796           1
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------- benchmark: 2 tests ---------------------------------------------------------------------------------------------
+Name (time in us)                      Min                    Max               Mean              StdDev            Median                IQR             Outliers  OPS (Kops/s)            Rounds  Iterations
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_tzfpy_random_cities            1.7060 (1.0)         146.8960 (1.0)       4.8605 (1.0)        7.4470 (1.0)      2.3060 (1.0)       0.3990 (1.0)      7334;9379      205.7421 (1.0)       58998           1
+test_timezonefinder_random_city     1.7400 (1.02)     79,149.6690 (538.81)   30.4171 (6.26)     601.7210 (80.80)    3.8460 (1.67)     29.5880 (74.16)       1;1754       32.8763 (0.16)      17392           1
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Legend:
   Outliers: 1 Standard Deviation from Mean; 1.5 IQR (InterQuartile Range) from 1st Quartile and 3rd Quartile.
   OPS: Operations Per Second, computed as 1 / Mean
-Results (4.44s):
+Results (4.20s):
          2 passed
-```
-## Rust
-```
-
-running 8 tests
-test benches_tz_crates::bench_rtz_get_timezone_ned_random_city ... bench:         664.48 ns/iter (+/- 39.55)
-test benches_tz_crates::bench_rtz_get_timezone_osm_random_city ... bench:       2,673.14 ns/iter (+/- 198.19)
-test benches_tz_crates::bench_spatialtime_ned                  ... bench:   4,584,448.65 ns/iter (+/- 187,473.02)
-test benches_tz_crates::bench_spatialtime_osm                  ... bench: 125,178,429.80 ns/iter (+/- 4,608,114.04)
-test benches_tz_crates::bench_tz_search_lookup_random_city     ... bench:         125.00 ns/iter (+/- 9.41)
-test benches_tz_crates::bench_tzf_default_finder_random_city   ... bench:       1,892.46 ns/iter (+/- 78.09)
-test benches_tz_crates::bench_tzf_finder_random_city           ... bench:       7,108.74 ns/iter (+/- 248.69)
-test benches_tz_crates::bench_tzf_fuzzy_finder_random_city     ... bench:         729.72 ns/iter (+/- 38.26)
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 8 measured; 0 filtered out; finished in 61.20s
-
 ```
