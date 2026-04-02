@@ -34,7 +34,7 @@ jobs:
           go test -bench=. -benchmem ./... | tee benchmark_result.txt
 
       - name: Continuous Benchmark
-        uses: benchmark-action/github-action-benchmark@v1.20.7
+        uses: benchmark-action/github-action-benchmark@v1.22.0
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           name: Go Library Benchmark
@@ -101,7 +101,7 @@ jobs:
           uv run pytest tz_test.py --benchmark-json output.json | tee benchmark_result.txt
 
       - name: Continuous Benchmark
-        uses: benchmark-action/github-action-benchmark@v1.20.7
+        uses: benchmark-action/github-action-benchmark@v1.22.0
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           name: Python Library Benchmark
@@ -153,7 +153,7 @@ jobs:
         run: cargo bench | tee benchmark_result.txt
 
       - name: Continuous Benchmark
-        uses: benchmark-action/github-action-benchmark@v1.20.7
+        uses: benchmark-action/github-action-benchmark@v1.22.0
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           name: Rust Library Benchmark
