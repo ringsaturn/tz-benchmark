@@ -3,7 +3,7 @@ module github.com/ringsaturn/tz-benchmark/go
 go 1.25
 
 require (
-	github.com/albertyw/localtimezone/v3 v3.1.13
+	github.com/albertyw/localtimezone/v3 v3.2.0
 	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
 	github.com/loov/hrtime v1.0.4
 	github.com/ringsaturn/go-cities.json v0.6.13
@@ -13,7 +13,7 @@ require (
 )
 
 require (
-	github.com/goccy/go-json v0.10.5 // indirect
+	github.com/goccy/go-json v0.10.6 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/jonas-p/go-shp v0.1.1 // indirect
 	github.com/klauspost/compress v1.18.4 // indirect
