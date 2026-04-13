@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1776044334345,
+  "lastUpdate": 1776044424222,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -74063,6 +74063,70 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_city",
             "value": 706166.7,
             "range": "± 332802.07",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Han Xiao",
+            "username": "ringsaturn",
+            "email": "ringsaturn.me@gmail.com"
+          },
+          "committer": {
+            "name": "Han Xiao",
+            "username": "ringsaturn",
+            "email": "ringsaturn.me@gmail.com"
+          },
+          "id": "a2c32d3e398cd33ebb8942d8404bf44a55b02e63",
+          "message": "update source",
+          "timestamp": "2026-04-12T13:05:46Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/a2c32d3e398cd33ebb8942d8404bf44a55b02e63"
+        },
+        "date": 1776044421007,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 185516.66,
+            "range": "± 23821.6",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 6190071.65,
+            "range": "± 4017379.46",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 206.59,
+            "range": "± 14.34",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 2042.79,
+            "range": "± 93.28",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 8947.29,
+            "range": "± 435.72",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 685.76,
+            "range": "± 12.78",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 707711.38,
+            "range": "± 217818",
             "unit": "ns/iter"
           }
         ]
