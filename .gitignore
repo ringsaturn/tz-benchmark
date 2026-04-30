@@ -10,3 +10,4 @@ output.json
 venv
 
 node_modules
+*.txt
