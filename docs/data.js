@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1777559019462,
+  "lastUpdate": 1777559125486,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -78217,6 +78217,114 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_edge_city",
             "value": 857064.57,
             "range": "± 233432.95",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "a03cded13f4e3327aeefc6307f9d92d43c3e385f",
+          "message": "update cmd",
+          "timestamp": "2026-04-30T23:22:52+09:00",
+          "tree_id": "05aca7e4d2e6892e5e4dfb70591d424011fdc5c1",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/a03cded13f4e3327aeefc6307f9d92d43c3e385f"
+        },
+        "date": 1777559122422,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 176767.1,
+            "range": "± 21857.87",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned_random_edge_city",
+            "value": 174937.73,
+            "range": "± 25542.76",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 6025946.5,
+            "range": "± 2975746.48",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm_random_edge_city",
+            "value": 5860021.4,
+            "range": "± 3140751.84",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 130.32,
+            "range": "± 5.38",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_edge_city",
+            "value": 165.74,
+            "range": "± 10.32",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 1046.54,
+            "range": "± 75.38",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_edge_city",
+            "value": 2817.56,
+            "range": "± 87.28",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 13052.47,
+            "range": "± 1701.05",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_edge_city",
+            "value": 9591.01,
+            "range": "± 1060.47",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 638.27,
+            "range": "± 17.91",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_edge_city",
+            "value": 869.95,
+            "range": "± 12.37",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 753988.78,
+            "range": "± 323027.94",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_edge_city",
+            "value": 838812.1,
+            "range": "± 239694.51",
             "unit": "ns/iter"
           }
         ]
