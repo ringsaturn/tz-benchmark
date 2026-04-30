@@ -6,4 +6,4 @@ all:
 	cd go;go test -bench=. -benchmem ./... | tee ../benchmark_result_go.txt
 	cd rust; cargo bench | tee ../benchmark_result_rust.txt
 	# 	--benchmark-json output.json
-	cd python; uv run pytest tz_test.py | tee ../benchmark_result_python.txt
+	cd python; uv sync; uv run pytest tz_test.py | tee ../benchmark_result_python.txt
