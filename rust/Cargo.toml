@@ -17,5 +17,10 @@ tz-search = "0.1.1"
 zone-detect = "1.1.0"
 spatialtime = { version = "0.3.0", features = ["osm", "ned"]}
 
+[dev-dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rand = "0.9"
+
 [profile.bench]
 lto = true

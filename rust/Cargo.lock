@@ -1847,6 +1847,9 @@ name = "tz-benchmark"
 version = "0.1.0"
 dependencies = [
  "cities-json",
+ "rand 0.9.4",
+ "serde",
+ "serde_json",
  "spatialtime",
  "tz-search",
  "tzf-rs",
