@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1777686508285,
+  "lastUpdate": 1777686545291,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -9878,6 +9878,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000016351560610611933",
             "extra": "mean: 5.299077509057429 usec\nrounds: 48833"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a1dde0c6426a48c3ca196276b6153230b85dca10",
+          "message": "Bump the dependencies group in /python with 2 updates (#216)\n\nBumps the dependencies group in /python with 2 updates: [timezonefinder](https://github.com/jannikmi/timezonefinder) and [pytest](https://github.com/pytest-dev/pytest).\n\n\nUpdates `timezonefinder` from 8.2.2 to 8.2.4\n- [Release notes](https://github.com/jannikmi/timezonefinder/releases)\n- [Changelog](https://github.com/jannikmi/timezonefinder/blob/master/CHANGELOG.rst)\n- [Commits](https://github.com/jannikmi/timezonefinder/compare/8.2.2...8.2.4)\n\nUpdates `pytest` from 9.0.2 to 9.0.3\n- [Release notes](https://github.com/pytest-dev/pytest/releases)\n- [Changelog](https://github.com/pytest-dev/pytest/blob/main/CHANGELOG.rst)\n- [Commits](https://github.com/pytest-dev/pytest/compare/9.0.2...9.0.3)\n\n---\nupdated-dependencies:\n- dependency-name: timezonefinder\n  dependency-version: 8.2.4\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: pytest\n  dependency-version: 9.0.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-05-02T10:45:13+09:00",
+          "tree_id": "d255f6c0216ac0a6c57f19fd0537ae19a73627e6",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/a1dde0c6426a48c3ca196276b6153230b85dca10"
+        },
+        "date": 1777686541556,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 19855.987361268188,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00007833235089971817",
+            "extra": "mean: 50.36264285454958 usec\nrounds: 14"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 17009.82171533912,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00005420183746395214",
+            "extra": "mean: 58.78956386110854 usec\nrounds: 10703"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 415933.69704999094,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00000180797115592621",
+            "extra": "mean: 2.4042293449472796 usec\nrounds: 49044"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 185066.23212806036,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000014826049430735771",
+            "extra": "mean: 5.403470900666684 usec\nrounds: 39520"
           }
         ]
       }
