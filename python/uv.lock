@@ -146,7 +146,7 @@ wheels = [
 
 [[package]]
 name = "pytest"
-version = "9.0.2"
+version = "9.0.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "colorama", marker = "sys_platform == 'win32'" },
@@ -155,9 +155,9 @@ dependencies = [
     { name = "pluggy" },
     { name = "pygments" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d1/db/7ef3487e0fb0049ddb5ce41d3a49c235bf9ad299b6a25d5780a89f19230f/pytest-9.0.2.tar.gz", hash = "sha256:75186651a92bd89611d1d9fc20f0b4345fd827c41ccd5c299a868a05d70edf11", size = 1568901, upload-time = "2025-12-06T21:30:51.014Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7d/0d/549bd94f1a0a402dc8cf64563a117c0f3765662e2e668477624baeec44d5/pytest-9.0.3.tar.gz", hash = "sha256:b86ada508af81d19edeb213c681b1d48246c1a91d304c6c81a427674c17eb91c", size = 1572165, upload-time = "2026-04-07T17:16:18.027Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3b/ab/b3226f0bd7cdcf710fbede2b3548584366da3b19b5021e74f5bde2a8fa3f/pytest-9.0.2-py3-none-any.whl", hash = "sha256:711ffd45bf766d5264d487b917733b453d917afd2b0ad65223959f59089f875b", size = 374801, upload-time = "2025-12-06T21:30:49.154Z" },
+    { url = "https://files.pythonhosted.org/packages/d4/24/a372aaf5c9b7208e7112038812994107bc65a84cd00e0354a88c2c77a617/pytest-9.0.3-py3-none-any.whl", hash = "sha256:2c5efc453d45394fdd706ade797c0a81091eccd1d6e4bccfcd476e2b8e0ab5d9", size = 375249, upload-time = "2026-04-07T17:16:16.13Z" },
 ]
 
 [[package]]
@@ -201,7 +201,7 @@ wheels = [
 
 [[package]]
 name = "timezonefinder"
-version = "8.2.2"
+version = "8.2.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cffi" },
@@ -209,10 +209,11 @@ dependencies = [
     { name = "h3" },
     { name = "numpy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/22/78/7959800dd3c8eb2ce4d39c082795f0397176b57b7db7500adc47990e8e31/timezonefinder-8.2.2.tar.gz", hash = "sha256:eb63bc7ac9975edfbd06e345a58f84d2b591bc18ff9060972cfefb813eea080b", size = 53946132, upload-time = "2026-03-29T08:45:45.958Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/67/f2/77f407fac773a72e18e91657896fdec9b61ed4e31b35adf7270d8f5f71b0/timezonefinder-8.2.4.tar.gz", hash = "sha256:d80fae37adf1497729cc3e69826c22f3b2fec16db07932bf389b6ae545400b42", size = 54286323, upload-time = "2026-05-01T12:47:22.142Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d5/30/770a072831fe83f98b67b565176b9353dd6a7494268070117e040b2589a8/timezonefinder-8.2.2-cp39-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1fe1c6dd2a6c3996472ae6917a7544d765bd74e84db2a9496942af55f60a0791", size = 53953449, upload-time = "2026-03-29T08:45:38.844Z" },
-    { url = "https://files.pythonhosted.org/packages/1e/8f/28a9efd809eb197abe3688b60e192318f2f25ac6bc6c0e53812100af078e/timezonefinder-8.2.2-cp39-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:98c9cf6ff71e07629388533518ec5871d4764800c2bb6b9284981f9ac466c6f7", size = 53955422, upload-time = "2026-03-29T08:45:42.604Z" },
+    { url = "https://files.pythonhosted.org/packages/7f/7b/422744a1ac2a5a2bec21f0d17f927a5324ed3e0c442c64337d265a266a0f/timezonefinder-8.2.4-cp311-abi3-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:c824271053f0e3ad0700a2c504d609317c8c288655d8e48e1f382d0da094e94c", size = 54286013, upload-time = "2026-05-01T12:47:09.99Z" },
+    { url = "https://files.pythonhosted.org/packages/b0/e4/9b5c948bc657420fa7d0a86acc1489f977e4d459b088a957c0e046b2897f/timezonefinder-8.2.4-cp311-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:97e9336391be6e10ca85f2ccdd36491c2aa2611e5265561de0f2e3b1652c2a68", size = 54285876, upload-time = "2026-05-01T12:47:13.93Z" },
+    { url = "https://files.pythonhosted.org/packages/c5/8a/4fc4538471cc34ca5aab758d0e372afedb93428170c18da1e5706a9e1119/timezonefinder-8.2.4-cp311-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:54f3a8cae6715bf2f6a4c1a31189dc709d2fbabc5671147d5cb461455d6c6f39", size = 54287989, upload-time = "2026-05-01T12:47:17.903Z" },
 ]
 
 [[package]]
@@ -234,7 +235,7 @@ requires-dist = [
     { name = "pytest" },
     { name = "pytest-benchmark" },
     { name = "pytest-pretty" },
-    { name = "timezonefinder", specifier = "==8.2.2" },
+    { name = "timezonefinder", specifier = "==8.2.4" },
     { name = "tzfpy", specifier = "==1.3.1" },
 ]
 
