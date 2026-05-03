@@ -1,0 +1,16 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/ringsaturn/tz-benchmark/go
+cpu: Apple M3 Max
+BenchmarkTZF_Default_Random_WorldCities-16       	 3018721	       382.5 ns/op	         0 ns/p50	      1000 ns/p90	      2000 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkTZF_Default_Random_EdgeCities-16        	 1704829	       672.6 ns/op	      1000 ns/p50	      1000 ns/p90	      2000 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkLatlong_Random_WorldCities-16           	 7500944	       138.3 ns/op	         0 ns/p50	      1000 ns/p90	      1000 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkLatlong_Random_EdgeCities-16            	 6781183	       163.6 ns/op	         0 ns/p50	      1000 ns/p90	      1000 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkLocaltimezone_Random_WorldCities-16     	   46795	     24547 ns/op	     17000 ns/p50	     55000 ns/p90	     95000 ns/p99	      24 B/op	       1 allocs/op
+BenchmarkLocaltimezone_Random_EdgeCities-16      	   51153	     23286 ns/op	     18000 ns/p50	     53000 ns/p90	     97000 ns/p99	      24 B/op	       1 allocs/op
+BenchmarkTimezoneMapper_Random_WorldCities-16    	 8028813	       129.6 ns/op	         0 ns/p50	      1000 ns/p90	      1000 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkTimezoneMapper_Random_EdgeCities-16     	 8484441	       138.1 ns/op	         0 ns/p50	      1000 ns/p90	      1000 ns/p99	       8 B/op	       0 allocs/op
+BenchmarkGoTZ_Random_WorldCities-16              	   24976	     49217 ns/op	     29000 ns/p50	    132000 ns/p90	    262000 ns/p99	      24 B/op	       1 allocs/op
+BenchmarkGoTZ_Random_EdgeCities-16               	   23112	     51249 ns/op	     40000 ns/p50	    114000 ns/p90	    261000 ns/p99	      24 B/op	       1 allocs/op
+PASS
+ok  	github.com/ringsaturn/tz-benchmark/go	17.181s
