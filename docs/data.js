@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1777802607311,
+  "lastUpdate": 1777802639144,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -81237,6 +81237,114 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_edge_city",
             "value": 869450.03,
             "range": "± 171135.72",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "84529d1381242114dbdd3590b4b35999ae183e81",
+          "message": "Add new benchmark snapshot: 2026-05-03 - 02205f8c406cb55d2e6ccc8b7dc1e27b6555fc47",
+          "timestamp": "2026-05-03T19:01:24+09:00",
+          "tree_id": "99d7237f94d4fdac42eb7d3a7ccafd6631b9155d",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/84529d1381242114dbdd3590b4b35999ae183e81"
+        },
+        "date": 1777802634844,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 160825.75,
+            "range": "± 23501.33",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned_random_edge_city",
+            "value": 157265.32,
+            "range": "± 15078.76",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 5843476.75,
+            "range": "± 4416549.54",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm_random_edge_city",
+            "value": 6570325.55,
+            "range": "± 4451473.45",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 181.84,
+            "range": "± 9.61",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_edge_city",
+            "value": 142.95,
+            "range": "± 1.96",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 1136.87,
+            "range": "± 34.93",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_edge_city",
+            "value": 3484.39,
+            "range": "± 202.01",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 13137.59,
+            "range": "± 2288.38",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_edge_city",
+            "value": 10240.98,
+            "range": "± 1142.13",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 715.7,
+            "range": "± 13.12",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_edge_city",
+            "value": 907.11,
+            "range": "± 8.59",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 802977.96,
+            "range": "± 234670.56",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_edge_city",
+            "value": 928920.01,
+            "range": "± 298015.28",
             "unit": "ns/iter"
           }
         ]
