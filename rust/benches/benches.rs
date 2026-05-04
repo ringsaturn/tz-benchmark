@@ -3,8 +3,7 @@ extern crate test;
 
 #[cfg(test)]
 mod benches_tz_crates {
-    // use rtzlib::CanPerformGeoLookup;
-    // use rtzlib::{NedTimezone, OsmTimezone};
+    use rtzlib::{CanPerformGeoLookup, NedTimezone, OsmTimezone};
     use rand::random_range;
     use serde::Deserialize;
     use spatialtime;
@@ -96,21 +95,39 @@ mod benches_tz_crates {
         });
     }
 
-    // #[bench]
-    // fn bench_rtz_get_timezone_ned_random_city(b: &mut Bencher) {
-    //     b.iter(|| {
-    //         let city = cities_json::get_random_cities();
-    //         let _ = NedTimezone::lookup(city.lng as f32, city.lat as f32);
-    //     });
-    // }
+    #[bench]
+    fn bench_rtz_get_timezone_ned_random_city(b: &mut Bencher) {
+        b.iter(|| {
+            let city = cities_json::get_random_cities();
+            let _ = NedTimezone::lookup(city.lng as f32, city.lat as f32);
+        });
+    }
 
-    // #[bench]
-    // fn bench_rtz_get_timezone_osm_random_city(b: &mut Bencher) {
-    //     b.iter(|| {
-    //         let city = cities_json::get_random_cities();
-    //         let _ = OsmTimezone::lookup(city.lng as f32, city.lat as f32);
-    //     });
-    // }
+    #[bench]
+    fn bench_rtz_get_timezone_ned_random_edge_city(b: &mut Bencher) {
+        let cities = load_edge_cities();
+        b.iter(|| {
+            let city = &cities[random_range(0..cities.len())];
+            let _ = NedTimezone::lookup(city.lng as f32, city.lat as f32);
+        });
+    }
+
+    #[bench]
+    fn bench_rtz_get_timezone_osm_random_city(b: &mut Bencher) {
+        b.iter(|| {
+            let city = cities_json::get_random_cities();
+            let _ = OsmTimezone::lookup(city.lng as f32, city.lat as f32);
+        });
+    }
+
+    #[bench]
+    fn bench_rtz_get_timezone_osm_random_edge_city(b: &mut Bencher) {
+        let cities = load_edge_cities();
+        b.iter(|| {
+            let city = &cities[random_range(0..cities.len())];
+            let _ = OsmTimezone::lookup(city.lng as f32, city.lat as f32);
+        });
+    }
 
     #[bench]
     fn bench_zone_detect_random_city(b: &mut Bencher) {
