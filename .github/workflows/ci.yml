@@ -181,4 +181,41 @@ jobs:
           mkdir -p "$snapshot_dir"
           cp ci-summary/raw/benchmark_result_*.txt "$snapshot_dir"/
           python3 scripts/generate_snapshot_readmes.py --snapshot-root ci-summary/snapshot
-          cat "$snapshot_dir/README.md" > "$GITHUB_STEP_SUMMARY"
+          cp "$snapshot_dir/README.md" ci-summary/benchmark-summary.md
+          cat ci-summary/benchmark-summary.md > "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment benchmark summary on commit
+        if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- tz-benchmark-summary -->';
+            const summary = fs.readFileSync('ci-summary/benchmark-summary.md', 'utf8');
+            const body = `${marker}\n${summary}`;
+            const { owner, repo } = context.repo;
+            const commit_sha = context.sha;
+
+            const comments = await github.paginate(
+              github.rest.repos.listCommentsForCommit,
+              { owner, repo, commit_sha, per_page: 100 },
+            );
+            const existing = comments.find((comment) =>
+              comment.body?.includes(marker) && comment.user?.type === 'Bot'
+            );
+
+            if (existing) {
+              await github.rest.repos.updateCommitComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.repos.createCommitComment({
+                owner,
+                repo,
+                commit_sha,
+                body,
+              });
+            }
