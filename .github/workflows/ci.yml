@@ -50,26 +50,18 @@ jobs:
           benchmark-data-dir-path: "docs/"
           alert-comment-cc-users: "@ringsaturn"
 
-      - name: Setup benchmark file name
-        id: gen-benchmark-file-name
-        run: |
-          echo "filename=tz_benchmark_go_${{ matrix.go-version }}.md" >> $GITHUB_OUTPUT
-
       - name: Report
         run: |
           set +e
-          echo "## Go ${{ matrix.go-version }}" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          cp benchmark_result.txt benchmark_result_go.txt
 
       - run: ls -lah
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
-          name: benchmark_go_${{ steps.gen-benchmark-file-name.outputs.filename }}
-          path: go/${{ steps.gen-benchmark-file-name.outputs.filename }}
+          name: benchmark_result_go
+          path: go/benchmark_result_go.txt
           if-no-files-found: error
 
   bench-python:
@@ -90,14 +82,8 @@ jobs:
 
       - run: uv sync
 
-      - name: Setup benchmark file name
-        id: gen-benchmark-file-name
-        run: |
-          echo "filename=tz_benchmark_py_${{ matrix.python-version }}.md" >> $GITHUB_OUTPUT
-
       - name: Bench Python
         run: |
-          # ${{ steps.gen-benchmark-file-name.outputs.filename }}
           uv run pytest tz_test.py --benchmark-json output.json | tee benchmark_result.txt
 
       - name: Continuous Benchmark
@@ -120,18 +106,15 @@ jobs:
       - name: Report
         run: |
           set +e
-          echo "## Python ${{ matrix.python-version }}" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          cp benchmark_result.txt benchmark_result_python.txt
 
       - run: ls -lah
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
-          name: benchmark_py_${{ steps.gen-benchmark-file-name.outputs.filename }}
-          path: python/${{ steps.gen-benchmark-file-name.outputs.filename }}
+          name: benchmark_result_python
+          path: python/benchmark_result_python.txt
           if-no-files-found: error
 
   bench-rust:
@@ -143,11 +126,6 @@ jobs:
       - uses: actions/checkout@v6
 
       - uses: actions-rust-lang/setup-rust-toolchain@v1
-
-      - name: Setup benchmark file name
-        id: gen-benchmark-file-name
-        run: |
-          echo "filename=tz_benchmark_rust.md" >> $GITHUB_OUTPUT
 
       - name: Run benchmark
         run: cargo bench | tee benchmark_result.txt
@@ -172,27 +150,35 @@ jobs:
       - name: Report
         run: |
           set +e
-          echo "## Rust" >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          cat benchmark_result.txt >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
-          echo '```' >> ${{ steps.gen-benchmark-file-name.outputs.filename }}
+          cp benchmark_result.txt benchmark_result_rust.txt
 
       - run: ls -lah
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
-          name: benchmark_rust_${{ steps.gen-benchmark-file-name.outputs.filename }}
-          path: rust/${{ steps.gen-benchmark-file-name.outputs.filename }}
+          name: benchmark_result_rust
+          path: rust/benchmark_result_rust.txt
           if-no-files-found: error
 
   summary:
     needs: [bench-go, bench-python, bench-rust]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v6
+
       - name: Download a Build Artifact
         uses: actions/download-artifact@v8
         with:
-          pattern: "benchmark_*"
+          pattern: "benchmark_result_*"
+          path: ci-summary/raw
+          merge-multiple: true
 
-      - run: find . -name "*.md" -exec cat {} \; > $GITHUB_STEP_SUMMARY
+      - name: Generate benchmark summary
+        run: |
+          set -euo pipefail
+          snapshot_dir="ci-summary/snapshot/${{ github.run_id }}-${{ github.sha }}"
+          mkdir -p "$snapshot_dir"
+          cp ci-summary/raw/benchmark_result_*.txt "$snapshot_dir"/
+          python3 scripts/generate_snapshot_readmes.py --snapshot-root ci-summary/snapshot
+          cat "$snapshot_dir/README.md" > "$GITHUB_STEP_SUMMARY"

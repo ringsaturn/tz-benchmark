@@ -18,6 +18,7 @@ new-snapshot: clean all
 		exit 1; \
 	fi; \
 	cp benchmark_result_*.txt "$$snapshot_dir"/; \
+	python3 scripts/generate_snapshot_readmes.py --snapshot-root snapshot; \
 	echo "Created $$snapshot_dir"; \
 	git add -f "$$snapshot_dir"; \
 	git commit -m "Add new benchmark snapshot: $$(date +%F) - $$(git rev-parse HEAD)"
