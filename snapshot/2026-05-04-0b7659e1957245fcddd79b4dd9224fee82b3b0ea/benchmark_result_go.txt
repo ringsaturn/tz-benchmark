@@ -1,0 +1,16 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/ringsaturn/tz-benchmark/go
+cpu: Apple M3 Max
+BenchmarkTimezoneMapper_Random_WorldCities-16    	11964832	       104.4 ns/op	        83.00 ns/p50	       209.0 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTimezoneMapper_Random_EdgeCities-16     	14179186	        81.45 ns/op	        42.00 ns/p50	        84.00 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkLatlong_Random_WorldCities-16           	10446537	       113.7 ns/op	        83.00 ns/p50	       250.0 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkLatlong_Random_EdgeCities-16            	10160517	       116.3 ns/op	        83.00 ns/p50	       167.0 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTZF_Default_Random_WorldCities-16       	 3825013	       312.4 ns/op	       208.0 ns/p50	      1292 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTZF_Default_Random_EdgeCities-16        	 2291846	       537.4 ns/op	       459.0 ns/p50	      1208 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkLocaltimezone_Random_WorldCities-16     	   45528	     25993 ns/op	     17125 ns/p50	    104208 ns/p99	      16 B/op	       1 allocs/op
+BenchmarkLocaltimezone_Random_EdgeCities-16      	   56756	     21285 ns/op	     19334 ns/p50	     86750 ns/p99	      16 B/op	       1 allocs/op
+BenchmarkGoTZ_Random_WorldCities-16              	   29220	     41446 ns/op	     32333 ns/p50	    240167 ns/p99	      16 B/op	       1 allocs/op
+BenchmarkGoTZ_Random_EdgeCities-16               	   29287	     41394 ns/op	     32167 ns/p50	    239167 ns/p99	      16 B/op	       1 allocs/op
+PASS
+ok  	github.com/ringsaturn/tz-benchmark/go	17.035s
