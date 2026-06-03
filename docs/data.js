@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780450557416,
+  "lastUpdate": 1780450583503,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -10960,6 +10960,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000017269855819248",
             "extra": "mean: 5.9479951014818 usec\nrounds: 43076"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e1b2ad4bad5b141e81ec8079e0554843a0f913a9",
+          "message": "Bump github.com/ringsaturn/tzf in /go in the dependencies group (#218)\n\nBumps the dependencies group in /go with 1 update: [github.com/ringsaturn/tzf](https://github.com/ringsaturn/tzf).\n\n\nUpdates `github.com/ringsaturn/tzf` from 1.2.0 to 1.2.1\n- [Release notes](https://github.com/ringsaturn/tzf/releases)\n- [Commits](https://github.com/ringsaturn/tzf/compare/v1.2.0...v1.2.1)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/ringsaturn/tzf\n  dependency-version: 1.2.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-06-03T10:35:55+09:00",
+          "tree_id": "e30765ca4ed0268a489321113eddfaf39c2e40e0",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/e1b2ad4bad5b141e81ec8079e0554843a0f913a9"
+        },
+        "date": 1780450579346,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 37155.69403914159,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000545725995810428",
+            "extra": "mean: 26.913775286946652 usec\nrounds: 14988"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 17446.647338132407,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00005060997640815184",
+            "extra": "mean: 57.31760266709477 usec\nrounds: 27146"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 425055.42061491637,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000001692226980525379",
+            "extra": "mean: 2.3526343895422546 usec\nrounds: 56139"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 177820.7426268326,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000001757102869658947",
+            "extra": "mean: 5.623640893787963 usec\nrounds: 48242"
           }
         ]
       }
