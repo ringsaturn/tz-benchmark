@@ -6,7 +6,7 @@ require (
 	github.com/albertyw/localtimezone/v3 v3.2.1
 	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
 	github.com/ringsaturn/go-cities.json v0.6.13
-	github.com/ringsaturn/tzf v1.2.0
+	github.com/ringsaturn/tzf v1.2.1
 	github.com/ugjka/go-tz/v2 v2.2.8
 	github.com/zsefvlol/timezonemapper v1.0.0
 )
