@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1780450821718,
+  "lastUpdate": 1780883502542,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -11064,6 +11064,56 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000016468868763686913",
             "extra": "mean: 5.760445177755982 usec\nrounds: 38789"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "bcb754c11baac46cca0f63c46dbdbb3db71b5951",
+          "message": "Bump the dependencies group with 2 updates (#217)\n\nBumps the dependencies group with 2 updates: [benchmark-action/github-action-benchmark](https://github.com/benchmark-action/github-action-benchmark) and [actions/github-script](https://github.com/actions/github-script).\n\n\nUpdates `benchmark-action/github-action-benchmark` from 1.22.0 to 1.22.1\n- [Release notes](https://github.com/benchmark-action/github-action-benchmark/releases)\n- [Changelog](https://github.com/benchmark-action/github-action-benchmark/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/benchmark-action/github-action-benchmark/compare/v1.22.0...v1.22.1)\n\nUpdates `actions/github-script` from 8 to 9\n- [Release notes](https://github.com/actions/github-script/releases)\n- [Commits](https://github.com/actions/github-script/compare/v8...v9)\n\n---\nupdated-dependencies:\n- dependency-name: benchmark-action/github-action-benchmark\n  dependency-version: 1.22.1\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: actions/github-script\n  dependency-version: '9'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-06-03T01:36:02Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/bcb754c11baac46cca0f63c46dbdbb3db71b5951"
+        },
+        "date": 1780883498559,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 29597.620347963442,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00005560939952427752",
+            "extra": "mean: 33.78650000383588 usec\nrounds: 14"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 14164.794459268589,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00006312667453745286",
+            "extra": "mean: 70.59756517297433 usec\nrounds: 5915"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 377652.0229880319,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000018832301729955875",
+            "extra": "mean: 2.647940270749432 usec\nrounds: 36481"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 164977.771353998,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000018295535344823717",
+            "extra": "mean: 6.061422649808189 usec\nrounds: 43400"
           }
         ]
       }
