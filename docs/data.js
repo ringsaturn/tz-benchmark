@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782959589536,
+  "lastUpdate": 1782959603930,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -11264,6 +11264,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000013012392894855344",
             "extra": "mean: 4.514190253808858 usec\nrounds: 58669"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e2c234860c9358ae85ae6439f85f4de2a2f88784",
+          "message": "Bump pytest from 9.0.3 to 9.1.1 in /python in the dependencies group (#221)\n\nBumps the dependencies group in /python with 1 update: [pytest](https://github.com/pytest-dev/pytest).\n\n\nUpdates `pytest` from 9.0.3 to 9.1.1\n- [Release notes](https://github.com/pytest-dev/pytest/releases)\n- [Changelog](https://github.com/pytest-dev/pytest/blob/main/CHANGELOG.rst)\n- [Commits](https://github.com/pytest-dev/pytest/compare/9.0.3...9.1.1)\n\n---\nupdated-dependencies:\n- dependency-name: pytest\n  dependency-version: 9.1.1\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-07-02T11:28:44+09:00",
+          "tree_id": "d0a0ce6079c05ae9fa8754758580ddd6d0b2646b",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/e2c234860c9358ae85ae6439f85f4de2a2f88784"
+        },
+        "date": 1782959599893,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 37277.37150474899,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005318232498408655",
+            "extra": "mean: 26.82592574620246 usec\nrounds: 16107"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 18263.775560351467,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00004841533310538336",
+            "extra": "mean: 54.75319145789788 usec\nrounds: 17466"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 420619.67753355234,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000017465427396381494",
+            "extra": "mean: 2.377444645157456 usec\nrounds: 52588"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 177652.79233954442,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000001748820627104275",
+            "extra": "mean: 5.628957399604048 usec\nrounds: 44225"
           }
         ]
       }
