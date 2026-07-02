@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1782959609783,
+  "lastUpdate": 1782959616008,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -11316,6 +11316,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000001748820627104275",
             "extra": "mean: 5.628957399604048 usec\nrounds: 44225"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "679fe56e5a136400750ddb79695b832cc7cf231c",
+          "message": "Bump actions/checkout from 6 to 7 in the dependencies group (#220)\n\nBumps the dependencies group with 1 update: [actions/checkout](https://github.com/actions/checkout).\n\n\nUpdates `actions/checkout` from 6 to 7\n- [Release notes](https://github.com/actions/checkout/releases)\n- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/actions/checkout/compare/v6...v7)\n\n---\nupdated-dependencies:\n- dependency-name: actions/checkout\n  dependency-version: '7'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-07-02T11:28:58+09:00",
+          "tree_id": "1b126a4f402b21b3ef3bbb95c72804498d5a66cb",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/679fe56e5a136400750ddb79695b832cc7cf231c"
+        },
+        "date": 1782959600533,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 37088.80514744451,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005615729869552011",
+            "extra": "mean: 26.962313723091242 usec\nrounds: 14873"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 18282.64302976799,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00004898287820224334",
+            "extra": "mean: 54.69668681775329 usec\nrounds: 2845"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 414095.29650054924,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000001801404546367923",
+            "extra": "mean: 2.4149030632582265 usec\nrounds: 51611"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 171482.11224600684,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000018503525105150881",
+            "extra": "mean: 5.831512027128568 usec\nrounds: 23073"
           }
         ]
       }
