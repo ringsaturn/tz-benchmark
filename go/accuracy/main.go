@@ -1,0 +1,286 @@
+// Accuracy evaluation for the tzf paper: measures disagreement of various
+// finders/libraries against a full-precision ground truth (tzf Finder on the
+// unsimplified combined-with-oceans dataset).
+//
+// Usage: go run ./accuracy
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"math"
+	"math/rand"
+	"os"
+
+	"github.com/albertyw/localtimezone/v3"
+	"github.com/bradfitz/latlong"
+	gocitiesjson "github.com/ringsaturn/go-cities.json"
+	"github.com/ringsaturn/tzf"
+	tzfdist "github.com/ringsaturn/tzf-dist"
+	pb "github.com/ringsaturn/tzf/gen/go/tzf/v1"
+	gotz "github.com/ugjka/go-tz/v2"
+	"github.com/zsefvlol/timezonemapper"
+	"google.golang.org/protobuf/proto"
+)
+
+type point struct{ Lng, Lat float64 }
+
+// alias maps renamed/merged tzdb identifiers to their current canonical name,
+// so that libraries shipping older boundary data are not penalized for pure
+// renames (they are still penalized for genuine boundary disagreements).
+var alias = map[string]string{
+	"Europe/Kiev":          "Europe/Kyiv",
+	"Europe/Uzhgorod":      "Europe/Kyiv",
+	"Europe/Zaporozhye":    "Europe/Kyiv",
+	"Asia/Calcutta":        "Asia/Kolkata",
+	"Asia/Rangoon":         "Asia/Yangon",
+	"Asia/Saigon":          "Asia/Ho_Chi_Minh",
+	"Asia/Katmandu":        "Asia/Kathmandu",
+	"Asia/Dacca":           "Asia/Dhaka",
+	"Asia/Macao":           "Asia/Macau",
+	"Asia/Chongqing":       "Asia/Shanghai",
+	"Asia/Harbin":          "Asia/Shanghai",
+	"Asia/Kashgar":         "Asia/Urumqi",
+	"Asia/Ulan_Bator":      "Asia/Ulaanbaatar",
+	"America/Godthab":      "America/Nuuk",
+	"America/Nipigon":      "America/Toronto",
+	"America/Thunder_Bay":  "America/Toronto",
+	"America/Montreal":     "America/Toronto",
+	"America/Rainy_River":  "America/Winnipeg",
+	"America/Pangnirtung":  "America/Iqaluit",
+	"America/Yellowknife":  "America/Edmonton",
+	"America/Santa_Isabel": "America/Tijuana",
+	"America/Buenos_Aires": "America/Argentina/Buenos_Aires",
+	"America/Atka":         "America/Adak",
+	"Australia/Currie":     "Australia/Hobart",
+	"Pacific/Enderbury":    "Pacific/Kanton",
+	"Europe/Nicosia":       "Asia/Nicosia",
+}
+
+func norm(name string) string {
+	if c, ok := alias[name]; ok {
+		return c
+	}
+	return name
+}
+
+type candidate struct {
+	name string
+	fn   func(lng, lat float64) string
+}
+
+func main() {
+	// ---- Ground truth: full-precision Finder (no preindex) ----
+	fullTopo := &pb.CompressedTopoTimezones{}
+	if err := proto.Unmarshal(tzfdist.CompressTopoData, fullTopo); err != nil {
+		panic(err)
+	}
+	gtF, err := tzf.NewFinderFromCompressedTopo(fullTopo, tzf.SetDropPBTZ)
+	if err != nil {
+		panic(err)
+	}
+	gt := func(lng, lat float64) string { return gtF.GetTimezoneName(lng, lat) }
+
+	// ---- tzf-family candidates ----
+	liteTopo := &pb.CompressedTopoTimezones{}
+	if err := proto.Unmarshal(tzfdist.TopologyCompressTopoData, liteTopo); err != nil {
+		panic(err)
+	}
+	liteF, err := tzf.NewFinderFromCompressedTopo(liteTopo, tzf.SetDropPBTZ)
+	if err != nil {
+		panic(err)
+	}
+	preindex := &pb.PreindexTimezones{}
+	if err := proto.Unmarshal(tzfdist.PreindexData, preindex); err != nil {
+		panic(err)
+	}
+	fuzzyF, err := tzf.NewFuzzyFinderFromPB(preindex)
+	if err != nil {
+		panic(err)
+	}
+	defF, err := tzf.NewDefaultFinder()
+	if err != nil {
+		panic(err)
+	}
+	fullDefF, err := tzf.NewFullFinder()
+	if err != nil {
+		panic(err)
+	}
+
+	ltz, err := localtimezone.NewLocalTimeZone()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("ground truth data version: %s\n", gtF.DataVersion())
+
+	tzfFamily := []candidate{
+		{"DefaultFinder (lite+preindex)", func(lng, lat float64) string { return defF.GetTimezoneName(lng, lat) }},
+		{"Finder (lite)", func(lng, lat float64) string { return liteF.GetTimezoneName(lng, lat) }},
+		{"FullFinder (full+preindex)", func(lng, lat float64) string { return fullDefF.GetTimezoneName(lng, lat) }},
+		{"FuzzyFinder (preindex only)", func(lng, lat float64) string { return fuzzyF.GetTimezoneName(lng, lat) }},
+	}
+	thirdParty := []candidate{
+		{"bradfitz/latlong", func(lng, lat float64) string { return latlong.LookupZoneName(lat, lng) }},
+		{"zsefvlol/timezonemapper", func(lng, lat float64) string { return timezonemapper.LatLngToTimezoneString(lat, lng) }},
+		{"albertyw/localtimezone", func(lng, lat float64) string {
+			zones, err := ltz.GetZone(localtimezone.Point{Lon: lng, Lat: lat})
+			if err != nil || len(zones) == 0 {
+				return ""
+			}
+			return zones[0]
+		}},
+		{"ugjka/go-tz", func(lng, lat float64) string {
+			zones, err := gotz.GetZone(gotz.Point{Lon: lng, Lat: lat})
+			if err != nil || len(zones) == 0 {
+				return ""
+			}
+			return zones[0]
+		}},
+	}
+
+	// ---- Datasets ----
+	var cities []point
+	for c := range gocitiesjson.All(false) {
+		cities = append(cities, point{c.Lng, c.Lat})
+	}
+
+	raw, err := os.ReadFile("../data/edges.json")
+	if err != nil {
+		panic(err)
+	}
+	var edgeCities []*gocitiesjson.City
+	if err := json.Unmarshal(raw, &edgeCities); err != nil {
+		panic(err)
+	}
+	var edges []point
+	for _, c := range edgeCities {
+		edges = append(edges, point{c.Lng, c.Lat})
+	}
+
+	rng := rand.New(rand.NewSource(42))
+	uniform := make([]point, 1_000_000)
+	for i := range uniform {
+		lng := rng.Float64()*360 - 180
+		lat := math.Asin(2*rng.Float64()-1) * 180 / math.Pi
+		uniform[i] = point{lng, lat}
+	}
+
+	datasets := []struct {
+		name string
+		pts  []point
+	}{
+		{"cities", cities},
+		{"edges", edges},
+		{"uniform", uniform},
+	}
+
+	// ---- Evaluation ----
+	deltas := []float64{0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1}
+	dirs := [][2]float64{{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
+
+	// isAmbiguous reports whether the answer is one of the multiple zones that
+	// legitimately cover the point in the full-precision data (intentional
+	// overlaps such as disputed territories), i.e. valid but tie-broken
+	// differently from GetTimezoneName's first-match rule.
+	isAmbiguous := func(p point, got string) bool {
+		names, err := gtF.GetTimezoneNames(p.Lng, p.Lat)
+		if err != nil {
+			return false
+		}
+		if len(names) < 2 {
+			return false
+		}
+		for _, n := range names {
+			if norm(n) == got {
+				return true
+			}
+		}
+		return false
+	}
+
+	for _, ds := range datasets {
+		fmt.Printf("\n=== dataset %s (N=%d) ===\n", ds.name, len(ds.pts))
+		gtNames := make([]string, len(ds.pts))
+		for i, p := range ds.pts {
+			gtNames[i] = norm(gt(p.Lng, p.Lat))
+		}
+
+		// Dump ground truth for the Python-side comparison.
+		if ds.name != "uniform" {
+			f, err := os.Create(fmt.Sprintf("../data/gt_%s.csv", ds.name))
+			if err != nil {
+				panic(err)
+			}
+			for i, p := range ds.pts {
+				fmt.Fprintf(f, "%.6f,%.6f,%s\n", p.Lng, p.Lat, gtNames[i])
+			}
+			f.Close()
+		}
+
+		cands := tzfFamily
+		if ds.name != "uniform" {
+			cands = append(append([]candidate{}, tzfFamily...), thirdParty...)
+		}
+		for _, c := range cands {
+			var wrong, ambiguous, empty int
+			var wrongIdx []int
+			for i, p := range ds.pts {
+				got := norm(c.fn(p.Lng, p.Lat))
+				switch {
+				case got == "":
+					empty++
+				case got != gtNames[i]:
+					if isAmbiguous(p, got) {
+						ambiguous++
+					} else {
+						wrong++
+						wrongIdx = append(wrongIdx, i)
+					}
+				}
+			}
+			n := len(ds.pts)
+			fmt.Printf("%-32s wrong=%6d (%8.4f%%)  ambiguous=%4d (%7.4f%%)  empty=%6d (%8.4f%%)\n",
+				c.name, wrong, 100*float64(wrong)/float64(n),
+				ambiguous, 100*float64(ambiguous)/float64(n),
+				empty, 100*float64(empty)/float64(n))
+
+			// Perturbation certification for genuinely wrong answers of the
+			// tzf-family finders: find the smallest delta such that the
+			// candidate's answer is the ground truth somewhere within delta,
+			// i.e. the answer's true region is at most ~delta away.
+			if (c.name == "DefaultFinder (lite+preindex)" || c.name == "Finder (lite)" || c.name == "FullFinder (full+preindex)") && len(wrongIdx) > 0 {
+				hist := make(map[float64]int)
+				uncertified := 0
+				for _, i := range wrongIdx {
+					p := ds.pts[i]
+					got := norm(c.fn(p.Lng, p.Lat))
+					found := false
+					for _, d := range deltas {
+						for _, dir := range dirs {
+							if norm(gt(p.Lng+dir[0]*d, p.Lat+dir[1]*d)) == got {
+								hist[d]++
+								found = true
+								break
+							}
+						}
+						if found {
+							break
+						}
+					}
+					if !found {
+						uncertified++
+						fmt.Printf("    uncertified: lng=%.5f lat=%.5f got=%s gt=%s\n", p.Lng, p.Lat, got, gtNames[i])
+					}
+				}
+				cum := 0
+				fmt.Printf("    wrong-answer distance certification (deg -> cumulative %%):\n    ")
+				for _, d := range deltas {
+					cum += hist[d]
+					fmt.Printf("<=%.3f: %.1f%%  ", d, 100*float64(cum)/float64(len(wrongIdx)))
+				}
+				fmt.Printf(">0.1: %.1f%%\n", 100*float64(uncertified)/float64(len(wrongIdx)))
+			}
+		}
+	}
+}
