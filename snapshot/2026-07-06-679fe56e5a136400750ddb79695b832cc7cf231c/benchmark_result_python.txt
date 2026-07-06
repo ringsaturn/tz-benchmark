@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.0, pytest-9.1.1, pluggy-1.5.0
+benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /Users/ringsaturn/Projects/tz-benchmark/python
+configfile: pyproject.toml
+plugins: benchmark-5.2.3, pretty-1.3.0
+collected 4 items
+
+tz_test.py ....                                                          [100%]
+
+
+---------------------------------------------------------------------------------------------------------- benchmark: 4 tests ----------------------------------------------------------------------------------------------------------
+Name (time in ns)                               Min                     Max                   Mean                 StdDev                 Median                    IQR             Outliers  OPS (Kops/s)            Rounds  Iterations
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_tzfpy_random_cities                   500.1202 (1.0)       61,375.0890 (1.04)      1,854.4635 (1.0)       2,173.2070 (1.27)      1,041.6843 (1.0)         750.1803 (1.0)      1373;1819      539.2395 (1.0)       10569           1
+test_timezonefinder_random_edge_city       915.9558 (1.83)     267,417.1701 (4.55)     31,547.5083 (17.01)    30,299.2827 (17.77)    21,332.8749 (20.48)    31,458.9124 (41.94)    3562;1845       31.6982 (0.06)      29127           1
+test_tzfpy_random_edge_cities              916.8871 (1.83)      58,792.0658 (1.0)       4,245.7624 (2.29)      1,705.1219 (1.0)       4,207.7154 (4.04)      1,541.8045 (2.06)    17503;4398      235.5290 (0.44)      79208           1
+test_timezonefinder_random_city          1,499.8950 (3.00)     191,917.1773 (3.26)     14,299.2332 (7.71)     23,041.9899 (13.51)     3,874.7676 (3.72)     16,416.4230 (21.88)        17;12       69.9338 (0.13)        138           1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Legend:
+  Outliers: 1 Standard Deviation from Mean; 1.5 IQR (InterQuartile Range) from 1st Quartile and 3rd Quartile.
+  OPS: Operations Per Second, computed as 1 / Mean
+Results (3.27s):
+         4 passed
