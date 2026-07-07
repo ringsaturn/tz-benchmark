@@ -13,6 +13,16 @@ GO_META_PREFIXES = ("goos:", "goarch:", "pkg:", "cpu:")
 RUST_BENCH_RE = re.compile(
     r"^test\s+(.+?)\s+\.\.\.\s+bench:\s+([0-9,.]+)\s+ns/iter\s+\(\+/-\s+([0-9,.]+)\)"
 )
+ACCURACY_DATASET_RE = re.compile(r"^=== dataset (.+?) \(N=(\d+)\) ===$")
+ACCURACY_WRONG_RE = re.compile(
+    r"^(?P<candidate>.+?)\s+wrong=\s*(?P<wrong>\d+)\s+\(\s*(?P<wrong_pct>[0-9.]+)%\)"
+    r"(?:\s+ambiguous=\s*(?P<ambiguous>\d+)\s+\(\s*(?P<ambiguous_pct>[0-9.]+)%\))?"
+    r"\s+empty=\s*(?P<empty>\d+)\s+\(\s*(?P<empty_pct>[0-9.]+)%\)"
+)
+ACCURACY_DIFFER_RE = re.compile(
+    r"^(?P<candidate>.+?)\s+N=(?P<n>\d+)\s+differ=(?P<wrong>\d+)\s+\((?P<wrong_pct>[0-9.]+)%\)"
+    r"\s+empty=(?P<empty>\d+)\s+\((?P<empty_pct>[0-9.]+)%\)"
+)
 
 
 def md_escape(value: object) -> str:
@@ -152,6 +162,53 @@ def parse_rust(path: Path) -> tuple[list[str], list[dict[str, str]]]:
     return ["Benchmark", "ns/iter", "stddev ns"], rows
 
 
+def parse_accuracy(path: Path) -> tuple[list[str], list[dict[str, str]]]:
+    rows: list[dict[str, str]] = []
+    dataset = ""
+    dataset_n = ""
+
+    for line in path.read_text().splitlines():
+        dataset_match = ACCURACY_DATASET_RE.match(line)
+        if dataset_match:
+            dataset = dataset_match.group(1)
+            dataset_n = dataset_match.group(2)
+            continue
+
+        wrong_match = ACCURACY_WRONG_RE.match(line)
+        if wrong_match and dataset:
+            row = {
+                "Dataset": dataset,
+                "N": dataset_n,
+                "Candidate": wrong_match.group("candidate").strip(),
+                "Wrong": wrong_match.group("wrong"),
+                "Wrong %": wrong_match.group("wrong_pct"),
+                "Ambiguous": wrong_match.group("ambiguous") or "",
+                "Ambiguous %": wrong_match.group("ambiguous_pct") or "",
+                "Empty": wrong_match.group("empty"),
+                "Empty %": wrong_match.group("empty_pct"),
+            }
+            rows.append(row)
+            continue
+
+        differ_match = ACCURACY_DIFFER_RE.match(line)
+        if differ_match:
+            row = {
+                "Dataset": dataset,
+                "N": differ_match.group("n"),
+                "Candidate": differ_match.group("candidate").strip(),
+                "Wrong": differ_match.group("wrong"),
+                "Wrong %": differ_match.group("wrong_pct"),
+                "Ambiguous": "",
+                "Ambiguous %": "",
+                "Empty": differ_match.group("empty"),
+                "Empty %": differ_match.group("empty_pct"),
+            }
+            rows.append(row)
+
+    headers = ["Dataset", "N", "Candidate", "Wrong", "Wrong %", "Ambiguous", "Ambiguous %", "Empty", "Empty %"]
+    return headers, rows
+
+
 def has_snapshot_inputs(snapshot_dir: Path) -> bool:
     return all(
         (snapshot_dir / filename).is_file()
@@ -167,6 +224,16 @@ def build_readme(snapshot_dir: Path) -> str:
     go_meta, go_headers, go_rows = parse_go(snapshot_dir / "benchmark_result_go.txt")
     python_headers, python_rows = parse_python(snapshot_dir / "benchmark_result_python.txt")
     rust_headers, rust_rows = parse_rust(snapshot_dir / "benchmark_result_rust.txt")
+    accuracy_inputs = [
+        ("Go", snapshot_dir / "accuracy_result_go.txt"),
+        ("Python", snapshot_dir / "accuracy_result_python.txt"),
+        ("Rust", snapshot_dir / "accuracy_result_rust.txt"),
+    ]
+    accuracy_sections = [
+        (label, *parse_accuracy(path))
+        for label, path in accuracy_inputs
+        if path.is_file()
+    ]
 
     lines = [
         f"# Benchmark Snapshot {snapshot_dir.name}",
@@ -178,15 +245,20 @@ def build_readme(snapshot_dir: Path) -> str:
         "- `benchmark_result_go.txt`",
         "- `benchmark_result_python.txt`",
         "- `benchmark_result_rust.txt`",
-        "",
-        "## Go",
-        "",
     ]
+    for _, path in accuracy_inputs:
+        if path.is_file():
+            lines.append(f"- `{path.name}`")
+    lines.extend(["", "## Go", ""])
     if go_meta:
         lines.extend(f"- `{item}`" for item in go_meta)
         lines.append("")
     lines.append(markdown_table(go_headers, go_rows))
     lines.extend(["", "## Python", "", markdown_table(python_headers, python_rows), "", "## Rust", "", markdown_table(rust_headers, rust_rows)])
+    if accuracy_sections:
+        lines.extend(["", "## Accuracy", ""])
+        for label, headers, rows in accuracy_sections:
+            lines.extend([f"### {label}", "", markdown_table(headers, rows), ""])
     return "\n".join(lines).rstrip() + "\n"
 
 

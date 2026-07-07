@@ -8,7 +8,12 @@ all:
 	# 	--benchmark-json output.json
 	cd python; uv sync; uv run pytest tz_test.py | tee ../benchmark_result_python.txt
 
-new-snapshot: clean all
+accuracy:
+	cd go; go run ./accuracy | tee ../accuracy_result_go.txt
+	cd python; uv sync; uv run python accuracy.py | tee ../accuracy_result_python.txt
+	cd rust; cargo run --example accuracy | tee ../accuracy_result_rust.txt
+
+new-snapshot: clean all accuracy
 	@set -e; \
 	snapshot_dir="snapshot/$$(date +%F)-$$(git rev-parse HEAD)"; \
 	mkdir -p "$$snapshot_dir"; \
@@ -18,10 +23,11 @@ new-snapshot: clean all
 		exit 1; \
 	fi; \
 	cp benchmark_result_*.txt "$$snapshot_dir"/; \
+	cp accuracy_result_*.txt "$$snapshot_dir"/; \
 	python3 scripts/generate_snapshot_readmes.py --snapshot-root snapshot; \
 	echo "Created $$snapshot_dir"; \
 	git add -f "$$snapshot_dir"; \
 	git commit -m "Add new benchmark snapshot: $$(date +%F) - $$(git rev-parse HEAD)"
 
 clean:
-	rm -f benchmark_result_*.txt
+	rm -f benchmark_result_*.txt accuracy_result_*.txt
