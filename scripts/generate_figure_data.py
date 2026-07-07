@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import gc
+import math
 import random
 import re
 import statistics
@@ -22,6 +23,10 @@ DEFAULT_OUTPUT_DIR = REPO_ROOT / "figures"
 DEFAULT_SEED = 20260707
 DEFAULT_PYTHON_SAMPLES = 20_000
 DEFAULT_PYTHON_WARMUP = 1_000
+DEFAULT_PYTHON_VIOLIN_BINS = 48
+DEFAULT_PYTHON_VIOLIN_MIN_US = 0.3
+DEFAULT_PYTHON_VIOLIN_MAX_US = 1000.0
+DEFAULT_PYTHON_VIOLIN_WIDTH = 0.36
 PERCENTILES = [0, 1, 5, 10, 25, 50, 75, 90, 95, 99, 99.5, 99.9, 100]
 RUST_BENCH_RE = re.compile(
     r"^test\s+(.+?)\s+\.\.\.\s+bench:\s+([0-9,.]+)\s+ns/iter\s+\(\+/-\s+([0-9,.]+)\)"
@@ -158,14 +163,14 @@ def percentile_rows(values_ns: list[int]) -> list[list[object]]:
     return rows
 
 
-def measure_latency_cdf(
+def measure_latency_distribution(
     name: str,
     points: list[tuple[float, float]],
     query: Callable[[float, float], object],
     seed: int,
     samples: int,
     warmup: int,
-) -> tuple[list[list[object]], SeriesSummary]:
+) -> tuple[list[int], SeriesSummary]:
     rng = random.Random(seed)
     for _ in range(warmup):
         lng, lat = points[rng.randrange(len(points))]
@@ -192,10 +197,77 @@ def measure_latency_cdf(
         median_us=statistics.median(values_ns) / 1000,
         max_us=max(values_ns) / 1000,
     )
-    return percentile_rows(values_ns), summary
+    return values_ns, summary
 
 
-def generate_python_latency_cdf(output_dir: Path, samples: int, warmup: int, seed: int) -> list[SeriesSummary]:
+def violin_rows(
+    values_ns: list[int],
+    center: float,
+    bins: int,
+    min_us: float,
+    max_us: float,
+    max_width: float,
+) -> list[list[object]]:
+    log_min = math.log10(min_us)
+    log_max = math.log10(max_us)
+    step = (log_max - log_min) / bins
+    counts = [0.0] * bins
+
+    for value_ns in values_ns:
+        value_us = value_ns / 1000
+        if value_us <= 0:
+            continue
+        log_value = math.log10(value_us)
+        if log_value < log_min or log_value > log_max:
+            continue
+        index = min(bins - 1, max(0, int((log_value - log_min) / step)))
+        counts[index] += 1
+
+    bandwidth = 1.5
+    smoothed: list[float] = []
+    for index in range(bins):
+        total = 0.0
+        for other_index, count in enumerate(counts):
+            distance = (index - other_index) / bandwidth
+            total += count * math.exp(-0.5 * distance * distance)
+        smoothed.append(total)
+
+    max_density = max(smoothed)
+    if max_density <= 0:
+        raise ValueError("Cannot build violin plot from empty density")
+
+    threshold = max_density * 0.001
+    active_indexes = [index for index, density in enumerate(smoothed) if density >= threshold]
+    if not active_indexes:
+        raise ValueError("Cannot build violin plot from empty active density")
+    first_index = min(active_indexes)
+    last_index = max(active_indexes)
+
+    left: list[list[object]] = []
+    right: list[list[object]] = []
+    for index in range(first_index, last_index + 1):
+        density = smoothed[index]
+        log_center = log_min + (index + 0.5) * step
+        value_us = 10**log_center
+        width = (density / max_density) * max_width
+        left.append([f"{center - width:.4f}", f"{value_us:.4f}"])
+        right.append([f"{center + width:.4f}", f"{value_us:.4f}"])
+
+    rows = left + list(reversed(right))
+    rows.append(left[0])
+    return rows
+
+
+def generate_python_latency_cdf(
+    output_dir: Path,
+    samples: int,
+    warmup: int,
+    seed: int,
+    violin_bins: int,
+    violin_min_us: float,
+    violin_max_us: float,
+    violin_width: float,
+) -> list[SeriesSummary]:
     from timezonefinder import TimezoneFinder
     from tzfpy import get_tz
 
@@ -234,9 +306,14 @@ def generate_python_latency_cdf(output_dir: Path, samples: int, warmup: int, see
     ]
 
     summaries: list[SeriesSummary] = []
-    for name, points, query, series_seed in series:
-        rows, summary = measure_latency_cdf(name, points, query, series_seed, samples, warmup)
-        write_tsv(output_dir / f"python_latency_cdf_{name}.tsv", ["lat_us", "pct"], rows)
+    for center, (name, points, query, series_seed) in enumerate(series, start=1):
+        values_ns, summary = measure_latency_distribution(name, points, query, series_seed, samples, warmup)
+        write_tsv(output_dir / f"python_latency_cdf_{name}.tsv", ["lat_us", "pct"], percentile_rows(values_ns))
+        write_tsv(
+            output_dir / f"python_latency_violin_{name}.tsv",
+            ["x", "lat_us"],
+            violin_rows(values_ns, center, violin_bins, violin_min_us, violin_max_us, violin_width),
+        )
         summaries.append(summary)
 
     write_tsv(
@@ -283,6 +360,10 @@ def write_readme(
                 "- `python_latency_cdf_timezonefinder_random.tsv`: timezonefinder random-city CDF points.",
                 "- `python_latency_cdf_tzfpy_edge.tsv`: tzfpy edge-city CDF points.",
                 "- `python_latency_cdf_timezonefinder_edge.tsv`: timezonefinder edge-city CDF points.",
+                "- `python_latency_violin_tzfpy_random.tsv`: tzfpy random-city violin density polygon.",
+                "- `python_latency_violin_timezonefinder_random.tsv`: timezonefinder random-city violin density polygon.",
+                "- `python_latency_violin_tzfpy_edge.tsv`: tzfpy edge-city violin density polygon.",
+                "- `python_latency_violin_timezonefinder_edge.tsv`: timezonefinder edge-city violin density polygon.",
                 "- `python_latency_cdf_summary.tsv`: summary statistics for the CDF sampling run.",
             ]
         )
@@ -310,6 +391,10 @@ def main() -> int:
     parser.add_argument("--rust-snapshot", type=Path, default=DEFAULT_RUST_SNAPSHOT)
     parser.add_argument("--python-samples", type=int, default=DEFAULT_PYTHON_SAMPLES)
     parser.add_argument("--python-warmup", type=int, default=DEFAULT_PYTHON_WARMUP)
+    parser.add_argument("--python-violin-bins", type=int, default=DEFAULT_PYTHON_VIOLIN_BINS)
+    parser.add_argument("--python-violin-min-us", type=float, default=DEFAULT_PYTHON_VIOLIN_MIN_US)
+    parser.add_argument("--python-violin-max-us", type=float, default=DEFAULT_PYTHON_VIOLIN_MAX_US)
+    parser.add_argument("--python-violin-width", type=float, default=DEFAULT_PYTHON_VIOLIN_WIDTH)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--skip-python", action="store_true", help="Only generate Go and Rust figure data.")
     args = parser.parse_args()
@@ -328,7 +413,16 @@ def main() -> int:
     generate_go_log_bars(go_snapshot, output_dir)
     generate_rust_log_bars(rust_snapshot, output_dir)
     if not args.skip_python:
-        generate_python_latency_cdf(output_dir, args.python_samples, args.python_warmup, args.seed)
+        generate_python_latency_cdf(
+            output_dir,
+            args.python_samples,
+            args.python_warmup,
+            args.seed,
+            args.python_violin_bins,
+            args.python_violin_min_us,
+            args.python_violin_max_us,
+            args.python_violin_width,
+        )
     write_readme(
         output_dir=output_dir,
         go_snapshot=go_snapshot,

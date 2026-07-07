@@ -17,6 +17,10 @@ Files:
 - `python_latency_cdf_timezonefinder_random.tsv`: timezonefinder random-city CDF points.
 - `python_latency_cdf_tzfpy_edge.tsv`: tzfpy edge-city CDF points.
 - `python_latency_cdf_timezonefinder_edge.tsv`: timezonefinder edge-city CDF points.
+- `python_latency_violin_tzfpy_random.tsv`: tzfpy random-city violin density polygon.
+- `python_latency_violin_timezonefinder_random.tsv`: timezonefinder random-city violin density polygon.
+- `python_latency_violin_tzfpy_edge.tsv`: tzfpy edge-city violin density polygon.
+- `python_latency_violin_timezonefinder_edge.tsv`: timezonefinder edge-city violin density polygon.
 - `python_latency_cdf_summary.tsv`: summary statistics for the CDF sampling run.
 
 Parameters:
