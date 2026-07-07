@@ -1,3 +1,5 @@
+.PHONY: trigger all accuracy figures new-snapshot clean
+
 trigger:
 	git commit --allow-empty -m "trigger ci"
 	git push
@@ -12,6 +14,9 @@ accuracy:
 	cd go; go run ./accuracy | tee ../accuracy_result_go.txt
 	cd python; uv sync; uv run python accuracy.py | tee ../accuracy_result_python.txt
 	cd rust; cargo run --example accuracy | tee ../accuracy_result_rust.txt
+
+figures:
+	cd python; uv sync; uv run python ../scripts/generate_figure_data.py
 
 new-snapshot: clean all accuracy
 	@set -e; \

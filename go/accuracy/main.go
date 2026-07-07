@@ -1,4 +1,4 @@
-// Accuracy evaluation for the tzf paper: measures disagreement of various
+// Accuracy evaluation for tzf: measures disagreement of various
 // finders/libraries against a full-precision ground truth (tzf Finder on the
 // unsimplified combined-with-oceans dataset).
 //
