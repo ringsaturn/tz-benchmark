@@ -1,0 +1,9 @@
+tzfpy data version: 2026b
+
+=== dataset cities (N=154694) ===
+timezonefinder           N=154694  differ=493 (0.3187%)  empty=0 (0.0000%)
+tzfpy (DefaultFinder)    N=154694  differ=5 (0.0032%)  empty=0 (0.0000%)
+
+=== dataset edges (N=23408) ===
+timezonefinder           N=23408  differ=272 (1.1620%)  empty=0 (0.0000%)
+tzfpy (DefaultFinder)    N=23408  differ=2 (0.0085%)  empty=0 (0.0000%)

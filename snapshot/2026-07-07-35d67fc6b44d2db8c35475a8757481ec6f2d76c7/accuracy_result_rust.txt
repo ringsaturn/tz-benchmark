@@ -1,0 +1,29 @@
+tzf-rs data version: 2026b
+slow candidates skipped; pass --include-slow to include zone-detect and spatialtime
+
+=== dataset cities (N=154694) ===
+tzf-rs DefaultFinder             wrong=     5 (  0.0032%)  empty=     0 (  0.0000%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama; Europe/Moscow != Asia/Tbilisi
+tzf-rs Finder                    wrong=     2 (  0.0013%)  empty=     0 (  0.0000%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama
+tzf-rs FuzzyFinder               wrong=     3 (  0.0019%)  empty= 23474 ( 15.1745%)
+    sample disagreements: Europe/Moscow != Asia/Tbilisi
+tz-search                        wrong=  2319 (  1.4991%)  empty=     6 (  0.0039%)
+    sample disagreements: Africa/Windhoek != Africa/Luanda; America/Argentina/Salta != America/Argentina/Jujuy; America/Montevideo != America/Argentina/Cordoba; America/Sao_Paulo != America/Argentina/Cordoba; Asia/Baku != Asia/Yerevan
+rtz OSM                          wrong=   114 (  0.0737%)  empty=    19 (  0.0123%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama; America/Cuiaba != America/Sao_Paulo; America/Port-au-Prince != America/Santo_Domingo; America/Santiago != America/Coyhaique
+rtz NED                          wrong=104380 ( 67.4751%)  empty=    23 (  0.0149%)
+    sample disagreements: America/La_Paz != America/Anguilla; America/La_Paz != America/Antigua; America/Sao_Paulo != America/Argentina/Buenos_Aires; America/Sao_Paulo != America/Argentina/Cordoba; America/Sao_Paulo != America/Argentina/Jujuy
+
+=== dataset edges (N=23408) ===
+tzf-rs DefaultFinder             wrong=     2 (  0.0085%)  empty=     0 (  0.0000%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama
+tzf-rs Finder                    wrong=     2 (  0.0085%)  empty=     0 (  0.0000%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama
+tzf-rs FuzzyFinder               wrong=     0 (  0.0000%)  empty= 23408 (100.0000%)
+tz-search                        wrong=  1208 (  5.1606%)  empty=     5 (  0.0214%)
+    sample disagreements: Africa/Windhoek != Africa/Luanda; America/Argentina/Buenos_Aires != America/Argentina/Salta; America/Argentina/Salta != America/Argentina/Jujuy; America/Montevideo != America/Argentina/Cordoba; America/Sao_Paulo != America/Argentina/Cordoba
+rtz OSM                          wrong=    45 (  0.1922%)  empty=    19 (  0.0812%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama; America/Cuiaba != America/Sao_Paulo; America/Port-au-Prince != America/Santo_Domingo; America/Santiago != America/Coyhaique
+rtz NED                          wrong= 19249 ( 82.2326%)  empty=     9 (  0.0384%)
+    sample disagreements: America/La_Paz != America/Anguilla; America/La_Paz != America/Antigua; America/Sao_Paulo != America/Argentina/Buenos_Aires; America/Sao_Paulo != America/Argentina/Catamarca; America/Sao_Paulo != America/Argentina/Cordoba
