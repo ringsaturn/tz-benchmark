@@ -6,11 +6,13 @@
 package main
 
 import (
+	"encoding/csv"
 	"encoding/json"
 	"fmt"
 	"math"
 	"math/rand"
 	"os"
+	"strings"
 
 	"github.com/albertyw/localtimezone/v3"
 	"github.com/bradfitz/latlong"
@@ -62,6 +64,26 @@ func norm(name string) string {
 		return c
 	}
 	return name
+}
+
+func containsName(names []string, name string) bool {
+	for _, n := range names {
+		if n == name {
+			return true
+		}
+	}
+	return false
+}
+
+func normalizedNameSet(primary string, names []string) []string {
+	out := []string{primary}
+	for _, name := range names {
+		name = norm(name)
+		if !containsName(out, name) {
+			out = append(out, name)
+		}
+	}
+	return out
 }
 
 type candidate struct {
@@ -179,43 +201,45 @@ func main() {
 	deltas := []float64{0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1}
 	dirs := [][2]float64{{1, 0}, {-1, 0}, {0, 1}, {0, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}}
 
-	// isAmbiguous reports whether the answer is one of the multiple zones that
-	// legitimately cover the point in the full-precision data (intentional
-	// overlaps such as disputed territories), i.e. valid but tie-broken
-	// differently from GetTimezoneName's first-match rule.
-	isAmbiguous := func(p point, got string) bool {
-		names, err := gtF.GetTimezoneNames(p.Lng, p.Lat)
-		if err != nil {
-			return false
-		}
-		if len(names) < 2 {
-			return false
-		}
-		for _, n := range names {
-			if norm(n) == got {
-				return true
-			}
-		}
-		return false
-	}
-
 	for _, ds := range datasets {
 		fmt.Printf("\n=== dataset %s (N=%d) ===\n", ds.name, len(ds.pts))
 		gtNames := make([]string, len(ds.pts))
+		gtNameSets := make([][]string, len(ds.pts))
 		for i, p := range ds.pts {
-			gtNames[i] = norm(gt(p.Lng, p.Lat))
+			primary := norm(gt(p.Lng, p.Lat))
+			names, err := gtF.GetTimezoneNames(p.Lng, p.Lat)
+			if err != nil {
+				names = nil
+			}
+			gtNameSets[i] = normalizedNameSet(primary, names)
+			gtNames[i] = gtNameSets[i][0]
 		}
 
-		// Dump ground truth for the Python-side comparison.
+		// Dump ground truth for the Python-side comparison. Column 4 records all
+		// zones that cover the point, preserving overlap ambiguity in the data.
 		if ds.name != "uniform" {
 			f, err := os.Create(fmt.Sprintf("../data/gt_%s.csv", ds.name))
 			if err != nil {
 				panic(err)
 			}
+			w := csv.NewWriter(f)
 			for i, p := range ds.pts {
-				fmt.Fprintf(f, "%.6f,%.6f,%s\n", p.Lng, p.Lat, gtNames[i])
+				if err := w.Write([]string{
+					fmt.Sprintf("%.6f", p.Lng),
+					fmt.Sprintf("%.6f", p.Lat),
+					gtNames[i],
+					strings.Join(gtNameSets[i], ";"),
+				}); err != nil {
+					panic(err)
+				}
 			}
-			f.Close()
+			w.Flush()
+			if err := w.Error(); err != nil {
+				panic(err)
+			}
+			if err := f.Close(); err != nil {
+				panic(err)
+			}
 		}
 
 		cands := tzfFamily
@@ -231,7 +255,7 @@ func main() {
 				case got == "":
 					empty++
 				case got != gtNames[i]:
-					if isAmbiguous(p, got) {
+					if len(gtNameSets[i]) > 1 && containsName(gtNameSets[i], got) {
 						ambiguous++
 					} else {
 						wrong++
