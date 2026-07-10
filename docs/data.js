@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783692134224,
+  "lastUpdate": 1783692322742,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -101637,6 +101637,138 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_edge_city",
             "value": 927887.57,
             "range": "± 302596.17",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "2f299755700fa552131fa3957be320936fa41d6d",
+          "message": "Add memory evaluation for Go/Rust/Python\n\nEvery ecosystem now has all three evaluations: performance (bench),\naccuracy, and memory. The new memory tools measure per-candidate RSS\n(baseline / post-load / post-loop / peak) in isolated child processes:\n\n- go/internal/cmd/memory: one main package per candidate so package-init\n  data loading (e.g. ugjka/go-tz, ~105 MiB before main) stays visible\n  instead of polluting every other candidate's baseline; shared probe\n  logic lives in go/internal/memprobe\n- rust/examples/memory.rs: covers all nine crates, replacing the\n  two-candidate external-probe mem_probe example\n- python/memory.py: adds timezonefinder next to tzfpy\n\nWire a `memory` target into the Makefile (also part of new-snapshot),\nrender Memory tables in snapshot READMEs, and move the Go accuracy\ncommand under go/internal/cmd alongside the other runnable tools.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "timestamp": "2026-07-10T22:57:57+09:00",
+          "tree_id": "a9bfcc19ddee4fedc5b69ddfd8e17822392d459a",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/2f299755700fa552131fa3957be320936fa41d6d"
+        },
+        "date": 1783692318711,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 848.16,
+            "range": "± 45.76",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_edge_city",
+            "value": 1619.65,
+            "range": "± 113.46",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 3145.87,
+            "range": "± 305.98",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_edge_city",
+            "value": 6544.04,
+            "range": "± 566.65",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 187821.39,
+            "range": "± 25581.81",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned_random_edge_city",
+            "value": 188337.25,
+            "range": "± 20352.82",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 6144098.55,
+            "range": "± 3481630.22",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm_random_edge_city",
+            "value": 6141294.15,
+            "range": "± 3436637.63",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 218.93,
+            "range": "± 50.74",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_edge_city",
+            "value": 168.6,
+            "range": "± 4.15",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 608.29,
+            "range": "± 71.4",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_edge_city",
+            "value": 1731.89,
+            "range": "± 308.78",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_city",
+            "value": 13663.04,
+            "range": "± 1394.66",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_finder_random_edge_city",
+            "value": 10042.77,
+            "range": "± 1061.77",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_city",
+            "value": 331.64,
+            "range": "± 27.84",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_fuzzy_finder_random_edge_city",
+            "value": 263.34,
+            "range": "± 8",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 778770.46,
+            "range": "± 237110.91",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_edge_city",
+            "value": 913224.19,
+            "range": "± 348784.24",
             "unit": "ns/iter"
           }
         ]
