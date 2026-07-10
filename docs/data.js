@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783695961983,
+  "lastUpdate": 1783696013851,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -12146,6 +12146,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000016620449498847736",
             "extra": "mean: 5.260998452132362 usec\nrounds: 74941"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "f3467aa2a8b3c37e932cd54d490bdabc372e4aa4",
+          "message": "Add new benchmark snapshot: 2026-07-11 - 67cf32c444dab10207499dd3e87e2f25248f61f8",
+          "timestamp": "2026-07-11T00:06:03+09:00",
+          "tree_id": "a3fbd7f61f433a771dda865598a3bc9e95faaa86",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/f3467aa2a8b3c37e932cd54d490bdabc372e4aa4"
+        },
+        "date": 1783696008871,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 36719.374369667355,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005660203635114733",
+            "extra": "mean: 27.23357947040804 usec\nrounds: 14389"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 17635.347285400647,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000504365841538547",
+            "extra": "mean: 56.704298691517465 usec\nrounds: 26596"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 408188.30184676487,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000018415836135079094",
+            "extra": "mean: 2.4498497273824444 usec\nrounds: 47873"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 172932.20168862873,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000019036146528022491",
+            "extra": "mean: 5.782613013859267 usec\nrounds: 60935"
           }
         ]
       }
