@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783691584707,
+  "lastUpdate": 1783692113548,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -11938,6 +11938,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000015165147563233347",
             "extra": "mean: 5.05597543939889 usec\nrounds: 41652"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "2f299755700fa552131fa3957be320936fa41d6d",
+          "message": "Add memory evaluation for Go/Rust/Python\n\nEvery ecosystem now has all three evaluations: performance (bench),\naccuracy, and memory. The new memory tools measure per-candidate RSS\n(baseline / post-load / post-loop / peak) in isolated child processes:\n\n- go/internal/cmd/memory: one main package per candidate so package-init\n  data loading (e.g. ugjka/go-tz, ~105 MiB before main) stays visible\n  instead of polluting every other candidate's baseline; shared probe\n  logic lives in go/internal/memprobe\n- rust/examples/memory.rs: covers all nine crates, replacing the\n  two-candidate external-probe mem_probe example\n- python/memory.py: adds timezonefinder next to tzfpy\n\nWire a `memory` target into the Makefile (also part of new-snapshot),\nrender Memory tables in snapshot READMEs, and move the Go accuracy\ncommand under go/internal/cmd alongside the other runnable tools.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "timestamp": "2026-07-10T22:57:57+09:00",
+          "tree_id": "a9bfcc19ddee4fedc5b69ddfd8e17822392d459a",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/2f299755700fa552131fa3957be320936fa41d6d"
+        },
+        "date": 1783692109066,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 37672.67319332811,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005535983959858957",
+            "extra": "mean: 26.54443964908499 usec\nrounds: 15501"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 17904.755571576556,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000049175421546090694",
+            "extra": "mean: 55.85108358516104 usec\nrounds: 19525"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 414183.90983922285,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000017478162949225703",
+            "extra": "mean: 2.4143864023790256 usec\nrounds: 32844"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 171751.2185125038,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000001842036602557402",
+            "extra": "mean: 5.822374994837071 usec\nrounds: 48406"
           }
         ]
       }
