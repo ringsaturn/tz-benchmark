@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1783692864961,
+  "lastUpdate": 1783695723441,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -12094,6 +12094,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000016981162967053855",
             "extra": "mean: 5.976023049656863 usec\nrounds: 44339"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "67cf32c444dab10207499dd3e87e2f25248f61f8",
+          "message": "Add offset_eq column to accuracy evaluations\n\nName mismatches whose zones share UTC offsets at two probe instants\n(winter and summer) are now classified as offset_eq instead of wrong,\nseparating offset-band answers (e.g. rtz NED returning Europe/Paris for\nall of CET) from answers that put the clock at a genuinely different\ntime. With this split rtz NED drops from 67%/82% wrong to 19% on both\ndatasets, and tz-search from 1.35%/5.12% to 0.53%/1.76%.\n\nGo probes via time.LoadLocation (with embedded tzdata), Rust via a new\nchrono-tz dev-dependency, Python via zoneinfo. The snapshot README\nparser renders the new column and tolerates result files without it.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "timestamp": "2026-07-11T00:01:17+09:00",
+          "tree_id": "099bc48f46084db0b61c5b790dc7f6e77464428d",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/67cf32c444dab10207499dd3e87e2f25248f61f8"
+        },
+        "date": 1783695719286,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 36328.1872893996,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005501715226526012",
+            "extra": "mean: 27.526834522013036 usec\nrounds: 15283"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 18153.60968226275,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00004914023271707016",
+            "extra": "mean: 55.085463304692766 usec\nrounds: 28614"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 426688.49980919564,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000017046487338799031",
+            "extra": "mean: 2.343630073102919 usec\nrounds: 51029"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 190077.98787598673,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000016620449498847736",
+            "extra": "mean: 5.260998452132362 usec\nrounds: 74941"
           }
         ]
       }
