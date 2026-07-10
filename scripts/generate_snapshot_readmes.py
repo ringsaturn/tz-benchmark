@@ -17,6 +17,7 @@ ACCURACY_DATASET_RE = re.compile(r"^=== dataset (.+?) \(N=(\d+)\) ===$")
 ACCURACY_WRONG_RE = re.compile(
     r"^(?P<candidate>.+?)\s+wrong=\s*(?P<wrong>\d+)\s+\(\s*(?P<wrong_pct>[0-9.]+)%\)"
     r"(?:\s+ambiguous=\s*(?P<ambiguous>\d+)\s+\(\s*(?P<ambiguous_pct>[0-9.]+)%\))?"
+    r"(?:\s+offset_eq=\s*(?P<offset_eq>\d+)\s+\(\s*(?P<offset_eq_pct>[0-9.]+)%\))?"
     r"\s+empty=\s*(?P<empty>\d+)\s+\(\s*(?P<empty_pct>[0-9.]+)%\)"
 )
 ACCURACY_DIFFER_RE = re.compile(
@@ -188,6 +189,8 @@ def parse_accuracy(path: Path) -> tuple[list[str], list[dict[str, str]]]:
                 "Wrong %": wrong_match.group("wrong_pct"),
                 "Ambiguous": wrong_match.group("ambiguous") or "",
                 "Ambiguous %": wrong_match.group("ambiguous_pct") or "",
+                "Offset-eq": wrong_match.group("offset_eq") or "",
+                "Offset-eq %": wrong_match.group("offset_eq_pct") or "",
                 "Empty": wrong_match.group("empty"),
                 "Empty %": wrong_match.group("empty_pct"),
             }
@@ -204,12 +207,26 @@ def parse_accuracy(path: Path) -> tuple[list[str], list[dict[str, str]]]:
                 "Wrong %": differ_match.group("wrong_pct"),
                 "Ambiguous": "",
                 "Ambiguous %": "",
+                "Offset-eq": "",
+                "Offset-eq %": "",
                 "Empty": differ_match.group("empty"),
                 "Empty %": differ_match.group("empty_pct"),
             }
             rows.append(row)
 
-    headers = ["Dataset", "N", "Candidate", "Wrong", "Wrong %", "Ambiguous", "Ambiguous %", "Empty", "Empty %"]
+    headers = [
+        "Dataset",
+        "N",
+        "Candidate",
+        "Wrong",
+        "Wrong %",
+        "Ambiguous",
+        "Ambiguous %",
+        "Offset-eq",
+        "Offset-eq %",
+        "Empty",
+        "Empty %",
+    ]
     return headers, rows
 
 

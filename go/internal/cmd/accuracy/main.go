@@ -13,6 +13,8 @@ import (
 	"math/rand"
 	"os"
 	"strings"
+	"time"
+	_ "time/tzdata"
 
 	"github.com/albertyw/localtimezone/v3"
 	"github.com/bradfitz/latlong"
@@ -89,6 +91,32 @@ func normalizedNameSet(primary string, names []string) []string {
 type candidate struct {
 	name string
 	fn   func(lng, lat float64) string
+}
+
+// offsetSignature returns the UTC offsets of a zone at two probe instants
+// (northern winter and summer), or nil for names the tz database does not
+// know. Two zone names with equal signatures produce the same clock time
+// year-round, which separates offset-band answers from answers that put the
+// clock at a genuinely different time.
+var offsetCache = map[string]*[2]int{}
+
+func offsetSignature(name string) *[2]int {
+	if sig, ok := offsetCache[name]; ok {
+		return sig
+	}
+	var sig *[2]int
+	if loc, err := time.LoadLocation(name); err == nil {
+		_, jan := time.Date(2026, 1, 15, 12, 0, 0, 0, time.UTC).In(loc).Zone()
+		_, jul := time.Date(2026, 7, 15, 12, 0, 0, 0, time.UTC).In(loc).Zone()
+		sig = &[2]int{jan, jul}
+	}
+	offsetCache[name] = sig
+	return sig
+}
+
+func sameClock(got, expected string) bool {
+	gotSig, expectedSig := offsetSignature(got), offsetSignature(expected)
+	return gotSig != nil && expectedSig != nil && *gotSig == *expectedSig
 }
 
 func main() {
@@ -247,7 +275,7 @@ func main() {
 			cands = append(append([]candidate{}, tzfFamily...), thirdParty...)
 		}
 		for _, c := range cands {
-			var wrong, ambiguous, empty int
+			var wrong, ambiguous, offsetEq, empty int
 			var wrongIdx []int
 			for i, p := range ds.pts {
 				got := norm(c.fn(p.Lng, p.Lat))
@@ -257,6 +285,8 @@ func main() {
 				case got != gtNames[i]:
 					if len(gtNameSets[i]) > 1 && containsName(gtNameSets[i], got) {
 						ambiguous++
+					} else if sameClock(got, gtNames[i]) {
+						offsetEq++
 					} else {
 						wrong++
 						wrongIdx = append(wrongIdx, i)
@@ -264,9 +294,10 @@ func main() {
 				}
 			}
 			n := len(ds.pts)
-			fmt.Printf("%-32s wrong=%6d (%8.4f%%)  ambiguous=%4d (%7.4f%%)  empty=%6d (%8.4f%%)\n",
+			fmt.Printf("%-32s wrong=%6d (%8.4f%%)  ambiguous=%4d (%7.4f%%)  offset_eq=%6d (%8.4f%%)  empty=%6d (%8.4f%%)\n",
 				c.name, wrong, 100*float64(wrong)/float64(n),
 				ambiguous, 100*float64(ambiguous)/float64(n),
+				offsetEq, 100*float64(offsetEq)/float64(n),
 				empty, 100*float64(empty)/float64(n))
 
 			// Perturbation certification for genuinely wrong answers of the

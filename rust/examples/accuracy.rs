@@ -1,6 +1,8 @@
 use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
 
+use chrono::{NaiveDate, Offset, TimeZone};
+use chrono_tz::Tz;
 use rtzlib::{CanPerformGeoLookup, NedTimezone, OsmTimezone};
 use serde::Deserialize;
 use spatialtime::{ned::NedReader, osm::OsmReader};
@@ -135,13 +137,46 @@ fn lookup_zone_detect(database: &zone_detect::Database, lng: f64, lat: f64) -> S
         .unwrap_or_default()
 }
 
+// UTC offsets at two probe instants (northern winter and summer). Two zone
+// names with equal signatures produce the same clock time year-round, which
+// separates offset-band data (e.g. rtz NED answering Europe/Paris for all of
+// CET) from answers that put the clock at a genuinely different time.
+type OffsetSignature = Option<(i32, i32)>;
+
+fn offset_signature(name: &str) -> OffsetSignature {
+    let tz: Tz = name.parse().ok()?;
+    let probe = |month: u32| {
+        let instant = NaiveDate::from_ymd_opt(2026, month, 15)?.and_hms_opt(12, 0, 0)?;
+        Some(
+            tz.offset_from_utc_datetime(&instant)
+                .fix()
+                .local_minus_utc(),
+        )
+    };
+    Some((probe(1)?, probe(7)?))
+}
+
+fn same_clock(got: &str, expected: &str, cache: &mut HashMap<String, OffsetSignature>) -> bool {
+    let mut lookup = |name: &str| {
+        *cache
+            .entry(name.to_string())
+            .or_insert_with(|| offset_signature(name))
+    };
+    match (lookup(got), lookup(expected)) {
+        (Some(got_sig), Some(expected_sig)) => got_sig == expected_sig,
+        _ => false,
+    }
+}
+
 fn evaluate(
     label: &str,
     rows: &[GroundTruthRow],
     lookup: &dyn Fn(f64, f64) -> String,
+    offset_cache: &mut HashMap<String, OffsetSignature>,
 ) -> Vec<usize> {
     let mut wrong_idx = Vec::<usize>::new();
     let mut ambiguous = 0usize;
+    let mut offset_eq = 0usize;
     let mut empty = 0usize;
     let mut wrong_pairs = HashSet::<(String, String)>::new();
 
@@ -152,6 +187,8 @@ fn evaluate(
         } else if got != row.name {
             if row.names.len() > 1 && row.names.contains(&got) {
                 ambiguous += 1;
+            } else if same_clock(&got, &row.name, offset_cache) {
+                offset_eq += 1;
             } else {
                 wrong_idx.push(i);
                 if wrong_pairs.len() < 20 {
@@ -164,9 +201,10 @@ fn evaluate(
     let wrong = wrong_idx.len();
     let n = rows.len() as f64;
     println!(
-        "{label:<32} wrong={wrong:6} ({:8.4}%)  ambiguous={ambiguous:4} ({:7.4}%)  empty={empty:6} ({:8.4}%)",
+        "{label:<32} wrong={wrong:6} ({:8.4}%)  ambiguous={ambiguous:4} ({:7.4}%)  offset_eq={offset_eq:6} ({:8.4}%)  empty={empty:6} ({:8.4}%)",
         100.0 * wrong as f64 / n,
         100.0 * ambiguous as f64 / n,
+        100.0 * offset_eq as f64 / n,
         100.0 * empty as f64 / n
     );
 
@@ -353,6 +391,7 @@ fn main() {
         );
     }
 
+    let mut offset_cache = HashMap::<String, OffsetSignature>::new();
     for dataset in ["cities", "edges"] {
         let path = first_existing(&[
             &format!("../data/gt_{dataset}.csv"),
@@ -361,7 +400,12 @@ fn main() {
         let rows = load_ground_truth(&path);
         println!("\n=== dataset {dataset} (N={}) ===", rows.len());
         for candidate in &candidates {
-            let wrong_idx = evaluate(candidate.name, &rows, &candidate.fn_lookup);
+            let wrong_idx = evaluate(
+                candidate.name,
+                &rows,
+                &candidate.fn_lookup,
+                &mut offset_cache,
+            );
             if candidate.name == "tz-search" && !wrong_idx.is_empty() {
                 certify_wrong_answers(&rows, &wrong_idx, &candidate.fn_lookup, &|lng, lat| {
                     finder.get_tz_name(lng, lat).to_string()

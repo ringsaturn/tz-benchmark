@@ -75,56 +75,56 @@ Raw sources:
 
 ### Go
 
-| Dataset | N | Candidate | Wrong | Wrong % | Ambiguous | Ambiguous % | Empty | Empty % |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cities | 154694 | DefaultFinder (lite+preindex) | 2 | 0.0013 | 3 | 0.0019 | 0 | 0.0000 |
-| cities | 154694 | Finder (lite) | 2 | 0.0013 | 0 | 0.0000 | 0 | 0.0000 |
-| cities | 154694 | FullFinder (full+preindex) | 0 | 0.0000 | 3 | 0.0019 | 0 | 0.0000 |
-| cities | 154694 | FuzzyFinder (preindex only) | 0 | 0.0000 | 3 | 0.0019 | 23474 | 15.1745 |
-| cities | 154694 | bradfitz/latlong | 1513 | 0.9781 | 230 | 0.1487 | 166 | 0.1073 |
-| cities | 154694 | zsefvlol/timezonemapper | 1848 | 1.1946 | 394 | 0.2547 | 0 | 0.0000 |
-| cities | 154694 | albertyw/localtimezone | 82 | 0.0530 | 6 | 0.0039 | 0 | 0.0000 |
-| cities | 154694 | ugjka/go-tz | 2 | 0.0013 | 0 | 0.0000 | 0 | 0.0000 |
-| edges | 23408 | DefaultFinder (lite+preindex) | 2 | 0.0085 | 0 | 0.0000 | 0 | 0.0000 |
-| edges | 23408 | Finder (lite) | 2 | 0.0085 | 0 | 0.0000 | 0 | 0.0000 |
-| edges | 23408 | FullFinder (full+preindex) | 0 | 0.0000 | 0 | 0.0000 | 0 | 0.0000 |
-| edges | 23408 | FuzzyFinder (preindex only) | 0 | 0.0000 | 0 | 0.0000 | 23408 | 100.0000 |
-| edges | 23408 | bradfitz/latlong | 979 | 4.1823 | 9 | 0.0384 | 150 | 0.6408 |
-| edges | 23408 | zsefvlol/timezonemapper | 777 | 3.3194 | 258 | 1.1022 | 0 | 0.0000 |
-| edges | 23408 | albertyw/localtimezone | 81 | 0.3460 | 6 | 0.0256 | 0 | 0.0000 |
-| edges | 23408 | ugjka/go-tz | 1 | 0.0043 | 0 | 0.0000 | 0 | 0.0000 |
-| uniform | 1000000 | DefaultFinder (lite+preindex) | 38 | 0.0038 | 18 | 0.0018 | 0 | 0.0000 |
-| uniform | 1000000 | Finder (lite) | 35 | 0.0035 | 0 | 0.0000 | 0 | 0.0000 |
-| uniform | 1000000 | FullFinder (full+preindex) | 3 | 0.0003 | 18 | 0.0018 | 0 | 0.0000 |
-| uniform | 1000000 | FuzzyFinder (preindex only) | 3 | 0.0003 | 18 | 0.0018 | 116277 | 11.6277 |
+| Dataset | N | Candidate | Wrong | Wrong % | Ambiguous | Ambiguous % | Offset-eq | Offset-eq % | Empty | Empty % |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cities | 154694 | DefaultFinder (lite+preindex) | 2 | 0.0013 | 3 | 0.0019 |  |  | 0 | 0.0000 |
+| cities | 154694 | Finder (lite) | 2 | 0.0013 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| cities | 154694 | FullFinder (full+preindex) | 0 | 0.0000 | 3 | 0.0019 |  |  | 0 | 0.0000 |
+| cities | 154694 | FuzzyFinder (preindex only) | 0 | 0.0000 | 3 | 0.0019 |  |  | 23474 | 15.1745 |
+| cities | 154694 | bradfitz/latlong | 1513 | 0.9781 | 230 | 0.1487 |  |  | 166 | 0.1073 |
+| cities | 154694 | zsefvlol/timezonemapper | 1848 | 1.1946 | 394 | 0.2547 |  |  | 0 | 0.0000 |
+| cities | 154694 | albertyw/localtimezone | 82 | 0.0530 | 6 | 0.0039 |  |  | 0 | 0.0000 |
+| cities | 154694 | ugjka/go-tz | 2 | 0.0013 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| edges | 23408 | DefaultFinder (lite+preindex) | 2 | 0.0085 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| edges | 23408 | Finder (lite) | 2 | 0.0085 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| edges | 23408 | FullFinder (full+preindex) | 0 | 0.0000 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| edges | 23408 | FuzzyFinder (preindex only) | 0 | 0.0000 | 0 | 0.0000 |  |  | 23408 | 100.0000 |
+| edges | 23408 | bradfitz/latlong | 979 | 4.1823 | 9 | 0.0384 |  |  | 150 | 0.6408 |
+| edges | 23408 | zsefvlol/timezonemapper | 777 | 3.3194 | 258 | 1.1022 |  |  | 0 | 0.0000 |
+| edges | 23408 | albertyw/localtimezone | 81 | 0.3460 | 6 | 0.0256 |  |  | 0 | 0.0000 |
+| edges | 23408 | ugjka/go-tz | 1 | 0.0043 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| uniform | 1000000 | DefaultFinder (lite+preindex) | 38 | 0.0038 | 18 | 0.0018 |  |  | 0 | 0.0000 |
+| uniform | 1000000 | Finder (lite) | 35 | 0.0035 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| uniform | 1000000 | FullFinder (full+preindex) | 3 | 0.0003 | 18 | 0.0018 |  |  | 0 | 0.0000 |
+| uniform | 1000000 | FuzzyFinder (preindex only) | 3 | 0.0003 | 18 | 0.0018 |  |  | 116277 | 11.6277 |
 
 
 ### Python
 
-| Dataset | N | Candidate | Wrong | Wrong % | Ambiguous | Ambiguous % | Empty | Empty % |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cities | 154694 | timezonefinder           N=154694 | 0 | 0.0000 | 493 | 0.3187 | 0 | 0.0000 |
-| cities | 154694 | tzfpy (DefaultFinder)    N=154694 | 2 | 0.0013 | 3 | 0.0019 | 0 | 0.0000 |
-| edges | 23408 | timezonefinder           N=23408 | 0 | 0.0000 | 272 | 1.1620 | 0 | 0.0000 |
-| edges | 23408 | tzfpy (DefaultFinder)    N=23408 | 2 | 0.0085 | 0 | 0.0000 | 0 | 0.0000 |
+| Dataset | N | Candidate | Wrong | Wrong % | Ambiguous | Ambiguous % | Offset-eq | Offset-eq % | Empty | Empty % |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cities | 154694 | timezonefinder           N=154694 | 0 | 0.0000 | 493 | 0.3187 |  |  | 0 | 0.0000 |
+| cities | 154694 | tzfpy (DefaultFinder)    N=154694 | 2 | 0.0013 | 3 | 0.0019 |  |  | 0 | 0.0000 |
+| edges | 23408 | timezonefinder           N=23408 | 0 | 0.0000 | 272 | 1.1620 |  |  | 0 | 0.0000 |
+| edges | 23408 | tzfpy (DefaultFinder)    N=23408 | 2 | 0.0085 | 0 | 0.0000 |  |  | 0 | 0.0000 |
 
 
 ### Rust
 
-| Dataset | N | Candidate | Wrong | Wrong % | Ambiguous | Ambiguous % | Empty | Empty % |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| cities | 154694 | tzf-rs DefaultFinder | 2 | 0.0013 | 3 | 0.0019 | 0 | 0.0000 |
-| cities | 154694 | tzf-rs Finder | 2 | 0.0013 | 0 | 0.0000 | 0 | 0.0000 |
-| cities | 154694 | tzf-rs FuzzyFinder | 0 | 0.0000 | 3 | 0.0019 | 23474 | 15.1745 |
-| cities | 154694 | tz-search | 2089 | 1.3504 | 230 | 0.1487 | 6 | 0.0039 |
-| cities | 154694 | rtz OSM | 111 | 0.0718 | 3 | 0.0019 | 19 | 0.0123 |
-| cities | 154694 | rtz NED | 104365 | 67.4654 | 15 | 0.0097 | 23 | 0.0149 |
-| edges | 23408 | tzf-rs DefaultFinder | 2 | 0.0085 | 0 | 0.0000 | 0 | 0.0000 |
-| edges | 23408 | tzf-rs Finder | 2 | 0.0085 | 0 | 0.0000 | 0 | 0.0000 |
-| edges | 23408 | tzf-rs FuzzyFinder | 0 | 0.0000 | 0 | 0.0000 | 23408 | 100.0000 |
-| edges | 23408 | tz-search | 1199 | 5.1222 | 9 | 0.0384 | 5 | 0.0214 |
-| edges | 23408 | rtz OSM | 42 | 0.1794 | 3 | 0.0128 | 19 | 0.0812 |
-| edges | 23408 | rtz NED | 19243 | 82.2069 | 6 | 0.0256 | 9 | 0.0384 |
+| Dataset | N | Candidate | Wrong | Wrong % | Ambiguous | Ambiguous % | Offset-eq | Offset-eq % | Empty | Empty % |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cities | 154694 | tzf-rs DefaultFinder | 2 | 0.0013 | 3 | 0.0019 |  |  | 0 | 0.0000 |
+| cities | 154694 | tzf-rs Finder | 2 | 0.0013 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| cities | 154694 | tzf-rs FuzzyFinder | 0 | 0.0000 | 3 | 0.0019 |  |  | 23474 | 15.1745 |
+| cities | 154694 | tz-search | 2089 | 1.3504 | 230 | 0.1487 |  |  | 6 | 0.0039 |
+| cities | 154694 | rtz OSM | 111 | 0.0718 | 3 | 0.0019 |  |  | 19 | 0.0123 |
+| cities | 154694 | rtz NED | 104365 | 67.4654 | 15 | 0.0097 |  |  | 23 | 0.0149 |
+| edges | 23408 | tzf-rs DefaultFinder | 2 | 0.0085 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| edges | 23408 | tzf-rs Finder | 2 | 0.0085 | 0 | 0.0000 |  |  | 0 | 0.0000 |
+| edges | 23408 | tzf-rs FuzzyFinder | 0 | 0.0000 | 0 | 0.0000 |  |  | 23408 | 100.0000 |
+| edges | 23408 | tz-search | 1199 | 5.1222 | 9 | 0.0384 |  |  | 5 | 0.0214 |
+| edges | 23408 | rtz OSM | 42 | 0.1794 | 3 | 0.0128 |  |  | 19 | 0.0812 |
+| edges | 23408 | rtz NED | 19243 | 82.2069 | 6 | 0.0256 |  |  | 9 | 0.0384 |
 
 
 
