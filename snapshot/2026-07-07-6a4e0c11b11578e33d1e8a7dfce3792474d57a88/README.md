@@ -11,7 +11,9 @@ Raw sources:
 - `accuracy_result_python.txt`
 - `accuracy_result_rust.txt`
 
-## Go
+## Performance
+
+### Go
 
 - `goos: darwin`
 - `goarch: arm64`
@@ -32,7 +34,7 @@ Raw sources:
 | GoTZ_Random_EdgeCities | 29452 | 41416 | 32292 | 240750 | 16 | 1 |
 
 
-## Python
+### Python
 
 | Benchmark | Min ns | Max ns | Mean ns | StdDev ns | Median ns | IQR ns | Outliers | OPS Kops/s | Rounds | Iterations |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -42,7 +44,7 @@ Raw sources:
 | test_timezonefinder_random_edge_city | 1,167.4128 | 245,791.8599 | 33,173.1246 | 31,674.7227 | 22,457.9126 | 32,458.9200 | 2901;1673 | 30.1449 | 24465 | 1 |
 
 
-## Rust
+### Rust
 
 | Benchmark | ns/iter | stddev ns |
 | --- | --- | --- |

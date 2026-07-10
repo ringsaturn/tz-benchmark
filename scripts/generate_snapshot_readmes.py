@@ -287,12 +287,12 @@ def build_readme(snapshot_dir: Path) -> str:
     for _, path in memory_inputs:
         if path.is_file():
             lines.append(f"- `{path.name}`")
-    lines.extend(["", "## Go", ""])
+    lines.extend(["", "## Performance", "", "### Go", ""])
     if go_meta:
         lines.extend(f"- `{item}`" for item in go_meta)
         lines.append("")
     lines.append(markdown_table(go_headers, go_rows))
-    lines.extend(["", "## Python", "", markdown_table(python_headers, python_rows), "", "## Rust", "", markdown_table(rust_headers, rust_rows)])
+    lines.extend(["", "### Python", "", markdown_table(python_headers, python_rows), "", "### Rust", "", markdown_table(rust_headers, rust_rows)])
     if accuracy_sections:
         lines.extend(["", "## Accuracy", ""])
         for label, headers, rows in accuracy_sections:

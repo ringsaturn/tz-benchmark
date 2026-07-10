@@ -14,7 +14,9 @@ Raw sources:
 - `memory_result_python.txt`
 - `memory_result_rust.txt`
 
-## Go
+## Performance
+
+### Go
 
 - `goos: darwin`
 - `goarch: arm64`
@@ -35,7 +37,7 @@ Raw sources:
 | GoTZ_Random_EdgeCities | 29650 | 41318 | 32166 | 234042 | 16 | 1 |
 
 
-## Python
+### Python
 
 | Benchmark | Min ns | Max ns | Mean ns | StdDev ns | Median ns | IQR ns | Outliers | OPS Kops/s | Rounds | Iterations |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -45,7 +47,7 @@ Raw sources:
 | test_timezonefinder_random_city | 1,167.0054 | 11,948,084.0222 | 35,268.4978 | 514,501.3896 | 3,583.0017 | 13,541.7358 | 1;54 | 28.3539 | 539 | 1 |
 
 
-## Rust
+### Rust
 
 | Benchmark | ns/iter | stddev ns |
 | --- | --- | --- |

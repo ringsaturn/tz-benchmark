@@ -8,7 +8,9 @@ Raw sources:
 - `benchmark_result_python.txt`
 - `benchmark_result_rust.txt`
 
-## Go
+## Performance
+
+### Go
 
 - `goos: darwin`
 - `goarch: arm64`
@@ -29,7 +31,7 @@ Raw sources:
 | GoTZ_Random_EdgeCities | 23112 | 51249 | 40000 | 114000 | 261000 | 24 | 1 |
 
 
-## Python
+### Python
 
 | Benchmark | Min ns | Max ns | Mean ns | StdDev ns | Median ns | IQR ns | Outliers | OPS Kops/s | Rounds | Iterations |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -39,7 +41,7 @@ Raw sources:
 | test_timezonefinder_random_city | 1,999.9861 | 83,417.0205 | 13,351.3830 | 18,087.0400 | 4,792.0039 | 13,926.9905 | 14;11 | 74.8986 | 115 | 1 |
 
 
-## Rust
+### Rust
 
 | Benchmark | ns/iter | stddev ns |
 | --- | --- | --- |
