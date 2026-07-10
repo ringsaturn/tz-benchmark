@@ -23,6 +23,10 @@ ACCURACY_DIFFER_RE = re.compile(
     r"^(?P<candidate>.+?)\s+N=(?P<n>\d+)\s+differ=(?P<wrong>\d+)\s+\((?P<wrong_pct>[0-9.]+)%\)"
     r"\s+empty=(?P<empty>\d+)\s+\((?P<empty_pct>[0-9.]+)%\)"
 )
+MEMORY_LINE_RE = re.compile(
+    r"^(?P<candidate>.+?)\s+baseline=\s*(?P<baseline>[0-9.]+)\s+post_load=\s*(?P<post_load>[0-9.]+)"
+    r"\s+post_loop=\s*(?P<post_loop>[0-9.]+)\s+peak=\s*(?P<peak>[0-9.]+)\s+delta=\s*(?P<delta>-?[0-9.]+)"
+)
 
 
 def md_escape(value: object) -> str:
@@ -209,6 +213,27 @@ def parse_accuracy(path: Path) -> tuple[list[str], list[dict[str, str]]]:
     return headers, rows
 
 
+def parse_memory(path: Path) -> tuple[list[str], list[dict[str, str]]]:
+    rows: list[dict[str, str]] = []
+    for line in path.read_text().splitlines():
+        match = MEMORY_LINE_RE.match(line)
+        if not match:
+            continue
+        rows.append(
+            {
+                "Candidate": match.group("candidate").strip(),
+                "Baseline MiB": match.group("baseline"),
+                "Post-load MiB": match.group("post_load"),
+                "Post-loop MiB": match.group("post_loop"),
+                "Peak MiB": match.group("peak"),
+                "Delta MiB": match.group("delta"),
+            }
+        )
+
+    headers = ["Candidate", "Baseline MiB", "Post-load MiB", "Post-loop MiB", "Peak MiB", "Delta MiB"]
+    return headers, rows
+
+
 def has_snapshot_inputs(snapshot_dir: Path) -> bool:
     return all(
         (snapshot_dir / filename).is_file()
@@ -234,6 +259,16 @@ def build_readme(snapshot_dir: Path) -> str:
         for label, path in accuracy_inputs
         if path.is_file()
     ]
+    memory_inputs = [
+        ("Go", snapshot_dir / "memory_result_go.txt"),
+        ("Python", snapshot_dir / "memory_result_python.txt"),
+        ("Rust", snapshot_dir / "memory_result_rust.txt"),
+    ]
+    memory_sections = [
+        (label, *parse_memory(path))
+        for label, path in memory_inputs
+        if path.is_file()
+    ]
 
     lines = [
         f"# Benchmark Snapshot {snapshot_dir.name}",
@@ -249,6 +284,9 @@ def build_readme(snapshot_dir: Path) -> str:
     for _, path in accuracy_inputs:
         if path.is_file():
             lines.append(f"- `{path.name}`")
+    for _, path in memory_inputs:
+        if path.is_file():
+            lines.append(f"- `{path.name}`")
     lines.extend(["", "## Go", ""])
     if go_meta:
         lines.extend(f"- `{item}`" for item in go_meta)
@@ -258,6 +296,10 @@ def build_readme(snapshot_dir: Path) -> str:
     if accuracy_sections:
         lines.extend(["", "## Accuracy", ""])
         for label, headers, rows in accuracy_sections:
+            lines.extend([f"### {label}", "", markdown_table(headers, rows), ""])
+    if memory_sections:
+        lines.extend(["", "## Memory", ""])
+        for label, headers, rows in memory_sections:
             lines.extend([f"### {label}", "", markdown_table(headers, rows), ""])
     return "\n".join(lines).rstrip() + "\n"
 

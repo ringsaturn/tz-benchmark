@@ -1,5 +1,5 @@
 # Accuracy comparison of timezonefinder and tzfpy against the tzf
-# full-precision ground truth (gt_*.csv produced by go/accuracy).
+# full-precision ground truth (gt_*.csv produced by go/internal/cmd/accuracy).
 #
 # Usage: uv run python accuracy.py
 import csv

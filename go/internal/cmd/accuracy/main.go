@@ -2,7 +2,7 @@
 // finders/libraries against a full-precision ground truth (tzf Finder on the
 // unsimplified combined-with-oceans dataset).
 //
-// Usage: go run ./accuracy
+// Usage: go run ./internal/cmd/accuracy
 package main
 
 import (
