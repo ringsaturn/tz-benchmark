@@ -7,10 +7,22 @@ use spatialtime::{ned::NedReader, osm::OsmReader};
 use tzf_rs::{DefaultFinder, Finder, FuzzyFinder};
 
 #[derive(Clone, Debug, Deserialize)]
+struct RawGroundTruthRow {
+    lng: f64,
+    lat: f64,
+    name: String,
+    #[serde(default)]
+    names: Option<String>,
+}
+
+#[derive(Clone, Debug)]
 struct GroundTruthRow {
     lng: f64,
     lat: f64,
     name: String,
+    // All zones covering the point (from go/accuracy); answering any of these
+    // counts as ambiguous rather than wrong.
+    names: HashSet<String>,
 }
 
 struct Candidate<'a> {
@@ -72,12 +84,25 @@ fn load_ground_truth(path: &Path) -> Vec<GroundTruthRow> {
         .unwrap_or_else(|err| panic!("failed to open {}: {err}", path.display()));
 
     reader
-        .deserialize::<GroundTruthRow>()
+        .deserialize::<RawGroundTruthRow>()
         .map(|row| {
-            let mut row =
-                row.unwrap_or_else(|err| panic!("failed to parse {}: {err}", path.display()));
-            row.name = norm(&row.name);
-            row
+            let row = row.unwrap_or_else(|err| panic!("failed to parse {}: {err}", path.display()));
+            let name = norm(&row.name);
+            let mut names = row
+                .names
+                .as_deref()
+                .unwrap_or_default()
+                .split(';')
+                .filter(|part| !part.is_empty())
+                .map(norm)
+                .collect::<HashSet<_>>();
+            names.insert(name.clone());
+            GroundTruthRow {
+                lng: row.lng,
+                lat: row.lat,
+                name,
+                names,
+            }
         })
         .collect()
 }
@@ -110,27 +135,38 @@ fn lookup_zone_detect(database: &zone_detect::Database, lng: f64, lat: f64) -> S
         .unwrap_or_default()
 }
 
-fn evaluate(label: &str, rows: &[GroundTruthRow], lookup: &dyn Fn(f64, f64) -> String) {
-    let mut wrong = 0usize;
+fn evaluate(
+    label: &str,
+    rows: &[GroundTruthRow],
+    lookup: &dyn Fn(f64, f64) -> String,
+) -> Vec<usize> {
+    let mut wrong_idx = Vec::<usize>::new();
+    let mut ambiguous = 0usize;
     let mut empty = 0usize;
     let mut wrong_pairs = HashSet::<(String, String)>::new();
 
-    for row in rows {
+    for (i, row) in rows.iter().enumerate() {
         let got = norm(&lookup(row.lng, row.lat));
         if got.is_empty() {
             empty += 1;
         } else if got != row.name {
-            wrong += 1;
-            if wrong_pairs.len() < 20 {
-                wrong_pairs.insert((got, row.name.clone()));
+            if row.names.len() > 1 && row.names.contains(&got) {
+                ambiguous += 1;
+            } else {
+                wrong_idx.push(i);
+                if wrong_pairs.len() < 20 {
+                    wrong_pairs.insert((got, row.name.clone()));
+                }
             }
         }
     }
 
+    let wrong = wrong_idx.len();
     let n = rows.len() as f64;
     println!(
-        "{label:<32} wrong={wrong:6} ({:8.4}%)  empty={empty:6} ({:8.4}%)",
+        "{label:<32} wrong={wrong:6} ({:8.4}%)  ambiguous={ambiguous:4} ({:7.4}%)  empty={empty:6} ({:8.4}%)",
         100.0 * wrong as f64 / n,
+        100.0 * ambiguous as f64 / n,
         100.0 * empty as f64 / n
     );
 
@@ -145,6 +181,58 @@ fn evaluate(label: &str, rows: &[GroundTruthRow], lookup: &dyn Fn(f64, f64) -> S
             .join("; ");
         println!("    sample disagreements: {examples}");
     }
+
+    wrong_idx
+}
+
+const CERT_DELTAS: &[f64] = &[0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1];
+const CERT_DIRS: &[(f64, f64)] = &[
+    (1.0, 0.0),
+    (-1.0, 0.0),
+    (0.0, 1.0),
+    (0.0, -1.0),
+    (1.0, 1.0),
+    (1.0, -1.0),
+    (-1.0, 1.0),
+    (-1.0, -1.0),
+];
+
+// Wrong-answer distance certification (same methodology as go/accuracy): for
+// each genuinely wrong answer, find the smallest delta such that the probe
+// (tzf-rs Finder, full polygons) returns that answer somewhere within delta,
+// i.e. the answer's true region is at most ~delta degrees away.
+fn certify_wrong_answers(
+    rows: &[GroundTruthRow],
+    wrong_idx: &[usize],
+    lookup: &dyn Fn(f64, f64) -> String,
+    probe: &dyn Fn(f64, f64) -> String,
+) {
+    let mut hist = HashMap::<usize, usize>::new();
+    let mut uncertified = 0usize;
+
+    for &i in wrong_idx {
+        let row = &rows[i];
+        let got = norm(&lookup(row.lng, row.lat));
+        let certified = CERT_DELTAS.iter().enumerate().find(|(_, delta)| {
+            CERT_DIRS
+                .iter()
+                .any(|(dx, dy)| norm(&probe(row.lng + dx * *delta, row.lat + dy * *delta)) == got)
+        });
+        match certified {
+            Some((delta_idx, _)) => *hist.entry(delta_idx).or_default() += 1,
+            None => uncertified += 1,
+        }
+    }
+
+    let total = wrong_idx.len() as f64;
+    let mut cum = 0usize;
+    println!("    wrong-answer distance certification (deg -> cumulative %):");
+    print!("    ");
+    for (delta_idx, delta) in CERT_DELTAS.iter().enumerate() {
+        cum += hist.get(&delta_idx).copied().unwrap_or_default();
+        print!("<={delta:.3}: {:.1}%  ", 100.0 * cum as f64 / total);
+    }
+    println!(">0.1: {:.1}%", 100.0 * uncertified as f64 / total);
 }
 
 fn dump_fuzzy_errors(dataset: &str, rows: &[GroundTruthRow], fuzzy_finder: &FuzzyFinder) {
@@ -273,7 +361,12 @@ fn main() {
         let rows = load_ground_truth(&path);
         println!("\n=== dataset {dataset} (N={}) ===", rows.len());
         for candidate in &candidates {
-            evaluate(candidate.name, &rows, &candidate.fn_lookup);
+            let wrong_idx = evaluate(candidate.name, &rows, &candidate.fn_lookup);
+            if candidate.name == "tz-search" && !wrong_idx.is_empty() {
+                certify_wrong_answers(&rows, &wrong_idx, &candidate.fn_lookup, &|lng, lat| {
+                    finder.get_tz_name(lng, lat).to_string()
+                });
+            }
         }
         if dump_fuzzy {
             dump_fuzzy_errors(dataset, &rows, &fuzzy_finder);
