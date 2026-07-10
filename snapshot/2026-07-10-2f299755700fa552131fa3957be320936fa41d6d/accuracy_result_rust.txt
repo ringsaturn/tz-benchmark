@@ -1,0 +1,32 @@
+tzf-rs data version: 2026b
+slow candidates skipped; pass --include-slow to include zone-detect and spatialtime
+
+=== dataset cities (N=154694) ===
+tzf-rs DefaultFinder             wrong=     2 (  0.0013%)  ambiguous=   3 ( 0.0019%)  empty=     0 (  0.0000%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama
+tzf-rs Finder                    wrong=     2 (  0.0013%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama
+tzf-rs FuzzyFinder               wrong=     0 (  0.0000%)  ambiguous=   3 ( 0.0019%)  empty= 23474 ( 15.1745%)
+tz-search                        wrong=  2089 (  1.3504%)  ambiguous= 230 ( 0.1487%)  empty=     6 (  0.0039%)
+    sample disagreements: Africa/Windhoek != Africa/Luanda; America/Argentina/Salta != America/Argentina/Jujuy; America/Montevideo != America/Argentina/Cordoba; America/Sao_Paulo != America/Argentina/Cordoba; Asia/Baku != Asia/Yerevan
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 0.8%  <=0.002: 2.7%  <=0.005: 10.3%  <=0.010: 21.7%  <=0.020: 33.3%  <=0.050: 38.1%  <=0.100: 40.3%  >0.1: 59.7%
+rtz OSM                          wrong=   111 (  0.0718%)  ambiguous=   3 ( 0.0019%)  empty=    19 (  0.0123%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama; America/Cuiaba != America/Sao_Paulo; America/Port-au-Prince != America/Santo_Domingo; America/Santiago != America/Coyhaique
+rtz NED                          wrong=104365 ( 67.4654%)  ambiguous=  15 ( 0.0097%)  empty=    23 (  0.0149%)
+    sample disagreements: America/La_Paz != America/Anguilla; America/La_Paz != America/Antigua; America/Sao_Paulo != America/Argentina/Buenos_Aires; America/Sao_Paulo != America/Argentina/Cordoba; America/Sao_Paulo != America/Argentina/Jujuy
+
+=== dataset edges (N=23408) ===
+tzf-rs DefaultFinder             wrong=     2 (  0.0085%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama
+tzf-rs Finder                    wrong=     2 (  0.0085%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama
+tzf-rs FuzzyFinder               wrong=     0 (  0.0000%)  ambiguous=   0 ( 0.0000%)  empty= 23408 (100.0000%)
+tz-search                        wrong=  1199 (  5.1222%)  ambiguous=   9 ( 0.0384%)  empty=     5 (  0.0214%)
+    sample disagreements: Africa/Windhoek != Africa/Luanda; America/Argentina/Buenos_Aires != America/Argentina/Salta; America/Argentina/Salta != America/Argentina/Jujuy; America/Montevideo != America/Argentina/Cordoba; America/Sao_Paulo != America/Argentina/Cordoba
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 1.3%  <=0.002: 4.7%  <=0.005: 18.0%  <=0.010: 37.8%  <=0.020: 58.1%  <=0.050: 66.4%  <=0.100: 70.1%  >0.1: 29.9%
+rtz OSM                          wrong=    42 (  0.1794%)  ambiguous=   3 ( 0.0128%)  empty=    19 (  0.0812%)
+    sample disagreements: Africa/Banjul != Africa/Dakar; America/Costa_Rica != America/Panama; America/Cuiaba != America/Sao_Paulo; America/Port-au-Prince != America/Santo_Domingo; America/Santiago != America/Coyhaique
+rtz NED                          wrong= 19243 ( 82.2069%)  ambiguous=   6 ( 0.0256%)  empty=     9 (  0.0384%)
+    sample disagreements: America/La_Paz != America/Anguilla; America/La_Paz != America/Antigua; America/Sao_Paulo != America/Argentina/Buenos_Aires; America/Sao_Paulo != America/Argentina/Catamarca; America/Sao_Paulo != America/Argentina/Cordoba

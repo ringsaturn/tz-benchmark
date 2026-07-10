@@ -1,0 +1,41 @@
+ground truth data version: 2026b
+
+=== dataset cities (N=154694) ===
+DefaultFinder (lite+preindex)    wrong=     2 (  0.0013%)  ambiguous=   3 ( 0.0019%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+Finder (lite)                    wrong=     2 (  0.0013%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+FullFinder (full+preindex)       wrong=     0 (  0.0000%)  ambiguous=   3 ( 0.0019%)  empty=     0 (  0.0000%)
+FuzzyFinder (preindex only)      wrong=     0 (  0.0000%)  ambiguous=   3 ( 0.0019%)  empty= 23474 ( 15.1745%)
+bradfitz/latlong                 wrong=  1513 (  0.9781%)  ambiguous= 230 ( 0.1487%)  empty=   166 (  0.1073%)
+zsefvlol/timezonemapper          wrong=  1848 (  1.1946%)  ambiguous= 394 ( 0.2547%)  empty=     0 (  0.0000%)
+albertyw/localtimezone           wrong=    82 (  0.0530%)  ambiguous=   6 ( 0.0039%)  empty=     0 (  0.0000%)
+ugjka/go-tz                      wrong=     2 (  0.0013%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+
+=== dataset edges (N=23408) ===
+DefaultFinder (lite+preindex)    wrong=     2 (  0.0085%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+Finder (lite)                    wrong=     2 (  0.0085%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+FullFinder (full+preindex)       wrong=     0 (  0.0000%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+FuzzyFinder (preindex only)      wrong=     0 (  0.0000%)  ambiguous=   0 ( 0.0000%)  empty= 23408 (100.0000%)
+bradfitz/latlong                 wrong=   979 (  4.1823%)  ambiguous=   9 ( 0.0384%)  empty=   150 (  0.6408%)
+zsefvlol/timezonemapper          wrong=   777 (  3.3194%)  ambiguous= 258 ( 1.1022%)  empty=     0 (  0.0000%)
+albertyw/localtimezone           wrong=    81 (  0.3460%)  ambiguous=   6 ( 0.0256%)  empty=     0 (  0.0000%)
+ugjka/go-tz                      wrong=     1 (  0.0043%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+
+=== dataset uniform (N=1000000) ===
+DefaultFinder (lite+preindex)    wrong=    38 (  0.0038%)  ambiguous=  18 ( 0.0018%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 92.1%  <=0.002: 92.1%  <=0.005: 97.4%  <=0.010: 97.4%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+Finder (lite)                    wrong=    35 (  0.0035%)  ambiguous=   0 ( 0.0000%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+FullFinder (full+preindex)       wrong=     3 (  0.0003%)  ambiguous=  18 ( 0.0018%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 0.0%  <=0.002: 0.0%  <=0.005: 66.7%  <=0.010: 66.7%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+FuzzyFinder (preindex only)      wrong=     3 (  0.0003%)  ambiguous=  18 ( 0.0018%)  empty=116277 ( 11.6277%)
