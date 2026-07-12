@@ -1,0 +1,9 @@
+tzfpy data version: 2026c
+
+=== dataset cities (N=154694) ===
+timezonefinder           N=154694  wrong=0 (0.0000%)  ambiguous=493 (0.3187%)  offset_eq=1 (0.0006%)  empty=0 (0.0000%)
+tzfpy (DefaultFinder)    N=154694  wrong=1 (0.0006%)  ambiguous=0 (0.0000%)  offset_eq=1 (0.0006%)  empty=0 (0.0000%)
+
+=== dataset edges (N=23408) ===
+timezonefinder           N=23408  wrong=0 (0.0000%)  ambiguous=272 (1.1620%)  offset_eq=1 (0.0043%)  empty=0 (0.0000%)
+tzfpy (DefaultFinder)    N=23408  wrong=1 (0.0043%)  ambiguous=0 (0.0000%)  offset_eq=1 (0.0043%)  empty=0 (0.0000%)
