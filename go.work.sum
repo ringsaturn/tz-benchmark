@@ -1,15 +1,11 @@
 github.com/albertyw/localtimezone/v3 v3.1.12 h1:74wHj0SQc+jQswerD18/g4E5u+h13W+ETU1zKIzb7Yw=
 github.com/albertyw/localtimezone/v3 v3.1.12/go.mod h1:kMH5MtUD6neWsLGVTbF9/6zNLbRhJpyi3kDJzqJR6vU=
-github.com/albertyw/localtimezone/v3 v3.2.2 h1:64S0/kB5ZXJNreZIpoy5IAmGLhUorywLMTvC7mkirmM=
-github.com/albertyw/localtimezone/v3 v3.2.2/go.mod h1:Dlq2P87Fe3s7CChiSy2elK2sg/XxmxpxXGPbU445bj0=
 github.com/gogo/protobuf v1.3.2/go.mod h1:P1XiOD3dCwIKUDQYPy72D8LYyHL2YPYrpS2s69NZV8Q=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=
 github.com/golang/snappy v0.0.4/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEWrmP2Q=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
 github.com/klauspost/compress v1.16.7/go.mod h1:ntbaceVETuRiXiv4DpjP66DpAtAGkEQskQzEyD//IeE=
 github.com/klauspost/compress v1.17.6/go.mod h1:/dCuZOvVtNoHsyb+cuJD3itjs3NbnF6KH9zAO4BDxPM=
-github.com/klauspost/compress v1.19.0 h1:sXLILfc9jV2QYWkzFOPWStmcUVH2RHEB1JCdY2oVvCQ=
-github.com/klauspost/compress v1.19.0/go.mod h1:cwPg85FWrGar70rWktvGQj8/hthj3wpl0PGDogxkrSQ=
 github.com/machinebox/progress v0.2.0/go.mod h1:hl4FywxSjfmkmCrersGhmJH7KwuKl+Ueq9BXkOny+iE=
 github.com/matryer/is v1.2.0/go.mod h1:2fLPjFQM9rhQ15aVEtbuwhJinnOqrmgXPNdZsdwlWXA=
 github.com/montanaflynn/stats v0.7.1/go.mod h1:etXPPgVO6n31NxCd9KQUMvCM+ve0ruNzt6R8Bnaayow=
@@ -17,8 +13,8 @@ github.com/paulmach/protoscan v0.2.1/go.mod h1:SpcSwydNLrxUGSDvXvO0P7g7AuhJ7lcKf
 github.com/ringsaturn/polyf v0.2.2/go.mod h1:0+PnAZooWRyH6ULFdxTC86pe15L4VT3e71CQVPG67CE=
 github.com/ringsaturn/tzf v1.2.0 h1:lTbQRvBBwhmsfSre74Y9coOYh3g8xDyIJY/10telKms=
 github.com/ringsaturn/tzf v1.2.0/go.mod h1:Umn/OVUgCl96XGHcH1NuKKay2HTBN5xqSiL2Gzsrl2k=
-github.com/ringsaturn/tzf v1.2.2 h1:KBOZPzWVWAZ519hWzeATAKYDKEyFLR22wlOB41zK4O4=
-github.com/ringsaturn/tzf v1.2.2/go.mod h1:X05o/KBvxfku8ypSK8Zh5F/bfapelEFmsxQpxcJr2YQ=
+github.com/ringsaturn/tzf v1.2.3 h1:iuEMZIgzo5pg5Q2vUIM274cjmvp8wI4/q7Ic7hReJxY=
+github.com/ringsaturn/tzf v1.2.3/go.mod h1:beR4RQuMSnTxLZBDwIb2zCNtOKrfj3fdqr5vAd5/yzg=
 github.com/ringsaturn/tzf-dist v0.0.2026-c h1:rl8clvxXlwyehDQ1H0Vxs0M8FiQBoVKuicyRxl2RgqI=
 github.com/ringsaturn/tzf-dist v0.0.2026-c/go.mod h1:MLn3mRLioai5ceZLV8k+uAr4cLxdVEHoTQIGKpuVS/c=
 github.com/xdg-go/pbkdf2 v1.0.0/go.mod h1:jrpuAogTd400dnrH08LKmI/xc1MbPOebTwRqcT5RDeI=
@@ -31,8 +27,6 @@ go.mongodb.org/mongo-driver v1.17.6 h1:87JUG1wZfWsr6rIz3ZmpH90rL5tea7O3IHuSwHUps
 go.mongodb.org/mongo-driver v1.17.6/go.mod h1:Hy04i7O2kC4RS06ZrhPRqj/u4DTYkFDAAccj+rVKqgQ=
 go.mongodb.org/mongo-driver v1.17.9 h1:IexDdCuuNJ3BHrELgBlyaH9p60JXAvdzWR128q+U5tU=
 go.mongodb.org/mongo-driver v1.17.9/go.mod h1:LlOhpH5NUEfhxcAwG0UEkMqwYcc4JU18gtCdGudk/tQ=
-go.mongodb.org/mongo-driver/v2 v2.8.0 h1:CxWDGQYY8QQwNjAl/aq2sfWakdnWZynnqJ9F4DhHbP8=
-go.mongodb.org/mongo-driver/v2 v2.8.0/go.mod h1:yOI9kBsufol30iFsl1slpdq1I0eHPzybRWdyYUs8K/0=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
 golang.org/x/crypto v0.26.0/go.mod h1:GY7jblb9wI+FOo5y8/S2oY4zWP07AkOJ4+jxCqdqn54=

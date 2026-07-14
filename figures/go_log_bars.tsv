@@ -1,6 +1,6 @@
 label	random_ns	edge_ns
-timezonemapper	106	82
-latlong	109	115
-tzf Default	330	500
-localtimezone	24724	21152
-go-tz	40222	40138
+timezonemapper	122	82
+latlong	108	112
+tzf Default	363	588
+localtimezone	24567	21048
+go-tz	39943	41003
