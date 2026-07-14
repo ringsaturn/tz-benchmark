@@ -1,0 +1,23 @@
+
+running 18 tests
+test benches_tz_crates::bench_rtz_get_timezone_ned_random_city      ... bench:         374.35 ns/iter (+/- 16.26)
+test benches_tz_crates::bench_rtz_get_timezone_ned_random_edge_city ... bench:         751.71 ns/iter (+/- 23.64)
+test benches_tz_crates::bench_rtz_get_timezone_osm_random_city      ... bench:       1,506.21 ns/iter (+/- 126.84)
+test benches_tz_crates::bench_rtz_get_timezone_osm_random_edge_city ... bench:       2,994.83 ns/iter (+/- 135.95)
+test benches_tz_crates::bench_spatialtime_ned                       ... bench:     214,267.61 ns/iter (+/- 27,624.98)
+test benches_tz_crates::bench_spatialtime_ned_random_edge_city      ... bench:     209,053.23 ns/iter (+/- 22,668.68)
+test benches_tz_crates::bench_spatialtime_osm                       ... bench:   7,014,670.85 ns/iter (+/- 3,773,301.22)
+test benches_tz_crates::bench_spatialtime_osm_random_edge_city      ... bench:   7,319,779.15 ns/iter (+/- 4,021,776.48)
+test benches_tz_crates::bench_tz_search_lookup_random_city          ... bench:         106.70 ns/iter (+/- 6.06)
+test benches_tz_crates::bench_tz_search_lookup_random_edge_city     ... bench:         121.54 ns/iter (+/- 2.46)
+test benches_tz_crates::bench_tzf_default_finder_random_city        ... bench:         217.35 ns/iter (+/- 18.02)
+test benches_tz_crates::bench_tzf_default_finder_random_edge_city   ... bench:         517.93 ns/iter (+/- 19.29)
+test benches_tz_crates::bench_tzf_finder_random_city                ... bench:       6,899.06 ns/iter (+/- 609.40)
+test benches_tz_crates::bench_tzf_finder_random_edge_city           ... bench:       4,879.70 ns/iter (+/- 374.57)
+test benches_tz_crates::bench_tzf_fuzzy_finder_random_city          ... bench:         142.53 ns/iter (+/- 23.97)
+test benches_tz_crates::bench_tzf_fuzzy_finder_random_edge_city     ... bench:         134.29 ns/iter (+/- 1.57)
+test benches_tz_crates::bench_zone_detect_random_city               ... bench:     432,033.07 ns/iter (+/- 94,445.16)
+test benches_tz_crates::bench_zone_detect_random_edge_city          ... bench:     492,892.02 ns/iter (+/- 135,049.19)
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 18 measured; 0 filtered out; finished in 79.70s
+

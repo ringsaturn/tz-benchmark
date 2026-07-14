@@ -1,0 +1,39 @@
+ground truth data version: 2026c
+
+=== dataset cities (N=154694) ===
+DefaultFinder (lite+preindex)    wrong=     1 (  0.0006%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0006%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+Finder (lite)                    wrong=     1 (  0.0006%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0006%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+FullFinder (full+preindex)       wrong=     0 (  0.0000%)  ambiguous=   0 ( 0.0000%)  offset_eq=     0 (  0.0000%)  empty=     0 (  0.0000%)
+FuzzyFinder (preindex only)      wrong=     0 (  0.0000%)  ambiguous=   0 ( 0.0000%)  offset_eq=     0 (  0.0000%)  empty= 29628 ( 19.1526%)
+bradfitz/latlong                 wrong=   408 (  0.2637%)  ambiguous= 230 ( 0.1487%)  offset_eq=  1106 (  0.7150%)  empty=   166 (  0.1073%)
+zsefvlol/timezonemapper          wrong=   816 (  0.5275%)  ambiguous= 394 ( 0.2547%)  offset_eq=  1033 (  0.6678%)  empty=     0 (  0.0000%)
+albertyw/localtimezone           wrong=    22 (  0.0142%)  ambiguous=   6 ( 0.0039%)  offset_eq=    60 (  0.0388%)  empty=     0 (  0.0000%)
+ugjka/go-tz                      wrong=     0 (  0.0000%)  ambiguous=   0 ( 0.0000%)  offset_eq=     3 (  0.0019%)  empty=     0 (  0.0000%)
+
+=== dataset edges (N=23408) ===
+DefaultFinder (lite+preindex)    wrong=     1 (  0.0043%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0043%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+Finder (lite)                    wrong=     1 (  0.0043%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0043%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+FullFinder (full+preindex)       wrong=     0 (  0.0000%)  ambiguous=   0 ( 0.0000%)  offset_eq=     0 (  0.0000%)  empty=     0 (  0.0000%)
+FuzzyFinder (preindex only)      wrong=     0 (  0.0000%)  ambiguous=   0 ( 0.0000%)  offset_eq=     0 (  0.0000%)  empty= 23407 ( 99.9957%)
+bradfitz/latlong                 wrong=   208 (  0.8886%)  ambiguous=   9 ( 0.0384%)  offset_eq=   772 (  3.2980%)  empty=   150 (  0.6408%)
+zsefvlol/timezonemapper          wrong=    88 (  0.3759%)  ambiguous= 258 ( 1.1022%)  offset_eq=   690 (  2.9477%)  empty=     0 (  0.0000%)
+albertyw/localtimezone           wrong=    22 (  0.0940%)  ambiguous=   6 ( 0.0256%)  offset_eq=    59 (  0.2521%)  empty=     0 (  0.0000%)
+ugjka/go-tz                      wrong=     0 (  0.0000%)  ambiguous=   0 ( 0.0000%)  offset_eq=     2 (  0.0085%)  empty=     0 (  0.0000%)
+
+=== dataset uniform (N=1000000) ===
+DefaultFinder (lite+preindex)    wrong=    19 (  0.0019%)  ambiguous=  10 ( 0.0010%)  offset_eq=    14 (  0.0014%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+Finder (lite)                    wrong=    19 (  0.0019%)  ambiguous=   0 ( 0.0000%)  offset_eq=    14 (  0.0014%)  empty=     0 (  0.0000%)
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 100.0%  <=0.002: 100.0%  <=0.005: 100.0%  <=0.010: 100.0%  <=0.020: 100.0%  <=0.050: 100.0%  <=0.100: 100.0%  >0.1: 0.0%
+FullFinder (full+preindex)       wrong=     0 (  0.0000%)  ambiguous=  10 ( 0.0010%)  offset_eq=     0 (  0.0000%)  empty=     0 (  0.0000%)
+FuzzyFinder (preindex only)      wrong=     0 (  0.0000%)  ambiguous=  10 ( 0.0010%)  offset_eq=     0 (  0.0000%)  empty=129595 ( 12.9595%)
