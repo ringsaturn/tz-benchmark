@@ -25,9 +25,41 @@ ACCURACY_DIFFER_RE = re.compile(
     r"\s+empty=(?P<empty>\d+)\s+\((?P<empty_pct>[0-9.]+)%\)"
 )
 MEMORY_LINE_RE = re.compile(
-    r"^(?P<candidate>.+?)\s+baseline=\s*(?P<baseline>[0-9.]+)\s+post_load=\s*(?P<post_load>[0-9.]+)"
-    r"\s+post_loop=\s*(?P<post_loop>[0-9.]+)\s+peak=\s*(?P<peak>[0-9.]+)\s+delta=\s*(?P<delta>-?[0-9.]+)"
+    r"^(?P<candidate>.+?)\s+baseline=\s*(?P<baseline>[0-9.]+)\s+init_peak=\s*(?P<init_peak>[0-9.]+)"
+    r"\s+live=\s*(?P<live>[0-9.]+|n/a)\s+rss_load=\s*(?P<rss_load>[0-9.]+)"
+    r"\s+rss_loop=\s*(?P<rss_loop>[0-9.]+)\s+peak=\s*(?P<peak>[0-9.]+)\s+delta=\s*(?P<delta>-?[0-9.]+)"
 )
+
+# Snapshots taken before the init_peak/live columns existed. Their post_load /
+# post_loop map onto rss_load / rss_loop; the two new columns are unavailable.
+MEMORY_LINE_LEGACY_RE = re.compile(
+    r"^(?P<candidate>.+?)\s+baseline=\s*(?P<baseline>[0-9.]+)\s+post_load=\s*(?P<rss_load>[0-9.]+)"
+    r"\s+post_loop=\s*(?P<rss_loop>[0-9.]+)\s+peak=\s*(?P<peak>[0-9.]+)\s+delta=\s*(?P<delta>-?[0-9.]+)"
+)
+
+MEMORY_NOTE = """\
+Initialization cost and runtime cost are not the same number. Building a finder
+allocates far more than the finder ends up holding: the dataset is decoded into
+an intermediate representation, the query structures are built from it, and the
+intermediate is then garbage. So `live <= rss_load <= init_peak`.
+
+| Column | Meaning |
+| --- | --- |
+| Baseline MiB | RSS before the candidate is constructed. Libraries that load data at import/init time hide that cost here, so prefer `Live` or `RSS after load` over `Delta`. |
+| Init peak MiB | High-water mark (`ru_maxrss`) reached while loading. What a container memory limit has to accommodate, or the process is killed at startup even though its steady state would have fit. |
+| Live MiB | Data the candidate actually retains once ready to serve queries, from language-native accounting (Go `HeapAlloc` after a forced GC; Rust a counting global allocator). Absolute, not a delta. `n/a` for Python, whose candidates keep their data outside the Python heap. |
+| RSS after load MiB | What the OS reports for a process ready to serve queries. Usually much closer to `Init peak` than to `Live`, because freeing memory does not shrink RSS -- the allocator keeps the pages mapped for reuse rather than returning them to the kernel. |
+| RSS after loop MiB | RSS after a warm query loop. Above `RSS after load` only when querying itself allocates. |
+| Peak MiB | `ru_maxrss` at the end of the run. Above `Init peak` only when the warm loop allocated more than loading did. |
+| Delta MiB | `RSS after load - Baseline`. |
+
+Reading only RSS makes a library look several times heavier than it is; reading
+only live bytes hides a startup spike that can OOM a container.
+
+Snapshots taken before these columns were introduced show `n/a` for `Init peak`
+and `Live`; their `RSS after load` / `RSS after loop` are the old `post_load` /
+`post_loop`, measured identically.
+"""
 
 
 def md_escape(value: object) -> str:
@@ -234,20 +266,34 @@ def parse_memory(path: Path) -> tuple[list[str], list[dict[str, str]]]:
     rows: list[dict[str, str]] = []
     for line in path.read_text().splitlines():
         match = MEMORY_LINE_RE.match(line)
+        legacy = match is None
+        if legacy:
+            match = MEMORY_LINE_LEGACY_RE.match(line)
         if not match:
             continue
         rows.append(
             {
                 "Candidate": match.group("candidate").strip(),
                 "Baseline MiB": match.group("baseline"),
-                "Post-load MiB": match.group("post_load"),
-                "Post-loop MiB": match.group("post_loop"),
+                "Init peak MiB": "n/a" if legacy else match.group("init_peak"),
+                "Live MiB": "n/a" if legacy else match.group("live"),
+                "RSS after load MiB": match.group("rss_load"),
+                "RSS after loop MiB": match.group("rss_loop"),
                 "Peak MiB": match.group("peak"),
                 "Delta MiB": match.group("delta"),
             }
         )
 
-    headers = ["Candidate", "Baseline MiB", "Post-load MiB", "Post-loop MiB", "Peak MiB", "Delta MiB"]
+    headers = [
+        "Candidate",
+        "Baseline MiB",
+        "Init peak MiB",
+        "Live MiB",
+        "RSS after load MiB",
+        "RSS after loop MiB",
+        "Peak MiB",
+        "Delta MiB",
+    ]
     return headers, rows
 
 
@@ -315,7 +361,7 @@ def build_readme(snapshot_dir: Path) -> str:
         for label, headers, rows in accuracy_sections:
             lines.extend([f"### {label}", "", markdown_table(headers, rows), ""])
     if memory_sections:
-        lines.extend(["", "## Memory", ""])
+        lines.extend(["", "## Memory", "", MEMORY_NOTE])
         for label, headers, rows in memory_sections:
             lines.extend([f"### {label}", "", markdown_table(headers, rows), ""])
     return "\n".join(lines).rstrip() + "\n"

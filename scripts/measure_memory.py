@@ -6,13 +6,26 @@ call. We report:
 
   * baseline RSS   -- Python interpreter before importing tzfpy
   * post-import    -- after ``import tzfpy`` (module + embedded data bytes)
-  * post-load      -- after the first query builds the finder
+  * init peak      -- ru_maxrss high-water mark right after the first query has
+    built the finder, before the warm loop
+  * post-load      -- RSS after the first query builds the finder
   * peak RSS       -- ru_maxrss high-water mark after a warm query loop
 
-The "tzfpy finder footprint" reported to the paper is the post-load RSS: the
-steady-state resident memory of a process that has the DefaultFinder built and
-ready to serve queries. The delta (post-load minus baseline) isolates the cost
-attributable to tzfpy on top of a bare interpreter.
+Initialization cost and runtime cost are not the same number. Building the
+finder decodes the embedded dataset into an intermediate representation, builds
+the query structures from it, and drops the intermediate -- so the peak reached
+during construction is well above what the finder ends up holding. Freeing that
+intermediate does not shrink RSS either: the allocator keeps the pages mapped
+for reuse rather than returning them to the kernel. Post-load RSS therefore
+tracks the initialization peak much more closely than it tracks the retained
+data, and "init peak" is the number a container memory limit has to
+accommodate.
+
+Note this script cannot report the retained size: tzfpy's data lives in Rust
+allocations that never reach Python's allocator, so ``tracemalloc`` would report
+close to zero. For that number use the counting-allocator probe on the Rust
+side (``rust/examples/memory.rs`` in this repo, or tzf-rs's
+``examples/index_memory_probe_alloc.rs``).
 """
 
 import os
@@ -46,6 +59,8 @@ def main() -> None:
 
     # First query forces the DefaultFinder to be constructed from embedded data.
     tzfpy.get_tz(116.3833, 39.9167)  # Beijing
+    # High-water mark from construction alone, before the warm loop runs.
+    init_peak = peak_rss_mb()
     post_load = current_rss_mb()
 
     # Warm loop over a spread of coordinates to reach steady state / peak.
@@ -70,6 +85,7 @@ def main() -> None:
     print(f"Python                : {sys.version.split()[0]}  ({sys.platform}/{os.uname().machine})")
     print(f"baseline RSS (MiB)    : {baseline:8.1f}")
     print(f"post-import RSS (MiB) : {post_import:8.1f}")
+    print(f"init peak RSS (MiB)   : {init_peak:8.1f}  (cost of building the finder)")
     print(f"post-load RSS (MiB)   : {post_load:8.1f}")
     print(f"post-loop RSS (MiB)   : {post_loop:8.1f}")
     print(f"peak RSS (MiB)        : {peak:8.1f}")

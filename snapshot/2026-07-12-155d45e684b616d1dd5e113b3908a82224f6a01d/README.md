@@ -130,41 +130,63 @@ Raw sources:
 
 ## Memory
 
+Initialization cost and runtime cost are not the same number. Building a finder
+allocates far more than the finder ends up holding: the dataset is decoded into
+an intermediate representation, the query structures are built from it, and the
+intermediate is then garbage. So `live <= rss_load <= init_peak`.
+
+| Column | Meaning |
+| --- | --- |
+| Baseline MiB | RSS before the candidate is constructed. Libraries that load data at import/init time hide that cost here, so prefer `Live` or `RSS after load` over `Delta`. |
+| Init peak MiB | High-water mark (`ru_maxrss`) reached while loading. What a container memory limit has to accommodate, or the process is killed at startup even though its steady state would have fit. |
+| Live MiB | Data the candidate actually retains once ready to serve queries, from language-native accounting (Go `HeapAlloc` after a forced GC; Rust a counting global allocator). Absolute, not a delta. `n/a` for Python, whose candidates keep their data outside the Python heap. |
+| RSS after load MiB | What the OS reports for a process ready to serve queries. Usually much closer to `Init peak` than to `Live`, because freeing memory does not shrink RSS -- the allocator keeps the pages mapped for reuse rather than returning them to the kernel. |
+| RSS after loop MiB | RSS after a warm query loop. Above `RSS after load` only when querying itself allocates. |
+| Peak MiB | `ru_maxrss` at the end of the run. Above `Init peak` only when the warm loop allocated more than loading did. |
+| Delta MiB | `RSS after load - Baseline`. |
+
+Reading only RSS makes a library look several times heavier than it is; reading
+only live bytes hides a startup spike that can OOM a container.
+
+Snapshots taken before these columns were introduced show `n/a` for `Init peak`
+and `Live`; their `RSS after load` / `RSS after loop` are the old `post_load` /
+`post_loop`, measured identically.
+
 ### Go
 
-| Candidate | Baseline MiB | Post-load MiB | Post-loop MiB | Peak MiB | Delta MiB |
-| --- | --- | --- | --- | --- | --- |
-| (go runtime floor) | 4.6 | 4.9 | 5.0 | 5.0 | 0.3 |
-| DefaultFinder (lite+preindex) | 5.8 | 120.6 | 120.6 | 120.6 | 114.8 |
-| Finder (lite) | 5.6 | 121.1 | 121.1 | 121.1 | 115.4 |
-| FullFinder (full+preindex) | 5.9 | 354.3 | 354.3 | 354.3 | 348.4 |
-| FuzzyFinder (preindex only) | 5.8 | 31.1 | 31.1 | 31.1 | 25.3 |
-| bradfitz/latlong | 4.9 | 8.2 | 8.4 | 8.4 | 3.3 |
-| zsefvlol/timezonemapper | 7.4 | 7.8 | 8.0 | 8.0 | 0.5 |
-| albertyw/localtimezone | 6.0 | 19.1 | 19.4 | 19.4 | 13.0 |
-| ugjka/go-tz | 109.9 | 109.9 | 109.9 | 109.9 | 0.0 |
+| Candidate | Baseline MiB | Init peak MiB | Live MiB | RSS after load MiB | RSS after loop MiB | Peak MiB | Delta MiB |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| (go runtime floor) | 4.6 | n/a | n/a | 4.9 | 5.0 | 5.0 | 0.3 |
+| DefaultFinder (lite+preindex) | 5.8 | n/a | n/a | 120.6 | 120.6 | 120.6 | 114.8 |
+| Finder (lite) | 5.6 | n/a | n/a | 121.1 | 121.1 | 121.1 | 115.4 |
+| FullFinder (full+preindex) | 5.9 | n/a | n/a | 354.3 | 354.3 | 354.3 | 348.4 |
+| FuzzyFinder (preindex only) | 5.8 | n/a | n/a | 31.1 | 31.1 | 31.1 | 25.3 |
+| bradfitz/latlong | 4.9 | n/a | n/a | 8.2 | 8.4 | 8.4 | 3.3 |
+| zsefvlol/timezonemapper | 7.4 | n/a | n/a | 7.8 | 8.0 | 8.0 | 0.5 |
+| albertyw/localtimezone | 6.0 | n/a | n/a | 19.1 | 19.4 | 19.4 | 13.0 |
+| ugjka/go-tz | 109.9 | n/a | n/a | 109.9 | 109.9 | 109.9 | 0.0 |
 
 
 ### Python
 
-| Candidate | Baseline MiB | Post-load MiB | Post-loop MiB | Peak MiB | Delta MiB |
-| --- | --- | --- | --- | --- | --- |
-| (python interpreter floor) | 22.5 | 22.5 | 22.5 | 22.5 | 0.0 |
-| timezonefinder | 22.6 | 109.4 | 111.7 | 111.7 | 86.8 |
-| tzfpy (DefaultFinder) | 22.5 | 94.8 | 94.8 | 94.8 | 72.3 |
+| Candidate | Baseline MiB | Init peak MiB | Live MiB | RSS after load MiB | RSS after loop MiB | Peak MiB | Delta MiB |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| (python interpreter floor) | 22.5 | n/a | n/a | 22.5 | 22.5 | 22.5 | 0.0 |
+| timezonefinder | 22.6 | n/a | n/a | 109.4 | 111.7 | 111.7 | 86.8 |
+| tzfpy (DefaultFinder) | 22.5 | n/a | n/a | 94.8 | 94.8 | 94.8 | 72.3 |
 
 
 ### Rust
 
-| Candidate | Baseline MiB | Post-load MiB | Post-loop MiB | Peak MiB | Delta MiB |
-| --- | --- | --- | --- | --- | --- |
-| (rust runtime floor) | 5.8 | 5.9 | 5.9 | 5.9 | 0.1 |
-| tzf-rs DefaultFinder | 5.8 | 78.8 | 78.8 | 78.8 | 73.0 |
-| tzf-rs Finder | 5.8 | 48.5 | 48.5 | 48.5 | 42.7 |
-| tzf-rs FuzzyFinder | 5.8 | 24.1 | 24.1 | 24.1 | 18.3 |
-| tz-search | 5.8 | 9.0 | 9.0 | 9.0 | 3.2 |
-| rtz OSM | 5.8 | 14.8 | 15.0 | 15.0 | 9.1 |
-| rtz NED | 5.8 | 11.7 | 11.7 | 11.7 | 5.9 |
-| zone-detect | 5.8 | 10.0 | 10.1 | 10.1 | 4.2 |
-| spatialtime OSM | 5.8 | 157.6 | 170.3 | 170.3 | 151.9 |
-| spatialtime NED | 5.8 | 14.1 | 14.5 | 14.5 | 8.4 |
+| Candidate | Baseline MiB | Init peak MiB | Live MiB | RSS after load MiB | RSS after loop MiB | Peak MiB | Delta MiB |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| (rust runtime floor) | 5.8 | n/a | n/a | 5.9 | 5.9 | 5.9 | 0.1 |
+| tzf-rs DefaultFinder | 5.8 | n/a | n/a | 78.8 | 78.8 | 78.8 | 73.0 |
+| tzf-rs Finder | 5.8 | n/a | n/a | 48.5 | 48.5 | 48.5 | 42.7 |
+| tzf-rs FuzzyFinder | 5.8 | n/a | n/a | 24.1 | 24.1 | 24.1 | 18.3 |
+| tz-search | 5.8 | n/a | n/a | 9.0 | 9.0 | 9.0 | 3.2 |
+| rtz OSM | 5.8 | n/a | n/a | 14.8 | 15.0 | 15.0 | 9.1 |
+| rtz NED | 5.8 | n/a | n/a | 11.7 | 11.7 | 11.7 | 5.9 |
+| zone-detect | 5.8 | n/a | n/a | 10.0 | 10.1 | 10.1 | 4.2 |
+| spatialtime OSM | 5.8 | n/a | n/a | 157.6 | 170.3 | 170.3 | 151.9 |
+| spatialtime NED | 5.8 | n/a | n/a | 14.1 | 14.5 | 14.5 | 8.4 |

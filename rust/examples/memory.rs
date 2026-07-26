@@ -1,22 +1,100 @@
-//! Memory evaluation: measures the steady-state resident memory footprint of
-//! each timezone-lookup crate.
+//! Memory evaluation for each timezone-lookup crate.
 //!
 //! Each candidate runs in an isolated child process (the parent re-executes
 //! itself with the candidate key) so lazily-initialized statics do not share
-//! or accumulate RSS. Reported columns (MiB):
+//! or accumulate RSS.
 //!
-//!   - baseline:  RSS before the candidate is constructed
-//!   - post_load: RSS after construction plus the first query, the
-//!     steady-state footprint of a process ready to serve queries
-//!   - post_loop: RSS after a warm query loop
-//!   - peak:      ru_maxrss high-water mark
-//!   - delta:     post_load - baseline
+//! # Initialization cost and runtime cost are not the same number
+//!
+//! Building a finder allocates far more memory than the finder ends up
+//! holding: the serialized dataset is decoded into an intermediate
+//! representation, the query structures are built from it, and the
+//! intermediate is then dropped. Three quantities are worth reporting:
+//!
+//! ```text
+//! live  <=  rss_load  <=  init_peak
+//! ```
+//!
+//!   - `live` is what the candidate's data structures actually occupy once it
+//!     is ready to serve queries -- the number that matters when sizing a
+//!     long-lived process.
+//!   - `init_peak` is the high-water mark reached while loading, which is what
+//!     a container memory limit has to accommodate or the process is killed
+//!     during startup even though its steady state would have fit.
+//!   - `rss_load` sits in between, usually much closer to `init_peak`. Freeing
+//!     memory does not shrink RSS: the allocator keeps the pages mapped for
+//!     reuse rather than returning them to the kernel, so RSS reflects roughly
+//!     the peak the process ever reached, not what it currently holds.
+//!
+//! Reporting only RSS makes a crate look several times heavier than it is;
+//! reporting only live bytes hides a startup spike that can OOM a container.
+//!
+//! Reported columns (MiB):
+//!
+//!   - baseline:   RSS before the candidate is constructed.
+//!   - init_peak:  ru_maxrss high-water mark right after construction and the
+//!     first query. The transient cost of initialization.
+//!   - live:       bytes currently held by live allocations, from the counting
+//!     global allocator below, with the candidate still alive. Reported as an
+//!     absolute value, not a delta. Note this counts requested layout sizes,
+//!     so it excludes allocator slack and any memory-mapped dataset -- a crate
+//!     that mmaps its data instead of allocating it will under-report here and
+//!     should be read from `rss_load` instead.
+//!   - rss_load:   RSS after construction plus the first query. What the OS
+//!     reports for a process ready to serve queries.
+//!   - rss_loop:   RSS after a warm query loop. Compare against `rss_load` to
+//!     see whether querying itself allocates.
+//!   - peak:       ru_maxrss high-water mark at the end of the run. Above
+//!     `init_peak` only when the warm loop allocated more than loading did.
+//!   - delta:      rss_load - baseline.
 //!
 //! Usage: cargo run --release --example memory
 
+use std::alloc::{GlobalAlloc, Layout, System};
 use std::hint::black_box;
 use std::path::PathBuf;
 use std::process::Command;
+use std::sync::atomic::{AtomicUsize, Ordering};
+
+/// Tracks bytes held by live allocations, so the report can separate the data
+/// a candidate retains from the RSS its allocator never gave back.
+struct CountingAlloc;
+
+static LIVE_BYTES: AtomicUsize = AtomicUsize::new(0);
+
+unsafe impl GlobalAlloc for CountingAlloc {
+    unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
+        let ptr = unsafe { System.alloc(layout) };
+        if !ptr.is_null() {
+            LIVE_BYTES.fetch_add(layout.size(), Ordering::Relaxed);
+        }
+        ptr
+    }
+
+    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
+        unsafe { System.dealloc(ptr, layout) };
+        LIVE_BYTES.fetch_sub(layout.size(), Ordering::Relaxed);
+    }
+
+    unsafe fn realloc(&self, ptr: *mut u8, layout: Layout, new_size: usize) -> *mut u8 {
+        let new_ptr = unsafe { System.realloc(ptr, layout, new_size) };
+        if !new_ptr.is_null() {
+            if new_size >= layout.size() {
+                LIVE_BYTES.fetch_add(new_size - layout.size(), Ordering::Relaxed);
+            } else {
+                LIVE_BYTES.fetch_sub(layout.size() - new_size, Ordering::Relaxed);
+            }
+        }
+        new_ptr
+    }
+}
+
+#[global_allocator]
+static ALLOCATOR: CountingAlloc = CountingAlloc;
+
+fn live_mib() -> f64 {
+    LIVE_BYTES.load(Ordering::Relaxed) as f64 / (1024.0 * 1024.0)
+}
 
 use rtzlib::{CanPerformGeoLookup, NedTimezone, OsmTimezone};
 use spatialtime::{ned::NedReader, osm::OsmReader};
@@ -92,19 +170,26 @@ fn measure(
 
     let lookup = build();
     black_box(lookup(POINTS[0].0, POINTS[0].1));
-    let post_load = rss_mib();
+    // Read the high-water mark before anything is dropped: this is the peak
+    // the process actually demanded from the OS in order to initialize.
+    let init_peak = peak_mib();
+    let rss_load = rss_mib();
+    // `lookup` is still alive here, so this counts the data it retains.
+    let live = live_mib();
 
     for i in 0..iterations {
         let (lng, lat) = POINTS[i % POINTS.len()];
         black_box(lookup(lng, lat));
     }
-    let post_loop = rss_mib();
+    let rss_loop = rss_mib();
 
     println!(
-        "{label:<32} baseline={baseline:7.1}  post_load={post_load:7.1}  post_loop={post_loop:7.1}  peak={:7.1}  delta={:7.1}  (MiB)",
+        "{label:<32} baseline={baseline:7.1}  init_peak={init_peak:7.1}  live={live:7.1}  rss_load={rss_load:7.1}  rss_loop={rss_loop:7.1}  peak={:7.1}  delta={:7.1}  (MiB)",
         peak_mib(),
-        post_load - baseline
+        rss_load - baseline
     );
+
+    drop(lookup);
 }
 
 fn run_child(key: &str, iterations: usize) {

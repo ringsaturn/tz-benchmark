@@ -1,16 +1,42 @@
-"""Memory evaluation: measures the steady-state resident memory footprint of
-each timezone-lookup library.
+"""Memory evaluation for each timezone-lookup library.
 
 Each candidate runs in an isolated child process (the parent re-executes this
 script with ``--candidate``) so imports do not share or accumulate RSS.
+
+Initialization cost and runtime cost are not the same number
+------------------------------------------------------------
+
+Building a finder allocates far more memory than the finder ends up holding:
+the dataset is decoded into an intermediate representation, the query
+structures are built from it, and the intermediate is then garbage. So::
+
+    live  <=  rss_load  <=  init_peak
+
+``init_peak`` is what a container memory limit has to accommodate, or the
+process is killed during startup even though its steady state would have fit.
+``rss_load`` is usually much closer to ``init_peak`` than to ``live``, because
+freeing memory does not shrink RSS -- the allocator keeps the pages mapped for
+reuse rather than returning them to the kernel.
+
+Unlike the Go and Rust probes, this one cannot report ``live``. Both candidates
+keep their data outside the Python heap: tzfpy is a PyO3 wrapper whose Rust
+allocations never reach Python's allocator, and timezonefinder holds numpy
+arrays. ``tracemalloc`` would report a number close to zero for tzfpy, which is
+worse than reporting nothing, so ``live`` is emitted as ``n/a`` and ``rss_load``
+is the number to read here.
+
 Reported columns (MiB):
 
-  * baseline:  RSS of the bare interpreter, before the candidate is imported
-  * post_load: RSS after import, construction, and the first query -- the
-    steady-state footprint of a process ready to serve queries
-  * post_loop: RSS after a warm query loop
-  * peak:      ru_maxrss high-water mark
-  * delta:     post_load - baseline, the cost attributable to the candidate
+  * baseline:   RSS of the bare interpreter, before the candidate is imported
+  * init_peak:  ru_maxrss high-water mark right after import, construction and
+    the first query -- the transient cost of initialization
+  * live:       always ``n/a``; see above
+  * rss_load:   RSS after import, construction, and the first query -- what the
+    OS reports for a process ready to serve queries
+  * rss_loop:   RSS after a warm query loop; compare against ``rss_load`` to see
+    whether querying itself allocates
+  * peak:       ru_maxrss high-water mark at the end of the run
+  * delta:      rss_load - baseline, the cost attributable to the candidate
 
 Usage: uv run python memory.py
 """
@@ -71,17 +97,21 @@ def run_child(key: str) -> None:
 
     label, lookup = build(key)
     lookup(*POINTS[0])
-    post_load = rss_mib()
+    # Read the high-water mark before anything is released: this is the peak
+    # the process actually demanded from the OS in order to initialize.
+    init_peak = peak_mib()
+    rss_load = rss_mib()
 
     for _ in range(LOOP_ROUNDS):
         for lng, lat in POINTS:
             lookup(lng, lat)
-    post_loop = rss_mib()
+    rss_loop = rss_mib()
 
     print(
-        f"{label:<32} baseline={baseline:7.1f}  post_load={post_load:7.1f}  "
-        f"post_loop={post_loop:7.1f}  peak={peak_mib():7.1f}  "
-        f"delta={post_load - baseline:7.1f}  (MiB)"
+        f"{label:<32} baseline={baseline:7.1f}  init_peak={init_peak:7.1f}  "
+        f"live={'n/a':>7}  rss_load={rss_load:7.1f}  "
+        f"rss_loop={rss_loop:7.1f}  peak={peak_mib():7.1f}  "
+        f"delta={rss_load - baseline:7.1f}  (MiB)"
     )
 
 
