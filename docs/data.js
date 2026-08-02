@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785311542100,
+  "lastUpdate": 1785633946800,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -12712,6 +12712,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 6.310795620855339e-7",
             "extra": "mean: 1.6368613395473028 usec\nrounds: 122205"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a3827e6f74836f09fd8fbc331c9e1bd1da6b05ea",
+          "message": "Bump the dependencies group in /rust with 5 updates (#224)\n\nBumps the dependencies group in /rust with 5 updates:\n\n| Package | From | To |\n| --- | --- | --- |\n| [tzf-rs](https://github.com/ringsaturn/tzf-rs) | `1.3.6` | `1.3.7` |\n| [serde](https://github.com/serde-rs/serde) | `1.0.228` | `1.0.229` |\n| [serde_json](https://github.com/serde-rs/json) | `1.0.150` | `1.0.151` |\n| [rand](https://github.com/rust-random/rand) | `0.10.1` | `0.10.2` |\n| [libc](https://github.com/rust-lang/libc) | `0.2.186` | `0.2.189` |\n\n\nUpdates `tzf-rs` from 1.3.6 to 1.3.7\n- [Release notes](https://github.com/ringsaturn/tzf-rs/releases)\n- [Commits](https://github.com/ringsaturn/tzf-rs/compare/v1.3.6...v1.3.7)\n\nUpdates `serde` from 1.0.228 to 1.0.229\n- [Release notes](https://github.com/serde-rs/serde/releases)\n- [Commits](https://github.com/serde-rs/serde/compare/v1.0.228...v1.0.229)\n\nUpdates `serde_json` from 1.0.150 to 1.0.151\n- [Release notes](https://github.com/serde-rs/json/releases)\n- [Commits](https://github.com/serde-rs/json/compare/v1.0.150...v1.0.151)\n\nUpdates `rand` from 0.10.1 to 0.10.2\n- [Release notes](https://github.com/rust-random/rand/releases)\n- [Changelog](https://github.com/rust-random/rand/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/rust-random/rand/compare/0.10.1...0.10.2)\n\nUpdates `libc` from 0.2.186 to 0.2.189\n- [Release notes](https://github.com/rust-lang/libc/releases)\n- [Changelog](https://github.com/rust-lang/libc/blob/0.2.189/CHANGELOG.md)\n- [Commits](https://github.com/rust-lang/libc/compare/0.2.186...0.2.189)\n\n---\nupdated-dependencies:\n- dependency-name: tzf-rs\n  dependency-version: 1.3.7\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: serde\n  dependency-version: 1.0.229\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: serde_json\n  dependency-version: 1.0.151\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: rand\n  dependency-version: 0.10.2\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: libc\n  dependency-version: 0.2.189\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-08-02T10:25:16+09:00",
+          "tree_id": "0dda4cc66d5697bce83950dd23680e45dd17bac9",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/a3827e6f74836f09fd8fbc331c9e1bd1da6b05ea"
+        },
+        "date": 1785633941078,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 32778.920446630415,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005407924479116223",
+            "extra": "mean: 30.507411054862768 usec\nrounds: 16409"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 14742.113067184251,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00006235945616276684",
+            "extra": "mean: 67.83288090673966 usec\nrounds: 6264"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 794610.4879262362,
+            "unit": "iter/sec",
+            "range": "stddev: 5.900145223059354e-7",
+            "extra": "mean: 1.2584782295156793 usec\nrounds: 58221"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 496117.0557070977,
+            "unit": "iter/sec",
+            "range": "stddev: 7.06742007837185e-7",
+            "extra": "mean: 2.0156533392603007 usec\nrounds: 105397"
           }
         ]
       }
