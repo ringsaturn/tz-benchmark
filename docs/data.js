@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1786325825797,
+  "lastUpdate": 1786930333123,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -12916,6 +12916,56 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 7.536110825120013e-7",
             "extra": "mean: 1.8341839839809875 usec\nrounds: 106406"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "c062a02bbc475c726f65aef7efbebebfea98f501",
+          "message": "Bump actions/setup-go from 6 to 7 in the dependencies group (#223)\n\nBumps the dependencies group with 1 update: [actions/setup-go](https://github.com/actions/setup-go).\n\n\nUpdates `actions/setup-go` from 6 to 7\n- [Release notes](https://github.com/actions/setup-go/releases)\n- [Commits](https://github.com/actions/setup-go/compare/v6...v7)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-go\n  dependency-version: '7'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-08-02T04:30:03Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/c062a02bbc475c726f65aef7efbebebfea98f501"
+        },
+        "date": 1786930328155,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 36640.23303286229,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005585592756281237",
+            "extra": "mean: 27.292402837697814 usec\nrounds: 15366"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 17520.462761122784,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00005054277810866309",
+            "extra": "mean: 57.07611800180076 usec\nrounds: 12915"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 711256.3349061576,
+            "unit": "iter/sec",
+            "range": "stddev: 8.049818119477555e-7",
+            "extra": "mean: 1.4059628729098617 usec\nrounds: 53519"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 449027.138282623,
+            "unit": "iter/sec",
+            "range": "stddev: 8.905027369336437e-7",
+            "extra": "mean: 2.2270368865112737 usec\nrounds: 86942"
           }
         ]
       }
