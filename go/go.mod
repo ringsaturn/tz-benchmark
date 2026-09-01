@@ -10,7 +10,7 @@ require (
 	github.com/ringsaturn/tzf-dist v0.0.2026-c-fix1
 	github.com/ugjka/go-tz/v2 v2.2.8
 	github.com/zsefvlol/timezonemapper v1.0.0
-	google.golang.org/protobuf v1.36.11
+	google.golang.org/protobuf v1.36.12
 )
 
 require (
