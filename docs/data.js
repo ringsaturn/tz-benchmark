@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788313467277,
+  "lastUpdate": 1788313514510,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13066,6 +13066,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 6.240861223779344e-7",
             "extra": "mean: 1.7162344144396444 usec\nrounds: 92345"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d538db376751edaa191a86e82b477b9920577710",
+          "message": "Bump the dependencies group in /python with 3 updates (#226)\n\nBumps the dependencies group in /python with 3 updates: [timezonefinder](https://github.com/jannikmi/timezonefinder), [tzfpy](https://github.com/ringsaturn/tzfpy) and [pytest-benchmark](https://github.com/ionelmc/pytest-benchmark).\n\n\nUpdates `timezonefinder` from 8.2.5 to 8.3.0\n- [Release notes](https://github.com/jannikmi/timezonefinder/releases)\n- [Changelog](https://github.com/jannikmi/timezonefinder/blob/master/CHANGELOG.rst)\n- [Commits](https://github.com/jannikmi/timezonefinder/compare/8.2.5...8.3.0)\n\nUpdates `tzfpy` from 1.3.2 to 1.3.3\n- [Release notes](https://github.com/ringsaturn/tzfpy/releases)\n- [Changelog](https://github.com/ringsaturn/tzfpy/blob/main/docs/release_wheels.csv)\n- [Commits](https://github.com/ringsaturn/tzfpy/compare/v1.3.2...v1.3.3)\n\nUpdates `pytest-benchmark` from 5.2.3 to 5.3.0\n- [Release notes](https://github.com/ionelmc/pytest-benchmark/releases)\n- [Changelog](https://github.com/ionelmc/pytest-benchmark/blob/master/CHANGELOG.rst)\n- [Commits](https://github.com/ionelmc/pytest-benchmark/compare/v5.2.3...v5.3.0)\n\n---\nupdated-dependencies:\n- dependency-name: timezonefinder\n  dependency-version: 8.3.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n- dependency-name: tzfpy\n  dependency-version: 1.3.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: pytest-benchmark\n  dependency-version: 5.3.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-09-02T10:41:02+09:00",
+          "tree_id": "0857a2adc3e426d0a4cbb22d7babf98953276040",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/d538db376751edaa191a86e82b477b9920577710"
+        },
+        "date": 1788313509729,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 55216.444287671766,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005468376420757887",
+            "extra": "mean: 18.110546828950216 usec\nrounds: 15674"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 32383.648491981367,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000024406598295689416",
+            "extra": "mean: 30.879781820989493 usec\nrounds: 19374"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 736788.8925331301,
+            "unit": "iter/sec",
+            "range": "stddev: 7.190726821008783e-7",
+            "extra": "mean: 1.3572408733822416 usec\nrounds: 66234"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 480620.1602571057,
+            "unit": "iter/sec",
+            "range": "stddev: 8.149950587536649e-7",
+            "extra": "mean: 2.0806451386996634 usec\nrounds: 100211"
           }
         ]
       }
