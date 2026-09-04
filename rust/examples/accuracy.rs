@@ -6,7 +6,7 @@ use chrono_tz::Tz;
 use rtzlib::{CanPerformGeoLookup, NedTimezone, OsmTimezone};
 use serde::Deserialize;
 use spatialtime::{ned::NedReader, osm::OsmReader};
-use tzf_rs::{DefaultFinder, Finder, FuzzyFinder};
+use tzf_rs::{DefaultFinder, EmbeddedFinder};
 
 #[derive(Clone, Debug, Deserialize)]
 struct RawGroundTruthRow {
@@ -237,13 +237,14 @@ const CERT_DIRS: &[(f64, f64)] = &[
 
 // Wrong-answer distance certification (same methodology as go/accuracy): for
 // each genuinely wrong answer, find the smallest delta such that the probe
-// (tzf-rs Finder, full polygons) returns that answer somewhere within delta,
-// i.e. the answer's true region is at most ~delta degrees away.
+// (tzf-rs DefaultFinder::get_tz_names, polygon-exact, alias-normalized) lists
+// that answer among the covering zones somewhere within delta, i.e. the
+// answer's true region is at most ~delta degrees away.
 fn certify_wrong_answers(
     rows: &[GroundTruthRow],
     wrong_idx: &[usize],
     lookup: &dyn Fn(f64, f64) -> String,
-    probe: &dyn Fn(f64, f64) -> String,
+    probe: &dyn Fn(f64, f64) -> Vec<String>,
 ) {
     let mut hist = HashMap::<usize, usize>::new();
     let mut uncertified = 0usize;
@@ -254,7 +255,7 @@ fn certify_wrong_answers(
         let certified = CERT_DELTAS.iter().enumerate().find(|(_, delta)| {
             CERT_DIRS
                 .iter()
-                .any(|(dx, dy)| norm(&probe(row.lng + dx * *delta, row.lat + dy * *delta)) == got)
+                .any(|(dx, dy)| probe(row.lng + dx * *delta, row.lat + dy * *delta).contains(&got))
         });
         match certified {
             Some((delta_idx, _)) => *hist.entry(delta_idx).or_default() += 1,
@@ -273,54 +274,11 @@ fn certify_wrong_answers(
     println!(">0.1: {:.1}%", 100.0 * uncertified as f64 / total);
 }
 
-fn dump_fuzzy_errors(dataset: &str, rows: &[GroundTruthRow], fuzzy_finder: &FuzzyFinder) {
-    let mut wrong = 0usize;
-    let mut empty = 0usize;
-    let mut empty_by_gt = HashMap::<String, usize>::new();
-    let mut empty_bbox = HashMap::<String, (f64, f64, f64, f64)>::new();
-
-    println!("\n=== fuzzy detail {dataset} ===");
-    for row in rows {
-        let got = norm(fuzzy_finder.get_tz_name(row.lng, row.lat));
-        if got.is_empty() {
-            empty += 1;
-            *empty_by_gt.entry(row.name.clone()).or_default() += 1;
-            empty_bbox
-                .entry(row.name.clone())
-                .and_modify(|bbox| {
-                    bbox.0 = bbox.0.min(row.lng);
-                    bbox.1 = bbox.1.min(row.lat);
-                    bbox.2 = bbox.2.max(row.lng);
-                    bbox.3 = bbox.3.max(row.lat);
-                })
-                .or_insert((row.lng, row.lat, row.lng, row.lat));
-        } else if got != row.name {
-            wrong += 1;
-            println!(
-                "wrong,{dataset},{:.6},{:.6},{got},{}",
-                row.lng, row.lat, row.name
-            );
-        }
-    }
-    let mut empty_counts = empty_by_gt.into_iter().collect::<Vec<_>>();
-    empty_counts.sort_by(|left, right| right.1.cmp(&left.1).then_with(|| left.0.cmp(&right.0)));
-    for (name, count) in empty_counts.into_iter().take(25) {
-        let bbox = empty_bbox[&name];
-        println!(
-            "empty_top,{dataset},{count},{name},{:.3},{:.3},{:.3},{:.3}",
-            bbox.0, bbox.1, bbox.2, bbox.3
-        );
-    }
-    println!("fuzzy_detail_summary,{dataset},wrong={wrong},empty={empty}");
-}
-
 fn main() {
     let include_slow = std::env::args().any(|arg| arg == "--include-slow");
-    let dump_fuzzy = std::env::args().any(|arg| arg == "--dump-fuzzy-errors");
 
     let default_finder = DefaultFinder::new();
-    let finder = Finder::new();
-    let fuzzy_finder = FuzzyFinder::new();
+    let embedded_finder = EmbeddedFinder::new();
 
     println!("tzf-rs data version: {}", default_finder.data_version());
 
@@ -330,12 +288,21 @@ fn main() {
             fn_lookup: Box::new(|lng, lat| default_finder.get_tz_name(lng, lat).to_string()),
         },
         Candidate {
-            name: "tzf-rs Finder",
-            fn_lookup: Box::new(|lng, lat| finder.get_tz_name(lng, lat).to_string()),
+            name: "tzf-rs EmbeddedFinder",
+            fn_lookup: Box::new(|lng, lat| embedded_finder.get_tz_name(lng, lat).to_string()),
         },
+        // First element of the sorted polygon-exact result, bypassing the
+        // FUZZY tile pre-index; comparing with "tzf-rs DefaultFinder" isolates
+        // the lite simplification error from the tile fast-path error.
         Candidate {
-            name: "tzf-rs FuzzyFinder",
-            fn_lookup: Box::new(|lng, lat| fuzzy_finder.get_tz_name(lng, lat).to_string()),
+            name: "tzf-rs DefaultFinder polygon-exact (get_tz_names)",
+            fn_lookup: Box::new(|lng, lat| {
+                default_finder
+                    .get_tz_names(lng, lat)
+                    .first()
+                    .map(ToString::to_string)
+                    .unwrap_or_default()
+            }),
         },
         Candidate {
             name: "tz-search",
@@ -408,12 +375,13 @@ fn main() {
             );
             if candidate.name == "tz-search" && !wrong_idx.is_empty() {
                 certify_wrong_answers(&rows, &wrong_idx, &candidate.fn_lookup, &|lng, lat| {
-                    finder.get_tz_name(lng, lat).to_string()
+                    default_finder
+                        .get_tz_names(lng, lat)
+                        .into_iter()
+                        .map(norm)
+                        .collect()
                 });
             }
-        }
-        if dump_fuzzy {
-            dump_fuzzy_errors(dataset, &rows, &fuzzy_finder);
         }
     }
 }

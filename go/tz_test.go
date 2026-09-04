@@ -5,18 +5,23 @@ import (
 
 	"github.com/albertyw/localtimezone/v3"
 	"github.com/bradfitz/latlong"
-	"github.com/ringsaturn/tzf"
+	"github.com/ringsaturn/tzf/v2"
 	gotz "github.com/ugjka/go-tz/v2"
 	"github.com/zsefvlol/timezonemapper"
 )
 
-var finder = func() tzf.F {
-	_f, err := tzf.NewDefaultFinder()
+func mustFinder(f tzf.F, err error) tzf.F {
 	if err != nil {
 		panic(err)
 	}
-	return _f
-}()
+	return f
+}
+
+var (
+	finder         = mustFinder(tzf.NewDefaultFinder())
+	embeddedFinder = mustFinder(tzf.NewEmbeddedFinder())
+	fullFinder     = mustFinder(tzf.NewFullFinder())
+)
 
 var z = func() localtimezone.LocalTimeZone {
 	_z, err := localtimezone.NewLocalTimeZone()
@@ -62,6 +67,30 @@ func BenchmarkTZF_Default_Random_EdgeCities(b *testing.B) {
 	})
 }
 
+func BenchmarkTZF_Embedded_Random_WorldCities(b *testing.B) {
+	benchRandomFunc(b, func(lng, lat float64) string {
+		return embeddedFinder.GetTimezoneName(lng, lat)
+	})
+}
+
+func BenchmarkTZF_Embedded_Random_EdgeCities(b *testing.B) {
+	benchEdgeFunc(b, func(lng, lat float64) string {
+		return embeddedFinder.GetTimezoneName(lng, lat)
+	})
+}
+
+func BenchmarkTZF_Full_Random_WorldCities(b *testing.B) {
+	benchRandomFunc(b, func(lng, lat float64) string {
+		return fullFinder.GetTimezoneName(lng, lat)
+	})
+}
+
+func BenchmarkTZF_Full_Random_EdgeCities(b *testing.B) {
+	benchEdgeFunc(b, func(lng, lat float64) string {
+		return fullFinder.GetTimezoneName(lng, lat)
+	})
+}
+
 func BenchmarkLocaltimezone_Random_WorldCities(b *testing.B) {
 	benchRandomFunc(b, func(lng, lat float64) string {
 		zone, _ := z.GetZone(localtimezone.Point{Lon: lng, Lat: lat})
@@ -77,7 +106,7 @@ func BenchmarkLocaltimezone_Random_EdgeCities(b *testing.B) {
 }
 
 func BenchmarkGoTZ_Random_WorldCities(b *testing.B) {
-	benchEdgeFunc(b, func(lng, lat float64) string {
+	benchRandomFunc(b, func(lng, lat float64) string {
 		zone, err := gotz.GetZone(gotz.Point{Lon: lng, Lat: lat})
 		if err != nil {
 			b.Fatal(err)

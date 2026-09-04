@@ -118,12 +118,12 @@ wheels = [
 ]
 
 [[package]]
-name = "py-cpuinfo2"
-version = "10.1.1"
+name = "py-cpuinfo"
+version = "9.0.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/dc/97/a8b1ddada14c8280a047c0746f95cb05d94a31b1a331cea22bcdc2b2a82d/py_cpuinfo2-10.1.1.tar.gz", hash = "sha256:7861133863663f16e06eca63b12904ef100b5760415e92372dac0162799a4771", size = 100840, upload-time = "2026-03-25T21:49:40.797Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/37/a8/d832f7293ebb21690860d2e01d8115e5ff6f2ae8bbdc953f0eb0fa4bd2c7/py-cpuinfo-9.0.0.tar.gz", hash = "sha256:3cdbbf3fac90dc6f118bfd64384f309edeadd902d7c8fb17f02ffa1fc3f49690", size = 104716, upload-time = "2022-10-25T20:38:06.303Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/23/0a/ba69d2dde1ae12ef1d389ea5a216384c5ff6ef7a1e7a48d1e9b6686f6790/py_cpuinfo2-10.1.1-py3-none-any.whl", hash = "sha256:adc53396bfb206e6498d078ec2ab407f85799ecd819584ac36a8f80a2d4d762d", size = 23791, upload-time = "2026-03-25T21:49:39.574Z" },
+    { url = "https://files.pythonhosted.org/packages/e0/a9/023730ba63db1e494a271cb018dcd361bd2c917ba7004c3e49d5daf795a2/py_cpuinfo-9.0.0-py3-none-any.whl", hash = "sha256:859625bc251f64e21f077d099d4162689c762b5d6a4c3c97553d56241c9674d5", size = 22335, upload-time = "2022-10-25T20:38:27.636Z" },
 ]
 
 [[package]]
@@ -162,15 +162,15 @@ wheels = [
 
 [[package]]
 name = "pytest-benchmark"
-version = "5.3.0"
+version = "5.2.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "py-cpuinfo2" },
+    { name = "py-cpuinfo" },
     { name = "pytest" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/63/8f/83a15e40dbc34a580ee56eb56983cae5394c6e94d50cf28fe268e457be25/pytest_benchmark-5.3.0.tar.gz", hash = "sha256:358444d4e89be901ee2b6404fb043ac3d7684002ad7f3563cc153fca6339c965", size = 375410, upload-time = "2026-08-23T17:45:08.891Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/24/34/9f732b76456d64faffbef6232f1f9dbec7a7c4999ff46282fa418bd1af66/pytest_benchmark-5.2.3.tar.gz", hash = "sha256:deb7317998a23c650fd4ff76e1230066a76cb45dcece0aca5607143c619e7779", size = 341340, upload-time = "2025-11-09T18:48:43.215Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/eb/42/7e80f7cfa191e0a766d1de99b4661847415ad5db34f8209d81fd42175b59/pytest_benchmark-5.3.0-py3-none-any.whl", hash = "sha256:920ab1dfcffa718d49aa15ba144c7e357bda59216a0dc308016cc1c7236f719d", size = 48401, upload-time = "2026-08-23T17:45:07.094Z" },
+    { url = "https://files.pythonhosted.org/packages/33/29/e756e715a48959f1c0045342088d7ca9762a2f509b945f362a316e9412b7/pytest_benchmark-5.2.3-py3-none-any.whl", hash = "sha256:bc839726ad20e99aaa0d11a127445457b4219bdb9e80a1afc4b51da7f96b0803", size = 45255, upload-time = "2025-11-09T18:48:39.765Z" },
 ]
 
 [[package]]
@@ -201,28 +201,19 @@ wheels = [
 
 [[package]]
 name = "timezonefinder"
-version = "8.3.0"
+version = "8.2.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cffi" },
     { name = "flatbuffers" },
     { name = "h3" },
     { name = "numpy" },
-    { name = "timezonefinder-data" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/07/3c/78a7ce494c0d83cec7c1619a7ac76a751df06adbcc11dc7f90733ef3ecb2/timezonefinder-8.3.0.tar.gz", hash = "sha256:827c056552d7ba481336e62fff58f3a7c81687233d5dc000b13fefaa25c89525", size = 764381, upload-time = "2026-08-19T06:17:16.623Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a7/6d/54439b6e76289c9d2527c8243e7e4ca5f4c1c1700a7e8a21ad27c6618822/timezonefinder-8.2.5.tar.gz", hash = "sha256:cca1aebf11c8034f0fe4c442fc068232dc2f355038cf61ffa67653caf90ae3e9", size = 55005939, upload-time = "2026-07-13T02:11:44.465Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0e/1f/65048c4d530e0781d43433b8863551352df4b04d4667089624a584ad6de6/timezonefinder-8.3.0-cp311-abi3-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:d2413777e443f45260128cdb58db449b16c7783ce414de499475d81500dd5bdf", size = 83921, upload-time = "2026-08-19T06:17:13.484Z" },
-    { url = "https://files.pythonhosted.org/packages/d3/35/171e01f0940e979c3a4c6a0562996a4ba9a424adca671663ce0c9a244231/timezonefinder-8.3.0-cp311-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:61c41ddb7d0518c4df668b705e01c0523e1ca496d75c5721b30a1b03ddd9ae75", size = 83776, upload-time = "2026-08-19T06:17:14.533Z" },
-    { url = "https://files.pythonhosted.org/packages/73/e9/0c582a773c6d1335544559e52ea5534211706b488bd601bf2a9ff5b78c5c/timezonefinder-8.3.0-cp311-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:2f14364389fceec16915826bc6701bccc074b0159269d0447c8bcf0d647d509b", size = 85899, upload-time = "2026-08-19T06:17:15.667Z" },
-]
-
-[[package]]
-name = "timezonefinder-data"
-version = "1.2026.3"
-source = { registry = "https://pypi.org/simple" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/c3/21/423bed3e77dde6e1e81bbc0866994e2343d66c39e5ac33b703c0e8d6c6be/timezonefinder_data-1.2026.3-py3-none-any.whl", hash = "sha256:fca9e5d7ff5f86cd7b931b94b24a80347082fac36de35473553dfdf51c5dd151", size = 51941978, upload-time = "2026-08-19T05:50:45.941Z" },
+    { url = "https://files.pythonhosted.org/packages/70/d7/05e8022491e1b9f4b81041383bcc1b70d764dbf6c8c6bfd81f012ff1dae2/timezonefinder-8.2.5-cp311-abi3-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:447fd33a39d3ae60a0b7ca2e2b9b3538b941e434a3673300659aa79996a0ae9c", size = 55014167, upload-time = "2026-07-13T02:11:31.45Z" },
+    { url = "https://files.pythonhosted.org/packages/d6/d7/f165f143a46ab6e8951f8cb543b341a51e6ba71d67309dea8b865a331ad2/timezonefinder-8.2.5-cp311-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl", hash = "sha256:976230555eb9943f3651fa00fe587854a5c1b6d0aa9c7c714296d0934dccf406", size = 55014023, upload-time = "2026-07-13T02:11:35.865Z" },
+    { url = "https://files.pythonhosted.org/packages/44/b0/a74a357c5aa24d593611ad704e2a43222aa6212d0290954d644464fc42d4/timezonefinder-8.2.5-cp311-abi3-musllinux_1_1_x86_64.whl", hash = "sha256:b588e86dbe9a4487f43ce114b8ff0c488a84755a09db4fc67d3f04dacbcfdd77", size = 55016151, upload-time = "2026-07-13T02:11:40.29Z" },
 ]
 
 [[package]]
@@ -244,28 +235,21 @@ requires-dist = [
     { name = "pytest" },
     { name = "pytest-benchmark" },
     { name = "pytest-pretty" },
-    { name = "timezonefinder", specifier = "==8.3.0" },
-    { name = "tzfpy", specifier = "==1.3.3" },
+    { name = "timezonefinder", specifier = "==8.2.5" },
+    { name = "tzfpy", path = "../tmp/tzfpy-1.3.3-cp310-abi3-macosx_11_0_arm64.whl" },
 ]
 
 [[package]]
 name = "tzfpy"
 version = "1.3.3"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/bd/b4/8545225c9948d6e72a1da6db1d606ad747579c5ff387145b3b6d4f6d4066/tzfpy-1.3.3.tar.gz", hash = "sha256:827ff7c80cf0bf1c83e95e9550114cfb0687cd92586a188a0ba94c3422e0b9ae", size = 440790, upload-time = "2026-08-10T13:28:28.104Z" }
+source = { path = "../tmp/tzfpy-1.3.3-cp310-abi3-macosx_11_0_arm64.whl" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/30/c5/99a7591a5ba505be8a0138d3065141b697b9d732a9d48e2709113a5e911d/tzfpy-1.3.3-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:5b3989f22ec2fb9b40c2b0a655d565d77ec41c72c454a67c21baedc3c98eabeb", size = 4447864, upload-time = "2026-08-10T13:28:00.076Z" },
-    { url = "https://files.pythonhosted.org/packages/6f/7b/54fb61871593c83e696a4a17b80509d40e4abd2ff15accdf630471db9bef/tzfpy-1.3.3-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:19b48cead48eeb8b89d57c283e26b52c37ff9fbb45d895af626d916236d8a7c1", size = 4516076, upload-time = "2026-08-10T13:28:01.991Z" },
-    { url = "https://files.pythonhosted.org/packages/4e/60/1b95e568d85e717cdb49c41f6b10f37ce8844d1bae15d20ab79c6fa80dd4/tzfpy-1.3.3-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:48a31f55f143421ab21a409f23c747f119ac79392abe27c09e1fc02df157b4c9", size = 4482221, upload-time = "2026-08-10T13:28:03.96Z" },
-    { url = "https://files.pythonhosted.org/packages/e7/7f/c9ef03ae5c68d6868d32eb2df42b3b6322353066247d3566cc41a9f2321a/tzfpy-1.3.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:51a6971b928d8e1a0c90131f209f92028cae8a7e85e44b060b969c438fc027aa", size = 4493903, upload-time = "2026-08-10T13:28:06.083Z" },
-    { url = "https://files.pythonhosted.org/packages/92/d2/5380e58eba2b03cae317b84539d748e38ab1ddce0b464cd52fe04b6481b2/tzfpy-1.3.3-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:de956baef7cc69599b196a14f58d201ab8e0af6aed69dfff58609cd358676dc3", size = 4660084, upload-time = "2026-08-10T13:28:08.034Z" },
-    { url = "https://files.pythonhosted.org/packages/37/9d/aee1b9ea4cbacc6699f00af64a3f05f6c7e24863646e67a22f1900743896/tzfpy-1.3.3-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:426f7c1acfb5cb1d1213894c9c1708e5c7e394cb0dcbac5f53610bf2b9b46c1d", size = 4692647, upload-time = "2026-08-10T13:28:10.072Z" },
-    { url = "https://files.pythonhosted.org/packages/44/6a/81d4aaac3a2599f2419655c17094a9356b88a139cda776cdaa8e03285f3f/tzfpy-1.3.3-cp310-abi3-win_amd64.whl", hash = "sha256:90f226b8198a9e4e48b28b9faaa7491a674a7dc41875fd1317237357b1154460", size = 4338869, upload-time = "2026-08-10T13:28:12.097Z" },
-    { url = "https://files.pythonhosted.org/packages/27/91/fa984be51c0bb06d661c18e024e120710633416cd8490117db323b36d8d6/tzfpy-1.3.3-cp314-cp314t-macosx_10_12_x86_64.whl", hash = "sha256:5b7584d5570b142b0f79d63921a10fe125234a9bee048bcc35cdee8c3048383c", size = 4445419, upload-time = "2026-08-10T13:28:13.911Z" },
-    { url = "https://files.pythonhosted.org/packages/38/57/6c0a67e54badfca15c056b2182333af05a68fe5b5b369b6fbe24a3b39ada/tzfpy-1.3.3-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:a3d292287d7d2acc02429e6d558d2eaf2312028a35e69b2302b3a01e2cfcbc89", size = 4511467, upload-time = "2026-08-10T13:28:15.795Z" },
-    { url = "https://files.pythonhosted.org/packages/89/8b/e1fda0feb67762c8b2b40033ae9b57726112adc06e3594768824ef239c2d/tzfpy-1.3.3-cp314-cp314t-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:027845c911a9754b4333883d3633b0f799bd8e99ef38a2f57eb6c4791beded3c", size = 4478768, upload-time = "2026-08-10T13:28:17.697Z" },
-    { url = "https://files.pythonhosted.org/packages/aa/aa/ce727feee382dda872311b436052b57af4f25e3531648263d2e92b17f4d0/tzfpy-1.3.3-cp314-cp314t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:da274363c9579ef779bd36cb1af9b553ddfe12e693d15bbf799ccf19259093a1", size = 4490817, upload-time = "2026-08-10T13:28:19.629Z" },
-    { url = "https://files.pythonhosted.org/packages/6c/1e/b151f4645508671c6cc83bfb423148dea0a4377a5ac6946c8678f6e25f6e/tzfpy-1.3.3-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:c42c4562c743b1bfb25603f940006dffcff61d6b82b94088e141ebf186fb2516", size = 4655772, upload-time = "2026-08-10T13:28:21.762Z" },
-    { url = "https://files.pythonhosted.org/packages/e5/5f/e163b3a1e660e88edf39d9c710e24be1dbde1e9a66ddbc35042a976c0e25/tzfpy-1.3.3-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:27d00311c3bdc1a21eb12cd19df69915dbd678eb0d2eb420a5aea8ebc96060bc", size = 4689985, upload-time = "2026-08-10T13:28:24.09Z" },
-    { url = "https://files.pythonhosted.org/packages/35/38/6140f3a895eb15e1497f6b309a891931ae9ed7cf579fa3d5d99311100422/tzfpy-1.3.3-cp314-cp314t-win_amd64.whl", hash = "sha256:ebae0a96efbe74637c821e629a3c3d70cad98c28b4fdb751bfd11556cacfdc61", size = 4337587, upload-time = "2026-08-10T13:28:26.482Z" },
+    { filename = "tzfpy-1.3.3-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:549e60838b11d6cdd6c5ddfa8f38735978d28ed09519af5c5399a753df17f7f2" },
 ]
+
+[package.metadata]
+requires-dist = [
+    { name = "pytz", marker = "extra == 'pytz'", specifier = ">=2026.1.post1" },
+    { name = "tzdata", marker = "extra == 'tzdata'", specifier = ">=2026.2" },
+]
+provides-extras = ["pytz", "tzdata"]

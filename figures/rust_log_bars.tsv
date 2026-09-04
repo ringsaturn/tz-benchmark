@@ -1,10 +1,9 @@
 label	random_ns	edge_ns
-tz-search	107	122
-tzf-rs Fuzzy	143	134
-tzf-rs Default	217	518
-rtz NED	374	752
-rtz OSM	1506	2995
-tzf-rs Finder NoIndex	6899	4880
-spatialtime NED	214268	209053
-zone detect	432033	492892
-spatialtime OSM	7014671	7319779
+tz-search	111	119
+tzf-rs Default	236	486
+tzf-rs Embedded	1187	4665
+rtz NED	410	764
+rtz OSM	1534	3108
+spatialtime NED	165332	172350
+zone detect	426038	499202
+spatialtime OSM	5273923	5626894

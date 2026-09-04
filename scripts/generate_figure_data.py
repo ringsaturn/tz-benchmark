@@ -17,8 +17,8 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_GO_SNAPSHOT = REPO_ROOT / "snapshot/2026-07-14-91bb3495bd282773baf61eac79a5f258b54d5656"
-DEFAULT_RUST_SNAPSHOT = REPO_ROOT / "snapshot/2026-07-14-91bb3495bd282773baf61eac79a5f258b54d5656"
+DEFAULT_GO_SNAPSHOT = REPO_ROOT / "snapshot/2026-09-04-c062a02bbc475c726f65aef7efbebebfea98f501"
+DEFAULT_RUST_SNAPSHOT = REPO_ROOT / "snapshot/2026-09-04-c062a02bbc475c726f65aef7efbebebfea98f501"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "figures"
 DEFAULT_SEED = 20260707
 DEFAULT_PYTHON_SAMPLES = 20_000
@@ -45,11 +45,10 @@ class SeriesSummary:
 
 RUST_SERIES = [
     ("tz-search", "tz_search_lookup_random_city", "tz_search_lookup_random_edge_city"),
-    ("tzf-rs Fuzzy", "tzf_fuzzy_finder_random_city", "tzf_fuzzy_finder_random_edge_city"),
     ("tzf-rs Default", "tzf_default_finder_random_city", "tzf_default_finder_random_edge_city"),
+    ("tzf-rs Embedded", "tzf_embedded_finder_random_city", "tzf_embedded_finder_random_edge_city"),
     ("rtz NED", "rtz_get_timezone_ned_random_city", "rtz_get_timezone_ned_random_edge_city"),
     ("rtz OSM", "rtz_get_timezone_osm_random_city", "rtz_get_timezone_osm_random_edge_city"),
-    ("tzf-rs Finder NoIndex", "tzf_finder_random_city", "tzf_finder_random_edge_city"),
     ("spatialtime NED", "spatialtime_ned", "spatialtime_ned_random_edge_city"),
     ("zone detect", "zone_detect_random_city", "zone_detect_random_edge_city"),
     ("spatialtime OSM", "spatialtime_osm", "spatialtime_osm_random_edge_city"),
@@ -59,6 +58,8 @@ GO_SERIES = [
     ("timezonemapper", "TimezoneMapper_Random_WorldCities", "TimezoneMapper_Random_EdgeCities"),
     ("latlong", "Latlong_Random_WorldCities", "Latlong_Random_EdgeCities"),
     ("tzf Default", "TZF_Default_Random_WorldCities", "TZF_Default_Random_EdgeCities"),
+    ("tzf Embedded", "TZF_Embedded_Random_WorldCities", "TZF_Embedded_Random_EdgeCities"),
+    ("tzf Full", "TZF_Full_Random_WorldCities", "TZF_Full_Random_EdgeCities"),
     ("localtimezone", "Localtimezone_Random_WorldCities", "Localtimezone_Random_EdgeCities"),
     ("go-tz", "GoTZ_Random_WorldCities", "GoTZ_Random_EdgeCities"),
 ]

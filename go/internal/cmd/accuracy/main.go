@@ -1,6 +1,7 @@
 // Accuracy evaluation for tzf: measures disagreement of various
-// finders/libraries against a full-precision ground truth (tzf Finder on the
-// unsimplified combined-with-oceans dataset).
+// finders/libraries against a full-precision ground truth (tzf FullFinder's
+// polygon-exact GetTimezoneNames on the unsimplified combined-with-oceans
+// dataset, i.e. the full .tzb without the FUZZY tile fast path).
 //
 // Usage: go run ./internal/cmd/accuracy
 package main
@@ -19,12 +20,9 @@ import (
 	"github.com/albertyw/localtimezone/v3"
 	"github.com/bradfitz/latlong"
 	gocitiesjson "github.com/ringsaturn/go-cities.json"
-	"github.com/ringsaturn/tzf"
-	tzfdist "github.com/ringsaturn/tzf-dist"
-	pb "github.com/ringsaturn/tzf/gen/go/tzf/v1"
+	"github.com/ringsaturn/tzf/v2"
 	gotz "github.com/ugjka/go-tz/v2"
 	"github.com/zsefvlol/timezonemapper"
-	"google.golang.org/protobuf/proto"
 )
 
 type point struct{ Lng, Lat float64 }
@@ -119,43 +117,52 @@ func sameClock(got, expected string) bool {
 	return gotSig != nil && expectedSig != nil && *gotSig == *expectedSig
 }
 
-func main() {
-	// ---- Ground truth: full-precision Finder (no preindex) ----
-	fullTopo := &pb.CompressedTopoTimezones{}
-	if err := proto.Unmarshal(tzfdist.CompressTopoData, fullTopo); err != nil {
-		panic(err)
+// firstName returns the lexicographically first zone of a polygon-exact
+// GetTimezoneNames result, or "" when nothing covers the point.
+func firstName(names []string, err error) string {
+	if err != nil || len(names) == 0 {
+		return ""
 	}
-	gtF, err := tzf.NewFinderFromCompressedTopo(fullTopo, tzf.SetDropPBTZ)
+	return names[0]
+}
+
+func main() {
+	// ---- Ground truth: full-precision polygons, no tile fast path ----
+	// GetTimezoneNames on the full .tzb is always polygon-exact and returns the
+	// covering zones sorted lexicographically; the first one is the primary
+	// answer and the whole list is the set of legitimately covering zones.
+	gtF, err := tzf.NewFullFinder()
 	if err != nil {
 		panic(err)
 	}
-	gt := func(lng, lat float64) string { return gtF.GetTimezoneName(lng, lat) }
+	gtNamesAt := func(lng, lat float64) []string {
+		names, err := gtF.GetTimezoneNames(lng, lat)
+		if err != nil {
+			return nil
+		}
+		return names
+	}
+	// gtCovers reports whether name is one of the polygon-exact ground-truth
+	// zones at the probe point (after alias normalization).
+	gtCovers := func(lng, lat float64, name string) bool {
+		for _, n := range gtNamesAt(lng, lat) {
+			if norm(n) == name {
+				return true
+			}
+		}
+		return false
+	}
 
 	// ---- tzf-family candidates ----
-	liteTopo := &pb.CompressedTopoTimezones{}
-	if err := proto.Unmarshal(tzfdist.TopologyCompressTopoData, liteTopo); err != nil {
-		panic(err)
-	}
-	liteF, err := tzf.NewFinderFromCompressedTopo(liteTopo, tzf.SetDropPBTZ)
-	if err != nil {
-		panic(err)
-	}
-	preindex := &pb.PreindexTimezones{}
-	if err := proto.Unmarshal(tzfdist.PreindexData, preindex); err != nil {
-		panic(err)
-	}
-	fuzzyF, err := tzf.NewFuzzyFinderFromPB(preindex)
-	if err != nil {
-		panic(err)
-	}
 	defF, err := tzf.NewDefaultFinder()
 	if err != nil {
 		panic(err)
 	}
-	fullDefF, err := tzf.NewFullFinder()
+	embF, err := tzf.NewEmbeddedFinder()
 	if err != nil {
 		panic(err)
 	}
+	fullDefF := gtF
 
 	ltz, err := localtimezone.NewLocalTimeZone()
 	if err != nil {
@@ -164,11 +171,19 @@ func main() {
 
 	fmt.Printf("ground truth data version: %s\n", gtF.DataVersion())
 
+	// The polygon-exact candidate takes the first element of DefaultFinder's
+	// GetTimezoneNames, bypassing the FUZZY tile pre-index; comparing it with
+	// "DefaultFinder (lite .tzm)" isolates the lite simplification error from
+	// the tile fast-path error.
 	tzfFamily := []candidate{
-		{"DefaultFinder (lite+preindex)", func(lng, lat float64) string { return defF.GetTimezoneName(lng, lat) }},
-		{"Finder (lite)", func(lng, lat float64) string { return liteF.GetTimezoneName(lng, lat) }},
-		{"FullFinder (full+preindex)", func(lng, lat float64) string { return fullDefF.GetTimezoneName(lng, lat) }},
-		{"FuzzyFinder (preindex only)", func(lng, lat float64) string { return fuzzyF.GetTimezoneName(lng, lat) }},
+		{"DefaultFinder (lite .tzm)", func(lng, lat float64) string { return defF.GetTimezoneName(lng, lat) }},
+		{"EmbeddedFinder (lite .tzb)", func(lng, lat float64) string { return embF.GetTimezoneName(lng, lat) }},
+		{"FullFinder (full .tzb)", func(lng, lat float64) string { return fullDefF.GetTimezoneName(lng, lat) }},
+		{"DefaultFinder polygon-exact (GetTimezoneNames)", func(lng, lat float64) string { return firstName(defF.GetTimezoneNames(lng, lat)) }},
+	}
+	certified := map[string]bool{}
+	for _, c := range tzfFamily {
+		certified[c.name] = true
 	}
 	thirdParty := []candidate{
 		{"bradfitz/latlong", func(lng, lat float64) string { return latlong.LookupZoneName(lat, lng) }},
@@ -234,11 +249,8 @@ func main() {
 		gtNames := make([]string, len(ds.pts))
 		gtNameSets := make([][]string, len(ds.pts))
 		for i, p := range ds.pts {
-			primary := norm(gt(p.Lng, p.Lat))
-			names, err := gtF.GetTimezoneNames(p.Lng, p.Lat)
-			if err != nil {
-				names = nil
-			}
+			names := gtNamesAt(p.Lng, p.Lat)
+			primary := norm(firstName(names, nil))
 			gtNameSets[i] = normalizedNameSet(primary, names)
 			gtNames[i] = gtNameSets[i][0]
 		}
@@ -302,9 +314,10 @@ func main() {
 
 			// Perturbation certification for genuinely wrong answers of the
 			// tzf-family finders: find the smallest delta such that the
-			// candidate's answer is the ground truth somewhere within delta,
-			// i.e. the answer's true region is at most ~delta away.
-			if (c.name == "DefaultFinder (lite+preindex)" || c.name == "Finder (lite)" || c.name == "FullFinder (full+preindex)") && len(wrongIdx) > 0 {
+			// candidate's answer is one of the polygon-exact ground-truth zones
+			// somewhere within delta, i.e. the answer's true region is at most
+			// ~delta away.
+			if certified[c.name] && len(wrongIdx) > 0 {
 				hist := make(map[float64]int)
 				uncertified := 0
 				for _, i := range wrongIdx {
@@ -313,7 +326,7 @@ func main() {
 					found := false
 					for _, d := range deltas {
 						for _, dir := range dirs {
-							if norm(gt(p.Lng+dir[0]*d, p.Lat+dir[1]*d)) == got {
+							if gtCovers(p.Lng+dir[0]*d, p.Lat+dir[1]*d, got) {
 								hist[d]++
 								found = true
 								break

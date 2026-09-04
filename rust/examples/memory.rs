@@ -98,7 +98,7 @@ fn live_mib() -> f64 {
 
 use rtzlib::{CanPerformGeoLookup, NedTimezone, OsmTimezone};
 use spatialtime::{ned::NedReader, osm::OsmReader};
-use tzf_rs::{DefaultFinder, Finder, FuzzyFinder};
+use tzf_rs::{DefaultFinder, EmbeddedFinder};
 
 const POINTS: &[(f64, f64)] = &[
     (116.3833, 39.9167),  // Beijing
@@ -115,8 +115,7 @@ const POINTS: &[(f64, f64)] = &[
 const CANDIDATES: &[(&str, usize)] = &[
     ("noop", 80_000),
     ("tzf-default", 80_000),
-    ("tzf-finder", 80_000),
-    ("tzf-fuzzy", 80_000),
+    ("tzf-embedded", 80_000),
     ("tz-search", 80_000),
     ("rtz-osm", 80_000),
     ("rtz-ned", 80_000),
@@ -201,12 +200,8 @@ fn run_child(key: &str, iterations: usize) {
             let finder = DefaultFinder::new();
             Box::new(move |lng, lat| finder.get_tz_name(lng, lat).to_string())
         }),
-        "tzf-finder" => measure("tzf-rs Finder", iterations, || {
-            let finder = Finder::new();
-            Box::new(move |lng, lat| finder.get_tz_name(lng, lat).to_string())
-        }),
-        "tzf-fuzzy" => measure("tzf-rs FuzzyFinder", iterations, || {
-            let finder = FuzzyFinder::new();
+        "tzf-embedded" => measure("tzf-rs EmbeddedFinder", iterations, || {
+            let finder = EmbeddedFinder::new();
             Box::new(move |lng, lat| finder.get_tz_name(lng, lat).to_string())
         }),
         "tz-search" => measure("tz-search", iterations, || {

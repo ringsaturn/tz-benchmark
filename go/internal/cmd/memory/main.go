@@ -19,9 +19,8 @@ import (
 var candidates = []string{
 	"noop",
 	"defaultfinder",
-	"finder",
+	"embeddedfinder",
 	"fullfinder",
-	"fuzzyfinder",
 	"latlong",
 	"timezonemapper",
 	"localtimezone",

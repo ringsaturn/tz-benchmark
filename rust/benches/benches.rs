@@ -8,7 +8,7 @@ mod benches_tz_crates {
     use serde::Deserialize;
     use spatialtime;
     use test::Bencher;
-    use tzf_rs::{DefaultFinder, Finder, FuzzyFinder};
+    use tzf_rs::{DefaultFinder, EmbeddedFinder};
 
     #[derive(Deserialize)]
     struct EdgeCity {
@@ -39,8 +39,8 @@ mod benches_tz_crates {
     }
 
     #[bench]
-    fn bench_tzf_fuzzy_finder_random_city(b: &mut Bencher) {
-        let finder: FuzzyFinder = FuzzyFinder::new();
+    fn bench_tzf_embedded_finder_random_city(b: &mut Bencher) {
+        let finder: EmbeddedFinder = EmbeddedFinder::new();
         b.iter(|| {
             let city = cities_json::get_random_cities();
             let _ = finder.get_tz_name(city.lng, city.lat);
@@ -48,8 +48,8 @@ mod benches_tz_crates {
     }
 
     #[bench]
-    fn bench_tzf_fuzzy_finder_random_edge_city(b: &mut Bencher) {
-        let finder: FuzzyFinder = FuzzyFinder::new();
+    fn bench_tzf_embedded_finder_random_edge_city(b: &mut Bencher) {
+        let finder: EmbeddedFinder = EmbeddedFinder::new();
         let cities = load_edge_cities();
         b.iter(|| {
             let city = &cities[random_range(0..cities.len())];
@@ -69,25 +69,6 @@ mod benches_tz_crates {
     #[bench]
     fn bench_tzf_default_finder_random_edge_city(b: &mut Bencher) {
         let finder: DefaultFinder = DefaultFinder::new();
-        let cities = load_edge_cities();
-        b.iter(|| {
-            let city = &cities[random_range(0..cities.len())];
-            let _ = finder.get_tz_name(city.lng, city.lat);
-        });
-    }
-
-    #[bench]
-    fn bench_tzf_finder_random_city(b: &mut Bencher) {
-        let finder: Finder = Finder::new();
-        b.iter(|| {
-            let city = cities_json::get_random_cities();
-            let _ = finder.get_tz_name(city.lng, city.lat);
-        });
-    }
-
-    #[bench]
-    fn bench_tzf_finder_random_edge_city(b: &mut Bencher) {
-        let finder: Finder = Finder::new();
         let cities = load_edge_cities();
         b.iter(|| {
             let city = &cities[random_range(0..cities.len())];

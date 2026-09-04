@@ -1,0 +1,23 @@
+    Finished `bench` profile [optimized] target(s) in 0.14s
+     Running benches/benches.rs (target/release/deps/benches-7596a9c686428f02)
+
+running 16 tests
+test benches_tz_crates::bench_rtz_get_timezone_ned_random_city      ... bench:         409.83 ns/iter (+/- 84.38)
+test benches_tz_crates::bench_rtz_get_timezone_ned_random_edge_city ... bench:         763.97 ns/iter (+/- 28.97)
+test benches_tz_crates::bench_rtz_get_timezone_osm_random_city      ... bench:       1,533.70 ns/iter (+/- 86.51)
+test benches_tz_crates::bench_rtz_get_timezone_osm_random_edge_city ... bench:       3,108.28 ns/iter (+/- 132.79)
+test benches_tz_crates::bench_spatialtime_ned                       ... bench:     165,332.29 ns/iter (+/- 21,159.15)
+test benches_tz_crates::bench_spatialtime_ned_random_edge_city      ... bench:     172,349.69 ns/iter (+/- 16,707.05)
+test benches_tz_crates::bench_spatialtime_osm                       ... bench:   5,273,922.90 ns/iter (+/- 2,448,233.97)
+test benches_tz_crates::bench_spatialtime_osm_random_edge_city      ... bench:   5,626,893.75 ns/iter (+/- 4,028,255.64)
+test benches_tz_crates::bench_tz_search_lookup_random_city          ... bench:         111.11 ns/iter (+/- 37.12)
+test benches_tz_crates::bench_tz_search_lookup_random_edge_city     ... bench:         119.10 ns/iter (+/- 5.81)
+test benches_tz_crates::bench_tzf_default_finder_random_city        ... bench:         236.09 ns/iter (+/- 24.98)
+test benches_tz_crates::bench_tzf_default_finder_random_edge_city   ... bench:         486.34 ns/iter (+/- 75.04)
+test benches_tz_crates::bench_tzf_embedded_finder_random_city       ... bench:       1,187.07 ns/iter (+/- 114.71)
+test benches_tz_crates::bench_tzf_embedded_finder_random_edge_city  ... bench:       4,665.48 ns/iter (+/- 195.45)
+test benches_tz_crates::bench_zone_detect_random_city               ... bench:     426,038.37 ns/iter (+/- 93,548.68)
+test benches_tz_crates::bench_zone_detect_random_edge_city          ... bench:     499,201.82 ns/iter (+/- 115,504.37)
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 16 measured; 0 filtered out; finished in 73.31s
+

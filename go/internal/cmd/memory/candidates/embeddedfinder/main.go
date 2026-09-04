@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	memprobe.Run("FullFinder (full .tzb)", func() func(lng, lat float64) string {
-		f, err := tzf.NewFullFinder()
+	memprobe.Run("EmbeddedFinder (lite .tzb in place)", func() func(lng, lat float64) string {
+		f, err := tzf.NewEmbeddedFinder()
 		if err != nil {
 			panic(err)
 		}
