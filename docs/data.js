@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788313514510,
+  "lastUpdate": 1788744422810,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13118,6 +13118,56 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 8.149950587536649e-7",
             "extra": "mean: 2.0806451386996634 usec\nrounds: 100211"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "d538db376751edaa191a86e82b477b9920577710",
+          "message": "Bump the dependencies group in /python with 3 updates (#226)\n\nBumps the dependencies group in /python with 3 updates: [timezonefinder](https://github.com/jannikmi/timezonefinder), [tzfpy](https://github.com/ringsaturn/tzfpy) and [pytest-benchmark](https://github.com/ionelmc/pytest-benchmark).\n\n\nUpdates `timezonefinder` from 8.2.5 to 8.3.0\n- [Release notes](https://github.com/jannikmi/timezonefinder/releases)\n- [Changelog](https://github.com/jannikmi/timezonefinder/blob/master/CHANGELOG.rst)\n- [Commits](https://github.com/jannikmi/timezonefinder/compare/8.2.5...8.3.0)\n\nUpdates `tzfpy` from 1.3.2 to 1.3.3\n- [Release notes](https://github.com/ringsaturn/tzfpy/releases)\n- [Changelog](https://github.com/ringsaturn/tzfpy/blob/main/docs/release_wheels.csv)\n- [Commits](https://github.com/ringsaturn/tzfpy/compare/v1.3.2...v1.3.3)\n\nUpdates `pytest-benchmark` from 5.2.3 to 5.3.0\n- [Release notes](https://github.com/ionelmc/pytest-benchmark/releases)\n- [Changelog](https://github.com/ionelmc/pytest-benchmark/blob/master/CHANGELOG.rst)\n- [Commits](https://github.com/ionelmc/pytest-benchmark/compare/v5.2.3...v5.3.0)\n\n---\nupdated-dependencies:\n- dependency-name: timezonefinder\n  dependency-version: 8.3.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n- dependency-name: tzfpy\n  dependency-version: 1.3.3\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: pytest-benchmark\n  dependency-version: 5.3.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-09-02T01:41:02Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/d538db376751edaa191a86e82b477b9920577710"
+        },
+        "date": 1788744417964,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 51941.51931619808,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00002950352902569925",
+            "extra": "mean: 19.2524210528464 usec\nrounds: 19"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 38090.5338327664,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000022120146007151622",
+            "extra": "mean: 26.2532419311954 usec\nrounds: 11247"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 767957.7318068364,
+            "unit": "iter/sec",
+            "range": "stddev: 7.250095607093182e-7",
+            "extra": "mean: 1.3021549996602273 usec\nrounds: 43413"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 528573.3581274388,
+            "unit": "iter/sec",
+            "range": "stddev: 7.612329784180054e-7",
+            "extra": "mean: 1.8918849855442401 usec\nrounds: 87589"
           }
         ]
       }
