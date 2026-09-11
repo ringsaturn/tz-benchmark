@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789100400821,
+  "lastUpdate": 1789100576621,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -116759,6 +116759,126 @@ window.BENCHMARK_DATA = {
             "name": "benches_tz_crates::bench_zone_detect_random_edge_city",
             "value": 988765.62,
             "range": "± 343889.75",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "39c9ef7a95b328838b6577c02b60523628617a0e",
+          "message": "Add new benchmark snapshot: 2026-09-11 - fa65419 (clean-machine rerun)\n\nRerun of bench, accuracy, and memory with no background load, replacing the\nearlier 2026-09-11-53547e6 snapshot whose Python latencies were taken while an\nunrelated process loaded the machine. Accuracy results are identical. Figure\ndata and the default snapshot in generate_figure_data.py now point here.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01P8w9APxpaEt2MskAV37NHP",
+          "timestamp": "2026-09-11T13:17:48+09:00",
+          "tree_id": "98ef307482fac40a9100a275dd96d2e9598a8a38",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/39c9ef7a95b328838b6577c02b60523628617a0e"
+        },
+        "date": 1789100571644,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_city",
+            "value": 726.31,
+            "range": "± 56.29",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_ned_random_edge_city",
+            "value": 1392.9,
+            "range": "± 84.02",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_city",
+            "value": 2826.16,
+            "range": "± 196.9",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_rtz_get_timezone_osm_random_edge_city",
+            "value": 5726.49,
+            "range": "± 341.36",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned",
+            "value": 165776.42,
+            "range": "± 22190.55",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_ned_random_edge_city",
+            "value": 164410.37,
+            "range": "± 17788.95",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm",
+            "value": 5234716.55,
+            "range": "± 3335661.11",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_spatialtime_osm_random_edge_city",
+            "value": 5670246.45,
+            "range": "± 3632911.57",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_city",
+            "value": 142.01,
+            "range": "± 83.03",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tz_search_lookup_random_edge_city",
+            "value": 159.49,
+            "range": "± 1.48",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_city",
+            "value": 406.36,
+            "range": "± 53.3",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_default_finder_random_edge_city",
+            "value": 904.74,
+            "range": "± 171.21",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_embedded_finder_random_city",
+            "value": 1903.28,
+            "range": "± 97.14",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_tzf_embedded_finder_random_edge_city",
+            "value": 8366.3,
+            "range": "± 293.6",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_city",
+            "value": 777712.4,
+            "range": "± 297932.77",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "benches_tz_crates::bench_zone_detect_random_edge_city",
+            "value": 935190.31,
+            "range": "± 312421.82",
             "unit": "ns/iter"
           }
         ]
