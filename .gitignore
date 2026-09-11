@@ -11,3 +11,6 @@ venv
 
 node_modules
 *.txt
+
+# Ad-hoc local probe scripts (not part of the harness).
+python/check.py

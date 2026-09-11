@@ -18,13 +18,7 @@ require (
 	github.com/jonas-p/go-shp v0.1.1 // indirect
 	github.com/klauspost/compress v1.19.0 // indirect
 	github.com/paulmach/orb v0.13.0 // indirect
-	github.com/ringsaturn/tzf-dist v0.0.2026-c-fix1 // indirect
+	github.com/ringsaturn/tzf-dist v0.0.2026-c-tzb1 // indirect
 	go.mongodb.org/mongo-driver/v2 v2.8.0 // indirect
 	golang.org/x/image v0.0.0-20220722155232-062f8c9fd539 // indirect
 )
-
-// Development: unreleased tzf v2 and the tzf-dist v2 artifact set (branch
-// v2-artifacts) from sibling checkouts. Drop these once both are published.
-replace github.com/ringsaturn/tzf/v2 => /Users/ringsaturn/go/src/github.com/ringsaturn/tzf
-
-replace github.com/ringsaturn/tzf-dist => /Users/ringsaturn/go/src/github.com/ringsaturn/tzf-dist
