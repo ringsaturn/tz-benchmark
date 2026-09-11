@@ -1,5 +1,5 @@
 series	n	mean_us	median_us	max_us
-tzfpy_random	20000	0.828	0.708	45.083
-timezonefinder_random	20000	6.995	2.042	136.833
-tzfpy_edge	20000	1.131	1.000	23.042
-timezonefinder_edge	20000	15.814	11.708	185.291
+tzfpy_random	20000	0.775	0.666	12.708
+timezonefinder_random	20000	6.113	1.542	87.583
+tzfpy_edge	20000	0.981	0.875	7.625
+timezonefinder_edge	20000	14.314	10.208	94.625
