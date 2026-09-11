@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789093023062,
+  "lastUpdate": 1789093072927,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13168,6 +13168,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 7.612329784180054e-7",
             "extra": "mean: 1.8918849855442401 usec\nrounds: 87589"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": false,
+          "id": "53547e63ddbc2736b8435f02abb53c398375e258",
+          "message": "Restore the timezonefinder 8.3.0 bump from main\n\nThe rebase onto main (#226) kept the branch's python manifest; this\nre-applies the dependabot bump that landed there and relocks.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TTATA7tJkAjAWQ3LrSDUBC",
+          "timestamp": "2026-09-11T11:08:18+09:00",
+          "tree_id": "a94789061684011606612a9f91d17aff49887470",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/53547e63ddbc2736b8435f02abb53c398375e258"
+        },
+        "date": 1789093068080,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 33764.47349823083,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00003730668156823134",
+            "extra": "mean: 29.616928575900864 usec\nrounds: 14"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 31303.04679922505,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000024656030280262095",
+            "extra": "mean: 31.945772129272616 usec\nrounds: 18629"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 579303.8803640908,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000010143533148801185",
+            "extra": "mean: 1.726209738784251 usec\nrounds: 33084"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 504910.1854153346,
+            "unit": "iter/sec",
+            "range": "stddev: 8.571064213467302e-7",
+            "extra": "mean: 1.980550261978591 usec\nrounds: 82488"
           }
         ]
       }
