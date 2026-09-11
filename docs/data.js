@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789093299502,
+  "lastUpdate": 1789100372726,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13272,6 +13272,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 7.785199868669483e-7",
             "extra": "mean: 1.9648555798965759 usec\nrounds: 81713"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "39c9ef7a95b328838b6577c02b60523628617a0e",
+          "message": "Add new benchmark snapshot: 2026-09-11 - fa65419 (clean-machine rerun)\n\nRerun of bench, accuracy, and memory with no background load, replacing the\nearlier 2026-09-11-53547e6 snapshot whose Python latencies were taken while an\nunrelated process loaded the machine. Accuracy results are identical. Figure\ndata and the default snapshot in generate_figure_data.py now point here.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01P8w9APxpaEt2MskAV37NHP",
+          "timestamp": "2026-09-11T13:17:48+09:00",
+          "tree_id": "98ef307482fac40a9100a275dd96d2e9598a8a38",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/39c9ef7a95b328838b6577c02b60523628617a0e"
+        },
+        "date": 1789100368318,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 54959.92033730314,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000564232623328308",
+            "extra": "mean: 18.195077319303653 usec\nrounds: 14563"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 31776.334239902128,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000025013672301060965",
+            "extra": "mean: 31.469961023517985 usec\nrounds: 17780"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 741494.0629689359,
+            "unit": "iter/sec",
+            "range": "stddev: 7.347648266987454e-7",
+            "extra": "mean: 1.3486284650695766 usec\nrounds: 55085"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 476985.90797704953,
+            "unit": "iter/sec",
+            "range": "stddev: 8.614891213135101e-7",
+            "extra": "mean: 2.0964979955930176 usec\nrounds: 97286"
           }
         ]
       }
