@@ -1,8 +1,8 @@
 label	random_ns	edge_ns
-timezonemapper	100	82
+timezonemapper	109	82
 latlong	112	115
-tzf Default	324	533
-tzf Embedded	2182	10075
-tzf Full	369	589
-localtimezone	24438	21253
-go-tz	50121	39995
+tzf Default	358	554
+tzf Embedded	2207	10170
+tzf Full	395	612
+localtimezone	24565	21146
+go-tz	50107	44762
