@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789093072927,
+  "lastUpdate": 1789093099075,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13220,6 +13220,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 8.571064213467302e-7",
             "extra": "mean: 1.980550261978591 usec\nrounds: 82488"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "fa65419d634ea41ea49262e6559fc2d080382b93",
+          "message": "Regenerate README and figure data from the 2026-09-11 snapshot\n\nThe root README now carries the raw Go, Rust and Python results of\nsnapshot/2026-09-11-53547e63…, measured locally on an Apple M3 Max\nagainst the released tzf/v2 v2.0.0, tzf-rs 2.0.0 and tzfpy 2.0.0, in\nplace of the v1-era GitHub Actions paste from 7ca78cc. The figure\ngenerator defaults to the same snapshot.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TTATA7tJkAjAWQ3LrSDUBC",
+          "timestamp": "2026-09-11T11:17:49+09:00",
+          "tree_id": "2ff2140b8c5288b1a79d2b16af3e20ef3a54ea64",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/fa65419d634ea41ea49262e6559fc2d080382b93"
+        },
+        "date": 1789093094126,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 51361.73429127166,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0005894275705754712",
+            "extra": "mean: 19.4697475425774 usec\nrounds: 12513"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 30138.225319204415,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00002830289817417023",
+            "extra": "mean: 33.18045403830692 usec\nrounds: 12010"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 736661.5445841308,
+            "unit": "iter/sec",
+            "range": "stddev: 6.764107976272336e-7",
+            "extra": "mean: 1.357475501947821 usec\nrounds: 43432"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 508943.2578310092,
+            "unit": "iter/sec",
+            "range": "stddev: 7.785199868669483e-7",
+            "extra": "mean: 1.9648555798965759 usec\nrounds: 81713"
           }
         ]
       }
