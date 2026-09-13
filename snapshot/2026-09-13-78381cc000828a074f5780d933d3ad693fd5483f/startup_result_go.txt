@@ -1,0 +1,5 @@
+startup cost per finder (best/median of 7 builds, ms; 16 cores vs 1 core)
+DefaultFinder (lite .tzm, aliased)     open_best=    8.67  open_median=    9.88  one_core_best=   28.80  one_core_median=   29.09  alloc_mib=   35.3  allocs=   15188  (ms)
+expanded (lite .tzb)                   open_best=   17.66  open_median=   17.99  one_core_best=   37.63  one_core_median=   38.84  alloc_mib=   55.9  allocs=   85852  (ms)
+EmbeddedFinder (lite .tzb, in place)   open_best=    1.66  open_median=    1.71  one_core_best=    1.66  one_core_median=    1.67  alloc_mib=    0.0  allocs=     515  (ms)
+FullFinder (full .tzb, expanded)       open_best=   67.32  open_median=   68.98  one_core_best=  199.31  one_core_median=  201.10  alloc_mib=  373.5  allocs=   87633  (ms)
