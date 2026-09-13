@@ -1,0 +1,43 @@
+throughput scaling per candidate (shared instance, random world cities, 1s budget per row, wall ns per query; NumCPU=16)
+tzf DefaultFinder    threads= 1  ns_per_op=     329.4  ops_per_s=     3035713  scaling=  1.00x
+tzf DefaultFinder    threads= 2  ns_per_op=     162.7  ops_per_s=     6146670  scaling=  2.02x
+tzf DefaultFinder    threads= 4  ns_per_op=      83.5  ops_per_s=    11978351  scaling=  3.95x
+tzf DefaultFinder    threads= 8  ns_per_op=      42.7  ops_per_s=    23439910  scaling=  7.72x
+tzf DefaultFinder    threads=12  ns_per_op=      28.4  ops_per_s=    35178318  scaling= 11.59x
+tzf DefaultFinder    threads=16  ns_per_op=      26.3  ops_per_s=    38040603  scaling= 12.53x
+tzf EmbeddedFinder   threads= 1  ns_per_op=    2214.8  ops_per_s=      451517  scaling=  1.00x
+tzf EmbeddedFinder   threads= 2  ns_per_op=    2772.8  ops_per_s=      360648  scaling=  0.80x
+tzf EmbeddedFinder   threads= 4  ns_per_op=    2755.9  ops_per_s=      362863  scaling=  0.80x
+tzf EmbeddedFinder   threads= 8  ns_per_op=    2784.2  ops_per_s=      359165  scaling=  0.80x
+tzf EmbeddedFinder   threads=12  ns_per_op=    2697.1  ops_per_s=      370765  scaling=  0.82x
+tzf EmbeddedFinder   threads=16  ns_per_op=    2687.4  ops_per_s=      372107  scaling=  0.82x
+tzf FullFinder       threads= 1  ns_per_op=     374.5  ops_per_s=     2670101  scaling=  1.00x
+tzf FullFinder       threads= 2  ns_per_op=     190.4  ops_per_s=     5251112  scaling=  1.97x
+tzf FullFinder       threads= 4  ns_per_op=      92.0  ops_per_s=    10871438  scaling=  4.07x
+tzf FullFinder       threads= 8  ns_per_op=      49.1  ops_per_s=    20349989  scaling=  7.62x
+tzf FullFinder       threads=12  ns_per_op=      32.5  ops_per_s=    30775755  scaling= 11.53x
+tzf FullFinder       threads=16  ns_per_op=      29.3  ops_per_s=    34088038  scaling= 12.77x
+latlong              threads= 1  ns_per_op=     101.5  ops_per_s=     9850155  scaling=  1.00x
+latlong              threads= 2  ns_per_op=      51.6  ops_per_s=    19389878  scaling=  1.97x
+latlong              threads= 4  ns_per_op=      24.9  ops_per_s=    40198114  scaling=  4.08x
+latlong              threads= 8  ns_per_op=      12.4  ops_per_s=    80635913  scaling=  8.19x
+latlong              threads=12  ns_per_op=       8.2  ops_per_s=   121425081  scaling= 12.33x
+latlong              threads=16  ns_per_op=       7.6  ops_per_s=   131685120  scaling= 13.37x
+timezonemapper       threads= 1  ns_per_op=      84.6  ops_per_s=    11813779  scaling=  1.00x
+timezonemapper       threads= 2  ns_per_op=      41.6  ops_per_s=    24038435  scaling=  2.03x
+timezonemapper       threads= 4  ns_per_op=      20.6  ops_per_s=    48514391  scaling=  4.11x
+timezonemapper       threads= 8  ns_per_op=      10.5  ops_per_s=    95338109  scaling=  8.07x
+timezonemapper       threads=12  ns_per_op=       6.8  ops_per_s=   146407921  scaling= 12.39x
+timezonemapper       threads=16  ns_per_op=       6.3  ops_per_s=   158453967  scaling= 13.41x
+localtimezone        threads= 1  ns_per_op=   24410.7  ops_per_s=       40966  scaling=  1.00x
+localtimezone        threads= 2  ns_per_op=   12355.3  ops_per_s=       80937  scaling=  1.98x
+localtimezone        threads= 4  ns_per_op=    6327.7  ops_per_s=      158035  scaling=  3.86x
+localtimezone        threads= 8  ns_per_op=    3200.8  ops_per_s=      312426  scaling=  7.63x
+localtimezone        threads=12  ns_per_op=    2169.3  ops_per_s=      460986  scaling= 11.25x
+localtimezone        threads=16  ns_per_op=    1988.6  ops_per_s=      502876  scaling= 12.28x
+go-tz                threads= 1  ns_per_op=   50398.8  ops_per_s=       19842  scaling=  1.00x
+go-tz                threads= 2  ns_per_op=   25574.0  ops_per_s=       39102  scaling=  1.97x
+go-tz                threads= 4  ns_per_op=   13108.3  ops_per_s=       76287  scaling=  3.84x
+go-tz                threads= 8  ns_per_op=    6507.4  ops_per_s=      153672  scaling=  7.74x
+go-tz                threads=12  ns_per_op=    4638.5  ops_per_s=      215585  scaling= 10.87x
+go-tz                threads=16  ns_per_op=    4082.0  ops_per_s=      244978  scaling= 12.35x
