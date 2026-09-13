@@ -13,6 +13,12 @@ Raw sources:
 - `memory_result_go.txt`
 - `memory_result_python.txt`
 - `memory_result_rust.txt`
+- `startup_result_go.txt`
+- `startup_result_python.txt`
+- `startup_result_rust.txt`
+- `concurrency_result_go.txt`
+- `concurrency_result_python.txt`
+- `concurrency_result_rust.txt`
 
 ## Performance
 
@@ -190,3 +196,148 @@ and `Live`; their `RSS after load` / `RSS after loop` are the old `post_load` /
 | zone-detect | 5.8 | 10.0 | 4.1 | 10.0 | 10.1 | 10.1 | 4.2 |
 | spatialtime OSM | 5.8 | 157.7 | 64.0 | 157.7 | 170.4 | 170.4 | 151.9 |
 | spatialtime NED | 5.8 | 14.1 | 4.0 | 14.1 | 14.3 | 14.3 | 8.3 |
+
+
+
+## Startup
+
+Time for a fresh process to construct a finder and answer its first query.
+Go reports best/median over repeated builds with all cores and with
+`GOMAXPROCS=1`, plus the bytes and allocations of one build; Rust reports
+best/median over repeated builds; Python reports import, construction, and
+first-call time of a fresh interpreter (best sample, with medians in
+parentheses). See the header comment of each harness for details.
+
+### `startup_result_go.txt`
+
+```
+startup cost per finder (best/median of 7 builds, ms; 16 cores vs 1 core)
+DefaultFinder (lite .tzm, aliased)     open_best=    9.78  open_median=   10.70  one_core_best=   28.97  one_core_median=   30.18  alloc_mib=   35.3  allocs=   15206  (ms)
+expanded (lite .tzb)                   open_best=   18.17  open_median=   18.68  one_core_best=   38.21  one_core_median=   38.99  alloc_mib=   55.9  allocs=   85855  (ms)
+EmbeddedFinder (lite .tzb, in place)   open_best=    1.69  open_median=    1.71  one_core_best=    1.66  one_core_median=    1.68  alloc_mib=    0.0  allocs=     515  (ms)
+FullFinder (full .tzb, expanded)       open_best=   68.05  open_median=   69.92  one_core_best=  200.99  one_core_median=  205.13  alloc_mib=  373.5  allocs=   87633  (ms)
+```
+
+### `startup_result_python.txt`
+
+```
+startup cost per candidate (fresh interpreter per sample, best/median of 7, ms)
+tzfpy (DefaultFinder)            import=    0.8  construct=    0.0  first_call=   14.6  total_best=   15.5  total_median=   15.9  (median import=0.8 construct=0.0 first_call=15.1)  (ms)
+timezonefinder                   import=   43.3  construct=  245.7  first_call=    0.0  total_best=  289.0  total_median=  302.0  (median import=45.7 construct=249.7 first_call=0.0)  (ms)
+```
+
+### `startup_result_rust.txt`
+
+```
+startup cost per finder (best/median of 7 builds, construct + first query, ms)
+DefaultFinder (lite .tzb, expanded)    open_best=   12.54  open_median=   13.43  (ms)
+EmbeddedFinder (lite .tzb, in place)   open_best=    1.99  open_median=    2.01  (ms)
+```
+
+
+## Concurrency
+
+Wall-clock time per query when one shared finder is queried from N threads at
+once (fixed budget per row; each thread draws random world cities from its own
+PRNG). A candidate that scales perfectly halves `ns_per_op` every time the
+thread count doubles; `scaling` is the throughput ratio relative to one thread.
+A flat `ns_per_op` means queries serialize on shared state (a mutex, a shared
+scratch buffer, or the Python interpreter lock).
+
+### `concurrency_result_go.txt`
+
+```
+throughput scaling per candidate (shared instance, random world cities, 1s budget per row, wall ns per query; NumCPU=16)
+tzf DefaultFinder    threads= 1  ns_per_op=     350.9  ops_per_s=     2849953  scaling=  1.00x
+tzf DefaultFinder    threads= 2  ns_per_op=     170.8  ops_per_s=     5853465  scaling=  2.05x
+tzf DefaultFinder    threads= 4  ns_per_op=      85.6  ops_per_s=    11677750  scaling=  4.10x
+tzf DefaultFinder    threads= 8  ns_per_op=      43.3  ops_per_s=    23111572  scaling=  8.11x
+tzf DefaultFinder    threads=12  ns_per_op=      28.7  ops_per_s=    34823159  scaling= 12.22x
+tzf DefaultFinder    threads=16  ns_per_op=      26.2  ops_per_s=    38109811  scaling= 13.37x
+tzf EmbeddedFinder   threads= 1  ns_per_op=    2282.6  ops_per_s=      438106  scaling=  1.00x
+tzf EmbeddedFinder   threads= 2  ns_per_op=    2761.2  ops_per_s=      362162  scaling=  0.83x
+tzf EmbeddedFinder   threads= 4  ns_per_op=    3087.4  ops_per_s=      323896  scaling=  0.74x
+tzf EmbeddedFinder   threads= 8  ns_per_op=    3659.8  ops_per_s=      273239  scaling=  0.62x
+tzf EmbeddedFinder   threads=12  ns_per_op=    2745.9  ops_per_s=      364180  scaling=  0.83x
+tzf EmbeddedFinder   threads=16  ns_per_op=    2703.4  ops_per_s=      369903  scaling=  0.84x
+tzf FullFinder       threads= 1  ns_per_op=     460.4  ops_per_s=     2172156  scaling=  1.00x
+tzf FullFinder       threads= 2  ns_per_op=     235.4  ops_per_s=     4247267  scaling=  1.96x
+tzf FullFinder       threads= 4  ns_per_op=      96.0  ops_per_s=    10417335  scaling=  4.80x
+tzf FullFinder       threads= 8  ns_per_op=      48.8  ops_per_s=    20505913  scaling=  9.44x
+tzf FullFinder       threads=12  ns_per_op=      32.0  ops_per_s=    31273801  scaling= 14.40x
+tzf FullFinder       threads=16  ns_per_op=      31.2  ops_per_s=    32086840  scaling= 14.77x
+latlong              threads= 1  ns_per_op=     114.7  ops_per_s=     8717850  scaling=  1.00x
+latlong              threads= 2  ns_per_op=      54.3  ops_per_s=    18431626  scaling=  2.11x
+latlong              threads= 4  ns_per_op=      25.8  ops_per_s=    38789368  scaling=  4.45x
+latlong              threads= 8  ns_per_op=      12.7  ops_per_s=    78731400  scaling=  9.03x
+latlong              threads=12  ns_per_op=       8.4  ops_per_s=   119407728  scaling= 13.70x
+latlong              threads=16  ns_per_op=       8.1  ops_per_s=   122896434  scaling= 14.10x
+timezonemapper       threads= 1  ns_per_op=      95.9  ops_per_s=    10422276  scaling=  1.00x
+timezonemapper       threads= 2  ns_per_op=      44.5  ops_per_s=    22449554  scaling=  2.15x
+timezonemapper       threads= 4  ns_per_op=      22.0  ops_per_s=    45420666  scaling=  4.36x
+timezonemapper       threads= 8  ns_per_op=      10.7  ops_per_s=    93052983  scaling=  8.93x
+timezonemapper       threads=12  ns_per_op=       7.1  ops_per_s=   140518722  scaling= 13.48x
+timezonemapper       threads=16  ns_per_op=       6.9  ops_per_s=   145399321  scaling= 13.95x
+localtimezone        threads= 1  ns_per_op=   24805.5  ops_per_s=       40314  scaling=  1.00x
+localtimezone        threads= 2  ns_per_op=   12637.5  ops_per_s=       79130  scaling=  1.96x
+localtimezone        threads= 4  ns_per_op=    6396.7  ops_per_s=      156332  scaling=  3.88x
+localtimezone        threads= 8  ns_per_op=    3182.2  ops_per_s=      314245  scaling=  7.80x
+localtimezone        threads=12  ns_per_op=    2174.3  ops_per_s=      459918  scaling= 11.41x
+localtimezone        threads=16  ns_per_op=    1900.7  ops_per_s=      526121  scaling= 13.05x
+go-tz                threads= 1  ns_per_op=   50889.3  ops_per_s=       19650  scaling=  1.00x
+go-tz                threads= 2  ns_per_op=   25831.6  ops_per_s=       38712  scaling=  1.97x
+go-tz                threads= 4  ns_per_op=   13052.6  ops_per_s=       76613  scaling=  3.90x
+go-tz                threads= 8  ns_per_op=    6513.7  ops_per_s=      153523  scaling=  7.81x
+go-tz                threads=12  ns_per_op=    4769.9  ops_per_s=      209647  scaling= 10.67x
+go-tz                threads=16  ns_per_op=    4380.2  ops_per_s=      228302  scaling= 11.62x
+```
+
+### `concurrency_result_python.txt`
+
+```
+throughput scaling per candidate (shared instance, random world cities, 1 s budget per row, wall us per query; GIL enabled, cpu_count=16)
+tzfpy (DefaultFinder)    threads= 1  us_per_op=    0.675  ops_per_s=     1481414  scaling=  1.00x
+tzfpy (DefaultFinder)    threads= 2  us_per_op=    0.800  ops_per_s=     1249418  scaling=  0.84x
+tzfpy (DefaultFinder)    threads= 4  us_per_op=    0.935  ops_per_s=     1069998  scaling=  0.72x
+tzfpy (DefaultFinder)    threads= 8  us_per_op=    0.667  ops_per_s=     1499029  scaling=  1.01x
+timezonefinder           threads= 1  us_per_op=    6.599  ops_per_s=      151533  scaling=  1.00x
+timezonefinder           threads= 2  us_per_op=    5.640  ops_per_s=      177321  scaling=  1.17x
+timezonefinder           threads= 4  us_per_op=    6.590  ops_per_s=      151755  scaling=  1.00x
+timezonefinder           threads= 8  us_per_op=    6.702  ops_per_s=      149210  scaling=  0.98x
+```
+
+### `concurrency_result_rust.txt`
+
+```
+throughput scaling per candidate (shared instance, random world cities, 1s budget per row, wall ns per query; available_parallelism=16)
+tzf-rs DefaultFinder threads= 1  ns_per_op=     213.6  ops_per_s=     4681799  scaling=  1.00x
+tzf-rs DefaultFinder threads= 2  ns_per_op=     104.3  ops_per_s=     9585221  scaling=  2.05x
+tzf-rs DefaultFinder threads= 4  ns_per_op=      52.3  ops_per_s=    19113536  scaling=  4.08x
+tzf-rs DefaultFinder threads= 8  ns_per_op=      31.4  ops_per_s=    31846403  scaling=  6.80x
+tzf-rs DefaultFinder threads=12  ns_per_op=      20.6  ops_per_s=    48570731  scaling= 10.37x
+tzf-rs DefaultFinder threads=16  ns_per_op=      18.0  ops_per_s=    55455189  scaling= 11.84x
+tzf-rs EmbeddedFinder threads= 1  ns_per_op=    1378.9  ops_per_s=      725192  scaling=  1.00x
+tzf-rs EmbeddedFinder threads= 2  ns_per_op=     634.1  ops_per_s=     1577137  scaling=  2.17x
+tzf-rs EmbeddedFinder threads= 4  ns_per_op=     310.6  ops_per_s=     3219964  scaling=  4.44x
+tzf-rs EmbeddedFinder threads= 8  ns_per_op=     157.5  ops_per_s=     6349268  scaling=  8.76x
+tzf-rs EmbeddedFinder threads=12  ns_per_op=     108.5  ops_per_s=     9220007  scaling= 12.71x
+tzf-rs EmbeddedFinder threads=16  ns_per_op=     107.6  ops_per_s=     9292531  scaling= 12.81x
+tz-search            threads= 1  ns_per_op=     106.2  ops_per_s=     9420077  scaling=  1.00x
+tz-search            threads= 2  ns_per_op=      50.8  ops_per_s=    19682648  scaling=  2.09x
+tz-search            threads= 4  ns_per_op=      25.2  ops_per_s=    39698442  scaling=  4.21x
+tz-search            threads= 8  ns_per_op=      12.8  ops_per_s=    78066113  scaling=  8.29x
+tz-search            threads=12  ns_per_op=      10.0  ops_per_s=   100490500  scaling= 10.67x
+tz-search            threads=16  ns_per_op=       8.0  ops_per_s=   125354119  scaling= 13.31x
+rtz (OSM)            threads= 1  ns_per_op=    1660.2  ops_per_s=      602328  scaling=  1.00x
+rtz (OSM)            threads= 2  ns_per_op=     791.1  ops_per_s=     1263988  scaling=  2.10x
+rtz (OSM)            threads= 4  ns_per_op=     389.1  ops_per_s=     2569988  scaling=  4.27x
+rtz (OSM)            threads= 8  ns_per_op=     190.9  ops_per_s=     5238717  scaling=  8.70x
+rtz (OSM)            threads=12  ns_per_op=     142.4  ops_per_s=     7024051  scaling= 11.66x
+rtz (OSM)            threads=16  ns_per_op=     134.0  ops_per_s=     7461604  scaling= 12.39x
+rtz (NED)            threads= 1  ns_per_op=     495.6  ops_per_s=     2017877  scaling=  1.00x
+rtz (NED)            threads= 2  ns_per_op=     236.3  ops_per_s=     4231472  scaling=  2.10x
+rtz (NED)            threads= 4  ns_per_op=      96.2  ops_per_s=    10390762  scaling=  5.15x
+rtz (NED)            threads= 8  ns_per_op=      47.9  ops_per_s=    20882380  scaling= 10.35x
+rtz (NED)            threads=12  ns_per_op=      34.4  ops_per_s=    29029641  scaling= 14.39x
+rtz (NED)            threads=16  ns_per_op=      31.8  ops_per_s=    31452649  scaling= 15.59x
+```

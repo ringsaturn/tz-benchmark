@@ -1,0 +1,3 @@
+startup cost per finder (best/median of 7 builds, construct + first query, ms)
+DefaultFinder (lite .tzb, expanded)    open_best=   12.54  open_median=   13.43  (ms)
+EmbeddedFinder (lite .tzb, in place)   open_best=    1.99  open_median=    2.01  (ms)

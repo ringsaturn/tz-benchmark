@@ -62,6 +62,26 @@ and `Live`; their `RSS after load` / `RSS after loop` are the old `post_load` /
 """
 
 
+RAW_NOTES = {
+    "Startup": """\
+Time for a fresh process to construct a finder and answer its first query.
+Go reports best/median over repeated builds with all cores and with
+`GOMAXPROCS=1`, plus the bytes and allocations of one build; Rust reports
+best/median over repeated builds; Python reports import, construction, and
+first-call time of a fresh interpreter (best sample, with medians in
+parentheses). See the header comment of each harness for details.
+""",
+    "Concurrency": """\
+Wall-clock time per query when one shared finder is queried from N threads at
+once (fixed budget per row; each thread draws random world cities from its own
+PRNG). A candidate that scales perfectly halves `ns_per_op` every time the
+thread count doubles; `scaling` is the throughput ratio relative to one thread.
+A flat `ns_per_op` means queries serialize on shared state (a mutex, a shared
+scratch buffer, or the Python interpreter lock).
+""",
+}
+
+
 def md_escape(value: object) -> str:
     return str(value).replace("|", r"\|")
 
@@ -333,6 +353,20 @@ def build_readme(snapshot_dir: Path) -> str:
         if path.is_file()
     ]
 
+    raw_inputs = [
+        ("Startup", "startup_result_go.txt"),
+        ("Startup", "startup_result_python.txt"),
+        ("Startup", "startup_result_rust.txt"),
+        ("Concurrency", "concurrency_result_go.txt"),
+        ("Concurrency", "concurrency_result_python.txt"),
+        ("Concurrency", "concurrency_result_rust.txt"),
+    ]
+    raw_sections = [
+        (section, path.name, path.read_text().rstrip())
+        for section, name in raw_inputs
+        if (path := snapshot_dir / name).is_file()
+    ]
+
     lines = [
         f"# Benchmark Snapshot {snapshot_dir.name}",
         "",
@@ -350,6 +384,8 @@ def build_readme(snapshot_dir: Path) -> str:
     for _, path in memory_inputs:
         if path.is_file():
             lines.append(f"- `{path.name}`")
+    for _, name, _ in raw_sections:
+        lines.append(f"- `{name}`")
     lines.extend(["", "## Performance", "", "### Go", ""])
     if go_meta:
         lines.extend(f"- `{item}`" for item in go_meta)
@@ -364,6 +400,12 @@ def build_readme(snapshot_dir: Path) -> str:
         lines.extend(["", "## Memory", "", MEMORY_NOTE])
         for label, headers, rows in memory_sections:
             lines.extend([f"### {label}", "", markdown_table(headers, rows), ""])
+    last_section = None
+    for section, name, text in raw_sections:
+        if section != last_section:
+            lines.extend(["", f"## {section}", "", RAW_NOTES[section]])
+            last_section = section
+        lines.extend([f"### `{name}`", "", "```", text, "```", ""])
     return "\n".join(lines).rstrip() + "\n"
 
 

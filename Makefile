@@ -1,4 +1,4 @@
-.PHONY: trigger all accuracy memory figures new-snapshot clean
+.PHONY: trigger all accuracy memory startup concurrency figures new-snapshot clean
 
 trigger:
 	git commit --allow-empty -m "trigger ci"
@@ -20,10 +20,20 @@ memory:
 	cd python; uv sync; uv run python memory.py | tee ../memory_result_python.txt
 	cd rust; cargo run --release --example memory | tee ../memory_result_rust.txt
 
+startup:
+	cd go; go run ./internal/cmd/startup | tee ../startup_result_go.txt
+	cd python; uv sync; uv run python startup.py | tee ../startup_result_python.txt
+	cd rust; cargo run --release --example startup | tee ../startup_result_rust.txt
+
+concurrency:
+	cd go; go run ./internal/cmd/concurrency | tee ../concurrency_result_go.txt
+	cd python; uv sync; uv run python concurrency.py | tee ../concurrency_result_python.txt
+	cd rust; cargo run --release --example concurrency | tee ../concurrency_result_rust.txt
+
 figures:
 	cd python; uv sync; uv run python ../scripts/generate_figure_data.py
 
-new-snapshot: clean all accuracy memory
+new-snapshot: clean all accuracy memory startup concurrency
 	@set -e; \
 	snapshot_dir="snapshot/$$(date +%F)-$$(git rev-parse HEAD)"; \
 	mkdir -p "$$snapshot_dir"; \
@@ -35,10 +45,12 @@ new-snapshot: clean all accuracy memory
 	cp benchmark_result_*.txt "$$snapshot_dir"/; \
 	cp accuracy_result_*.txt "$$snapshot_dir"/; \
 	cp memory_result_*.txt "$$snapshot_dir"/; \
+	cp startup_result_*.txt "$$snapshot_dir"/; \
+	cp concurrency_result_*.txt "$$snapshot_dir"/; \
 	python3 scripts/generate_snapshot_readmes.py --snapshot-root snapshot; \
 	echo "Created $$snapshot_dir"; \
 	git add -f "$$snapshot_dir"; \
 	git commit -m "Add new benchmark snapshot: $$(date +%F) - $$(git rev-parse HEAD)"
 
 clean:
-	rm -f benchmark_result_*.txt accuracy_result_*.txt memory_result_*.txt
+	rm -f benchmark_result_*.txt accuracy_result_*.txt memory_result_*.txt startup_result_*.txt concurrency_result_*.txt

@@ -1,0 +1,9 @@
+throughput scaling per candidate (shared instance, random world cities, 1 s budget per row, wall us per query; GIL enabled, cpu_count=16)
+tzfpy (DefaultFinder)    threads= 1  us_per_op=    0.675  ops_per_s=     1481414  scaling=  1.00x
+tzfpy (DefaultFinder)    threads= 2  us_per_op=    0.800  ops_per_s=     1249418  scaling=  0.84x
+tzfpy (DefaultFinder)    threads= 4  us_per_op=    0.935  ops_per_s=     1069998  scaling=  0.72x
+tzfpy (DefaultFinder)    threads= 8  us_per_op=    0.667  ops_per_s=     1499029  scaling=  1.01x
+timezonefinder           threads= 1  us_per_op=    6.599  ops_per_s=      151533  scaling=  1.00x
+timezonefinder           threads= 2  us_per_op=    5.640  ops_per_s=      177321  scaling=  1.17x
+timezonefinder           threads= 4  us_per_op=    6.590  ops_per_s=      151755  scaling=  1.00x
+timezonefinder           threads= 8  us_per_op=    6.702  ops_per_s=      149210  scaling=  0.98x
