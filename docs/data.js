@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789100576621,
+  "lastUpdate": 1789274691115,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13324,6 +13324,58 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 8.614891213135101e-7",
             "extra": "mean: 2.0964979955930176 usec\nrounds: 97286"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "0fc4e515f9eab71ddc895fe62e5fa1afb910d5ba",
+          "message": "Add startup and concurrency harnesses (Go, Rust, Python)\n\n- `make startup`: time to construct a finder and answer its first query.\n  Go reports best/median over repeated builds with all cores and with\n  GOMAXPROCS=1 plus allocation totals; Rust reports best/median; Python\n  reports import, construction and first-call time of a fresh interpreter.\n- `make concurrency`: wall-clock ns per query when one shared finder is\n  queried from N threads under a fixed budget, with the throughput ratio\n  relative to one thread. Covers every Go and Rust candidate that can be\n  shared across threads, and tzfpy/timezonefinder under the GIL.\n- Snapshot READMEs render the new result files as raw sections.\n- Results measured 2026-09-13 on the same pinned versions as the\n  2026-09-11 fa65419 snapshot are added to that snapshot directory.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LE9kVAfxUCg5iWV9LaWv8c",
+          "timestamp": "2026-09-13T13:40:25+09:00",
+          "tree_id": "69597d7a7f5ad6f720ad9d61fc2317200d77269d",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/0fc4e515f9eab71ddc895fe62e5fa1afb910d5ba"
+        },
+        "date": 1789274686547,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 41411.61855363072,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00002775228498072771",
+            "extra": "mean: 24.14781249626685 usec\nrounds: 16"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 32417.176685687336,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000024961116510668454",
+            "extra": "mean: 30.847843712482053 usec\nrounds: 20795"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 799256.6081931582,
+            "unit": "iter/sec",
+            "range": "stddev: 6.549916156821924e-7",
+            "extra": "mean: 1.2511626300602667 usec\nrounds: 53348"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 592965.402270626,
+            "unit": "iter/sec",
+            "range": "stddev: 6.802994102326363e-7",
+            "extra": "mean: 1.6864390336615382 usec\nrounds: 100211"
           }
         ]
       }
