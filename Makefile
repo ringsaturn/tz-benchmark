@@ -1,5 +1,14 @@
 .PHONY: trigger all accuracy memory startup concurrency figures new-snapshot clean
 
+# tzfpy's lite (PyPI) and experimental full-precision (+full) builds share one
+# distribution name and API, so they live in two mutually exclusive dependency
+# groups and two venvs (python/pyproject.toml). Every Python harness runs once
+# per venv: the lite pass writes the result file, the full pass appends only
+# its tzfpy rows. Both `uv sync` and `uv run` need the group flags, or uv
+# re-syncs the venv back to the default (lite) group.
+UV_FULL = UV_PROJECT_ENVIRONMENT=.venv-full uv
+UV_FULL_GROUPS = --no-default-groups --group full
+
 trigger:
 	git commit --allow-empty -m "trigger ci"
 	git push
@@ -9,29 +18,35 @@ all:
 	cd rust; cargo bench | tee ../benchmark_result_rust.txt
 	# 	--benchmark-json output.json
 	cd python; uv sync; uv run pytest tz_test.py | tee ../benchmark_result_python.txt
+	cd python; $(UV_FULL) sync $(UV_FULL_GROUPS); $(UV_FULL) run $(UV_FULL_GROUPS) pytest tz_test.py -k tzfpy_full | tee -a ../benchmark_result_python.txt
 
 accuracy:
 	cd go; go run ./internal/cmd/accuracy | tee ../accuracy_result_go.txt
 	cd python; uv sync; uv run python accuracy.py | tee ../accuracy_result_python.txt
+	cd python; $(UV_FULL) sync $(UV_FULL_GROUPS); $(UV_FULL) run $(UV_FULL_GROUPS) python accuracy.py --only tzfpy | tee -a ../accuracy_result_python.txt
 	cd rust; cargo run --example accuracy | tee ../accuracy_result_rust.txt
 
 memory:
 	cd go; go run ./internal/cmd/memory | tee ../memory_result_go.txt
 	cd python; uv sync; uv run python memory.py | tee ../memory_result_python.txt
+	cd python; $(UV_FULL) sync $(UV_FULL_GROUPS); $(UV_FULL) run $(UV_FULL_GROUPS) python memory.py --only tzfpy | tee -a ../memory_result_python.txt
 	cd rust; cargo run --release --example memory | tee ../memory_result_rust.txt
 
 startup:
 	cd go; go run ./internal/cmd/startup | tee ../startup_result_go.txt
 	cd python; uv sync; uv run python startup.py | tee ../startup_result_python.txt
+	cd python; $(UV_FULL) sync $(UV_FULL_GROUPS); $(UV_FULL) run $(UV_FULL_GROUPS) python startup.py --only tzfpy | tee -a ../startup_result_python.txt
 	cd rust; cargo run --release --example startup | tee ../startup_result_rust.txt
 
 concurrency:
 	cd go; go run ./internal/cmd/concurrency | tee ../concurrency_result_go.txt
 	cd python; uv sync; uv run python concurrency.py | tee ../concurrency_result_python.txt
+	cd python; $(UV_FULL) sync $(UV_FULL_GROUPS); $(UV_FULL) run $(UV_FULL_GROUPS) python concurrency.py --only tzfpy | tee -a ../concurrency_result_python.txt
 	cd rust; cargo run --release --example concurrency | tee ../concurrency_result_rust.txt
 
 figures:
 	cd python; uv sync; uv run python ../scripts/generate_figure_data.py
+	cd python; $(UV_FULL) sync $(UV_FULL_GROUPS); $(UV_FULL) run $(UV_FULL_GROUPS) python ../scripts/generate_figure_data.py --python-only-tzfpy
 
 new-snapshot: clean all accuracy memory startup concurrency
 	@set -e; \

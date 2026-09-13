@@ -17,9 +17,13 @@ deployment sidesteps the question at the cost of one finder per process; see
 timezonefinder is constructed with ``in_memory=True``, the same configuration
 used by the query benchmarks and memory probe in this repository.
 
-Usage: uv run python concurrency.py
+Usage: uv run python concurrency.py [--only CANDIDATE ...]
+
+The tzfpy row is labelled after the installed variant (see tzfpy_variant.py);
+the full-precision venv appends its rows with ``--only tzfpy``.
 """
 
+import argparse
 import os
 import random
 import sys
@@ -30,6 +34,8 @@ import citiespy
 
 BUDGET_S = 1.0
 THREAD_COUNTS = [1, 2, 4, 8]
+
+CANDIDATES = ["tzfpy", "timezonefinder"]
 
 
 def run(fn, threads: int, cities) -> float:
@@ -58,15 +64,23 @@ def run(fn, threads: int, cities) -> float:
 
 
 def main() -> None:
-    import tzfpy
-    from timezonefinder import TimezoneFinder
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--only", nargs="+", choices=CANDIDATES, default=CANDIDATES)
+    args = parser.parse_args()
 
-    tf = TimezoneFinder(in_memory=True)
     cities = citiespy.all_cities()
-    candidates = [
-        ("tzfpy (DefaultFinder)", tzfpy.get_tz),
-        ("timezonefinder", lambda lng, lat: tf.timezone_at(lng=lng, lat=lat)),
-    ]
+    candidates = []
+    if "tzfpy" in args.only:
+        import tzfpy
+
+        import tzfpy_variant
+
+        candidates.append((tzfpy_variant.LABEL, tzfpy.get_tz))
+    if "timezonefinder" in args.only:
+        from timezonefinder import TimezoneFinder
+
+        tf = TimezoneFinder(in_memory=True)
+        candidates.append(("timezonefinder", lambda lng, lat: tf.timezone_at(lng=lng, lat=lat)))
     gil = "free-threaded" if not getattr(sys, "_is_gil_enabled", lambda: True)() else "GIL enabled"
     print(
         f"throughput scaling per candidate (shared instance, random world cities, "
@@ -80,7 +94,7 @@ def main() -> None:
             if n == 1:
                 base = us
             print(
-                f"{label:<24} threads={n:2}  us_per_op={us:9.3f}  ops_per_s={1e6 / us:12.0f}  scaling={base / us:6.2f}x",
+                f"{label:<28} threads={n:2}  us_per_op={us:9.3f}  ops_per_s={1e6 / us:12.0f}  scaling={base / us:6.2f}x",
                 flush=True,
             )
 

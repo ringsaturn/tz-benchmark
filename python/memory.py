@@ -38,7 +38,10 @@ Reported columns (MiB):
   * peak:       ru_maxrss high-water mark at the end of the run
   * delta:      rss_load - baseline, the cost attributable to the candidate
 
-Usage: uv run python memory.py
+Usage: uv run python memory.py [--only CANDIDATE ...]
+
+The tzfpy row is labelled after the installed variant (see tzfpy_variant.py);
+the full-precision venv appends its row with ``--only tzfpy``.
 """
 
 import argparse
@@ -88,7 +91,9 @@ def build(key):
     if key == "tzfpy":
         import tzfpy
 
-        return "tzfpy (DefaultFinder)", tzfpy.get_tz
+        # Label resolved after the measurements: importlib.metadata alone
+        # costs ~6 MiB of RSS, which would land in the tzfpy row.
+        return "tzfpy", tzfpy.get_tz
     raise ValueError(f"unknown candidate: {key}")
 
 
@@ -106,18 +111,24 @@ def run_child(key: str) -> None:
         for lng, lat in POINTS:
             lookup(lng, lat)
     rss_loop = rss_mib()
+    peak = peak_mib()
 
+    if key == "tzfpy":
+        import tzfpy_variant
+
+        label = tzfpy_variant.LABEL
     print(
         f"{label:<32} baseline={baseline:7.1f}  init_peak={init_peak:7.1f}  "
         f"live={'n/a':>7}  rss_load={rss_load:7.1f}  "
-        f"rss_loop={rss_loop:7.1f}  peak={peak_mib():7.1f}  "
+        f"rss_loop={rss_loop:7.1f}  peak={peak:7.1f}  "
         f"delta={rss_load - baseline:7.1f}  (MiB)"
     )
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--candidate", choices=CANDIDATES)
+    parser.add_argument("--candidate", choices=CANDIDATES, help=argparse.SUPPRESS)
+    parser.add_argument("--only", nargs="+", choices=CANDIDATES, default=CANDIDATES)
     args = parser.parse_args()
 
     if args.candidate:
@@ -128,7 +139,7 @@ def main() -> None:
         "memory footprint per candidate (isolated child process, RSS in MiB)",
         flush=True,
     )
-    for key in CANDIDATES:
+    for key in args.only:
         subprocess.run(
             [sys.executable, os.path.abspath(__file__), "--candidate", key],
             check=True,

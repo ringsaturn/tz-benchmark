@@ -1,13 +1,21 @@
 # Accuracy comparison of timezonefinder and tzfpy against the tzf
 # full-precision ground truth (gt_*.csv produced by go/internal/cmd/accuracy).
 #
-# Usage: uv run python accuracy.py
+# Usage: uv run python accuracy.py [--only CANDIDATE ...]
+#
+# The tzfpy row is labelled after the installed variant (see tzfpy_variant.py);
+# the full-precision venv appends its row with `--only tzfpy`.
+import argparse
 import csv
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
 import timezonefinder
 import tzfpy
+
+import tzfpy_variant
+
+CANDIDATES = ["timezonefinder", "tzfpy"]
 
 ALIAS = {
     "Europe/Kiev": "Europe/Kyiv",
@@ -97,7 +105,7 @@ def evaluate(label, rows, fn):
                 wrong += 1
     n = len(rows)
     print(
-        f"{label:<24} N={n}  wrong={wrong} ({100 * wrong / n:.4f}%)  "
+        f"{label:<28} N={n}  wrong={wrong} ({100 * wrong / n:.4f}%)  "
         f"ambiguous={ambiguous} ({100 * ambiguous / n:.4f}%)  "
         f"offset_eq={offset_eq} ({100 * offset_eq / n:.4f}%)  "
         f"empty={empty} ({100 * empty / n:.4f}%)"
@@ -105,14 +113,23 @@ def evaluate(label, rows, fn):
 
 
 def main():
-    tf = timezonefinder.TimezoneFinder(in_memory=True)
-    print("tzfpy data version:", tzfpy.data_version())
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--only", nargs="+", choices=CANDIDATES, default=CANDIDATES)
+    args = parser.parse_args()
+
+    candidates = []
+    if "timezonefinder" in args.only:
+        tf = timezonefinder.TimezoneFinder(in_memory=True)
+        candidates.append(("timezonefinder", lambda lng, lat: tf.timezone_at(lng=lng, lat=lat)))
+    if "tzfpy" in args.only:
+        candidates.append((tzfpy_variant.LABEL, tzfpy.get_tz))
+    print(f"tzfpy {tzfpy_variant.VERSION} data version:", tzfpy.data_version())
 
     for name in ("cities", "edges"):
         rows = load(f"../data/gt_{name}.csv")
         print(f"\n=== dataset {name} (N={len(rows)}) ===")
-        evaluate("timezonefinder", rows, lambda lng, lat: tf.timezone_at(lng=lng, lat=lat))
-        evaluate("tzfpy (DefaultFinder)", rows, tzfpy.get_tz)
+        for label, fn in candidates:
+            evaluate(label, rows, fn)
 
 
 if __name__ == "__main__":

@@ -13,15 +13,18 @@ Reported columns (ms):
 
   * import:     wall-clock time of the ``import`` statement
   * construct:  constructing the finder object. tzfpy has no object -- its
-    global DefaultFinder is built lazily inside the first ``get_tz`` call, so
-    this column is 0 and the cost lands in ``first_call``
+    global finder is built lazily inside the first ``get_tz`` call, so this
+    column is 0 and the cost lands in ``first_call``
   * first_call: the first query, including any lazy initialization
   * total:      import + construct + first_call
 
 timezonefinder is constructed with ``in_memory=True``, the same configuration
 used by the query benchmarks and memory probe in this repository.
 
-Usage: uv run python startup.py
+Usage: uv run python startup.py [--only CANDIDATE ...]
+
+The tzfpy row is labelled after the installed variant (see tzfpy_variant.py);
+the full-precision venv appends its row with ``--only tzfpy``.
 """
 
 import argparse
@@ -48,7 +51,9 @@ def run_child(key: str) -> None:
         t2 = t1
         tzfpy.get_tz(LNG, LAT)
         t3 = time.perf_counter()
-        label = "tzfpy (DefaultFinder)"
+        import tzfpy_variant
+
+        label = tzfpy_variant.LABEL
     elif key == "timezonefinder":
         from timezonefinder import TimezoneFinder
 
@@ -78,7 +83,8 @@ def sample(key: str) -> tuple[str, list[tuple[float, float, float]]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--candidate", choices=CANDIDATES)
+    parser.add_argument("--candidate", choices=CANDIDATES, help=argparse.SUPPRESS)
+    parser.add_argument("--only", nargs="+", choices=CANDIDATES, default=CANDIDATES)
     args = parser.parse_args()
 
     if args.candidate:
@@ -89,7 +95,7 @@ def main() -> None:
         f"startup cost per candidate (fresh interpreter per sample, best/median of {ROUNDS}, ms)",
         flush=True,
     )
-    for key in CANDIDATES:
+    for key in args.only:
         label, rows = sample(key)
         totals = [sum(r) for r in rows]
         best = rows[totals.index(min(totals))]

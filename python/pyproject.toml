@@ -8,16 +8,36 @@ requires-python = "==3.14.*"
 dependencies = [
     "citiespy==0.6.13",
     "timezonefinder==8.3.0",
-    "tzfpy==2.0.0",
     "pytest",
     "pytest-benchmark",
     "pytest-pretty",
 ]
 
-# [[tool.uv.index]]
-# name = "tzfpy-mirror"
-# url = "https://ringsaturn.github.io/tzfpy/simple"
-# explicit = true
+# tzfpy ships two variants under one distribution name, one import name and
+# one API, so they cannot share a virtualenv. Each lives in its own dependency
+# group; the two groups are declared mutually exclusive so one lockfile pins
+# both.
+#
+#   lite (default)  tzfpy from PyPI, the ~4 MB lite.tzb behind DefaultFinder
+#   full            tzfpy from tzfpy's own index, the ~14 MB full.tzb behind
+#                   EmbeddedFinder, published as a `+full` local version and
+#                   never to PyPI (experimental)
+#
+#   uv sync                                  # lite, into .venv
+#   UV_PROJECT_ENVIRONMENT=.venv-full \
+#     uv sync --no-default-groups --group full
+[dependency-groups]
+lite = ["tzfpy==2.0.0"]
+full = ["tzfpy==2.1.0b1+full"]
 
-# [tool.uv.sources]
-# tzfpy = { index = "tzfpy-mirror" }
+[tool.uv]
+default-groups = ["lite"]
+conflicts = [[{ group = "lite" }, { group = "full" }]]
+
+[[tool.uv.index]]
+name = "tzfpy-full"
+url = "https://ringsaturn.github.io/tzfpy/full/simple/"
+explicit = true
+
+[tool.uv.sources]
+tzfpy = [{ index = "tzfpy-full", group = "full" }]

@@ -10,6 +10,7 @@ import math
 import random
 import re
 import statistics
+import sys
 import time
 from collections.abc import Callable
 from dataclasses import dataclass
@@ -17,6 +18,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO_ROOT / "python"))  # tzfpy_variant
 DEFAULT_GO_SNAPSHOT = REPO_ROOT / "snapshot/2026-09-11-fa65419d634ea41ea49262e6559fc2d080382b93"
 DEFAULT_RUST_SNAPSHOT = REPO_ROOT / "snapshot/2026-09-11-fa65419d634ea41ea49262e6559fc2d080382b93"
 DEFAULT_OUTPUT_DIR = REPO_ROOT / "figures"
@@ -259,6 +261,32 @@ def violin_rows(
     return rows
 
 
+# Violin x positions, one per series. Fixed rather than enumerated so the
+# tzfpy full-precision series, sampled in a separate run (see below), lands in
+# its own slot next to the others.
+PYTHON_SERIES_CENTERS = {
+    "tzfpy_random": 1,
+    "timezonefinder_random": 2,
+    "tzfpy_edge": 3,
+    "timezonefinder_edge": 4,
+    "tzfpy_full_random": 5,
+    "tzfpy_full_edge": 6,
+}
+PYTHON_SUMMARY_HEADER = ["series", "n", "mean_us", "median_us", "max_us"]
+
+
+def read_python_summary(output_dir: Path) -> dict[str, list[str]]:
+    path = output_dir / "python_latency_cdf_summary.tsv"
+    if not path.is_file():
+        return {}
+    with path.open(newline="") as f:
+        reader = csv.reader(f, delimiter="\t")
+        header = next(reader, None)
+        if header != PYTHON_SUMMARY_HEADER:
+            return {}
+        return {row[0]: row for row in reader if row}
+
+
 def generate_python_latency_cdf(
     output_dir: Path,
     samples: int,
@@ -268,62 +296,61 @@ def generate_python_latency_cdf(
     violin_min_us: float,
     violin_max_us: float,
     violin_width: float,
+    only_tzfpy: bool,
 ) -> list[SeriesSummary]:
-    from timezonefinder import TimezoneFinder
+    """Sample the Python candidates installed in this interpreter.
+
+    tzfpy's lite (PyPI) and experimental full-precision (+full) builds share
+    one import name and cannot coexist in a venv, so the full build is sampled
+    by a second invocation from its own venv with ``only_tzfpy``; that pass
+    writes ``tzfpy_full_*`` series and merges its rows into the summary the
+    lite pass wrote instead of replacing it. See python/tzfpy_variant.py.
+    """
+    import tzfpy_variant
     from tzfpy import get_tz
 
     cities = load_points(REPO_ROOT / "data/gt_cities.csv")
     edges = load_points(REPO_ROOT / "data/gt_edges.csv")
-    tf = TimezoneFinder(in_memory=True)
-
     get_tz(cities[0][0], cities[0][1])
-    tf.timezone_at(lng=cities[0][0], lat=cities[0][1])
 
+    tzfpy_series = "tzfpy_full" if tzfpy_variant.FULL else "tzfpy"
     series = [
-        (
-            "tzfpy_random",
-            cities,
-            lambda lng, lat: get_tz(lng, lat),
-            seed,
-        ),
-        (
-            "timezonefinder_random",
-            cities,
-            lambda lng, lat: tf.timezone_at(lng=lng, lat=lat),
-            seed,
-        ),
-        (
-            "tzfpy_edge",
-            edges,
-            lambda lng, lat: get_tz(lng, lat),
-            seed + 1,
-        ),
-        (
-            "timezonefinder_edge",
-            edges,
-            lambda lng, lat: tf.timezone_at(lng=lng, lat=lat),
-            seed + 1,
-        ),
+        (f"{tzfpy_series}_random", cities, lambda lng, lat: get_tz(lng, lat), seed),
+        (f"{tzfpy_series}_edge", edges, lambda lng, lat: get_tz(lng, lat), seed + 1),
     ]
+    if not only_tzfpy:
+        from timezonefinder import TimezoneFinder
+
+        tf = TimezoneFinder(in_memory=True)
+        tf.timezone_at(lng=cities[0][0], lat=cities[0][1])
+        series.extend(
+            [
+                ("timezonefinder_random", cities, lambda lng, lat: tf.timezone_at(lng=lng, lat=lat), seed),
+                ("timezonefinder_edge", edges, lambda lng, lat: tf.timezone_at(lng=lng, lat=lat), seed + 1),
+            ]
+        )
+    series.sort(key=lambda item: PYTHON_SERIES_CENTERS[item[0]])
 
     summaries: list[SeriesSummary] = []
-    for center, (name, points, query, series_seed) in enumerate(series, start=1):
+    for name, points, query, series_seed in series:
         values_ns, summary = measure_latency_distribution(name, points, query, series_seed, samples, warmup)
         write_tsv(output_dir / f"python_latency_cdf_{name}.tsv", ["lat_us", "pct"], percentile_rows(values_ns))
         write_tsv(
             output_dir / f"python_latency_violin_{name}.tsv",
             ["x", "lat_us"],
-            violin_rows(values_ns, center, violin_bins, violin_min_us, violin_max_us, violin_width),
+            violin_rows(
+                values_ns, PYTHON_SERIES_CENTERS[name], violin_bins, violin_min_us, violin_max_us, violin_width
+            ),
         )
         summaries.append(summary)
 
+    rows = read_python_summary(output_dir) if only_tzfpy else {}
+    for item in summaries:
+        rows[item.name] = [item.name, str(item.n), f"{item.mean_us:.3f}", f"{item.median_us:.3f}", f"{item.max_us:.3f}"]
     write_tsv(
         output_dir / "python_latency_cdf_summary.tsv",
-        ["series", "n", "mean_us", "median_us", "max_us"],
-        [
-            [item.name, item.n, f"{item.mean_us:.3f}", f"{item.median_us:.3f}", f"{item.max_us:.3f}"]
-            for item in summaries
-        ],
+        PYTHON_SUMMARY_HEADER,
+        sorted(rows.values(), key=lambda row: PYTHON_SERIES_CENTERS.get(row[0], len(PYTHON_SERIES_CENTERS))),
     )
     return summaries
 
@@ -365,9 +392,18 @@ def write_readme(
                 "- `python_latency_violin_timezonefinder_random.tsv`: timezonefinder random-city violin density polygon.",
                 "- `python_latency_violin_tzfpy_edge.tsv`: tzfpy edge-city violin density polygon.",
                 "- `python_latency_violin_timezonefinder_edge.tsv`: timezonefinder edge-city violin density polygon.",
-                "- `python_latency_cdf_summary.tsv`: summary statistics for the CDF sampling run.",
             ]
         )
+        if (output_dir / "python_latency_cdf_tzfpy_full_random.tsv").is_file():
+            lines.extend(
+                [
+                    "- `python_latency_cdf_tzfpy_full_random.tsv`: tzfpy full-precision (+full) random-city CDF points.",
+                    "- `python_latency_cdf_tzfpy_full_edge.tsv`: tzfpy full-precision (+full) edge-city CDF points.",
+                    "- `python_latency_violin_tzfpy_full_random.tsv`: tzfpy full-precision (+full) random-city violin density polygon.",
+                    "- `python_latency_violin_tzfpy_full_edge.tsv`: tzfpy full-precision (+full) edge-city violin density polygon.",
+                ]
+            )
+        lines.append("- `python_latency_cdf_summary.tsv`: summary statistics for the CDF sampling run.")
     lines.extend(
         [
             "",
@@ -398,6 +434,12 @@ def main() -> int:
     parser.add_argument("--python-violin-width", type=float, default=DEFAULT_PYTHON_VIOLIN_WIDTH)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     parser.add_argument("--skip-python", action="store_true", help="Only generate Go and Rust figure data.")
+    parser.add_argument(
+        "--python-only-tzfpy",
+        action="store_true",
+        help="Sample only the installed tzfpy variant and merge into the existing Python summary "
+        "(the second pass, run from the tzfpy +full venv).",
+    )
     args = parser.parse_args()
 
     output_dir = args.output_dir
@@ -423,6 +465,7 @@ def main() -> int:
             args.python_violin_min_us,
             args.python_violin_max_us,
             args.python_violin_width,
+            args.python_only_tzfpy,
         )
     write_readme(
         output_dir=output_dir,

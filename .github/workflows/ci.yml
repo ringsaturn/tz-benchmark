@@ -86,6 +86,29 @@ jobs:
         run: |
           uv run pytest tz_test.py --benchmark-json output.json | tee benchmark_result.txt
 
+      # The experimental full-precision tzfpy build cannot share a venv with
+      # the PyPI build (same distribution name and API), so it gets its own
+      # venv and appends its rows to the same result file. See python/pyproject.toml.
+      - name: Bench Python (tzfpy full precision)
+        env:
+          UV_PROJECT_ENVIRONMENT: .venv-full
+        run: |
+          uv sync --no-default-groups --group full
+          uv run --no-default-groups --group full pytest tz_test.py -k tzfpy_full --benchmark-json output_full.json | tee -a benchmark_result.txt
+
+      - name: Merge benchmark JSON
+        run: |
+          python3 - <<'PY'
+          import json
+          with open("output.json") as f:
+              lite = json.load(f)
+          with open("output_full.json") as f:
+              full = json.load(f)
+          lite["benchmarks"].extend(full["benchmarks"])
+          with open("output.json", "w") as f:
+              json.dump(lite, f)
+          PY
+
       - name: Continuous Benchmark
         uses: benchmark-action/github-action-benchmark@v1.22.1
         if: ${{ github.ref == 'refs/heads/main' }}
