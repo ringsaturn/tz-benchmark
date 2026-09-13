@@ -21,12 +21,16 @@ Files:
 - `python_latency_violin_timezonefinder_random.tsv`: timezonefinder random-city violin density polygon.
 - `python_latency_violin_tzfpy_edge.tsv`: tzfpy edge-city violin density polygon.
 - `python_latency_violin_timezonefinder_edge.tsv`: timezonefinder edge-city violin density polygon.
+- `python_latency_cdf_tzfpy_full_random.tsv`: tzfpy full-precision (+full) random-city CDF points.
+- `python_latency_cdf_tzfpy_full_edge.tsv`: tzfpy full-precision (+full) edge-city CDF points.
+- `python_latency_violin_tzfpy_full_random.tsv`: tzfpy full-precision (+full) random-city violin density polygon.
+- `python_latency_violin_tzfpy_full_edge.tsv`: tzfpy full-precision (+full) edge-city violin density polygon.
 - `python_latency_cdf_summary.tsv`: summary statistics for the CDF sampling run.
 
 Parameters:
 
-- Go snapshot: `snapshot/2026-09-11-fa65419d634ea41ea49262e6559fc2d080382b93`
-- Rust snapshot: `snapshot/2026-09-11-fa65419d634ea41ea49262e6559fc2d080382b93`
+- Go snapshot: `snapshot/2026-09-13-78381cc000828a074f5780d933d3ad693fd5483f`
+- Rust snapshot: `snapshot/2026-09-13-78381cc000828a074f5780d933d3ad693fd5483f`
 - Python samples per series: `20000`
 - Python warmup queries per series: `1000`
 - Python random seed: `20260707`
