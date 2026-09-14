@@ -1,0 +1,5 @@
+startup cost per candidate (fresh interpreter per sample, best/median of 7, ms)
+tzfpy (DefaultFinder)            import=    0.7  construct=    0.0  first_call=   13.9  total_best=   14.6  total_median=   14.8  (median import=0.7 construct=0.0 first_call=14.0)  (ms)
+timezonefinder                   import=   40.9  construct=   12.1  first_call=    0.0  total_best=   52.9  total_median=   53.2  (median import=41.3 construct=12.0 first_call=0.0)  (ms)
+startup cost per candidate (fresh interpreter per sample, best/median of 7, ms)
+tzfpy+full (EmbeddedFinder)      import=    0.7  construct=    0.0  first_call=    9.3  total_best=   10.0  total_median=   10.1  (median import=0.8 construct=0.0 first_call=9.3)  (ms)
