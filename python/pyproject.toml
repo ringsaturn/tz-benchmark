@@ -18,8 +18,11 @@ dependencies = [
 # group; the two groups are declared mutually exclusive so one lockfile pins
 # both.
 #
-#   lite (default)  tzfpy from PyPI, the ~4 MB lite.tzb behind DefaultFinder
-#   full            tzfpy from tzfpy's own index, the ~14 MB full.tzb behind
+#   lite (default)  tzfpy lite, the ~4 MB lite.tzb behind DefaultFinder. Pinned
+#                   to the 2.1.0b2 pre-release (tzf-rs 2.1.1, tzf-dist
+#                   0.0.2026-c-tzb2), which is on TestPyPI and tzfpy's own
+#                   index but not PyPI (PyPI still has 2.0.0)
+#   full            tzfpy from tzfpy's own index, the ~15 MB full.tzb behind
 #                   EmbeddedFinder, published as a `+full` local version and
 #                   never to PyPI (experimental)
 #
@@ -27,12 +30,17 @@ dependencies = [
 #   UV_PROJECT_ENVIRONMENT=.venv-full \
 #     uv sync --no-default-groups --group full
 [dependency-groups]
-lite = ["tzfpy==2.0.0"]
-full = ["tzfpy==2.1.0b1+full"]
+lite = ["tzfpy==2.1.0b2"]
+full = ["tzfpy==2.1.0b2+full"]
 
 [tool.uv]
 default-groups = ["lite"]
 conflicts = [[{ group = "lite" }, { group = "full" }]]
+
+[[tool.uv.index]]
+name = "tzfpy-lite"
+url = "https://ringsaturn.github.io/tzfpy/simple/"
+explicit = true
 
 [[tool.uv.index]]
 name = "tzfpy-full"
@@ -40,4 +48,7 @@ url = "https://ringsaturn.github.io/tzfpy/full/simple/"
 explicit = true
 
 [tool.uv.sources]
-tzfpy = [{ index = "tzfpy-full", group = "full" }]
+tzfpy = [
+  { index = "tzfpy-lite", group = "lite" },
+  { index = "tzfpy-full", group = "full" },
+]

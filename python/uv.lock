@@ -243,10 +243,10 @@ dependencies = [
 
 [package.dev-dependencies]
 full = [
-    { name = "tzfpy", version = "2.1.0b1+full", source = { registry = "https://ringsaturn.github.io/tzfpy/full/simple/" } },
+    { name = "tzfpy", version = "2.1.0b2+full", source = { registry = "https://ringsaturn.github.io/tzfpy/full/simple/" } },
 ]
 lite = [
-    { name = "tzfpy", version = "2.0.0", source = { registry = "https://pypi.org/simple" } },
+    { name = "tzfpy", version = "2.1.0b2", source = { registry = "https://ringsaturn.github.io/tzfpy/simple/" } },
 ]
 
 [package.metadata]
@@ -259,41 +259,49 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-full = [{ name = "tzfpy", specifier = "==2.1.0b1+full", index = "https://ringsaturn.github.io/tzfpy/full/simple/", conflict = { package = "tz-benchmark", group = "full" } }]
-lite = [{ name = "tzfpy", specifier = "==2.0.0" }]
+full = [{ name = "tzfpy", specifier = "==2.1.0b2+full", index = "https://ringsaturn.github.io/tzfpy/full/simple/", conflict = { package = "tz-benchmark", group = "full" } }]
+lite = [{ name = "tzfpy", specifier = "==2.1.0b2", index = "https://ringsaturn.github.io/tzfpy/simple/", conflict = { package = "tz-benchmark", group = "lite" } }]
 
 [[package]]
 name = "tzfpy"
-version = "2.0.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/4a/2d/06f2a767ec32f82e2dab14309c12e5a3bdecaf1647f49f849792c4660974/tzfpy-2.0.0.tar.gz", hash = "sha256:a7ca26550c6d39c441a567f596d142501e20099e63c9a63961b4ae9081d28b38", size = 139301, upload-time = "2026-09-11T01:59:11.758Z" }
+version = "2.1.0b2"
+source = { registry = "https://ringsaturn.github.io/tzfpy/simple/" }
+sdist = { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2.tar.gz", hash = "sha256:28591f82e39772c73cde13341a871d741ec3f391caba9a3897a0481b039e5995" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/94/7e/b1917b45615fe3c833c7c90b0313dbc2ce6ebc4256f8a5b4242e3f6642e5/tzfpy-2.0.0-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:614fb3ae39f26bb21b3ba37dbc27930b68c087caa485a9a4b782fdd1a85fb58d", size = 2872699, upload-time = "2026-09-11T01:58:49.264Z" },
-    { url = "https://files.pythonhosted.org/packages/29/5f/8f5c35298322b2d10376d418879a5f39eec978d23d0bd8ddfa0fb228b2d8/tzfpy-2.0.0-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:b2d65ab38959d7a529432a4f91e5cd14858b151637947eb69b37f2ebeec141f4", size = 2900545, upload-time = "2026-09-11T01:58:50.99Z" },
-    { url = "https://files.pythonhosted.org/packages/95/25/d61b9f13b17a066fe5b492ac3bde08ccb289cafe68a30a5d325371e9ef7a/tzfpy-2.0.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:182452b1005680c08fe4177a3f8abc96d1cf70333f6087e5e5438c9c594dc740", size = 2915846, upload-time = "2026-09-11T01:58:52.41Z" },
-    { url = "https://files.pythonhosted.org/packages/2e/98/1e5b20b8f7fe2e3f5b29e648546501e561880e5ae289c38adc21b94d5669/tzfpy-2.0.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6daf9816520ef4c36ff7dc8cd2e3e068e41f55afafd36deabd16e41cccc454e1", size = 2928952, upload-time = "2026-09-11T01:58:54.429Z" },
-    { url = "https://files.pythonhosted.org/packages/50/92/c3ac25d671cc19c3d46f376621f1c2f957e63c1e8dfc5338b3ba5503829d/tzfpy-2.0.0-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:aac5021559e41c995bcf8cfb47f2f41a71d947c577b52bb85cfb7258fae298b2", size = 3092706, upload-time = "2026-09-11T01:58:56.126Z" },
-    { url = "https://files.pythonhosted.org/packages/3d/09/df4c3f687adff07e6199a1d325aa9145e7d8bde988b89009eb1e20b5dd87/tzfpy-2.0.0-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:1fb9118b4449a2b1dc4a95ba3728822a7bad5f3ec405d67c7573c3bf2f701ebe", size = 3128356, upload-time = "2026-09-11T01:58:57.623Z" },
-    { url = "https://files.pythonhosted.org/packages/bb/1e/4e264053f5f8485b5decd6b05821ee33f1f371f67ed11e2f2f7499111e8b/tzfpy-2.0.0-cp310-abi3-win_amd64.whl", hash = "sha256:63dda89ce177863dbb7023d32c24424bc752cc1866370b559c6bac3ad81fd438", size = 2759855, upload-time = "2026-09-11T01:58:59.151Z" },
-    { url = "https://files.pythonhosted.org/packages/03/b3/b53f073000dbac98fa0e1ccc57139f9ffd4dbc0c1243438cc7d59f5be377/tzfpy-2.0.0-cp314-cp314t-macosx_10_12_x86_64.whl", hash = "sha256:9a48e3354ee2df4ea1892fa34a73979d988d46c7e324597402eb115748935b0c", size = 2870987, upload-time = "2026-09-11T01:59:00.744Z" },
-    { url = "https://files.pythonhosted.org/packages/38/31/bf4825734c9ddb17958d4d69aedb0780fd507c2638f858189fb29d5ceb9d/tzfpy-2.0.0-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:506911914950a71ea636d6500b4746670a4239d815fc1b236a925e80f11b6e76", size = 2897354, upload-time = "2026-09-11T01:59:02.784Z" },
-    { url = "https://files.pythonhosted.org/packages/c9/2e/4167d2c20c4d8a9a520e2853a0c96bf6cfee0601c4abbbbfa516cddaf74b/tzfpy-2.0.0-cp314-cp314t-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cd130752c79cbd7ddfec22e4bb4343e5a3ea209e550c0c216582b01c9da01fba", size = 2912576, upload-time = "2026-09-11T01:59:04.472Z" },
-    { url = "https://files.pythonhosted.org/packages/c7/c7/47d6952775c0709124d019d9a1ea958978552618280810ed6431cd4e220b/tzfpy-2.0.0-cp314-cp314t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cff91e749840e688a88b66e76d8335b95a45696e3480907fb4958bb65c2dc12c", size = 2924850, upload-time = "2026-09-11T01:59:05.833Z" },
-    { url = "https://files.pythonhosted.org/packages/c9/07/d3f7811c99123851c4d969bef8a863d5710a8d970c18de12cac2ebcf6aae/tzfpy-2.0.0-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:c7fa84c4ec32baa51257e933e0eac2790c11b312dc7dddd1f57cb2e990b9d62f", size = 3089475, upload-time = "2026-09-11T01:59:07.317Z" },
-    { url = "https://files.pythonhosted.org/packages/ca/66/f7750d806f2200e007b809b7a3c5e273b04bc75514051f5ef676fe2ae311/tzfpy-2.0.0-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:2483bed5feca6b3616c0923cf894851560365a3d1337211330a90b9f89a37ee3", size = 3125057, upload-time = "2026-09-11T01:59:08.796Z" },
-    { url = "https://files.pythonhosted.org/packages/34/62/9161a9c2a656190b25fdf8248d563e26efe26f04ff21cbd510e0442c26ff/tzfpy-2.0.0-cp314-cp314t-win_amd64.whl", hash = "sha256:d277f5defa83277a39e9194e70621e2fc8932fcc61db8f8276a8c2ac16668fc8", size = 2757838, upload-time = "2026-09-11T01:59:10.337Z" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:a7a2681fb7bb2320849b331a62e25ccd250d6157f13545f7fb8b7db165bb456b" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:175f293ede854ba31d503c91671eb542a78212b90e3627f202114141ebeb1ebb" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:54884939910754e74be55cc69bc9d5a146a7e5d7dd6ff3936a4463585920339e" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:abf1fd894a1bd4251ca156906fecfc4def284b276a253a695099307d62834dd4" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6813ec60ce65cd986b7b0d8049ac6e9b9dbd7440c30d1b995da6b0fb75d15153" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:267ebfa9e2d8e0eed1ab088300c5f572216cd97879fc95472452d31314f3fee0" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-musllinux_1_2_armv7l.whl", hash = "sha256:c22fa062f2db03188b8530477a9f968dcecb5da22fd42b9f56689ae41fb51498" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:84d0c7f38ca53a32859af6f9568aed3b1e311c28df03655017c97d54e3798ab8" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-pyemscripten_2026_0_wasm32.whl", hash = "sha256:26754e8e526e74ff0c4bfc09896560b1ff91c618c663ed1cccfbdae26cc80516" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-win32.whl", hash = "sha256:79b9db91cd75e266b603d987e9194c52a4efa17889ca2a1b8380077f46c6de43" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-win_amd64.whl", hash = "sha256:b26b6bbbd43ef788385986a7b5d46b4b62fc43fc691da8cae522a0f50661b494" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp310-abi3-win_arm64.whl", hash = "sha256:300c0e1885865a8142cfd0c10639ff90e5f2735f1a021e40fe79cb65ec3292da" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-macosx_10_12_x86_64.whl", hash = "sha256:1aaed220e896fac6a17bfe95d402e88aae2265cc535290b33fab30b96e055da8" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-macosx_11_0_arm64.whl", hash = "sha256:d41f0efd953fe47d450ac1727c69ca579e0452b02678eed281f0d11be1915411" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2c372a889bd0b29772bf54c39bef360ce6fa29c470dd45ac215a11f50f752984" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:6aac27a9d2257adcb43144a65696e15a55f331114c471b129dfcca37e59a462e" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:392f7005f1d4cd3a5f43143f9f4dde87b34205c1c57496116f57ab25653e009c" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:3e6e2d38bcb07a476e274fc481f19bedc8e9ad2680ce4e820d14fcb7a8c742e3" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-musllinux_1_2_armv7l.whl", hash = "sha256:bf1af0712285bda018456d006bc7cd23e39f02293893619f2602744612f9e934" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:d1514cb2080ae645fa736c4c37f5bd44dacbbe27b247b23e9feaefd9ceba2012" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-win32.whl", hash = "sha256:6552111b999bfdb4c58fa5f004054ee9926b0c18dcd02da0bba0f08a69d46d49" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2-cp314-cp314t-win_amd64.whl", hash = "sha256:b4ec4d2bd5a2a24f0c894ab1670dbbaa9365150a9207e99214952d4a0c010d99" },
 ]
 
 [[package]]
 name = "tzfpy"
-version = "2.1.0b1+full"
+version = "2.1.0b2+full"
 source = { registry = "https://ringsaturn.github.io/tzfpy/full/simple/" }
 wheels = [
-    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.1/tzfpy-2.1.0b1%2Bfull-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:931209efa31722ef9517e6a73433b2bb0d142bab7f4bc47824d56aeb95c1f1e4" },
-    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.1/tzfpy-2.1.0b1%2Bfull-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:f18d60ea78fd1e4b66caa4b54cb3442b6c1e9f5a00530abdfdcbeac785b02584" },
-    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.1/tzfpy-2.1.0b1%2Bfull-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d04786ee15be6c33a9554c28ea830c9ba46601562425efb550f3597871f0a177" },
-    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.1/tzfpy-2.1.0b1%2Bfull-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e396c6265ffb5a656867b4411dc8b389c13bb3743bd6639c33d924f17ae5a3d1" },
-    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.1/tzfpy-2.1.0b1%2Bfull-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:6a261688c4013c06fe0a4b4f6b61c6ad41333007fdca6767f9eec46fb17c58e1" },
-    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.1/tzfpy-2.1.0b1%2Bfull-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:bd9ce48c45e73a66c151c691b0f6d3bfcbbd072e50c254df79f8767c83987ef5" },
-    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.1/tzfpy-2.1.0b1%2Bfull-cp310-abi3-win_amd64.whl", hash = "sha256:8439d14a1c1f67d4c625bd942f2a6912847dba9d92e21fd73e665326400515de" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2%2Bfull-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:998c3a60383910a774d4105df96e1603e5e0db1429526677b6db9815431847a0" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2%2Bfull-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:ffc216c9152725eeeedf91ec7feab677d66f304b7924d38f97185416999ce03e" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2%2Bfull-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f1a81d5c4c0037fbed6c042cd63af8c10766764f267933d19d5f248fe21b9711" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2%2Bfull-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0b6d502d26878b8636bfda03dbc086667d1a227f3d136c838cd9542fbc84a1e3" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2%2Bfull-cp310-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:612cb7649eedb749207c49d5cca78f8a9ce83de36cf735e86c877c509a71dc9a" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2%2Bfull-cp310-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:1b9e3dd1a0e261cac51f533418ae6da0deb6fac4eb91306f5e752f218294237e" },
+    { url = "https://github.com/ringsaturn/tzfpy/releases/download/v2.1.0-beta.2/tzfpy-2.1.0b2%2Bfull-cp310-abi3-win_amd64.whl", hash = "sha256:1314f0a9c61d73a6f130dd0bac3dce6f8c5c13214f95535800c6e402f8d555b2" },
 ]

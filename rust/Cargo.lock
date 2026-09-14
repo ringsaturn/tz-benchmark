@@ -2776,15 +2776,15 @@ dependencies = [
 
 [[package]]
 name = "tzf-dist"
-version = "0.0.2026-c-tzb1"
+version = "0.0.2026-c-tzb2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4b578c3f4c607c9f31ae5c7cb0eb6c98359e172ab9517bb5683c3794fe42e78a"
+checksum = "461d961bb7ad6f4b1445a8985fe0978c6c3eebdaec671baa3914c3d4419da18b"
 
 [[package]]
 name = "tzf-rs"
-version = "2.0.0"
+version = "2.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2ab42bc90915f50806d2cc0b4b475fe9cbdb9333bd42ff3a9b44dfc0ee4c3e55"
+checksum = "00340ee1c7c5b377c62a2e06f551d641b34e8bcbaf3d948f2f6ad4537385850b"
 dependencies = [
  "clap",
  "geometry-rs",
