@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789355038478,
+  "lastUpdate": 1789355050951,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13704,6 +13704,72 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.000009563819091677947",
             "extra": "mean: 14.066322111587166 usec\nrounds: 49933"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "committer": {
+            "email": "ringsaturn.me@gmail.com",
+            "name": "Han Xiao",
+            "username": "ringsaturn"
+          },
+          "distinct": true,
+          "id": "8c8c3a4d1256ba47dd112abfc0892dc98e92f637",
+          "message": "Regenerate figure data from the 2026-09-14 snapshot (tzf 2.1 family)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VHfNq3UuWXJzZB6ntUEKPb",
+          "timestamp": "2026-09-14T12:00:05+09:00",
+          "tree_id": "2f6f7c68f8258f1b902c965ec8b5c1be05249a1d",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/8c8c3a4d1256ba47dd112abfc0892dc98e92f637"
+        },
+        "date": 1789355045817,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 279984.98065179464,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000002271589455258223",
+            "extra": "mean: 3.5716201550241626 usec\nrounds: 11223"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 153496.85463366885,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000026502023870757484",
+            "extra": "mean: 6.51479147495609 usec\nrounds: 12598"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 631927.7831759861,
+            "unit": "iter/sec",
+            "range": "stddev: 9.749554076241139e-7",
+            "extra": "mean: 1.5824593040903048 usec\nrounds: 34598"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 408372.5587963738,
+            "unit": "iter/sec",
+            "range": "stddev: 9.742883934793998e-7",
+            "extra": "mean: 2.4487443596782623 usec\nrounds: 79561"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_cities",
+            "value": 619058.0151792435,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000011319126029219592",
+            "extra": "mean: 1.6153574874730563 usec\nrounds: 28801"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_edge_cities",
+            "value": 325823.4601440701,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000013808489011490715",
+            "extra": "mean: 3.069146707722727 usec\nrounds: 65518"
           }
         ]
       }
