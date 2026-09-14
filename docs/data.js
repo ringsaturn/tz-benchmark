@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789294051393,
+  "lastUpdate": 1789349332701,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13640,6 +13640,70 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.00000962732959324238",
             "extra": "mean: 13.899504709054934 usec\nrounds: 36738"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "Han Xiao",
+            "username": "ringsaturn",
+            "email": "ringsaturn.me@gmail.com"
+          },
+          "committer": {
+            "name": "Han Xiao",
+            "username": "ringsaturn",
+            "email": "ringsaturn.me@gmail.com"
+          },
+          "id": "ce38915412e71551606919840cb48404c6da26a1",
+          "message": "Regenerate figure data from the 2026-09-13 snapshot, with the tzfpy +full series\n\nPoint generate_figure_data.py's default Go/Rust snapshot at\nsnapshot/2026-09-13-78381cc… (timezonefinder 9.0.0) and run both passes of\n`make figures`: the lite venv rewrites the Go/Rust bar data and the\ntzfpy/timezonefinder CDF and violin series, the .venv-full pass adds the\ntzfpy_full_{random,edge} series (violin slots 5 and 6) and merges their\nsummary rows.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017saNnr93SsH4VYVsdKZfSL",
+          "timestamp": "2026-09-13T09:05:41Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/ce38915412e71551606919840cb48404c6da26a1"
+        },
+        "date": 1789349328595,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 293796.47580829985,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000002197763716650201",
+            "extra": "mean: 3.4037167983338676 usec\nrounds: 12680"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 170254.61698300645,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000002413986985452142",
+            "extra": "mean: 5.873555840778242 usec\nrounds: 35458"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 739407.8987621822,
+            "unit": "iter/sec",
+            "range": "stddev: 7.710455869245399e-7",
+            "extra": "mean: 1.3524334831614135 usec\nrounds: 53836"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 477509.3435257334,
+            "unit": "iter/sec",
+            "range": "stddev: 8.284061664927566e-7",
+            "extra": "mean: 2.094199859245496 usec\nrounds: 29866"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_cities",
+            "value": 274922.60868428287,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000006359745097075337",
+            "extra": "mean: 3.637387280681544 usec\nrounds: 38068"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_edge_cities",
+            "value": 71091.78874670072,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000009563819091677947",
+            "extra": "mean: 14.066322111587166 usec\nrounds: 49933"
           }
         ]
       }
