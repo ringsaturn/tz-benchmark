@@ -30,8 +30,8 @@ dependencies = [
 #   UV_PROJECT_ENVIRONMENT=.venv-full \
 #     uv sync --no-default-groups --group full
 [dependency-groups]
-lite = ["tzfpy==2.1.0b2"]
-full = ["tzfpy==2.1.0b2+full"]
+lite = ["tzfpy==2.1.0"]
+full = ["tzfpy==2.1.0+full"]
 
 [tool.uv]
 default-groups = ["lite"]
