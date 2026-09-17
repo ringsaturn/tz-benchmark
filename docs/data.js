@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789613486921,
+  "lastUpdate": 1789613499005,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -13968,6 +13968,72 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000027810095804619592",
             "extra": "mean: 2.0655063737338875 usec\nrounds: 52005"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5059e4bce6a3b01a867c3945ea2d84eaf2988f30",
+          "message": "Bump actions-rust-lang/setup-rust-toolchain in the dependencies group (#229)\n\nBumps the dependencies group with 1 update: [actions-rust-lang/setup-rust-toolchain](https://github.com/actions-rust-lang/setup-rust-toolchain).\n\n\nUpdates `actions-rust-lang/setup-rust-toolchain` from 1 to 2\n- [Release notes](https://github.com/actions-rust-lang/setup-rust-toolchain/releases)\n- [Changelog](https://github.com/actions-rust-lang/setup-rust-toolchain/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/actions-rust-lang/setup-rust-toolchain/compare/v1...v2)\n\n---\nupdated-dependencies:\n- dependency-name: actions-rust-lang/setup-rust-toolchain\n  dependency-version: '2'\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-09-17T11:51:00+09:00",
+          "tree_id": "26344ecc43d847822af8e0d108109bd72d0bcdfe",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/5059e4bce6a3b01a867c3945ea2d84eaf2988f30"
+        },
+        "date": 1789613487563,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 299319.2574913182,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00000227410216533149",
+            "extra": "mean: 3.340914341366777 usec\nrounds: 13974"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 171886.07417910427,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000024928785580344618",
+            "extra": "mean: 5.817806967643033 usec\nrounds: 28503"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 764319.6520819825,
+            "unit": "iter/sec",
+            "range": "stddev: 7.777112488571853e-7",
+            "extra": "mean: 1.3083531180652386 usec\nrounds: 58714"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 524045.0930420868,
+            "unit": "iter/sec",
+            "range": "stddev: 8.961044785724173e-7",
+            "extra": "mean: 1.9082327327882995 usec\nrounds: 99711"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_cities",
+            "value": 685587.4656010013,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000010048385682174751",
+            "extra": "mean: 1.458603096139422 usec\nrounds: 31849"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_edge_cities",
+            "value": 372114.8476426681,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000011895098264497358",
+            "extra": "mean: 2.6873423792008246 usec\nrounds: 66587"
           }
         ]
       }
