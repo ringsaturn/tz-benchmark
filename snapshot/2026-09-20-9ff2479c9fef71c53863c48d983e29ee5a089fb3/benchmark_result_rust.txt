@@ -1,0 +1,21 @@
+
+running 16 tests
+test benches_tz_crates::bench_rtz_get_timezone_ned_random_city      ... bench:         425.99 ns/iter (+/- 32.29)
+test benches_tz_crates::bench_rtz_get_timezone_ned_random_edge_city ... bench:         784.73 ns/iter (+/- 25.54)
+test benches_tz_crates::bench_rtz_get_timezone_osm_random_city      ... bench:       1,584.27 ns/iter (+/- 97.80)
+test benches_tz_crates::bench_rtz_get_timezone_osm_random_edge_city ... bench:       3,220.59 ns/iter (+/- 164.31)
+test benches_tz_crates::bench_spatialtime_ned                       ... bench:     166,455.40 ns/iter (+/- 23,073.54)
+test benches_tz_crates::bench_spatialtime_ned_random_edge_city      ... bench:     157,494.27 ns/iter (+/- 13,965.67)
+test benches_tz_crates::bench_spatialtime_osm                       ... bench:   5,323,614.60 ns/iter (+/- 2,695,364.37)
+test benches_tz_crates::bench_spatialtime_osm_random_edge_city      ... bench:   5,270,281.25 ns/iter (+/- 3,442,315.61)
+test benches_tz_crates::bench_tz_search_lookup_random_city          ... bench:         107.78 ns/iter (+/- 16.82)
+test benches_tz_crates::bench_tz_search_lookup_random_edge_city     ... bench:         118.25 ns/iter (+/- 5.12)
+test benches_tz_crates::bench_tzf_default_finder_random_city        ... bench:         231.15 ns/iter (+/- 30.16)
+test benches_tz_crates::bench_tzf_default_finder_random_edge_city   ... bench:         475.45 ns/iter (+/- 18.56)
+test benches_tz_crates::bench_tzf_embedded_finder_random_city       ... bench:         303.96 ns/iter (+/- 24.05)
+test benches_tz_crates::bench_tzf_embedded_finder_random_edge_city  ... bench:         667.36 ns/iter (+/- 22.94)
+test benches_tz_crates::bench_zone_detect_random_city               ... bench:     434,478.65 ns/iter (+/- 119,871.25)
+test benches_tz_crates::bench_zone_detect_random_edge_city          ... bench:     507,496.88 ns/iter (+/- 152,289.17)
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 16 measured; 0 filtered out; finished in 64.74s
+

@@ -1,0 +1,50 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.0, pytest-9.1.1, pluggy-1.5.0
+benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /Users/ringsaturn/Projects/tz-benchmark/python
+configfile: pyproject.toml
+plugins: benchmark-5.2.3, pretty-1.3.0
+collected 6 items
+
+tz_test.py ....ss                                                        [100%]
+
+
+------------------------------------------------------------------------------------------------------- benchmark: 4 tests ------------------------------------------------------------------------------------------------------
+Name (time in ns)                             Min                     Max                  Mean                StdDev                Median                   IQR            Outliers  OPS (Kops/s)            Rounds  Iterations
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_tzfpy_random_cities                 374.9738 (1.0)       24,707.9879 (1.87)       722.5335 (1.0)        348.0566 (1.14)       625.0339 (1.0)        207.9760 (1.0)    11252;11252    1,384.0188 (1.0)      113199           1
+test_tzfpy_random_edge_cities            416.9997 (1.11)      13,208.0168 (1.0)        920.6186 (1.27)       305.4459 (1.0)        874.9776 (1.40)       292.0278 (1.40)   27776;7742    1,086.2261 (0.78)     184603           1
+test_timezonefinder_random_edge_city     791.9734 (2.11)      16,291.9750 (1.23)     2,519.2687 (3.49)     1,051.6926 (3.44)     2,667.0168 (4.27)     1,291.9772 (6.21)   23837;1012      396.9406 (0.29)      72728           1
+test_timezonefinder_random_city          915.9558 (2.44)     217,000.0225 (16.43)    2,066.1646 (2.86)     8,733.5464 (28.59)    1,250.0095 (2.00)       208.0342 (1.00)        4;114      483.9885 (0.35)        622           1
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Legend:
+  Outliers: 1 Standard Deviation from Mean; 1.5 IQR (InterQuartile Range) from 1st Quartile and 3rd Quartile.
+  OPS: Operations Per Second, computed as 1 / Mean
+Results (1.96s):
+         4 passed
+         2 skipped
+============================= test session starts ==============================
+platform darwin -- Python 3.14.0, pytest-9.1.1, pluggy-1.5.0
+benchmark: 5.2.3 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /Users/ringsaturn/Projects/tz-benchmark/python
+configfile: pyproject.toml
+plugins: benchmark-5.2.3, pretty-1.3.0
+collected 6 items / 4 deselected / 2 selected
+
+tz_test.py ..                                                            [100%]
+
+
+---------------------------------------------------------------------------------------------------- benchmark: 2 tests ---------------------------------------------------------------------------------------------------
+Name (time in ns)                           Min                    Max                  Mean              StdDev                Median                 IQR             Outliers  OPS (Kops/s)            Rounds  Iterations
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+test_tzfpy_full_random_cities          333.0060 (1.0)      19,499.9739 (1.59)       868.8302 (1.0)      567.1691 (1.11)       708.0380 (1.0)      250.0019 (1.0)      4845;6777    1,150.9729 (1.0)       46966           1
+test_tzfpy_full_random_edge_cities     583.0079 (1.75)     12,249.9769 (1.0)      1,326.8318 (1.53)     512.7762 (1.0)      1,208.0418 (1.71)     500.0038 (2.00)    16345;5034      753.6751 (0.65)     108108           1
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Legend:
+  Outliers: 1 Standard Deviation from Mean; 1.5 IQR (InterQuartile Range) from 1st Quartile and 3rd Quartile.
+  OPS: Operations Per Second, computed as 1 / Mean
+Results (1.57s):
+         2 passed
+         4 deselected

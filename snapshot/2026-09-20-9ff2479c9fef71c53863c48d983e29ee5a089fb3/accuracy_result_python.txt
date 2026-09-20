@@ -1,0 +1,16 @@
+tzfpy 2.1.0 data version: 2026d
+
+=== dataset cities (N=170540) ===
+timezonefinder               N=170540  wrong=0 (0.0000%)  ambiguous=510 (0.2991%)  offset_eq=0 (0.0000%)  empty=0 (0.0000%)
+tzfpy (DefaultFinder)        N=170540  wrong=2 (0.0012%)  ambiguous=0 (0.0000%)  offset_eq=1 (0.0006%)  empty=0 (0.0000%)
+
+=== dataset edges (N=23408) ===
+timezonefinder               N=23408  wrong=0 (0.0000%)  ambiguous=272 (1.1620%)  offset_eq=0 (0.0000%)  empty=0 (0.0000%)
+tzfpy (DefaultFinder)        N=23408  wrong=1 (0.0043%)  ambiguous=0 (0.0000%)  offset_eq=1 (0.0043%)  empty=0 (0.0000%)
+tzfpy 2.1.0+full data version: 2026d
+
+=== dataset cities (N=170540) ===
+tzfpy+full (EmbeddedFinder)  N=170540  wrong=0 (0.0000%)  ambiguous=0 (0.0000%)  offset_eq=0 (0.0000%)  empty=0 (0.0000%)
+
+=== dataset edges (N=23408) ===
+tzfpy+full (EmbeddedFinder)  N=23408  wrong=0 (0.0000%)  ambiguous=0 (0.0000%)  offset_eq=0 (0.0000%)  empty=0 (0.0000%)
