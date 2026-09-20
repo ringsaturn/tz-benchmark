@@ -3,7 +3,7 @@ package main_test
 import (
 	"testing"
 
-	"github.com/albertyw/localtimezone/v3"
+	"github.com/albertyw/localtimezone/v4"
 	"github.com/bradfitz/latlong"
 	"github.com/ringsaturn/tzf/v2"
 	gotz "github.com/ugjka/go-tz/v2"
@@ -24,10 +24,7 @@ var (
 )
 
 var z = func() localtimezone.LocalTimeZone {
-	_z, err := localtimezone.NewLocalTimeZone()
-	if err != nil {
-		panic(err)
-	}
+	_z := localtimezone.NewLocalTimeZone()
 	return _z
 }()
 

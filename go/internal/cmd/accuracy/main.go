@@ -17,7 +17,7 @@ import (
 	"time"
 	_ "time/tzdata"
 
-	"github.com/albertyw/localtimezone/v3"
+	"github.com/albertyw/localtimezone/v4"
 	"github.com/bradfitz/latlong"
 	gocitiesjson "github.com/ringsaturn/go-cities.json"
 	"github.com/ringsaturn/tzf/v2"
@@ -164,10 +164,7 @@ func main() {
 	}
 	fullDefF := gtF
 
-	ltz, err := localtimezone.NewLocalTimeZone()
-	if err != nil {
-		panic(err)
-	}
+	ltz := localtimezone.NewLocalTimeZone()
 
 	fmt.Printf("ground truth data version: %s\n", gtF.DataVersion())
 

@@ -25,7 +25,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/albertyw/localtimezone/v3"
+	"github.com/albertyw/localtimezone/v4"
 	"github.com/bradfitz/latlong"
 	gocitiesjson "github.com/ringsaturn/go-cities.json"
 	"github.com/ringsaturn/tzf/v2"
@@ -96,10 +96,7 @@ func main() {
 	finder := mustFinder(tzf.NewDefaultFinder())
 	embedded := mustFinder(tzf.NewEmbeddedFinder())
 	full := mustFinder(tzf.NewFullFinder())
-	ltz, err := localtimezone.NewLocalTimeZone()
-	if err != nil {
-		panic(err)
-	}
+	ltz := localtimezone.NewLocalTimeZone()
 
 	candidates := []candidate{
 		{"tzf DefaultFinder", finder.GetTimezoneName},
