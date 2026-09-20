@@ -1,0 +1,6 @@
+memory footprint per candidate (isolated child process, RSS in MiB)
+(python interpreter floor)       baseline=   22.5  init_peak=   22.5  live=    n/a  rss_load=   22.5  rss_loop=   22.5  peak=   22.5  delta=    0.0  (MiB)
+timezonefinder                   baseline=   22.5  init_peak=   74.9  live=    n/a  rss_load=   74.9  rss_loop=   75.0  peak=   75.0  delta=   52.5  (MiB)
+tzfpy (DefaultFinder)            baseline=   22.5  init_peak=   61.1  live=    n/a  rss_load=   61.0  rss_loop=   61.0  peak=   61.1  delta=   38.5  (MiB)
+memory footprint per candidate (isolated child process, RSS in MiB)
+tzfpy+full (EmbeddedFinder)      baseline=   22.5  init_peak=   38.2  live=    n/a  rss_load=   38.2  rss_loop=   38.2  peak=   38.2  delta=   15.7  (MiB)

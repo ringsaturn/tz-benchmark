@@ -1,0 +1,34 @@
+tzf-rs data version: 2026d
+slow candidates skipped; pass --include-slow to include zone-detect and spatialtime
+
+=== dataset cities (N=170540) ===
+tzf-rs DefaultFinder             wrong=     2 (  0.0012%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0006%)  empty=     0 (  0.0000%)
+    sample disagreements: America/Costa_Rica != America/Panama; Asia/Yangon != Asia/Kolkata
+tzf-rs EmbeddedFinder            wrong=     2 (  0.0012%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0006%)  empty=     0 (  0.0000%)
+    sample disagreements: America/Costa_Rica != America/Panama; Asia/Yangon != Asia/Kolkata
+tzf-rs DefaultFinder polygon-exact (get_tz_names) wrong=     2 (  0.0012%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0006%)  empty=     0 (  0.0000%)
+    sample disagreements: America/Costa_Rica != America/Panama; Asia/Yangon != Asia/Kolkata
+tz-search                        wrong=   911 (  0.5342%)  ambiguous= 243 ( 0.1425%)  offset_eq=  1535 (  0.9001%)  empty=     7 (  0.0041%)
+    sample disagreements: Africa/Lome != Africa/Porto-Novo; Africa/Windhoek != Africa/Luanda; America/Argentina/Salta != America/La_Paz; America/La_Paz != America/Argentina/Salta; Asia/Dubai != Asia/Tehran
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 0.2%  <=0.002: 0.8%  <=0.005: 6.3%  <=0.010: 12.3%  <=0.020: 16.8%  <=0.050: 20.1%  <=0.100: 22.3%  >0.1: 77.7%
+rtz OSM                          wrong=    59 (  0.0346%)  ambiguous=   3 ( 0.0018%)  offset_eq=    57 (  0.0334%)  empty=    21 (  0.0123%)
+    sample disagreements: America/Belize != America/Cancun; America/Chicago != America/Denver; America/Costa_Rica != America/Panama; America/Cuiaba != America/Sao_Paulo; America/Port-au-Prince != America/Santo_Domingo
+rtz NED                          wrong= 30445 ( 17.8521%)  ambiguous=  45 ( 0.0264%)  offset_eq= 82335 ( 48.2790%)  empty=    29 (  0.0170%)
+    sample disagreements: America/La_Paz != America/Argentina/Salta; America/La_Paz != Atlantic/Bermuda; America/Sao_Paulo != America/La_Paz; America/Sao_Paulo != America/Manaus; Asia/Dubai != Asia/Tehran
+
+=== dataset edges (N=23408) ===
+tzf-rs DefaultFinder             wrong=     1 (  0.0043%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0043%)  empty=     0 (  0.0000%)
+    sample disagreements: America/Costa_Rica != America/Panama
+tzf-rs EmbeddedFinder            wrong=     1 (  0.0043%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0043%)  empty=     0 (  0.0000%)
+    sample disagreements: America/Costa_Rica != America/Panama
+tzf-rs DefaultFinder polygon-exact (get_tz_names) wrong=     1 (  0.0043%)  ambiguous=   0 ( 0.0000%)  offset_eq=     1 (  0.0043%)  empty=     0 (  0.0000%)
+    sample disagreements: America/Costa_Rica != America/Panama
+tz-search                        wrong=   412 (  1.7601%)  ambiguous=   9 ( 0.0384%)  offset_eq=   788 (  3.3664%)  empty=     5 (  0.0214%)
+    sample disagreements: Africa/Windhoek != Africa/Luanda; America/Argentina/Salta != America/La_Paz; America/Rio_Branco != America/La_Paz; Asia/Dushanbe != Asia/Kabul; Asia/Kolkata != Asia/Dhaka
+    wrong-answer distance certification (deg -> cumulative %):
+    <=0.001: 0.2%  <=0.002: 1.5%  <=0.005: 10.4%  <=0.010: 21.4%  <=0.020: 30.3%  <=0.050: 36.9%  <=0.100: 41.0%  >0.1: 59.0%
+rtz OSM                          wrong=    15 (  0.0641%)  ambiguous=   3 ( 0.0128%)  offset_eq=    28 (  0.1196%)  empty=    19 (  0.0812%)
+    sample disagreements: America/Belize != America/Cancun; America/Chicago != America/Denver; America/Costa_Rica != America/Panama; America/Cuiaba != America/Sao_Paulo; America/Port-au-Prince != America/Santo_Domingo
+rtz NED                          wrong=  4446 ( 18.9935%)  ambiguous=   6 ( 0.0256%)  offset_eq= 14797 ( 63.2134%)  empty=     9 (  0.0384%)
+    sample disagreements: America/La_Paz != America/Eirunepe; America/La_Paz != America/Rio_Branco; America/La_Paz != America/Sao_Paulo; America/La_Paz != Atlantic/Bermuda; America/Sao_Paulo != America/Cuiaba
