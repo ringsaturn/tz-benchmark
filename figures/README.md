@@ -29,8 +29,8 @@ Files:
 
 Parameters:
 
-- Go snapshot: `snapshot/2026-09-13-78381cc000828a074f5780d933d3ad693fd5483f`
-- Rust snapshot: `snapshot/2026-09-13-78381cc000828a074f5780d933d3ad693fd5483f`
+- Go snapshot: `snapshot/2026-09-20-9ff2479c9fef71c53863c48d983e29ee5a089fb3`
+- Rust snapshot: `snapshot/2026-09-20-9ff2479c9fef71c53863c48d983e29ee5a089fb3`
 - Python samples per series: `20000`
 - Python warmup queries per series: `1000`
 - Python random seed: `20260707`

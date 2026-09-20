@@ -1,9 +1,9 @@
 label	random_ns	edge_ns
-tz-search	115	126
-tzf-rs Default	227	489
-tzf-rs Embedded	1155	4647
-rtz NED	402	758
-rtz OSM	1556	3029
-spatialtime NED	231201	230109
-zone detect	424980	506871
-spatialtime OSM	7901410	8177325
+tz-search	108	118
+tzf-rs Default	231	475
+tzf-rs Embedded	304	667
+rtz NED	426	785
+rtz OSM	1584	3221
+spatialtime NED	166455	157494
+zone detect	434479	507497
+spatialtime OSM	5323615	5270281
