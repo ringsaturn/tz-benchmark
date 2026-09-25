@@ -8,7 +8,7 @@ require (
 	github.com/ringsaturn/go-cities.json v0.6.14
 	github.com/ringsaturn/tzf-dist v0.0.2026-d
 	github.com/ringsaturn/tzf/v2 v2.1.2
-	github.com/ugjka/go-tz/v2 v2.2.8
+	github.com/ugjka/go-tz/v2 v2.2.9
 	github.com/zsefvlol/timezonemapper v1.0.0
 )
 
