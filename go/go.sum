@@ -16,8 +16,8 @@ github.com/ringsaturn/tzf/v2 v2.1.2 h1:amFL2Vv6+b4Kv710R1xAb3jJ0tW7vbCf3NPBtepq9
 github.com/ringsaturn/tzf/v2 v2.1.2/go.mod h1:JsnmzJF71pXCrTdyR2UjsaUbwO1cAndQyROtGu41Li8=
 github.com/uber/h3-go/v4 v4.5.0 h1:7ruJoHCtYOCyihXfQRsPb4o6CfkhCBtVeZFM7+z1kww=
 github.com/uber/h3-go/v4 v4.5.0/go.mod h1:19vfSV5HQsnRZev7V0SPmTkVSZErL7/io8M/nx+++30=
-github.com/ugjka/go-tz/v2 v2.2.8 h1:HXlZnkNvNAkAzcLYQ3V3GP/QqVKTGFU6lmqxUZcZnAE=
-github.com/ugjka/go-tz/v2 v2.2.8/go.mod h1:Jh35OKbERtwjZLWDZ2KgjD+bm5hb9Lx8nVD9Mv9NVzs=
+github.com/ugjka/go-tz/v2 v2.2.9 h1:vj9JO9/UTyuYtvuAeKViI8JhmQhy4l4RTBoFsNu6g+M=
+github.com/ugjka/go-tz/v2 v2.2.9/go.mod h1:Jh35OKbERtwjZLWDZ2KgjD+bm5hb9Lx8nVD9Mv9NVzs=
 github.com/zsefvlol/timezonemapper v1.0.0 h1:HXqkOzf01gXYh2nDQcDSROikFgMaximnhE8BY9SyF6E=
 github.com/zsefvlol/timezonemapper v1.0.0/go.mod h1:cVUCOLEmc/VvOMusEhpd2G/UBtadL26ZVz2syODXDoQ=
 go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
