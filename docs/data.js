@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789954352525,
+  "lastUpdate": 1790382780367,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -14362,6 +14362,72 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000012353601163443104",
             "extra": "mean: 2.769626667206323 usec\nrounds: 24817"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "04a8f40376347e5d695c1310d5f08de9d66a81a8",
+          "message": "Bump github.com/ugjka/go-tz/v2 in /go in the dependencies group (#231)\n\nBumps the dependencies group in /go with 1 update: [github.com/ugjka/go-tz/v2](https://github.com/ugjka/go-tz).\n\n\nUpdates `github.com/ugjka/go-tz/v2` from 2.2.8 to 2.2.9\n- [Release notes](https://github.com/ugjka/go-tz/releases)\n- [Commits](https://github.com/ugjka/go-tz/compare/v2.2.8...v2.2.9)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/ugjka/go-tz/v2\n  dependency-version: 2.2.9\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-09-26T08:32:31+08:00",
+          "tree_id": "26c49c69418d6449579c5cd162d299034497618a",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/04a8f40376347e5d695c1310d5f08de9d66a81a8"
+        },
+        "date": 1790382775033,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 306689.8792149645,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000020740519193704",
+            "extra": "mean: 3.260622758598049 usec\nrounds: 14500"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 172268.80252268893,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000002427561316460419",
+            "extra": "mean: 5.804881588285803 usec\nrounds: 28156"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 765447.5027465634,
+            "unit": "iter/sec",
+            "range": "stddev: 7.237126406648939e-7",
+            "extra": "mean: 1.3064253216736876 usec\nrounds: 25496"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 560669.56397166,
+            "unit": "iter/sec",
+            "range": "stddev: 7.221564285426656e-7",
+            "extra": "mean: 1.7835817462895966 usec\nrounds: 138832"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_cities",
+            "value": 690851.5673160999,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000001126461826867707",
+            "extra": "mean: 1.447488935843217 usec\nrounds: 40265"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_edge_cities",
+            "value": 382080.1506053272,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000011654457067210657",
+            "extra": "mean: 2.6172518996752547 usec\nrounds: 65669"
           }
         ]
       }
