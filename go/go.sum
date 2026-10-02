@@ -10,8 +10,8 @@ github.com/klauspost/compress v1.20.0 h1:a3C1ke2ohxFymNlb2HWAHjDeKCI90scRskErZkR
 github.com/klauspost/compress v1.20.0/go.mod h1:LUdAzn7YLVvxLpc7y3V1m40wESHTgc1422pwwBSKYuI=
 github.com/ringsaturn/go-cities.json v0.6.14 h1:UBao7Qnef0e2j8/c3xRNMpwOrqqqtOZDqHlf7Fk8hl4=
 github.com/ringsaturn/go-cities.json v0.6.14/go.mod h1:VtklT4Sod9i6kvXXNZV63sfjeCX9l11OQfaAvPu+p4M=
-github.com/ringsaturn/tzf-dist v0.0.2026-d h1:wGOBONL3fNntnw7x+9vTCLW4FkAthG4JDDtWM2fSvcQ=
-github.com/ringsaturn/tzf-dist v0.0.2026-d/go.mod h1:MLn3mRLioai5ceZLV8k+uAr4cLxdVEHoTQIGKpuVS/c=
+github.com/ringsaturn/tzf-dist v0.0.2026-d-fix1 h1:lT6jQEwS7NRpBSG7lZ3Cwl16ADkZ6WfkDCWH/6usR58=
+github.com/ringsaturn/tzf-dist v0.0.2026-d-fix1/go.mod h1:MLn3mRLioai5ceZLV8k+uAr4cLxdVEHoTQIGKpuVS/c=
 github.com/ringsaturn/tzf/v2 v2.1.2 h1:amFL2Vv6+b4Kv710R1xAb3jJ0tW7vbCf3NPBtepq9S4=
 github.com/ringsaturn/tzf/v2 v2.1.2/go.mod h1:JsnmzJF71pXCrTdyR2UjsaUbwO1cAndQyROtGu41Li8=
 github.com/uber/h3-go/v4 v4.5.0 h1:7ruJoHCtYOCyihXfQRsPb4o6CfkhCBtVeZFM7+z1kww=
