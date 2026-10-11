@@ -1,0 +1,33 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/ringsaturn/tz-benchmark/go
+cpu: Apple M3 Max
+BenchmarkTimezoneMapper_Random_WorldCities-16    	 9864912	       232.8 ns/op	        83.00 ns/p50	       250.0 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTimezoneMapper_Random_EdgeCities-16     	 7821810	       197.1 ns/op	        42.00 ns/p50	       125.0 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkLatlong_Random_WorldCities-16           	 3935539	       300.1 ns/op	        83.00 ns/p50	       292.0 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkLatlong_Random_EdgeCities-16            	10099215	       305.9 ns/op	        83.00 ns/p50	       167.0 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTZF_Default_Random_WorldCities-16       	 1661935	       764.2 ns/op	       208.0 ns/p50	      2500 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTZF_Default_Random_EdgeCities-16        	  991299	      1251 ns/op	       541.0 ns/p50	      2041 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTZF_Embedded_Random_WorldCities-16      	 1000000	      1301 ns/op	       333.0 ns/p50	      2834 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTZF_Embedded_Random_EdgeCities-16       	  935906	      2793 ns/op	      1083 ns/p50	      3250 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTZF_Full_Random_WorldCities-16          	 1683734	      1038 ns/op	       209.0 ns/p50	      2750 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkTZF_Full_Random_EdgeCities-16           	  703125	      1429 ns/op	       542.0 ns/p50	      2416 ns/p99	       0 B/op	       0 allocs/op
+BenchmarkLocaltimezone_Random_WorldCities-16     	  940714	      2143 ns/op	      1125 ns/p50	      3667 ns/p99	     112 B/op	      11 allocs/op
+BenchmarkLocaltimezone_Random_EdgeCities-16      	 1000000	      1301 ns/op	       791.0 ns/p50	      1875 ns/p99	     112 B/op	      11 allocs/op
+BenchmarkGoTZ_Random_WorldCities-16              	   21961	     96442 ns/op	     34834 ns/p50	    304834 ns/p99	      16 B/op	       1 allocs/op
+BenchmarkGoTZ_Random_EdgeCities-16               	   29702	     82577 ns/op	     33083 ns/p50	    264875 ns/p99	      16 B/op	       1 allocs/op
+PASS
+ok  	github.com/ringsaturn/tz-benchmark/go	35.241s
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/accuracy	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/concurrency	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/memory	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/memory/candidates/defaultfinder	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/memory/candidates/embeddedfinder	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/memory/candidates/fullfinder	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/memory/candidates/gotz	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/memory/candidates/latlong	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/memory/candidates/localtimezone	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/memory/candidates/noop	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/memory/candidates/timezonemapper	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/cmd/startup	[no test files]
+?   	github.com/ringsaturn/tz-benchmark/go/internal/memprobe	[no test files]

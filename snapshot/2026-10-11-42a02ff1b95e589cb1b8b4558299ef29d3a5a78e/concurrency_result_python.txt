@@ -1,0 +1,14 @@
+throughput scaling per candidate (shared instance, random world cities, 1 s budget per row, wall us per query; GIL enabled, cpu_count=16)
+tzfpy (DefaultFinder)        threads= 1  us_per_op=    1.709  ops_per_s=      585114  scaling=  1.00x
+tzfpy (DefaultFinder)        threads= 2  us_per_op=    1.354  ops_per_s=      738339  scaling=  1.26x
+tzfpy (DefaultFinder)        threads= 4  us_per_op=    0.984  ops_per_s=     1016263  scaling=  1.74x
+tzfpy (DefaultFinder)        threads= 8  us_per_op=    0.982  ops_per_s=     1017974  scaling=  1.74x
+timezonefinder               threads= 1  us_per_op=    2.567  ops_per_s=      389547  scaling=  1.00x
+timezonefinder               threads= 2  us_per_op=    2.681  ops_per_s=      372938  scaling=  0.96x
+timezonefinder               threads= 4  us_per_op=    3.003  ops_per_s=      333055  scaling=  0.85x
+timezonefinder               threads= 8  us_per_op=    2.837  ops_per_s=      352432  scaling=  0.90x
+throughput scaling per candidate (shared instance, random world cities, 1 s budget per row, wall us per query; GIL enabled, cpu_count=16)
+tzfpy+full (EmbeddedFinder)  threads= 1  us_per_op=    1.323  ops_per_s=      755859  scaling=  1.00x
+tzfpy+full (EmbeddedFinder)  threads= 2  us_per_op=    1.431  ops_per_s=      698938  scaling=  0.92x
+tzfpy+full (EmbeddedFinder)  threads= 4  us_per_op=    1.547  ops_per_s=      646316  scaling=  0.86x
+tzfpy+full (EmbeddedFinder)  threads= 8  us_per_op=    1.338  ops_per_s=      747393  scaling=  0.99x
