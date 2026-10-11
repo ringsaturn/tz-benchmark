@@ -18,10 +18,9 @@ dependencies = [
 # group; the two groups are declared mutually exclusive so one lockfile pins
 # both.
 #
-#   lite (default)  tzfpy lite, the ~4 MB lite.tzb behind DefaultFinder. Pinned
-#                   to the 2.1.0b2 pre-release (tzf-rs 2.1.1, tzf-dist
-#                   0.0.2026-c-tzb2), which is on TestPyPI and tzfpy's own
-#                   index but not PyPI (PyPI still has 2.0.0)
+#   lite (default)  tzfpy lite, the ~4 MB lite.tzb behind DefaultFinder,
+#                   resolved from tzfpy's own index (mirrors the PyPI release;
+#                   2.1.1 = tzf-rs 2.1.3, tzf-dist 0.0.2026-e)
 #   full            tzfpy from tzfpy's own index, the ~15 MB full.tzb behind
 #                   EmbeddedFinder, published as a `+full` local version and
 #                   never to PyPI (experimental)
@@ -30,8 +29,8 @@ dependencies = [
 #   UV_PROJECT_ENVIRONMENT=.venv-full \
 #     uv sync --no-default-groups --group full
 [dependency-groups]
-lite = ["tzfpy==2.1.0"]
-full = ["tzfpy==2.1.0+full"]
+lite = ["tzfpy==2.1.1"]
+full = ["tzfpy==2.1.1+full"]
 
 [tool.uv]
 default-groups = ["lite"]
