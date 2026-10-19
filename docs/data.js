@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792373391412,
+  "lastUpdate": 1792389789180,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -15080,6 +15080,72 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.0000014143578649990322",
             "extra": "mean: 3.060479566912666 usec\nrounds: 53198"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "82d5e953424f12302e3f6ad2d123bfed34138584",
+          "message": "Bump serde_json in /rust in the dependencies group (#237)\n\nBumps the dependencies group in /rust with 1 update: [serde_json](https://github.com/serde-rs/json).\n\n\nUpdates `serde_json` from 1.0.151 to 1.0.154\n- [Release notes](https://github.com/serde-rs/json/releases)\n- [Commits](https://github.com/serde-rs/json/compare/v1.0.151...v1.0.154)\n\n---\nupdated-dependencies:\n- dependency-name: serde_json\n  dependency-version: 1.0.154\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-10-19T15:02:44+09:00",
+          "tree_id": "6188ef7088e98b716e5d79386a9c3f103712e5a7",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/82d5e953424f12302e3f6ad2d123bfed34138584"
+        },
+        "date": 1792389788753,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 294379.35369825,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000002222937187302087",
+            "extra": "mean: 3.3969773608003697 usec\nrounds: 12898"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 171744.68614641306,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000002489879486840138",
+            "extra": "mean: 5.822596450800789 usec\nrounds: 50772"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 758037.7328545476,
+            "unit": "iter/sec",
+            "range": "stddev: 7.047912180856008e-7",
+            "extra": "mean: 1.3191955448369221 usec\nrounds: 57731"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 497533.6959228057,
+            "unit": "iter/sec",
+            "range": "stddev: 8.192651338707216e-7",
+            "extra": "mean: 2.009914118771875 usec\nrounds: 92593"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_cities",
+            "value": 671271.5293630147,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000010172955228411448",
+            "extra": "mean: 1.4897101340629229 usec\nrounds: 40053"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_edge_cities",
+            "value": 330789.2909736159,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000032272650341656483",
+            "extra": "mean: 3.023072473285603 usec\nrounds: 59415"
           }
         ]
       }
