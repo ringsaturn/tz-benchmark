@@ -20,7 +20,7 @@ dependencies = [
 #
 #   lite (default)  tzfpy lite, the ~4 MB lite.tzb behind DefaultFinder,
 #                   resolved from tzfpy's own index (mirrors the PyPI release;
-#                   2.1.1 = tzf-rs 2.1.3, tzf-dist 0.0.2026-e)
+#                   2.1.2 = tzf-rs 2.1.4, tzf-dist 0.0.2026-f)
 #   full            tzfpy from tzfpy's own index, the ~15 MB full.tzb behind
 #                   EmbeddedFinder, published as a `+full` local version and
 #                   never to PyPI (experimental)
@@ -29,8 +29,8 @@ dependencies = [
 #   UV_PROJECT_ENVIRONMENT=.venv-full \
 #     uv sync --no-default-groups --group full
 [dependency-groups]
-lite = ["tzfpy==2.1.1"]
-full = ["tzfpy==2.1.1+full"]
+lite = ["tzfpy==2.1.2"]
+full = ["tzfpy==2.1.2+full"]
 
 [tool.uv]
 default-groups = ["lite"]
