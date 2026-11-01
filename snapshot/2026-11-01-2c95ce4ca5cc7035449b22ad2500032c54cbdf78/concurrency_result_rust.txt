@@ -1,0 +1,31 @@
+throughput scaling per candidate (shared instance, random world cities, 1s budget per row, wall ns per query; available_parallelism=16)
+tzf-rs DefaultFinder threads= 1  ns_per_op=     201.0  ops_per_s=     4976059  scaling=  1.00x
+tzf-rs DefaultFinder threads= 2  ns_per_op=     101.5  ops_per_s=     9849334  scaling=  1.98x
+tzf-rs DefaultFinder threads= 4  ns_per_op=      51.1  ops_per_s=    19568636  scaling=  3.93x
+tzf-rs DefaultFinder threads= 8  ns_per_op=      25.2  ops_per_s=    39646728  scaling=  7.97x
+tzf-rs DefaultFinder threads=12  ns_per_op=      17.3  ops_per_s=    57828832  scaling= 11.62x
+tzf-rs DefaultFinder threads=16  ns_per_op=      14.9  ops_per_s=    67332672  scaling= 13.53x
+tzf-rs EmbeddedFinder threads= 1  ns_per_op=     336.7  ops_per_s=     2970086  scaling=  1.00x
+tzf-rs EmbeddedFinder threads= 2  ns_per_op=     161.4  ops_per_s=     6197173  scaling=  2.09x
+tzf-rs EmbeddedFinder threads= 4  ns_per_op=      80.9  ops_per_s=    12358905  scaling=  4.16x
+tzf-rs EmbeddedFinder threads= 8  ns_per_op=      40.3  ops_per_s=    24790582  scaling=  8.35x
+tzf-rs EmbeddedFinder threads=12  ns_per_op=      28.0  ops_per_s=    35773358  scaling= 12.04x
+tzf-rs EmbeddedFinder threads=16  ns_per_op=      23.9  ops_per_s=    41842686  scaling= 14.09x
+tz-search            threads= 1  ns_per_op=     100.2  ops_per_s=     9977972  scaling=  1.00x
+tz-search            threads= 2  ns_per_op=      48.4  ops_per_s=    20664007  scaling=  2.07x
+tz-search            threads= 4  ns_per_op=      24.5  ops_per_s=    40882917  scaling=  4.10x
+tz-search            threads= 8  ns_per_op=      12.2  ops_per_s=    82188583  scaling=  8.24x
+tz-search            threads=12  ns_per_op=       8.4  ops_per_s=   119652560  scaling= 11.99x
+tz-search            threads=16  ns_per_op=       7.1  ops_per_s=   141325349  scaling= 14.16x
+rtz (OSM)            threads= 1  ns_per_op=    1567.3  ops_per_s=      638054  scaling=  1.00x
+rtz (OSM)            threads= 2  ns_per_op=     758.9  ops_per_s=     1317734  scaling=  2.07x
+rtz (OSM)            threads= 4  ns_per_op=     379.7  ops_per_s=     2633394  scaling=  4.13x
+rtz (OSM)            threads= 8  ns_per_op=     190.6  ops_per_s=     5247492  scaling=  8.22x
+rtz (OSM)            threads=12  ns_per_op=     134.6  ops_per_s=     7431579  scaling= 11.65x
+rtz (OSM)            threads=16  ns_per_op=     112.3  ops_per_s=     8908395  scaling= 13.96x
+rtz (NED)            threads= 1  ns_per_op=     400.8  ops_per_s=     2494836  scaling=  1.00x
+rtz (NED)            threads= 2  ns_per_op=     188.3  ops_per_s=     5309442  scaling=  2.13x
+rtz (NED)            threads= 4  ns_per_op=      94.0  ops_per_s=    10641390  scaling=  4.27x
+rtz (NED)            threads= 8  ns_per_op=      46.7  ops_per_s=    21391390  scaling=  8.57x
+rtz (NED)            threads=12  ns_per_op=      33.3  ops_per_s=    30047137  scaling= 12.04x
+rtz (NED)            threads=16  ns_per_op=      27.7  ops_per_s=    36159068  scaling= 14.49x
