@@ -2791,12 +2791,13 @@ checksum = "3633c44cb5e44c1224f82d306c9eb179880996a070cdfe1ecb1b4db6f9fa39c2"
 
 [[package]]
 name = "tzf-rs"
-version = "2.1.4"
+version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "78368e2c41c6df5482628611eaa2130aef5b4f051e757d3223d2851d1a2a231a"
+checksum = "e4e87eff24a611e2fd4f1932c7854e30db789b988633c96fd03d358ea1ae49ef"
 dependencies = [
  "clap",
  "geometry-rs",
+ "rustc-hash",
  "tzf-dist",
 ]
 
