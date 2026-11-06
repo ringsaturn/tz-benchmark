@@ -12,8 +12,8 @@ github.com/ringsaturn/go-cities.json v0.6.14 h1:UBao7Qnef0e2j8/c3xRNMpwOrqqqtOZD
 github.com/ringsaturn/go-cities.json v0.6.14/go.mod h1:VtklT4Sod9i6kvXXNZV63sfjeCX9l11OQfaAvPu+p4M=
 github.com/ringsaturn/tzf-dist v0.0.2026-f h1:g7M6FDr9x8ryALMv+U6yuPMRckziGHBENsSrIZ1GFg4=
 github.com/ringsaturn/tzf-dist v0.0.2026-f/go.mod h1:MLn3mRLioai5ceZLV8k+uAr4cLxdVEHoTQIGKpuVS/c=
-github.com/ringsaturn/tzf/v2 v2.2.0 h1:aE2FGCYwPFDViPrNF/IrXrznzoQf76RxIvlmN4daGSQ=
-github.com/ringsaturn/tzf/v2 v2.2.0/go.mod h1:lRM7oa9Pkyi6LItPdXuOTC78sN2/67J6aTlC/CZhlZY=
+github.com/ringsaturn/tzf/v2 v2.3.0 h1:pq1rweFpxSN/750LcHGBkWJ8Fc25n51w+DYClpvU3+Y=
+github.com/ringsaturn/tzf/v2 v2.3.0/go.mod h1:lRM7oa9Pkyi6LItPdXuOTC78sN2/67J6aTlC/CZhlZY=
 github.com/uber/h3-go/v4 v4.5.0 h1:7ruJoHCtYOCyihXfQRsPb4o6CfkhCBtVeZFM7+z1kww=
 github.com/uber/h3-go/v4 v4.5.0/go.mod h1:19vfSV5HQsnRZev7V0SPmTkVSZErL7/io8M/nx+++30=
 github.com/ugjka/go-tz/v2 v2.2.9 h1:vj9JO9/UTyuYtvuAeKViI8JhmQhy4l4RTBoFsNu6g+M=

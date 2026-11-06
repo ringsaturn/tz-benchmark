@@ -7,7 +7,7 @@ require (
 	github.com/bradfitz/latlong v0.0.0-20170410180902-f3db6d0dff40
 	github.com/ringsaturn/go-cities.json v0.6.14
 	github.com/ringsaturn/tzf-dist v0.0.2026-f
-	github.com/ringsaturn/tzf/v2 v2.2.0
+	github.com/ringsaturn/tzf/v2 v2.3.0
 	github.com/ugjka/go-tz/v2 v2.2.9
 	github.com/zsefvlol/timezonemapper v1.0.0
 )
