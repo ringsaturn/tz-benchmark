@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794186779185,
+  "lastUpdate": 1794630016830,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -15668,6 +15668,72 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 8.024487394407176e-7",
             "extra": "mean: 1.9866979542312475 usec\nrounds: 53280"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2a9f46125fa52f1a66feadbfa7fec280a53b341e",
+          "message": "Bump the dependencies group in /go with 2 updates (#241)\n\nBumps the dependencies group in /go with 2 updates: [github.com/albertyw/localtimezone/v4](https://github.com/albertyw/localtimezone) and [github.com/ugjka/go-tz/v2](https://github.com/ugjka/go-tz).\n\n\nUpdates `github.com/albertyw/localtimezone/v4` from 4.0.4 to 4.0.5\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/albertyw/localtimezone/compare/v4.0.4...v4.0.5)\n\nUpdates `github.com/ugjka/go-tz/v2` from 2.2.9 to 2.2.10\n- [Release notes](https://github.com/ugjka/go-tz/releases)\n- [Commits](https://github.com/ugjka/go-tz/compare/v2.2.9...v2.2.10)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/albertyw/localtimezone/v4\n  dependency-version: 4.0.5\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: github.com/ugjka/go-tz/v2\n  dependency-version: 2.2.10\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-11-14T13:19:56+09:00",
+          "tree_id": "90ea221914d817f38fe14aab78ffd1658473d0d5",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/2a9f46125fa52f1a66feadbfa7fec280a53b341e"
+        },
+        "date": 1794630016389,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 486636.2079282555,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00000140341713341618",
+            "extra": "mean: 2.0549231308892444 usec\nrounds: 11409"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 289700.92397235864,
+            "unit": "iter/sec",
+            "range": "stddev: 0.00000137373158243435",
+            "extra": "mean: 3.4518357286820858 usec\nrounds: 39173"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 1123407.5389354532,
+            "unit": "iter/sec",
+            "range": "stddev: 4.829052119173523e-7",
+            "extra": "mean: 890.1489133209889 nsec\nrounds: 58665"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 960248.6761442799,
+            "unit": "iter/sec",
+            "range": "stddev: 4.098523867199007e-7",
+            "extra": "mean: 1.0413969056592038 usec\nrounds: 129333"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_cities",
+            "value": 1065193.1193895678,
+            "unit": "iter/sec",
+            "range": "stddev: 6.262769258130842e-7",
+            "extra": "mean: 938.7969015168554 nsec\nrounds: 54801"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_edge_cities",
+            "value": 630397.0907487907,
+            "unit": "iter/sec",
+            "range": "stddev: 7.164617218428349e-7",
+            "extra": "mean: 1.5863017369134622 usec\nrounds: 78933"
           }
         ]
       }
