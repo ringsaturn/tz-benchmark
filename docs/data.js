@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794630193077,
+  "lastUpdate": 1794791497879,
   "repoUrl": "https://github.com/ringsaturn/tz-benchmark",
   "entries": {
     "Python Library Benchmark": [
@@ -15734,6 +15734,70 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 7.164617218428349e-7",
             "extra": "mean: 1.5863017369134622 usec\nrounds: 78933"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]",
+            "email": "49699333+dependabot[bot]@users.noreply.github.com"
+          },
+          "committer": {
+            "name": "GitHub",
+            "username": "web-flow",
+            "email": "noreply@github.com"
+          },
+          "id": "2a9f46125fa52f1a66feadbfa7fec280a53b341e",
+          "message": "Bump the dependencies group in /go with 2 updates (#241)\n\nBumps the dependencies group in /go with 2 updates: [github.com/albertyw/localtimezone/v4](https://github.com/albertyw/localtimezone) and [github.com/ugjka/go-tz/v2](https://github.com/ugjka/go-tz).\n\n\nUpdates `github.com/albertyw/localtimezone/v4` from 4.0.4 to 4.0.5\n- [Changelog](https://github.com/albertyw/localtimezone/blob/master/CHANGELOG.md)\n- [Commits](https://github.com/albertyw/localtimezone/compare/v4.0.4...v4.0.5)\n\nUpdates `github.com/ugjka/go-tz/v2` from 2.2.9 to 2.2.10\n- [Release notes](https://github.com/ugjka/go-tz/releases)\n- [Commits](https://github.com/ugjka/go-tz/compare/v2.2.9...v2.2.10)\n\n---\nupdated-dependencies:\n- dependency-name: github.com/albertyw/localtimezone/v4\n  dependency-version: 4.0.5\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n- dependency-name: github.com/ugjka/go-tz/v2\n  dependency-version: 2.2.10\n  dependency-type: direct:production\n  update-type: version-update:semver-patch\n  dependency-group: dependencies\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-11-14T04:19:56Z",
+          "url": "https://github.com/ringsaturn/tz-benchmark/commit/2a9f46125fa52f1a66feadbfa7fec280a53b341e"
+        },
+        "date": 1794791497504,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "tz_test.py::test_timezonefinder_random_city",
+            "value": 285699.0066701075,
+            "unit": "iter/sec",
+            "range": "stddev: 0.000002281997246041031",
+            "extra": "mean: 3.5001871783008527 usec\nrounds: 11075"
+          },
+          {
+            "name": "tz_test.py::test_timezonefinder_random_edge_city",
+            "value": 162562.4022297394,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000025394401916278763",
+            "extra": "mean: 6.151483899621278 usec\nrounds: 41676"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_cities",
+            "value": 677056.2074072564,
+            "unit": "iter/sec",
+            "range": "stddev: 8.626430558193674e-7",
+            "extra": "mean: 1.4769822491243916 usec\nrounds: 49237"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_random_edge_cities",
+            "value": 448368.1521589528,
+            "unit": "iter/sec",
+            "range": "stddev: 9.095794677453006e-7",
+            "extra": "mean: 2.230310059233391 usec\nrounds: 79688"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_cities",
+            "value": 638939.4805163561,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000011146696564933793",
+            "extra": "mean: 1.5650934564128898 usec\nrounds: 30121"
+          },
+          {
+            "name": "tz_test.py::test_tzfpy_full_random_edge_cities",
+            "value": 330688.9365561526,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0000012994927055325952",
+            "extra": "mean: 3.0239898873369024 usec\nrounds: 57255"
           }
         ]
       }
